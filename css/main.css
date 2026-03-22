@@ -234,7 +234,7 @@ nav {
 .destinations-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 300px);
+    grid-template-rows: repeat(3, 300px);
     gap: 1.5rem;
 }
 
@@ -425,6 +425,18 @@ footer {
     }
     .nav-links {
         display: none;
+    }
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--dark-bg);
+        padding: 2rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        gap: 1.5rem;
     }
     .mobile-menu-btn {
         display: block;

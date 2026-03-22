@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Touring Plans | TripLanka</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .plans-hero { padding: 8rem 0 4rem; text-align: center; background: var(--card-bg); }
+        .plan-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .plan-card h2 { color: var(--primary-color); font-size: 2rem; margin-bottom: 1rem; }
+        .plan-card h3 { color: var(--accent-color); margin-top: 1.5rem; }
+        .plan-card ul { margin: 1rem 0; padding-left: 1.5rem; color: var(--text-muted); }
+        .plan-tag {
+            display: inline-block;
+            background: var(--primary-color);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="../index.html" class="logo-text">Trip<span>Lanka</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="guide.html">Travel Guide</a></li>
+                <li><a href="plans.html" class="active" style="color: var(--primary-color)">Touring Plans</a></li>
+                <li><a href="../index.html#contact" class="btn-primary">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="plans-hero">
+        <div class="container">
+            <h1>Expert Touring Plans</h1>
+            <p>Tailored itineraries designed for every type of traveler.</p>
+        </div>
+    </section>
+
+    <div class="container" style="padding: 4rem 0;">
+        <!-- Solo Female -->
+        <div class="plan-card reveal">
+            <span class="plan-tag">12 Days</span>
+            <h2>Solo Female Travel Plan</h2>
+            <p>A safe, enriching, and culturally immersive journey through the heart of Sri Lanka.</p>
+            <h3>Itinerary Highlights</h3>
+            <ul>
+                <li>Safety-first accommodations in Colombo, Galle, and Kandy.</li>
+                <li>Cultural exploration with focus on local female-led businesses.</li>
+                <li>Modest dressing and local customs guide.</li>
+                <li>Secure transportation via verified drivers.</li>
+            </ul>
+        </div>
+
+        <!-- Adventure -->
+        <div class="plan-card reveal">
+            <span class="plan-tag">10 Days</span>
+            <h2>Adventure Lovers Travel Plan</h2>
+            <p>For those seeking an adrenaline rush amidst tropical landscapes.</p>
+            <h3>Key Experiences</h3>
+            <ul>
+                <li>White-water rafting in Kitulgala.</li>
+                <li>Trekking Little Adam’s Peak and Ella Rock.</li>
+                <li>Surfing in Hikkaduwa or Arugam Bay.</li>
+                <li>Morning climb at Sigiriya Rock Fortress.</li>
+            </ul>
+        </div>
+
+        <!-- Wildlife -->
+        <div class="plan-card reveal">
+            <span class="plan-tag">14 Days</span>
+            <h2>Wildlife & Nature Travel Plan</h2>
+            <p>Explore the incredible biodiversity of the Pearl of the Indian Ocean.</p>
+            <h3>Wild Highlights</h3>
+            <ul>
+                <li>Leopard Safari at Yala National Park.</li>
+                <li>The "Elephant Gathering" at Minneriya or Udawalawe.</li>
+                <li>Whale watching in the deep blue waters of Mirissa.</li>
+                <li>Turtle nesting sites in the southern coast.</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

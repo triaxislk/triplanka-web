@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Guide | TripLanka</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .guide-hero {
+            padding: 8rem 0 4rem;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1586713717103-6f112e873646?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            text-align: center;
+        }
+        .region-section {
+            padding: 4rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .region-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        .region-info h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; }
+        .region-details h3 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; color: var(--accent-color); }
+        .region-details p { color: var(--text-muted); margin-bottom: 1rem; }
+        .region-details ul { color: var(--text-muted); padding-left: 1.5rem; list-style: disc; margin-bottom: 1rem; }
+        
+        @media (max-width: 768px) {
+            .region-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="../index.html" class="logo-text">Trip<span>Lanka</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="guide.html" class="active" style="color: var(--primary-color)">Travel Guide</a></li>
+                <li><a href="plans.html">Touring Plans</a></li>
+                <li><a href="../index.html#contact" class="btn-primary">Connect</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="guide-hero">
+        <div class="container">
+            <h1>Sri Lanka Travel Guide</h1>
+            <p>Everything you need to know about the most breathtaking regions of the island.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Colombo -->
+        <div class="region-section reveal">
+            <div class="region-grid">
+                <div class="region-info">
+                    <h2>Colombo</h2>
+                    <p>The vibrant capital city.</p>
+                    <img src="https://images.unsplash.com/photo-1586713717103-6f112e873646?auto=format&fit=crop&q=80&w=400" alt="Colombo" style="border-radius: 20px; margin-top: 1rem;">
+                </div>
+                <div class="region-details">
+                    <h3>Best Time to Visit</h3>
+                    <p>January to March when the weather is relatively cooler and drier.</p>
+                    <h3>Top Attractions</h3>
+                    <ul>
+                        <li><strong>Gangaramaya Temple:</strong> Iconic religious and cultural center.</li>
+                        <li><strong>National Museum:</strong> Deep-dive into Sri Lanka's history.</li>
+                        <li><strong>Galle Face Green:</strong> Perfect for a sunset stroll.</li>
+                    </ul>
+                    <h3>Transportation</h3>
+                    <p>Tuk-tuks (always use metered ones), buses, and ride-hailing apps like PickMe or Uber are the best options.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Kandy -->
+        <div class="region-section reveal">
+            <div class="region-grid">
+                <div class="region-info">
+                    <h2>Kandy | Gampola</h2>
+                    <p>The Hill Capital & Spiritual Heart.</p>
+                    <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=400" alt="Kandy" style="border-radius: 20px; margin-top: 1rem;">
+                </div>
+                <div class="region-details">
+                    <h3>Highlights</h3>
+                    <p>Visit the Temple of the Sacred Tooth Relic, Royal Botanical Gardens (Peradeniya), and the stunning Ambuluwawa Tower for panoramic views.</p>
+                    <h3>Travel Tip</h3>
+                    <p>The scenic train journey from Colombo to Kandy is a must-experience.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sigiriya -->
+        <div class="region-section reveal">
+            <div class="region-grid">
+                <div class="region-info">
+                    <h2>Sigiriya | Dambulla</h2>
+                    <p>The Cultural Triangle.</p>
+                    <img src="https://images.unsplash.com/photo-1586713717103-6f112e873646?auto=format&fit=crop&q=80&w=400" alt="Sigiriya" style="border-radius: 20px; margin-top: 1rem;">
+                </div>
+                <div class="region-details">
+                    <h3>Top Sites</h3>
+                    <ul>
+                        <li><strong>Sigiriya Rock Fortress:</strong> A UNESCO World Heritage site and an ancient architectural marvel.</li>
+                        <li><strong>Dambulla Cave Temples:</strong> Stunning golden statues and paintings inside ancient caves.</li>
+                    </ul>
+                    <h3>Adventure</h3>
+                    <p>Try an early morning climb to Pidurangala Rock for the best view of the Sigiriya Lion Rock.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Highlands -->
+        <div class="region-section reveal">
+            <div class="region-grid">
+                <div class="region-info">
+                    <h2>Nuwara Eliya | Kitulgala</h2>
+                    <p>Mist-covered mountains & white-water rafting.</p>
+                    <img src="https://images.unsplash.com/photo-1610459521360-1e5f8ceb6da8?auto=format&fit=crop&q=80&w=400" alt="Nuwara Eliya" style="border-radius: 20px; margin-top: 1rem;">
+                </div>
+                <div class="region-details">
+                    <h3>Overview</h3>
+                    <p>Known as "Little England," Nuwara Eliya offers cool climates and tea estates. Nearby Kitulgala is the hub for white-water rafting adventures.</p>
+                    <h3>Activities</h3>
+                    <ul>
+                        <li>Tea Factory Tours</li>
+                        <li>Boating at Gregory Lake</li>
+                        <li>Trekking at Horton Plains</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ella -->
+        <div class="region-section reveal">
+            <div class="region-grid">
+                <div class="region-info">
+                    <h2>Ella | Badulla</h2>
+                    <p>The Hiker's Paradise.</p>
+                    <img src="https://images.unsplash.com/photo-1620619767323-b95a89183081?auto=format&fit=crop&q=80&w=400" alt="Ella" style="border-radius: 20px; margin-top: 1rem;">
+                </div>
+                <div class="region-details">
+                    <h3>Must-Visit</h3>
+                    <ul>
+                        <li><strong>Nine Arches Bridge:</strong> An iconic colonial-era railway bridge.</li>
+                        <li><strong>Little Adam's Peak:</strong> An easy trek with breathtaking views.</li>
+                        <li><strong>Ravana Falls:</strong> One of the widest waterfalls in the country.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
