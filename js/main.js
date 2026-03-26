@@ -45,3 +45,13 @@ if (mobileMenuBtn && navLinks) {
         }
     });
 }
+
+// Dropdown Toggle for Mobile
+document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
+    dropdownToggle.addEventListener('click', function(e) {
+        if (window.innerWidth <= 992) {
+            e.preventDefault();
+            this.parentElement.classList.toggle('active');
+        }
+    });
+});

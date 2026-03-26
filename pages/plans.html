@@ -3,101 +3,297 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Touring Plans | TripLanka</title>
+    <title>Touring Plans | Curated Sri Lankan Adventures | TripLanka</title>
+    <meta name="description" content="Explore our expertly curated touring plans for Sri Lanka. Whether you're a solo traveler, a couple, or an adventure seeker, we have the perfect itinerary for you.">
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../Images/Logos/Logo Without Background.png">
     <style>
-        .plans-hero { padding: 8rem 0 4rem; text-align: center; background: var(--card-bg); }
-        .plan-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            padding: 2.5rem;
-            margin-bottom: 3rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        .plans-hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1544253331-5079fcc34f07?auto=format&fit=crop&q=80&w=1920');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
         }
-        .plan-card h2 { color: var(--primary-color); font-size: 2rem; margin-bottom: 1rem; }
-        .plan-card h3 { color: var(--accent-color); margin-top: 1.5rem; }
-        .plan-card ul { margin: 1rem 0; padding-left: 1.5rem; color: var(--text-muted); }
-        .plan-tag {
-            display: inline-block;
-            background: var(--primary-color);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
+        .plan-category { padding: 4rem 0; background: white; }
+        .plan-category:nth-child(even) { background: var(--section-bg); }
+        .plan-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+        .plan-content h2 { color: var(--primary-color); font-size: 2.5rem; margin-bottom: 1.5rem; }
+        .plan-image { border-radius: 2rem; overflow: hidden; box-shadow: var(--shadow-lg); }
+        .plan-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .plan-image:hover img { transform: scale(1.05); }
+        .itinerary-step { margin-bottom: 1.5rem; padding-left: 1.5rem; border-left: 3px solid var(--accent-color); }
+        .itinerary-step h4 { color: var(--secondary-color); margin-bottom: 0.3rem; }
+        .tips-box { background: rgba(var(--primary-rgb), 0.05); padding: 2rem; border-radius: 1.5rem; margin-top: 2rem; }
+        .tips-box h3 { margin-bottom: 1rem; color: var(--primary-color); }
+        @media (max-width: 992px) { .plan-grid { grid-template-columns: 1fr; gap: 2rem; } .plan-image { order: -1; } }
     </style>
 </head>
 <body>
+    
+    
+    
     <header>
         <nav class="container">
             <div class="logo">
-                <a href="../index.html" class="logo-text">Trip<span>Lanka</span></a>
+                <a href="../index.html">
+                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+                </a>
             </div>
+            
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="guide.html">Travel Guide</a></li>
-                <li><a href="plans.html" class="active" style="color: var(--primary-color)">Touring Plans</a></li>
-                <li><a href="../index.html#contact" class="btn-primary">Connect</a></li>
+                <li><a href="./travel-info.html">Information</a></li>
+                <li class="dropdown">
+                    <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="guide/negombo.html">Negombo & Mannar</a></li>
+                        <li><a href="guide/colombo.html">Colombo</a></li>
+                        <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
+                        <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
+                        <li><a href="guide/rathnapura.html">Rathnapura</a></li>
+                        <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+                        <li><a href="guide/ella.html">Ella & Badulla</a></li>
+                        <li><a href="guide/galle.html">Galle & Bentota</a></li>
+                        <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
+                        <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+                        <li><a href="guide/anuradhapura.html">Anuradhapura</a></li>
+                        <li><a href="guide/batticaloa.html">Batticaloa</a></li>
+                        <li><a href="guide/trincomalee.html">Trincomalee</a></li>
+                        <li><a href="guide/jaffna.html">Jaffna</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="./plans.html">Touring Plans <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
+                        <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
+                        <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
+                        <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
+                        <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
+                        <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
+                        <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
+                    </ul>
+                </li>
+                <li><a href="./gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html" class="btn-primary">Connect</a></li>
+                <li class="flag-item">
+                    <img src="../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
+                </li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
+    <main>
+
     <section class="plans-hero">
-        <div class="container">
-            <h1>Expert Touring Plans</h1>
-            <p>Tailored itineraries designed for every type of traveler.</p>
+        <div class="container hero-content">
+            <h1 class="fade-in">Your Perfect Journey Awaits</h1>
+            <p class="fade-in delay-1">Expertly crafted itineraries tailored to your unique travel style.</p>
         </div>
     </section>
 
-    <div class="container" style="padding: 4rem 0;">
-        <!-- Solo Female -->
-        <div class="plan-card reveal">
-            <span class="plan-tag">12 Days</span>
-            <h2>Solo Female Travel Plan</h2>
-            <p>A safe, enriching, and culturally immersive journey through the heart of Sri Lanka.</p>
-            <h3>Itinerary Highlights</h3>
-            <ul>
-                <li>Safety-first accommodations in Colombo, Galle, and Kandy.</li>
-                <li>Cultural exploration with focus on local female-led businesses.</li>
-                <li>Modest dressing and local customs guide.</li>
-                <li>Secure transportation via verified drivers.</li>
-            </ul>
+    <!-- Solo Female -->
+    <section class="plan-category reveal">
+        <div class="container plan-grid">
+            <div class="plan-content">
+                <h2>Solo Female Travel Plan</h2>
+                <p>Sri Lanka is wonderfully welcoming. This itinerary is specifically designed to prioritize safety, cultural connection, and seamless logistics, allowing you to freely explore the Pearl of the Indian Ocean.</p>
+                <div class="tips-box">
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li>Safe and verified accommodations</li>
+                        <li>Guided cultural walking tours</li>
+                        <li>Empowering community experiences</li>
+                    </ul>
+                </div>
+                <a href="plans/solo-female.html" class="btn-primary" style="margin-top: 2rem;">Read Full 10-Day Itinerary</a>
+            </div>
+            <div class="plan-image">
+                <img src="../Images/Site Photos/Young woman traveling by train in Sri Lanka.jpg" alt="Solo Female Travel">
+            </div>
         </div>
+    </section>
 
-        <!-- Adventure -->
-        <div class="plan-card reveal">
-            <span class="plan-tag">10 Days</span>
-            <h2>Adventure Lovers Travel Plan</h2>
-            <p>For those seeking an adrenaline rush amidst tropical landscapes.</p>
-            <h3>Key Experiences</h3>
-            <ul>
-                <li>White-water rafting in Kitulgala.</li>
-                <li>Trekking Little Adam’s Peak and Ella Rock.</li>
-                <li>Surfing in Hikkaduwa or Arugam Bay.</li>
-                <li>Morning climb at Sigiriya Rock Fortress.</li>
-            </ul>
+    <!-- Solo Male -->
+    <section class="plan-category reveal">
+        <div class="container plan-grid">
+            <div class="plan-image">
+                <img src="../Images/Site Photos/Local men fishing in traditional way. Fishermen at Hikkaduwa beach Sri Lanka. Popular tourist destination. .jpg" alt="Solo Male Travel">
+            </div>
+            <div class="plan-content">
+                <h2>Solo Male Travel Plan</h2>
+                <p>An unrestricted journey for the independent traveler. Dive deep into local life, explore hidden gems, and experience the unfiltered charm and energy of the island at your own pace.</p>
+                <div class="tips-box">
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li>Authentic local interactions and dining</li>
+                        <li>Off-road safaris and rugged hikes</li>
+                        <li>Flexible scheduling for spontaneous adventures</li>
+                    </ul>
+                </div>
+                <a href="plans/solo-male.html" class="btn-primary" style="margin-top: 2rem;">Read Full 10-Day Itinerary</a>
+            </div>
         </div>
+    </section>
 
-        <!-- Wildlife -->
-        <div class="plan-card reveal">
-            <span class="plan-tag">14 Days</span>
-            <h2>Wildlife & Nature Travel Plan</h2>
-            <p>Explore the incredible biodiversity of the Pearl of the Indian Ocean.</p>
-            <h3>Wild Highlights</h3>
-            <ul>
-                <li>Leopard Safari at Yala National Park.</li>
-                <li>The "Elephant Gathering" at Minneriya or Udawalawe.</li>
-                <li>Whale watching in the deep blue waters of Mirissa.</li>
-                <li>Turtle nesting sites in the southern coast.</li>
-            </ul>
+    <!-- Leisure -->
+    <section class="plan-category reveal">
+        <div class="container plan-grid">
+            <div class="plan-content">
+                <h2>Leisure & Relaxation Plan</h2>
+                <p>Escape the hustle and enjoy a perfectly paced journey across Sri Lanka's most relaxing destinations. Focus on pristine beaches, luxury accommodations, and taking in the island's beauty without the rush.</p>
+                <div class="tips-box">
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li>Idyllic days at uncrowded southern beaches</li>
+                        <li>Cultural visits at a gentle pace</li>
+                        <li>High tea in Nuwara Eliya</li>
+                    </ul>
+                </div>
+                <a href="plans/leisure.html" class="btn-primary" style="margin-top: 2rem;">Read Full 10-Day Itinerary</a>
+            </div>
+            <div class="plan-image">
+                <img src="../Images/Site Photos/Sunny beach near Koggala - Sri Lanka The area famous for its distinct stilt fishermen who erect a single pole in the chest-deep water on th.jpg" alt="Leisure Travel">
+            </div>
         </div>
-    </div>
+    </section>
 
-    <footer>
-        <div class="container footer-bottom">
+    <!-- Honeymoon & Romance -->
+    <section class="plan-category reveal">
+        <div class="container plan-grid">
+            <div class="plan-image">
+                <img src="../Images/Site Photos/Couple walking on the sandy beach with palm trees.jpg" alt="Romantic Travel">
+            </div>
+            <div class="plan-content">
+                <h2>Honeymoon & Romance Plan</h2>
+                <p>Designed for couples seeking a perfect blend of luxury, privacy, and shared adventures. Our romantic path takes you through misty mountains and sunset beaches for a truly unforgettable beginning.</p>
+                <div class="tips-box">
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li>Private sunset dinners on the beach</li>
+                        <li>Scenic train rides through tea country</li>
+                        <li>Relaxing Ayurvedic couple's spa retreats</li>
+                    </ul>
+                </div>
+                <a href="plans/honeymoon.html" class="btn-primary" style="margin-top: 2rem;">Read Full 10-Day Itinerary</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wildlife Lovers -->
+    <section class="plan-category reveal">
+        <div class="container plan-grid">
+            <div class="plan-content">
+                <h2>Wildlife Lovers Touring Plan</h2>
+                <p>Answer the call of the wild. Witness the legendary "Big Four" of Sri Lanka - Leopards, Elephants, Sloth Bears, and Blue Whales in their spectacular natural habitats across the island's many national parks.</p>
+                <div class="tips-box">
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li>Leopard tracking in Yala National Park</li>
+                        <li>The Great Elephant Gathering in Minneriya</li>
+                        <li>Blue Whale watching expeditions</li>
+                    </ul>
+                </div>
+                <a href="plans/wildlife.html" class="btn-primary" style="margin-top: 2rem;">Read Full 10-Day Itinerary</a>
+            </div>
+            <div class="plan-image">
+                <img src="../Images/Site Photos/Elephants of Sri Lanka.jpg" alt="Wildlife Safari">
+            </div>
+        </div>
+    </section>
+
+    <!-- Adventure Lovers -->
+    <section class="plan-category reveal">
+        <div class="container plan-grid">
+            <div class="plan-content">
+                <h2>Adventure Lovers Touring Plan</h2>
+                <p>Sri Lanka gives you an adrenaline rush like no other. Face the rapids of the Kelani River, trek the rugged Knuckles Mountain Range, and hike world-famous peaks for sunrise views that you'll remember forever.</p>
+                <div class="tips-box">
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li>White-water rafting in Kitulgala</li>
+                        <li>Knuckles Mountain Range trekking</li>
+                        <li>Hiking Little Adam's Peak in Ella</li>
+                    </ul>
+                </div>
+                <a href="plans/adventure.html" class="btn-primary" style="margin-top: 2rem;">Read Full 10-Day Itinerary</a>
+            </div>
+            <div class="plan-image">
+                <img src="../Images/Site Photos/DSC_0145.jpg" alt="Adventure Travel">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sea Surfing -->
+    <section class="plan-category reveal">
+        <div class="container plan-grid">
+            <div class="plan-image">
+                <img src="../Images/Site Photos/Beautiful Tropical Beach In Kalpitiya Sri Lanka. These boats used to take people to watch dolphins.jpg" alt="Surfing Travel">
+            </div>
+            <div class="plan-content">
+                <h2>Sea Surfing Touring Plan</h2>
+                <p>Catch world-class waves along Sri Lanka's spectacular coastlines. From Arugam Bay breaks to the laid-back surf culture of the southern coast, this itinerary is crafted for those who live for the ocean.</p>
+                <div class="tips-box">
+                    <h3>Highlights</h3>
+                    <ul>
+                        <li>Surfing legend breaks in Arugam Bay and Weligama</li>
+                        <li>Vibrant beach parties and coastal culture</li>
+                        <li>Secret surf spots off the beaten path</li>
+                    </ul>
+                </div>
+                <a href="plans/surfing.html" class="btn-primary" style="margin-top: 2rem;">Read Full 10-Day Itinerary</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <a href="../index.html">
+                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+                </a>
+                <p>Journey Beyond the Ordinary. Your ultimate companion in discovering the magic of Sri Lanka.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
+                    <a href="https://www.tripadvisor.com/Search?q=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+                    <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="guide.html">Travel Guide</a></li>
+                    <li><a href="plans.html">Touring Plans</a></li>
+                    <li><a href="travel-info.html">Travel Information</a></li>
+                    <li><a href="visa.html">Visa Details</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94702180180" target="_blank">+94 70 218 0180</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+94702180180">+94 70 218 0180</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
         </div>
     </footer>

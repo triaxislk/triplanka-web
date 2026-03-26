@@ -3,163 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Guide | TripLanka</title>
+    <title>Travel Guide | TripLanka - Explore Sri Lanka</title>
+    <meta name="description" content="Comprehensive travel guide for all major regions in Sri Lanka. From the vibrant capital Colombo to the misty hills of Ella.">
     <link rel="stylesheet" href="../css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .guide-hero {
-            padding: 8rem 0 4rem;
-            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1586713717103-6f112e873646?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover;
-            text-align: center;
-        }
-        .region-section {
-            padding: 4rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        .region-grid {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
-            align-items: start;
-        }
-        .region-info h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem; }
-        .region-details h3 { font-size: 1.25rem; margin: 1.5rem 0 0.5rem; color: var(--accent-color); }
-        .region-details p { color: var(--text-muted); margin-bottom: 1rem; }
-        .region-details ul { color: var(--text-muted); padding-left: 1.5rem; list-style: disc; margin-bottom: 1rem; }
-        
-        @media (max-width: 768px) {
-            .region-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="icon" type="image/png" href="../Images/Logos/Logo Without Background.png">
 </head>
 <body>
+    
+    
+    
     <header>
         <nav class="container">
             <div class="logo">
-                <a href="../index.html" class="logo-text">Trip<span>Lanka</span></a>
+                <a href="../index.html">
+                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+                </a>
             </div>
+            
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="guide.html" class="active" style="color: var(--primary-color)">Travel Guide</a></li>
-                <li><a href="plans.html">Touring Plans</a></li>
-                <li><a href="../index.html#contact" class="btn-primary">Connect</a></li>
+                <li><a href="./travel-info.html">Information</a></li>
+                <li class="dropdown">
+                    <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="guide/negombo.html">Negombo & Mannar</a></li>
+                        <li><a href="guide/colombo.html">Colombo</a></li>
+                        <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
+                        <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
+                        <li><a href="guide/rathnapura.html">Rathnapura</a></li>
+                        <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+                        <li><a href="guide/ella.html">Ella & Badulla</a></li>
+                        <li><a href="guide/galle.html">Galle & Bentota</a></li>
+                        <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
+                        <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+                        <li><a href="guide/anuradhapura.html">Anuradhapura</a></li>
+                        <li><a href="guide/batticaloa.html">Batticaloa</a></li>
+                        <li><a href="guide/trincomalee.html">Trincomalee</a></li>
+                        <li><a href="guide/jaffna.html">Jaffna</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="./plans.html">Touring Plans <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
+                        <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
+                        <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
+                        <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
+                        <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
+                        <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
+                        <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
+                    </ul>
+                </li>
+                <li><a href="./gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html" class="btn-primary">Connect</a></li>
+                <li class="flag-item">
+                    <img src="../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
+                </li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
-    <section class="guide-hero">
-        <div class="container">
-            <h1>Sri Lanka Travel Guide</h1>
-            <p>Everything you need to know about the most breathtaking regions of the island.</p>
-        </div>
-    </section>
+    <main>
+        <section class="hero" style="height: 60vh; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../Images/Site Photos/Beautiful Tropical Beach In Kalpitiya Sri Lanka. These boats used to take people to watch dolphins.jpg');">
+            <div class="hero-content container">
+                <h1 class="fade-in">Sri Lanka <span>Travel Guide</span></h1>
+                <p class="fade-in delay-1">Explore the diverse regions of the island, each with its own story, culture, and breathtaking beauty.</p>
+            </div>
+        </section>
 
-    <div class="container">
-        <!-- Colombo -->
-        <div class="region-section reveal">
-            <div class="region-grid">
-                <div class="region-info">
-                    <h2>Colombo</h2>
-                    <p>The vibrant capital city.</p>
-                    <img src="https://images.unsplash.com/photo-1586713717103-6f112e873646?auto=format&fit=crop&q=80&w=400" alt="Colombo" style="border-radius: 20px; margin-top: 1rem;">
+        <section class="destinations container">
+            <div class="section-title">
+                <h2>Explore by Region</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="destinations-grid">
+                <!-- Negombo & Mannar -->
+                <a href="guide/negombo.html" class="dest-card" style="background-image: url('../Images/Site Photos/Sunny beach near Koggala - Sri Lanka The area famous for its distinct stilt fishermen who erect a single pole in the chest-deep water on th.jpg')">
+                    <div class="dest-info">
+                        <h3>Negombo & Mannar</h3>
+                        <p>The Vibrant Fishing Town</p>
+                    </div>
+                </a>
+                <!-- Colombo -->
+                <a href="guide/colombo.html" class="dest-card" style="background-image: url('../Images/Site Photos/Colombo city taken while flying.jpg')">
+                    <div class="dest-info">
+                        <h3>Colombo</h3>
+                        <p>The Dynamic Capital City</p>
+                    </div>
+                </a>
+                <!-- Kandy & Gampola -->
+                <a href="guide/kandy.html" class="dest-card" style="background-image: url('../Images/Site Photos/Buddha Temple in Matara island of Sri Lanka..jpg')">
+                    <div class="dest-info">
+                        <h3>Kandy & Gampola</h3>
+                        <p>The Cultural Heart of the Island</p>
+                    </div>
+                </a>
+                <!-- Dambulla & Sigiriya -->
+                <a href="guide/sigiriya.html" class="dest-card" style="background-image: url('../Images/Site Photos/Elephant in Sigiriya lion rock fortress Sri Lanka.jpg')">
+                    <div class="dest-info">
+                        <h3>Dambulla & Sigiriya</h3>
+                        <p>Ancient Rock Fortress & Cave Temples</p>
+                    </div>
+                </a>
+                <!-- Rathnapura -->
+                <a href="guide/rathnapura.html" class="dest-card" style="background-image: url('../Images/Site Photos/DSC_0765.jpg')">
+                    <div class="dest-info">
+                        <h3>Rathnapura</h3>
+                        <p>The City of Gems</p>
+                    </div>
+                </a>
+                <!-- Kitulgala & Nuwara Eliya -->
+                <a href="guide/nuwara-eliya.html" class="dest-card" style="background-image: url('../Images/Site Photos/train from Nuwara Eliya to Kandy among tea plantations in the highlands of Sri Lanka.jpg')">
+                    <div class="dest-info">
+                        <h3>Kitulgala & Nuwara Eliya</h3>
+                        <p>Little England & Adventure Hub</p>
+                    </div>
+                </a>
+                <!-- Ella & Badulla -->
+                <a href="guide/ella.html" class="dest-card" style="background-image: url('../Images/Site Photos/The Nine Arches Bridge Demodara is one of the iconic bridges in Sri Lanka. Morning mist in Ella..jpg')">
+                    <div class="dest-info">
+                        <h3>Ella & Badulla</h3>
+                        <p>Highland Paradise & Scenic Vistas</p>
+                    </div>
+                </a>
+                <!-- Galle & Bentota -->
+                <a href="guide/galle.html" class="dest-card" style="background-image: url('../Images/Site Photos/Local men fishing in traditional way. Fishermen at Hikkaduwa beach Sri Lanka. Popular tourist destination. .jpg')">
+                    <div class="dest-info">
+                        <h3>Galle & Bentota</h3>
+                        <p>Southern Coast & colonial Charm</p>
+                    </div>
+                </a>
+                <!-- Hambantota & Matara -->
+                <a href="guide/hambantota.html" class="dest-card" style="background-image: url('../Images/Site Photos/Leopards on a stone. The Sri Lankan leopard (Panthera pardus kotiya) male and female..jpg')">
+                    <div class="dest-info">
+                        <h3>Hambantota & Matara</h3>
+                        <p>Deep South Wildlife</p>
+                    </div>
+                </a>
+                <!-- Habarana & Polonnaruwa -->
+                <a href="guide/polonnaruwa.html" class="dest-card" style="background-image: url('../Images/Site Photos/DSC_0145.jpg')">
+                    <div class="dest-info">
+                        <h3>Habarana & Polonnaruwa</h3>
+                        <p>The Medieval Capital</p>
+                    </div>
+                </a>
+                <!-- Anuradhapura -->
+                <a href="guide/anuradhapura.html" class="dest-card" style="background-image: url('../Images/Site Photos/2.jpg')">
+                    <div class="dest-info">
+                        <h3>Anuradhapura</h3>
+                        <p>Sacred Ancient Citadel</p>
+                    </div>
+                </a>
+                <!-- Batticaloa -->
+                <a href="guide/batticaloa.html" class="dest-card" style="background-image: url('../Images/Site Photos/DSC_0694.jpg')">
+                    <div class="dest-info">
+                        <h3>Batticaloa</h3>
+                        <p>The Land of Singing Fish</p>
+                    </div>
+                </a>
+                <!-- Trincomalee -->
+                <a href="guide/trincomalee.html" class="dest-card" style="background-image: url('../Images/Site Photos/River flows into Back Bay of Indian Ocean near Nilaveli beach in Trincomalee Sri Lanka.  Trincomalee is coastal resort city. Panoramic Top .jpg')">
+                    <div class="dest-info">
+                        <h3>Trincomalee</h3>
+                        <p>White Sands & Azure Waters</p>
+                    </div>
+                </a>
+                <!-- Jaffna -->
+                <a href="guide/jaffna.html" class="dest-card" style="background-image: url('../Images/Site Photos/DSC_0442.jpg')">
+                    <div class="dest-info">
+                        <h3>Jaffna</h3>
+                        <p>The Resilient North</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Travel Essentials -->
+        <section class="essentials container" style="margin-bottom: 5rem;">
+            <div class="section-title">
+                <h2>Know Before You Go</h2>
+                <div class="underline"></div>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-passport"></i>
+                    <h3>Entry & Visas</h3>
+                    <p>Most travelers need an Electronic Travel Authorization (ETA). Ensure your passport is valid for at least 6 months.</p>
                 </div>
-                <div class="region-details">
+                <div class="service-card">
+                    <i class="fas fa-pray"></i>
+                    <h3>Cultural Etiquette</h3>
+                    <p>Dress modestly when visiting temples (cover shoulders and knees). Never pose with your back to a Buddha statue.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-cloud-sun"></i>
                     <h3>Best Time to Visit</h3>
-                    <p>January to March when the weather is relatively cooler and drier.</p>
-                    <h3>Top Attractions</h3>
-                    <ul>
-                        <li><strong>Gangaramaya Temple:</strong> Iconic religious and cultural center.</li>
-                        <li><strong>National Museum:</strong> Deep-dive into Sri Lanka's history.</li>
-                        <li><strong>Galle Face Green:</strong> Perfect for a sunset stroll.</li>
-                    </ul>
-                    <h3>Transportation</h3>
-                    <p>Tuk-tuks (always use metered ones), buses, and ride-hailing apps like PickMe or Uber are the best options.</p>
+                    <p>Dec-March for the West/South; May-September for the East. Sri Lanka is a year-round destination!</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <h3>Currency</h3>
+                    <p>Sri Lankan Rupee (LKR). While cards are accepted in cities, carry cash for smaller towns and street food.</p>
                 </div>
             </div>
-        </div>
-
-        <!-- Kandy -->
-        <div class="region-section reveal">
-            <div class="region-grid">
-                <div class="region-info">
-                    <h2>Kandy | Gampola</h2>
-                    <p>The Hill Capital & Spiritual Heart.</p>
-                    <img src="https://images.unsplash.com/photo-1546708973-b339540b5162?auto=format&fit=crop&q=80&w=400" alt="Kandy" style="border-radius: 20px; margin-top: 1rem;">
-                </div>
-                <div class="region-details">
-                    <h3>Highlights</h3>
-                    <p>Visit the Temple of the Sacred Tooth Relic, Royal Botanical Gardens (Peradeniya), and the stunning Ambuluwawa Tower for panoramic views.</p>
-                    <h3>Travel Tip</h3>
-                    <p>The scenic train journey from Colombo to Kandy is a must-experience.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sigiriya -->
-        <div class="region-section reveal">
-            <div class="region-grid">
-                <div class="region-info">
-                    <h2>Sigiriya | Dambulla</h2>
-                    <p>The Cultural Triangle.</p>
-                    <img src="https://images.unsplash.com/photo-1586713717103-6f112e873646?auto=format&fit=crop&q=80&w=400" alt="Sigiriya" style="border-radius: 20px; margin-top: 1rem;">
-                </div>
-                <div class="region-details">
-                    <h3>Top Sites</h3>
-                    <ul>
-                        <li><strong>Sigiriya Rock Fortress:</strong> A UNESCO World Heritage site and an ancient architectural marvel.</li>
-                        <li><strong>Dambulla Cave Temples:</strong> Stunning golden statues and paintings inside ancient caves.</li>
-                    </ul>
-                    <h3>Adventure</h3>
-                    <p>Try an early morning climb to Pidurangala Rock for the best view of the Sigiriya Lion Rock.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Highlands -->
-        <div class="region-section reveal">
-            <div class="region-grid">
-                <div class="region-info">
-                    <h2>Nuwara Eliya | Kitulgala</h2>
-                    <p>Mist-covered mountains & white-water rafting.</p>
-                    <img src="https://images.unsplash.com/photo-1610459521360-1e5f8ceb6da8?auto=format&fit=crop&q=80&w=400" alt="Nuwara Eliya" style="border-radius: 20px; margin-top: 1rem;">
-                </div>
-                <div class="region-details">
-                    <h3>Overview</h3>
-                    <p>Known as "Little England," Nuwara Eliya offers cool climates and tea estates. Nearby Kitulgala is the hub for white-water rafting adventures.</p>
-                    <h3>Activities</h3>
-                    <ul>
-                        <li>Tea Factory Tours</li>
-                        <li>Boating at Gregory Lake</li>
-                        <li>Trekking at Horton Plains</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Ella -->
-        <div class="region-section reveal">
-            <div class="region-grid">
-                <div class="region-info">
-                    <h2>Ella | Badulla</h2>
-                    <p>The Hiker's Paradise.</p>
-                    <img src="https://images.unsplash.com/photo-1620619767323-b95a89183081?auto=format&fit=crop&q=80&w=400" alt="Ella" style="border-radius: 20px; margin-top: 1rem;">
-                </div>
-                <div class="region-details">
-                    <h3>Must-Visit</h3>
-                    <ul>
-                        <li><strong>Nine Arches Bridge:</strong> An iconic colonial-era railway bridge.</li>
-                        <li><strong>Little Adam's Peak:</strong> An easy trek with breathtaking views.</li>
-                        <li><strong>Ravana Falls:</strong> One of the widest waterfalls in the country.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <footer>
-        <div class="container footer-bottom">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <a href="../index.html">
+                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+                </a>
+                <p>Journey Beyond the Ordinary. Your ultimate companion in discovering the magic of the Pearl of the Indian Ocean.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
+                    <a href="https://www.tripadvisor.com/Search?q=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+                    <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="guide.html">Travel Guide</a></li>
+                    <li><a href="plans.html">Touring Plans</a></li>
+                    <li><a href="travel-info.html">Travel Information</a></li>
+                    <li><a href="visa.html">Visa Details</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94702180180" target="_blank">+94 70 218 0180</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
             <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
         </div>
     </footer>
