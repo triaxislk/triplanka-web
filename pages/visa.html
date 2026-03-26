@@ -14,7 +14,8 @@
     <style>
         .info-hero {
             height: 40vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../Images/Site Photos/Sri-Lanka-flag.jpg');
+            min-height: 350px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../Images/Site Photos/Sri-Lanka-flag.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -22,48 +23,152 @@
             justify-content: center;
             text-align: center;
             color: white;
-            padding-top: 60px;
+            padding-top: 60px; /* Offset for fixed header */
+        }
+        .hero-content {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-content h1 {
+            margin-bottom: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+        .hero-content p {
+            margin: 0 auto;
+            max-width: 600px;
+            text-align: center;
         }
         .info-content {
-            padding: 4rem 0;
-            max-width: 900px;
+            padding: 3rem 1.5rem;
+            max-width: 1000px;
             margin: 0 auto;
-            background: white;
         }
-        .info-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #444; }
-        .info-content strong { color: var(--primary-color); }
-        .info-content ul { margin-left: 2rem; margin-bottom: 2rem; }
-        .info-content li { margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; }
-        .info-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; }
-        .info-content a:hover { text-decoration: underline; }
+        .content-wrapper {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .info-content p { 
+            font-size: 1rem; 
+            line-height: 1.7; 
+            margin-bottom: 1.2rem; 
+            color: #444; 
+        }
+        .info-content h2 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem;
+            font-weight: 700;
+        }
+        .info-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin: 1.5rem 0 1rem;
+            font-weight: 600;
+        }
+        .info-content strong { color: #333; }
+        .info-content ul { margin-left: 1.5rem; margin-bottom: 2rem; }
+        .info-content li { margin-bottom: 0.6rem; font-size: 0.95rem; line-height: 1.6; color: #444; }
+        .info-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; transition: color 0.3s; }
+        .info-content a:hover { color: var(--primary-color); text-decoration: underline; }
+        
+        /* Table Styles */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 1.5rem 0 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
         .info-content table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 2rem;
-            background: var(--section-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
+            background: white;
+            min-width: 600px;
         }
         .info-content th, .info-content td {
             text-align: left;
-            padding: 1rem;
-            border-bottom: 1px solid var(--border);
+            padding: 1rem 1.2rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
         }
         .info-content th {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: 600;
+            background-color: #f8f9fa;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+        }
+        .info-content tr:hover td {
+            background-color: #fcfcfc;
         }
         .info-content tr:last-child td { border-bottom: none; }
-        /* Style headings that Mammoth extracted as paragraphs */
-        .info-content > p:not(:has(strong)):not(:has(a)):not(:has(br)):empty { display:none; }
-        .content-wrapper h2 { color: var(--primary-color); margin-top: 2rem; margin-bottom: 1rem; font-size: 1.8rem;}
+        
+        .eta-link {
+            display: inline-block;
+            background: #fff4e5;
+            padding: 0 4px;
+            border-radius: 4px;
+            border-bottom: 2px solid #ff9800;
+        }
+
+        /* Search Filter Styles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2.5rem 0 1rem;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        .section-header h2 { margin: 0 !important; }
+        .search-container {
+            position: relative;
+            max-width: 320px;
+            width: 100%;
+        }
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 0.9rem;
+        }
+        .search-container input {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border: 1.5px solid #eee;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-family: inherit;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #fcfcfc;
+        }
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .search-container input::placeholder { color: #aaa; }
+
+        @media (max-width: 768px) {
+            .content-wrapper { padding: 1.5rem; }
+            .info-content h2 { font-size: 1.3rem; }
+            .info-hero h1 { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
-    
-    
     
     <header>
         <nav class="container">
@@ -75,7 +180,14 @@
             
             <ul class="nav-links">
                 <li><a href="../index.html">Home</a></li>
-                <li><a href="./travel-info.html">Information</a></li>
+                
+                <li class="dropdown">
+                    <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./travel-info.html">Travel Information</a></li>
+                        <li><a href="./visa.html">Visa Details</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
@@ -127,9 +239,182 @@
             </div>
         </section>
 
-        <section class="container info-content">
-            <div class="content-wrapper" style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-lg);">
-                <p><strong>Sri Lanka Visa‑Free Entry Countries and Visa Fees</strong></p><p><strong>Sri Lanka Visa &amp; ETA Fees</strong></p><p>Below are the official visa and ETA fees for entering Sri Lanka. This information is based on the latest immigration fee schedule. Always verify through the official portals before travel.</p><table><thead><tr><th><h2>Visa Category</h2></th><th><h2>SAARC Countries</h2></th><th><h2>Other Countries</h2></th><th><p><strong>Children under 12</strong></p></th></tr></thead><tbody><tr><td><p>Tourist Visa (Double Entry, 30 days)</p></td><td><p>US$ 20</p></td><td><p>US$ 50</p></td><td><h2>Free</h2></td></tr><tr><td><p>Business Visa (Multiple Entry, 30 days)</p></td><td><p>US$ 30</p></td><td><p>US$ 55</p></td><td><h2>Free</h2></td></tr><tr><td><p>Tourist Visa (180 days)</p></td><td><p>US$ 50</p></td><td><p>US$ 50</p></td><td><h2>Free</h2></td></tr><tr><td><p>Transit Visa (2 days)</p></td><td><h2>Free</h2></td><td><h2>Free</h2></td><td><h2>Free</h2></td></tr></tbody></table><p>	<strong>Official Sri Lanka Visa Links</strong></p><ul><li><a href="https://www.eta.gov.lk/slvisa/visainfo/apply.jsp" target="_blank">Official Sri Lanka ETA Website</a></li><li><a href="https://www.immigration.gov.lk/" target="_blank">Department of Immigration &amp; Emigration Sri Lanka</a></li></ul><p>On 25 July 2025 the Sri Lankan government announced a visa‑free / visa‑fee waiver programme for 40 countries to support inbound tourism. The policy aims to simplify short tourist visits; however travellers should still complete the official <strong>Electronic Travel Authorization (ETA)</strong> when required and confirm entry conditions for their nationality.</p><p><strong>Quick summary:</strong> Citizens of the listed countries are generally eligible for a visa‑fee waiver / visa‑free entry into Sri Lanka. The standard permitted stay under this programme is <strong>up to 30 days</strong> for most categories — verify specific conditions for your passport and purpose of travel on the official ETA portal. Travellers must always check the ETA portal or Sri Lanka Department of Immigration &amp; Emigration for the latest rules.</p><p><strong>40 Eligible Countries (official list)</strong></p><table><thead><tr><th><p><strong>#</strong></p></th><th><h2>Country</h2></th><th><h2>Typical maximum stay</h2></th></tr></thead><tbody><tr><td><p>1</p></td><td><p>🇬🇧 United Kingdom</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>2</p></td><td><p>🇩🇪 Germany</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>3</p></td><td><p>🇳🇱 Netherlands</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>4</p></td><td><p>🇧🇪 Belgium</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>5</p></td><td><p>🇪🇸 Spain</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>6</p></td><td><p>🇦🇺 Australia</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>7</p></td><td><p>🇵🇱 Poland</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>8</p></td><td><p>🇰🇿 Kazakhstan</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>9</p></td><td><p>🇸🇦 Saudi Arabia</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>10</p></td><td><p>🇦🇪 United Arab Emirates</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>11</p></td><td><p>🇳🇵 Nepal</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>12</p></td><td><p>🇨🇳 China</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>13</p></td><td><p>🇮🇳 India</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>14</p></td><td><p>🇮🇩 Indonesia</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>15</p></td><td><p>🇷🇺 Russia</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>16</p></td><td><p>🇹🇭 Thailand</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>17</p></td><td><p>🇲🇾 Malaysia</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>18</p></td><td><p>🇯🇵 Japan</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>19</p></td><td><p>🇫🇷 France</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>20</p></td><td><p>🇺🇸 United States</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>21</p></td><td><p>🇨🇦 Canada</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>22</p></td><td><p>🇨🇿 Czechia (Czech Republic)</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>23</p></td><td><p>🇮🇹 Italy</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>24</p></td><td><p>🇨🇭 Switzerland</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>25</p></td><td><p>🇦🇹 Austria</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>26</p></td><td><p>🇮🇱 Israel</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>27</p></td><td><p>🇧🇾 Belarus</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>28</p></td><td><p>🇮🇷 Iran</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>29</p></td><td><p>🇸🇪 Sweden</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>30</p></td><td><p>🇫🇮 Finland</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>31</p></td><td><p>🇩🇰 Denmark</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>32</p></td><td><p>🇰🇷 South Korea</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>33</p></td><td><p>🇶🇦 Qatar</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>34</p></td><td><p>🇴🇲 Oman</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>35</p></td><td><p>🇧🇭 Bahrain</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>36</p></td><td><p>🇳🇿 New Zealand</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>37</p></td><td><p>🇰🇼 Kuwait</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>38</p></td><td><p>🇳🇴 Norway</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>39</p></td><td><p>🇹🇷 Türkiye (Turkey)</p></td><td><p>Up to 30 days</p></td></tr><tr><td><p>40</p></td><td><p>🇵🇰 Pakistan</p></td><td><p>Up to 30 days</p></td></tr></tbody></table><table><thead><tr><th><h2>Method of submission</h2></th><th><h2>Category</h2></th><th><p><strong>SAARC Countries (US$)</strong></p></th><th><p><strong>All Other Countries (US$)</strong></p></th><th><p><strong>Children under 12</strong></p></th></tr></thead><tbody><tr><td><p>By the Applicant (Online / On-arrival)</p></td><td><p>Tourist visa (Double Entry) — 30 days</p></td><td><p>20</p></td><td><p>50</p></td><td><h2>Free</h2></td></tr><tr><td><h2>By the Applicant</h2></td><td><p>Business visa (Multiple Entry) — 30 days</p></td><td><p>30</p></td><td><p>55</p></td><td><h2>Free</h2></td></tr><tr><td><h2>By the Applicant</h2></td><td><p>Tourist visa — 180 days (single stretch)</p></td><td><p>50</p></td><td><p>50</p></td><td><h2>Free</h2></td></tr><tr><td><h2>By the Applicant</h2></td><td><p>Transit visa (Single Entry) — 2 days</p></td><td><h2>Free</h2></td><td><h2>Free</h2></td><td><h2>Free</h2></td></tr><tr><td><h2>By a Third Party</h2></td><td><p>Tourist visa (Double Entry) — 30 days</p></td><td><p>20</p></td><td><p>50</p></td><td><h2>Free</h2></td></tr><tr><td><h2>By a Third Party</h2></td><td><p>Business visa (Multiple Entry) — 30 days</p></td><td><p>30</p></td><td><p>55</p></td><td><h2>Free</h2></td></tr><tr><td><h2>By a Third Party</h2></td><td><p>Tourist visa — 180 days</p></td><td><p>50</p></td><td><p>50</p></td><td><h2>Free</h2></td></tr><tr><td><h2>By a Third Party</h2></td><td><p>Transit visa — 2 days</p></td><td><h2>Free</h2></td><td><h2>Free</h2></td><td><h2>Free</h2></td></tr><tr><td><h2>At Sri Lanka Overseas Missions</h2></td><td><p>Tourist visa (Double Entry) — 30 days</p></td><td><p>20</p></td><td><p>50</p></td><td><h2>Free</h2></td></tr><tr><td><h2>At Sri Lanka Overseas Missions</h2></td><td><p>Business visa (Multiple Entry) — 30 days</p></td><td><p>30</p></td><td><p>55</p></td><td><h2>Free</h2></td></tr><tr><td><h2>At Sri Lanka Overseas Missions</h2></td><td><p>Tourist visa — 180 days</p></td><td><p>50</p></td><td><p>50</p></td><td><h2>Free</h2></td></tr><tr><td><h2>At Sri Lanka Overseas Missions</h2></td><td><p>Transit visa — 2 days</p></td><td><h2>Free</h2></td><td><h2>Free</h2></td><td><h2>Free</h2></td></tr><tr><td><p>At Department Head Office (Colombo)</p></td><td><p>Tourist visa (Double Entry) — 30 days</p></td><td><p>20</p></td><td><p>50</p></td><td><h2>Free</h2></td></tr><tr><td><p>At Department Head Office (Colombo)</p></td><td><p>Business visa (Multiple Entry) — 30 days</p></td><td><p>30</p></td><td><p>55</p></td><td><h2>Free</h2></td></tr><tr><td><p>At Department Head Office (Colombo)</p></td><td><p>Tourist visa — 180 days</p></td><td><p>50</p></td><td><p>50</p></td><td><h2>Free</h2></td></tr><tr><td><p>At Department Head Office (Colombo)</p></td><td><p>Transit visa — 2 days</p></td><td><h2>Free</h2></td><td><h2>Free</h2></td><td><h2>Free</h2></td></tr><tr><td><p>On Arrival at port of entry (Sri Lanka)</p></td><td><p>Tourist visa / ETA</p></td><td><p>25 (online vs on arrival difference)</p></td><td><p>60</p></td><td><h2>Free</h2></td></tr></tbody></table><p><strong>ETA &amp; Visa Processing Fees (Official revision — effective 01 Dec 2022)</strong></p><p>Below is a clear summary of the ETA / visa processing fees as published in the Department of Immigration &amp; Emigration revision notice. This table follows the official fee revision format (SAARC countries vs. All other countries, and method of submission). For exact wording and the original official PDF, see the source linked at the bottom.</p><h2>Official Links</h2><ul><li><a href="https://www.eta.gov.lk/slvisa/visainfo/apply.jsp" target="_blank">Official ETA portal — eta.gov.lk</a></li><li><a href="https://www.immigration.gov.lk/" target="_blank">Department of Immigration &amp; Emigration</a></li></ul><h2>Updated travel advisories</h2><p>Always review official travel advisories before departure — this includes health notices (dengue, seasonal precautions), weather-related advisories (monsoon / surf seasons), and local safety notices. We recommend checking your country's foreign office travel advice and Sri Lanka's official tourist notices.</p><ul><li>Check health notices: WHO / your national health advisory.</li><li>Check security alerts from your foreign office (e.g., FCDO, State Dept, DFAT).</li><li>Seasonal weather: west/south coasts &amp; hill country typically best Dec–Mar; east coast best Apr–Sep.</li></ul><h2>Frequently Asked Questions</h2><p><strong>Do I still need to apply for an ETA? How long can I stay? Is this list permanent?</strong></p><p><strong>Official links &amp; further reading</strong></p><ul><li><a href="https://www.eta.gov.lk/slvisa/visainfo/apply.jsp" target="_blank"><strong>Official ETA portal — apply for Electronic Travel Authorization (ETA)</strong></a></li><li><a href="https://www.immigration.gov.lk/" target="_blank"><strong>Department of Immigration &amp; Emigration — Sri Lanka</strong></a></li></ul><h2>FAQ</h2><p><strong>Do travellers still need to apply for an ETA?</strong></p><p><strong>Yes — in most cases travellers should complete the ETA process even if they are eligible for a fee waiver. The ETA system records traveller details and is the official entry clearance mechanism.</strong></p><p><strong>How long can I stay if I'm from one of these countries?</strong></p><p><strong>Most sources and the initial announcements indicate a standard stay of up to 30 days. Some categories of traveller or passport types may have different entitlements; always check the ETA decision and the immigration stamp at arrival.</strong></p><p><strong>Is this list permanent?</strong></p><p><strong>No — this policy may be updated by Sri Lankan authorities. We recommend verifying the status close to travel and linking to official portals.</strong></p><p><strong>If you spot a change or an official update we have not captured, please email info@triplanka.com so we can update the page.</strong></p><p><strong>Notes: 1) Fees are quoted in US dollars (USD). 2) 'SAARC Countries' refers to member states of the South Asian Association for Regional Cooperation — check the Department list for exact membership and applicability. 3) Transit visas are currently free. 4) This table is a transcription and simplification of the official revision notice; always verify with the official ETA fee page.</strong></p><p><strong>Source: Department of Immigration &amp; Emigration — "Revision of ETA Fees"</strong></p><p><strong>Disclaimer: This page summarises the announced visa-free / fee-waiver programme. Always confirm entry requirements with the official ETA portal and the Department of Immigration &amp; Emigration before travel. TripLanka.com is not an official government source.</strong></p><p><strong>If you notice outdated or incorrect information in hotel or visa listings, kindly email us at </strong><a href="mailto:info@triplanka.com"><strong>info@triplanka.com</strong></a><strong> — we always keep the site accurate for travelers.</strong></p>
+        <section class="info-content">
+            <div class="content-wrapper">
+                <h2>Sri Lanka Visa & ETA Fees</h2>
+                <p>Below are the official visa and ETA fees for entering Sri Lanka. This information is based on the latest immigration fee schedule. Always verify through the official portals before travel.</p>
+                
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Visa Category</th>
+                                <th>SAARC Countries</th>
+                                <th>Other Countries</th>
+                                <th>Children under 12</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tourist Visa (Double Entry, 30 days)</td>
+                                <td>US$ 20</td>
+                                <td>US$ 50</td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Business Visa (Multiple Entry, 30 days)</td>
+                                <td>US$ 30</td>
+                                <td>US$ 55</td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Tourist Visa (180 days)</td>
+                                <td>US$ 50</td>
+                                <td>US$ 50</td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Transit Visa (2 days)</td>
+                                <td><strong>Free</strong></td>
+                                <td><strong>Free</strong></td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Official Sri Lanka Visa Links</h3>
+                <ul>
+                    <li><a href="https://www.eta.gov.lk/slvisa/visainfo/apply.jsp" target="_blank">Official Sri Lanka ETA Website</a></li>
+                    <li><a href="https://www.immigration.gov.lk/" target="_blank">Department of Immigration & Emigration Sri Lanka</a></li>
+                </ul>
+
+                <p>On 25 July 2025 the Sri Lankan government announced a visa‑free / visa‑fee waiver programme for 40 countries to support inbound tourism. The policy aims to simplify short tourist visits; however travellers should still complete the official <a href="https://www.srilankaimmigration.org/" target="_blank" class="eta-link">Electronic Travel Authorization (ETA)</a> when required and confirm entry conditions for their nationality.</p>
+
+                <p><strong>Quick summary:</strong> Citizens of the listed countries are generally eligible for a visa‑fee waiver / visa‑free entry into Sri Lanka. The standard permitted stay under this programme is <strong>up to 30 days</strong> for most categories — verify specific conditions for your passport and purpose of travel on the official ETA portal.</p>
+
+                <div class="section-header">
+                    <h2>40 Eligible Countries (Official List)</h2>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="countrySearch" placeholder="Search for a country..." onkeyup="filterCountries()">
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="eligibleCountriesTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Country</th>
+                                <th>Typical maximum stay</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>🇬🇧 United Kingdom</td><td>Up to 30 days</td></tr>
+                            <tr><td>2</td><td>🇩🇪 Germany</td><td>Up to 30 days</td></tr>
+                            <tr><td>3</td><td>🇳🇱 Netherlands</td><td>Up to 30 days</td></tr>
+                            <tr><td>4</td><td>🇧🇪 Belgium</td><td>Up to 30 days</td></tr>
+                            <tr><td>5</td><td>🇪🇸 Spain</td><td>Up to 30 days</td></tr>
+                            <tr><td>6</td><td>🇦🇺 Australia</td><td>Up to 30 days</td></tr>
+                            <tr><td>7</td><td>🇵🇱 Poland</td><td>Up to 30 days</td></tr>
+                            <tr><td>8</td><td>🇰🇿 Kazakhstan</td><td>Up to 30 days</td></tr>
+                            <tr><td>9</td><td>🇸🇦 Saudi Arabia</td><td>Up to 30 days</td></tr>
+                            <tr><td>10</td><td>🇦🇪 United Arab Emirates</td><td>Up to 30 days</td></tr>
+                            <tr><td>11</td><td>🇳🇵 Nepal</td><td>Up to 30 days</td></tr>
+                            <tr><td>12</td><td>🇨🇳 China</td><td>Up to 30 days</td></tr>
+                            <tr><td>13</td><td>🇮🇳 India</td><td>Up to 30 days</td></tr>
+                            <tr><td>14</td><td>🇮🇩 Indonesia</td><td>Up to 30 days</td></tr>
+                            <tr><td>15</td><td>🇷🇺 Russia</td><td>Up to 30 days</td></tr>
+                            <tr><td>16</td><td>🇹🇭 Thailand</td><td>Up to 30 days</td></tr>
+                            <tr><td>17</td><td>🇲🇾 Malaysia</td><td>Up to 30 days</td></tr>
+                            <tr><td>18</td><td>🇯🇵 Japan</td><td>Up to 30 days</td></tr>
+                            <tr><td>19</td><td>🇫🇷 France</td><td>Up to 30 days</td></tr>
+                            <tr><td>20</td><td>🇺🇸 United States</td><td>Up to 30 days</td></tr>
+                            <tr><td>21</td><td>🇨🇦 Canada</td><td>Up to 30 days</td></tr>
+                            <tr><td>22</td><td>🇨🇿 Czechia</td><td>Up to 30 days</td></tr>
+                            <tr><td>23</td><td>🇮🇹 Italy</td><td>Up to 30 days</td></tr>
+                            <tr><td>24</td><td>🇨🇭 Switzerland</td><td>Up to 30 days</td></tr>
+                            <tr><td>25</td><td>🇦🇹 Austria</td><td>Up to 30 days</td></tr>
+                            <tr><td>26</td><td>🇮🇱 Israel</td><td>Up to 30 days</td></tr>
+                            <tr><td>27</td><td>🇧🇾 Belarus</td><td>Up to 30 days</td></tr>
+                            <tr><td>28</td><td>🇮🇷 Iran</td><td>Up to 30 days</td></tr>
+                            <tr><td>29</td><td>🇸🇪 Sweden</td><td>Up to 30 days</td></tr>
+                            <tr><td>30</td><td>🇫🇮 Finland</td><td>Up to 30 days</td></tr>
+                            <tr><td>31</td><td>🇩🇰 Denmark</td><td>Up to 30 days</td></tr>
+                            <tr><td>32</td><td>🇰🇷 South Korea</td><td>Up to 30 days</td></tr>
+                            <tr><td>33</td><td>🇶🇦 Qatar</td><td>Up to 30 days</td></tr>
+                            <tr><td>34</td><td>🇴🇲 Oman</td><td>Up to 30 days</td></tr>
+                            <tr><td>35</td><td>🇧🇭 Bahrain</td><td>Up to 30 days</td></tr>
+                            <tr><td>36</td><td>🇳🇿 New Zealand</td><td>Up to 30 days</td></tr>
+                            <tr><td>37</td><td>🇰🇼 Kuwait</td><td>Up to 30 days</td></tr>
+                            <tr><td>38</td><td>🇳🇴 Norway</td><td>Up to 30 days</td></tr>
+                            <tr><td>39</td><td>🇹🇷 Türkiye</td><td>Up to 30 days</td></tr>
+                            <tr><td>40</td><td>🇵🇰 Pakistan</td><td>Up to 30 days</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Detailed Fee Schedule</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Method of submission</th>
+                                <th>Category</th>
+                                <th>SAARC (US$)</th>
+                                <th>Others (US$)</th>
+                                <th>Children < 12</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Online / On-arrival</td>
+                                <td>Tourist visa (Double Entry) — 30 days</td>
+                                <td>20</td>
+                                <td>50</td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                            <tr>
+                                <td>By Applicant</td>
+                                <td>Business visa (Multiple Entry) — 30 days</td>
+                                <td>30</td>
+                                <td>55</td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                            <tr>
+                                <td>By Applicant</td>
+                                <td>Tourist visa — 180 days (single stretch)</td>
+                                <td>50</td>
+                                <td>50</td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                            <tr>
+                                <td>By Applicant</td>
+                                <td>Transit visa (Single Entry) — 2 days</td>
+                                <td><strong>Free</strong></td>
+                                <td><strong>Free</strong></td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                            <tr>
+                                <td>At Port of Entry</td>
+                                <td>Tourist visa / ETA (On Arrival)</td>
+                                <td>25</td>
+                                <td>60</td>
+                                <td><strong>Free</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Important Notes</h2>
+                <ul>
+                    <li><strong>Apply Online:</strong> Travellers are strongly encouraged to apply for the <a href="https://www.srilankaimmigration.org/" target="_blank">Electronic Travel Authorization (ETA)</a> before arrival.</li>
+                    <li><strong>Validity:</strong> The ETA is usually valid for 30 days from the date of arrival.</li>
+                    <li><strong>Exemptions:</strong> Children under 12 years of age are exempt from ETA processing fees.</li>
+                    <li><strong>Advisories:</strong> Always check your country's official travel advice and the <a href="https://www.immigration.gov.lk/" target="_blank">Immigration Department</a> for seasonal updates.</li>
+                </ul>
+
+                <p><strong>Disclaimer:</strong> This page summarises the announced visa-free / fee-waiver programme. TripLanka.com is not an official government source. If you spot a change, please email <a href="mailto:info@triplanka.com">info@triplanka.com</a> so we can keep our travelers informed.</p>
             </div>
         </section>
     </main>
@@ -140,13 +425,12 @@
                 <a href="../index.html">
                     <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
                 </a>
-                <p>Journey Beyond the Ordinary. Discover the magic of Sri Lanka.</p>
                 <div class="social-links">
-                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
-                    <a href="https://www.tripadvisor.com/Search?q=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+                    <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
                     <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
                 </div>
             </div>
@@ -158,10 +442,41 @@
                     <li><a href="plans.html">Touring Plans</a></li>
                     <li><a href="travel-info.html">Travel Information</a></li>
                     <li><a href="visa.html">Visa Details</a></li>
-                    <li><a href="visa.html">Visa Information</a></li>
+                    <li><a href="gallery.html">Photo Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
+            <div class="footer-contact">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94702180180" target="_blank">+94 70 218 0180</a></p>
+                <p><i class="fas fa-phone"></i> <a href="tel:+94702180180">+94 70 218 0180</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
         </div>
     </footer>
+    <script>
+        function filterCountries() {
+            const input = document.getElementById('countrySearch');
+            const filter = input.value.toLowerCase();
+            const table = document.getElementById('eligibleCountriesTable');
+            const tr = table.getElementsByTagName('tr');
+
+            for (let i = 1; i < tr.length; i++) {
+                const countryCell = tr[i].getElementsByTagName('td')[1];
+                if (countryCell) {
+                    const txtValue = countryCell.textContent || countryCell.innerText;
+                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 </html>

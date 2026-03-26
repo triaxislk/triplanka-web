@@ -436,20 +436,21 @@ section {
 footer {
     background: #0B110F;
     color: #D1D5DB;
-    padding: 100px 0 30px;
+    padding: 70px 0 30px; /* Reduced from 100px */
     margin-top: 4rem;
 }
 
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 4rem;
-    margin-bottom: 80px;
+    grid-template-columns: 1.2fr 0.8fr 1fr; /* Custom widths to bring columns closer */
+    gap: 3rem; /* Reduced gap */
+    max-width: 1100px; /* Limit width for a more compact look */
+    margin: 0 auto 60px; /* Centered with reduced margin-bottom */
 }
 
 .footer-info p {
     margin-top: 1.5rem;
-    text-align: center;
+    text-align: left; /* Consistent left alignment for desktop */
 }
 
 .social-links {
@@ -795,5 +796,25 @@ footer {
     .waves {
         height: 60px;
         min-height: 60px;
+    }
+
+    footer .footer-grid {
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    footer .footer-info .logo-img {
+        margin: 0 auto 1.5rem !important;
+    }
+
+    footer .social-links {
+        justify-content: center;
+    }
+
+    footer .footer-contact p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
     }
 }
