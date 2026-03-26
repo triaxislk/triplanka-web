@@ -17,15 +17,16 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
 }
 
 body {
     font-family: 'Outfit', sans-serif;
     color: var(--text-dark);
     line-height: 1.7;
-    overflow-x: hidden;
     background-color: var(--white);
 }
 
@@ -799,8 +800,20 @@ footer {
     }
 
     footer .footer-grid {
+        grid-template-columns: 1fr;
         text-align: center;
-        gap: 2.5rem;
+        gap: 3rem;
+    }
+
+    footer .footer-links,
+    footer .footer-contact {
+        text-align: center;
+    }
+
+    footer .footer-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     footer .footer-info .logo-img {
@@ -809,6 +822,13 @@ footer {
 
     footer .social-links {
         justify-content: center;
+        gap: 2rem;
+    }
+
+    footer .social-links a {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
     }
 
     footer .footer-contact p {
