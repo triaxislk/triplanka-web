@@ -1,0 +1,505 @@
+/* Trip Planner Custom Styles */
+:root {
+    --planner-bg: #F0F2F5;
+    --wizard-step-bg: rgba(255, 255, 255, 0.7);
+    --wizard-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.planner-page main {
+    padding-top: var(--header-height);
+    background: var(--planner-bg);
+    min-height: 100vh;
+}
+
+.planner-hero {
+    padding: 120px 0 60px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../Images/Site Photos/Sunny beach near Koggala - Sri Lanka The area famous for its distinct stilt fishermen who erect a single pole in the chest-deep water on th.jpg');
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    text-align: center;
+    clip-path: ellipse(150% 100% at 50% 0%);
+}
+
+.planner-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.planner-hero h1 span {
+    color: var(--secondary);
+}
+
+.planner-hero p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+    text-align: center;
+}
+
+/* Wizard Container */
+.wizard-container {
+    background: var(--wizard-step-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 30px;
+    padding: 3rem;
+    margin: -100px auto 60px;
+    box-shadow: var(--wizard-shadow);
+    max-width: 900px;
+    position: relative;
+    z-index: 10;
+    min-height: 600px;
+}
+
+/* Progress Bar */
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+    position: relative;
+    max-width: 100%;
+}
+
+.progress-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #e0e0e0;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: var(--primary);
+    transform: translateY(-50%);
+    z-index: 2;
+    transition: width 0.5s ease;
+}
+
+.step-label {
+    width: 40px;
+    height: 40px;
+    background: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    z-index: 3;
+    position: relative;
+    color: #888;
+    transition: all 0.4s ease;
+}
+
+.step-label::after {
+    content: attr(data-step);
+}
+
+.step-label.active {
+    background: var(--primary);
+    color: var(--white);
+    transform: scale(1.2);
+    box-shadow: 0 0 15px rgba(0, 106, 78, 0.4);
+}
+
+.step-label.completed {
+    background: var(--primary);
+    color: var(--white);
+}
+
+/* Steps */
+.wizard-step {
+    display: none;
+    animation: fadeIn 0.6s ease;
+}
+
+.wizard-step.active {
+    display: block;
+}
+
+.wizard-step h2 {
+    font-size: 2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.step-description {
+    text-align: center;
+    color: #666;
+    margin-bottom: 3rem;
+}
+
+/* Form Groups */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.form-group input[type="number"] {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    display: block;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: 800;
+    font-family: 'Outfit', sans-serif;
+}
+
+/* Option Cards (Vibe) */
+.option-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.option-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.option-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+    display: block;
+}
+
+.option-card span {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.option-card.active {
+    border-color: var(--primary);
+    background: rgba(0, 106, 78, 0.05);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 106, 78, 0.1);
+}
+
+/* Destination Selector */
+.destination-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+}
+
+.dest-select-card {
+    position: relative;
+    height: 140px;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 3px solid transparent;
+}
+
+.dest-select-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.dest-select-card .overlay {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dest-select-card.active {
+    border-color: var(--secondary);
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.dest-select-card.active::before {
+    content: '\f058';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 10px; right: 10px;
+    color: var(--secondary);
+    z-index: 10;
+    font-size: 1.5rem;
+    background: var(--white);
+    border-radius: 50%;
+    line-height: 1;
+}
+
+/* Transport Options */
+.transport-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+.transport-option {
+    background: var(--white);
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+}
+
+.transport-option i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+}
+
+.transport-option h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+}
+
+.transport-option p {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+}
+
+.transport-option.active {
+    border-color: var(--primary);
+    background: rgba(0, 106, 78, 0.05);
+    transform: translateY(-5px);
+}
+
+/* Wizard Navigation */
+.wizard-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.btn-wizard-next, .btn-wizard-prev {
+    padding: 1rem 3rem;
+    border-radius: 50px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-wizard-next {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    box-shadow: 0 5px 15px rgba(0, 106, 78, 0.3);
+}
+
+.btn-wizard-prev {
+    background: transparent;
+    border: 2px solid #ddd;
+    color: #666;
+}
+
+.btn-wizard-next:hover {
+    background: #005a42;
+    transform: translateY(-2px);
+}
+
+/* Itinerary Result Display */
+.itinerary-display {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.itinerary-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px dashed #eee;
+}
+
+.itinerary-day {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.itinerary-day:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 50px;
+    bottom: -30px;
+    width: 2px;
+    background: #eee;
+}
+
+.day-number {
+    width: 45px;
+    height: 45px;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.day-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+}
+
+.day-content .travel-info {
+    font-size: 0.9rem;
+    color: #ce8500;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.day-content .recommendations {
+    background: #fdf8e9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.recommendations h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.rec-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.rec-item a {
+    color: var(--primary);
+    text-decoration: underline;
+}
+
+.itinerary-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .wizard-container {
+        padding: 1.5rem;
+        margin-top: -60px;
+        border-radius: 20px;
+    }
+
+    .option-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .progress-container {
+        margin-bottom: 3rem;
+    }
+
+    .step-label {
+        width: 32px;
+        height: 32px;
+    }
+
+    .itinerary-day {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .itinerary-day::after {
+        display: none;
+    }
+
+    .day-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    .itinerary-actions {
+        flex-direction: column;
+    }
+}
+
+/* Print Styles */
+@media print {
+    header, footer, .wizard-nav, .btn-secondary, .planner-hero, .btn-primary {
+        display: none !important;
+    }
+    .planner-wizard-section {
+        padding: 0 !important;
+    }
+    .wizard-container {
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        border: none !important;
+    }
+    .wizard-step {
+        display: none !important;
+    }
+    .wizard-step#step4 {
+        display: block !important;
+    }
+}

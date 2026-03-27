@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Planner | TripLanka - Plan Your Perfect Journey</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../Images/Logos/Logo Without Background.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Icon Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/planner.css">
+</head>
+<body class="planner-page">
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="guide.html">Travel Guide</a></li>
+                <li><a href="travel-info.html">Travel Information</a></li>
+                <li class="dropdown">
+                    <a href="plans.html">Touring Plans <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
+                        <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
+                        <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
+                        <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
+                        <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
+                        <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
+                        <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
+                    </ul>
+                </li>
+                <li><a href="planner.html" class="active">Trip Planner</a></li>
+                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li><a href="contact.html" class="btn-primary">Connect</a></li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="planner-hero">
+            <div class="container text-center">
+                <h1 class="fade-in">Design Your <span>Dream Trip</span></h1>
+                <p class="fade-in delay-1">Build your unique Sri Lankan itinerary in seconds. Choose your vibe, pick your stops, and we'll handle the distances.</p>
+            </div>
+        </section>
+
+        <section class="planner-wizard-section">
+            <div class="container">
+                <div class="wizard-container fade-in delay-2">
+                    <!-- Progress Bar -->
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                        <div class="step-label active" data-step="1">Essentials</div>
+                        <div class="step-label" data-step="2">Destinations</div>
+                        <div class="step-label" data-step="3">Logistics</div>
+                        <div class="step-label" data-step="4">Itinerary</div>
+                    </div>
+
+                    <form id="tripPlannerForm">
+                        <!-- Step 1: Essentials -->
+                        <div class="wizard-step active" id="step1">
+                            <h2>The Basics</h2>
+                            <p class="step-description">Tell us a bit about your travel style.</p>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label>How many days?</label>
+                                    <input type="number" id="tripDuration" min="1" max="30" value="7">
+                                </div>
+                                <div class="form-group">
+                                    <label>What's your vibe?</label>
+                                    <div class="option-grid">
+                                        <div class="option-card active" data-value="leisure">
+                                            <i class="fas fa-umbrella-beach"></i>
+                                            <span>Leisure</span>
+                                        </div>
+                                        <div class="option-card" data-value="adventure">
+                                            <i class="fas fa-hiking"></i>
+                                            <span>Adventure</span>
+                                        </div>
+                                        <div class="option-card" data-value="culture">
+                                            <i class="fas fa-temple"></i>
+                                            <span>Culture</span>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" id="tripVibe" value="leisure">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Step 2: Destinations -->
+                        <div class="wizard-step" id="step2">
+                            <h2>Choose Your Stops</h2>
+                            <p class="step-description">Select the hubs you want to visit (Max 6 for best experience).</p>
+                            <div class="destination-selector-grid" id="destinationGrid">
+                                <!-- Dynamic Destinations -->
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Logistics -->
+                        <div class="wizard-step" id="step3">
+                            <h2>How will you travel?</h2>
+                            <p class="step-description">Choose your preferred mode of transportation.</p>
+                            <div class="transport-grid">
+                                <div class="transport-option" data-value="driver">
+                                    <i class="fas fa-car-side"></i>
+                                    <h3>Private Driver</h3>
+                                    <p>Safe, comfortable, and personalized. Best for families.</p>
+                                </div>
+                                <div class="transport-option active" data-value="self-drive">
+                                    <i class="fas fa-steering-wheel"></i>
+                                    <h3>Self-Drive Car</h3>
+                                    <p>Ultimate freedom to explore at your own pace.</p>
+                                </div>
+                                <div class="transport-option" data-value="public">
+                                    <i class="fas fa-train"></i>
+                                    <h3>Train & Bus</h3>
+                                    <p>The local experience. Scenic but requires patience.</p>
+                                </div>
+                            </div>
+                            <input type="hidden" id="transportType" value="self-drive">
+                        </div>
+
+                        <!-- Step 4: Final Itinerary -->
+                        <div class="wizard-step" id="step4">
+                            <h2>Your Custom Itinerary</h2>
+                            <div id="itineraryResult" class="itinerary-display">
+                                <!-- Generated Content -->
+                            </div>
+                            <div class="itinerary-actions">
+                                <button type="button" class="btn-secondary" onclick="window.print()">
+                                    <i class="fas fa-print"></i> Print / Save as PDF
+                                </button>
+                                <a href="planner.html" class="btn-primary">Start New Plan</a>
+                            </div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="wizard-nav">
+                            <button type="button" class="btn-wizard-prev" id="prevBtn" style="display:none;">Back</button>
+                            <button type="button" class="btn-wizard-next" id="nextBtn">Continue</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container text-center">
+            <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 2rem;">
+            <p>&copy; 2026 TripLanka - Plan Your Own Way.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/planner.js"></script>
+</body>
+</html>
