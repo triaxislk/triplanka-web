@@ -41,7 +41,9 @@ h1, h2, h3, h4 {
 }
 
 p {
-    text-align: justify;
+    text-align: left;
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
 }
 
 a {
@@ -282,16 +284,16 @@ nav {
 }
 
 .hero p {
-    font-size: 1.3rem;
-    max-width: 800px;
-    margin: 0 auto 2.5rem;
+    font-size: 1.1rem;
+    max-width: 90%;
+    margin: 0 auto 2rem;
     opacity: 0.9;
     text-align: center;
 }
 
 /* --- Sections --- */
 section {
-    padding: 100px 0;
+    padding: 60px 0;
 }
 
 .cta p {
@@ -601,10 +603,16 @@ footer {
     }
 
     .nav-links a {
-        color: var(--text-dark) !important;
+        color: var(--text-dark);
         width: 100%;
         justify-content: space-between;
         padding: 0.5rem 0;
+    }
+
+    .nav-links a.btn-primary {
+        color: var(--white) !important;
+        justify-content: center;
+        margin-top: 1rem;
     }
 }
 
@@ -802,12 +810,22 @@ footer {
     footer .footer-grid {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 3rem;
+        gap: 2rem;
     }
 
     footer .footer-links,
     footer .footer-contact {
         text-align: center;
+        margin-top: 2rem;
+    }
+
+    footer .footer-links h3, 
+    footer .footer-contact h3 {
+        color: var(--white) !important;
+        margin-bottom: 1.5rem;
+        display: block !important;
+        visibility: visible !important;
+        font-weight: 700;
     }
 
     footer .footer-links ul {
@@ -836,5 +854,28 @@ footer {
         justify-content: center;
         align-items: center;
         gap: 0.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    /* Shrink Cards for Mobile Lineup */
+    .dest-card {
+        height: 260px;
+    }
+
+    .dest-info h3 {
+        font-size: 1.2rem;
+    }
+
+    .section-title h2 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
+
+    .destinations-grid, .services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
     }
 }
