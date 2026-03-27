@@ -1,4 +1,4 @@
-/* Trip Planner Logic Engine v2.0 - Full 14 Regions & 7 Categories */
+/* Trip Planner Logic Engine v3.0 - Stay Preference & Intelligent Filters */
 document.addEventListener('DOMContentLoaded', () => {
     // --- Configuration & Data ---
     const distances = {
@@ -36,20 +36,54 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const hotelRegistry = {
-        'Negombo': 'Jetwing Blue',
-        'Colombo': 'The Kingsbury Colombo',
-        'Kandy': 'Earls Regency Kandy',
-        'Sigiriya': 'Aliya Resort & Spa',
-        'Rathnapura': 'The Grand Guardian',
-        'Nuwara Eliya': 'The Grand Hotel',
-        'Ella': '98 Acres Resort & Spa',
-        'Galle': 'Le Grand Galle',
-        'Hambantota': 'Shangri-La Hambantota',
-        'Polonnaruwa': 'The Jetwing Lake',
-        'Anuradhapura': 'Heritage Hotel',
-        'Batticaloa': 'Uga Bay by Uga Escapes',
-        'Trincomalee': 'Trinco Blu by Cinnamon',
-        'Jaffna': 'Jetwing Jaffna'
+        'luxury': {
+            'Negombo': 'Jetwing Blue',
+            'Colombo': 'The Kingsbury Colombo',
+            'Kandy': 'Earls Regency Kandy',
+            'Sigiriya': 'Aliya Resort & Spa',
+            'Rathnapura': 'The Grand Guardian',
+            'Nuwara Eliya': 'The Grand Hotel',
+            'Ella': '98 Acres Resort & Spa',
+            'Galle': 'Le Grand Galle',
+            'Hambantota': 'Shangri-La Hambantota',
+            'Polonnaruwa': 'The Jetwing Lake',
+            'Anuradhapura': 'Heritage Hotel',
+            'Batticaloa': 'Uga Bay by Uga Escapes',
+            'Trincomalee': 'Trinco Blu by Cinnamon',
+            'Jaffna': 'Jetwing Jaffna'
+        },
+        'mid': {
+            'Negombo': 'Heritance Negombo',
+            'Colombo': 'Fairway Colombo',
+            'Kandy': 'Hotel Suisse',
+            'Sigiriya': 'Hotel Sigiriya',
+            'Rathnapura': 'Rathna Gem Mansion',
+            'Nuwara Eliya': 'Jetwing St. Andrews',
+            'Ella': 'Flower Garden Resort',
+            'Galle': 'Fort Bliss',
+            'Hambantota': 'The Peacock Beach',
+            'Polonnaruwa': 'Suduaraliya',
+            'Anuradhapura': 'The Sanctuary at Tissawewa',
+            'Batticaloa': 'Riviera Resort',
+            'Trincomalee': 'Nilaveli Beach Hotel',
+            'Jaffna': 'The Tilko'
+        },
+        'budget': {
+            'Negombo': 'Backpack Lanka Negombo',
+            'Colombo': 'Clock Inn Colombo',
+            'Kandy': 'Kandy Backpackers',
+            'Sigiriya': 'Lions Rock Hostel',
+            'Rathnapura': 'Gem Garden Lodge',
+            'Nuwara Eliya': 'Lords Inn',
+            'Ella': 'Tunnel Gap Homestay',
+            'Galle': 'Galle Fort Hostel',
+            'Hambantota': 'Safari Lodge',
+            'Polonnaruwa': 'Archeo Guesthouse',
+            'Anuradhapura': 'London Palace',
+            'Batticaloa': 'Beach Hut',
+            'Trincomalee': 'Trinco Backpackers',
+            'Jaffna': 'Jaffna Heritage Home'
+        }
     };
 
     // --- State ---
@@ -66,6 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const destGrid = document.getElementById('destinationGrid');
     const vibeCards = document.querySelectorAll('.option-card');
     const transportOptions = document.querySelectorAll('.transport-option');
+    const stayCards = document.querySelectorAll('.stay-card');
 
     // --- Initialization ---
     function init() {
@@ -163,17 +198,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    stayCards.forEach(card => {
+        card.addEventListener('click', () => {
+            stayCards.forEach(c => c.classList.remove('active'));
+            card.classList.add('active');
+            document.getElementById('stayPref').value = card.dataset.value;
+        });
+    });
+
     // --- Generator Engine ---
     function generateItinerary() {
         const days = parseInt(document.getElementById('tripDuration').value);
         const transport = document.getElementById('transportType').value;
         const vibe = document.getElementById('tripVibe').value;
+        const stay = document.getElementById('stayPref').value;
         const resultContainer = document.getElementById('itineraryResult');
 
         let html = `
             <div class="itinerary-header">
                 <h2>Your Custom ${vibe.replace('-', ' ').toUpperCase()} Journey</h2>
-                <p>Mode: <strong>${transport.replace('-', ' ')}</strong> | Duration: <strong>${days} Days</strong></p>
+                <p>Mode: <strong>${transport.replace('-', ' ')}</strong> | Accommodation: <span style="color:var(--secondary); font-weight:bold;">${stay.replace('mid', 'Mid-Range').toUpperCase()} Selection</span></p>
+                <p>Duration: <strong>${days} Days</strong></p>
                 <p>Route Overview: ${selectedDests.join(' → ')}</p>
             </div>
         `;
@@ -197,11 +242,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const dayLabel = daysHere > 1 ? `Days ${dayCounter}-${dayCounter + daysHere - 1}` : `Day ${dayCounter}`;
             dayCounter += daysHere;
 
-            // Triple Recommendation Logic
-            const hotelName = hotelRegistry[dest];
-            const bookingLink = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(hotelName + ' Sri Lanka')}`;
-            const tripadvisorLink = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(hotelName)}`;
-            const airbnbLink = `https://www.airbnb.com/s/${encodeURIComponent(dest + ' Sri Lanka')}/homes`;
+            // Smart Link Filter Construction
+            const hotelName = hotelRegistry[stay][dest];
+            let bookingParams = "";
+            let taParams = "";
+
+            if (stay === 'luxury') {
+                bookingParams = "&nflt=class%3D5&sort_by=popularity";
+                taParams = "&attrs=hotel_class_5";
+            } else if (stay === 'mid') {
+                bookingParams = "&nflt=class%3D4&sort_by=popularity";
+                taParams = "&attrs=hotel_class_4";
+            } else {
+                // Budget: Sort by price low to high
+                bookingParams = "&nflt=class%3D3%3Bclass%3D2%3Bpri%3D1&sort_by=price_asc";
+                taParams = "&attrs=hotel_class_3&sort_by=price_low_to_high";
+            }
+
+            const bookingLink = `https://www.booking.com/searchresults.html?ss=${encodeURIComponent(hotelName + ' ' + dest + ' Sri Lanka')}${bookingParams}`;
+            const tripadvisorLink = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(hotelName + ' ' + dest)}${taParams}`;
+            const airbnbLink = `https://www.airbnb.com/s/${encodeURIComponent(dest + ' Sri Lanka')}/homes?refinement_paths[]=%2Fhomes${stay==='luxury' ? '&room_types[]=Entire%20home/apt' : ''}`;
 
             html += `
                 <div class="itinerary-day">
@@ -212,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>${destInfo.desc} A perfect choice for your ${vibe} experience. Immerse yourself in the local atmosphere and explore the unique landmarks of ${dest}.</p>
                         
                         <div class="recommendations">
-                            <h4>Comparison: Trustable Stays in ${dest}</h4>
+                            <h4>Comparison: ${stay.toUpperCase()} Selection in ${dest}</h4>
                             <div class="rec-item">
                                 <div class="rec-header"><i class="fas fa-hotel"></i> ${hotelName}</div>
                                 <div class="rec-links">

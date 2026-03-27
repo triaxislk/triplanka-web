@@ -127,25 +127,52 @@
                         <!-- Step 3: Logistics -->
                         <div class="wizard-step" id="step3">
                             <h2>How will you travel?</h2>
-                            <p class="step-description">Choose your preferred mode of transportation.</p>
-                            <div class="transport-grid">
-                                <div class="transport-option" data-value="driver">
-                                    <i class="fas fa-car-side"></i>
-                                    <h3>Private Driver</h3>
-                                    <p>Safe, comfortable, and personalized. Best for families.</p>
+                            <p class="step-description">Choose your preferred mode of transportation and comfort level.</p>
+                            
+                            <div class="form-group" style="margin-top: 2rem;">
+                                <label>Preferred Mode of Transport</label>
+                                <div class="transport-grid">
+                                    <div class="transport-option" data-value="driver">
+                                        <i class="fas fa-car-side"></i>
+                                        <h3>Private Driver</h3>
+                                        <p>Safe, comfortable, and personalized. Best for families.</p>
+                                    </div>
+                                    <div class="transport-option active" data-value="self-drive">
+                                        <i class="fas fa-steering-wheel"></i>
+                                        <h3>Self-Drive Car</h3>
+                                        <p>Ultimate freedom to explore at your own pace.</p>
+                                    </div>
+                                    <div class="transport-option" data-value="public">
+                                        <i class="fas fa-train"></i>
+                                        <h3>Train & Bus</h3>
+                                        <p>The local experience. Scenic but requires patience.</p>
+                                    </div>
                                 </div>
-                                <div class="transport-option active" data-value="self-drive">
-                                    <i class="fas fa-steering-wheel"></i>
-                                    <h3>Self-Drive Car</h3>
-                                    <p>Ultimate freedom to explore at your own pace.</p>
-                                </div>
-                                <div class="transport-option" data-value="public">
-                                    <i class="fas fa-train"></i>
-                                    <h3>Train & Bus</h3>
-                                    <p>The local experience. Scenic but requires patience.</p>
-                                </div>
+                                <input type="hidden" id="transportType" value="self-drive">
                             </div>
-                            <input type="hidden" id="transportType" value="self-drive">
+
+                            <!-- NEW: Stay Preference -->
+                            <div class="form-group" style="margin-top: 3rem;">
+                                <label>What's your stay preference?</label>
+                                <div class="stay-grid">
+                                    <div class="stay-card" data-value="luxury">
+                                        <i class="fas fa-gem"></i>
+                                        <span>Luxury (5★)</span>
+                                        <small>Premium Resorts & Villas</small>
+                                    </div>
+                                    <div class="stay-card active" data-value="mid">
+                                        <i class="fas fa-star"></i>
+                                        <span>Mid-Range (4★)</span>
+                                        <small>Boutique & Standard Hotels</small>
+                                    </div>
+                                    <div class="stay-card" data-value="budget">
+                                        <i class="fas fa-wallet"></i>
+                                        <span>Budget (3★)</span>
+                                        <small>Sorted: Low to High Price</small>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="stayPref" value="mid">
+                            </div>
                         </div>
 
                         <!-- Step 4: Final Itinerary -->
@@ -182,6 +209,6 @@
 
     <!-- Scripts -->
     <script src="../js/main.js"></script>
-    <script src="../js/planner.js?v=2.2"></script>
+    <script src="../js/planner.js?v=3.0"></script>
 </body>
 </html>

@@ -308,6 +308,54 @@
     transform: translateY(-5px);
 }
 
+/* Stay Preference Cards */
+.stay-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stay-card {
+    background: var(--white);
+    padding: 2rem 1rem;
+    border-radius: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: var(--transition);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stay-card i {
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.stay-card span {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.stay-card small {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.stay-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.stay-card.active {
+    border-color: var(--primary);
+    background: rgba(0, 106, 78, 0.05);
+}
+
 /* Wizard Navigation */
 .wizard-nav {
     display: flex;
