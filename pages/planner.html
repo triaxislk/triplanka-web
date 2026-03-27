@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/planner.css?v=2.1">
+    <link rel="stylesheet" href="../css/planner.css?v=4.0">
 </head>
 <body class="planner-page">
     <header>
@@ -75,12 +75,19 @@
                             <p class="step-description">Tell us a bit about your travel style.</p>
                             <div class="form-grid">
                                 <div class="form-group">
+                                    <label>Where do you start?</label>
+                                    <select id="startPoint" style="width: 100%; border-radius: 12px; border: 1px solid #ddd; padding: 0.8rem; font-family: inherit;">
+                                        <option value="Airport (CMB)" selected>Colombo Airport (CMB)</option>
+                                        <option value="Colombo">Colombo City</option>
+                                        <option value="Negombo">Negombo City</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label>How many days?</label>
                                     <input type="number" id="tripDuration" min="1" max="30" value="7">
                                 </div>
-                                <div class="form-group">
-                                    <label>What's your vibe?</label>
-                                    <div class="option-grid">
+                            </div>
+                            <div class="form-group" style="margin-top: 2rem;">
                                         <div class="option-card" data-value="solo-female">
                                             <i class="fas fa-female"></i>
                                             <span>Solo Female</span>
@@ -209,6 +216,6 @@
 
     <!-- Scripts -->
     <script src="../js/main.js"></script>
-    <script src="../js/planner.js?v=3.0"></script>
+    <script src="../js/planner_v4.js"></script>
 </body>
 </html>
