@@ -840,13 +840,13 @@ footer {
 
     footer .social-links {
         justify-content: center;
-        gap: 2rem;
+        gap: 1.5rem;
     }
 
-    footer .social-links a {
-        width: 48px;
-        height: 48px;
-        font-size: 1.3rem;
+    footer .footer-info p {
+        text-align: center;
+        margin: 1.5rem auto 0;
+        max-width: 90%;
     }
 
     footer .footer-contact p {
