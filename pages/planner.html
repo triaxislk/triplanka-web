@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/planner.css">
+    <link rel="stylesheet" href="../css/planner.css?v=2.1">
 </head>
 <body class="planner-page">
     <header>
@@ -81,17 +81,33 @@
                                 <div class="form-group">
                                     <label>What's your vibe?</label>
                                     <div class="option-grid">
+                                        <div class="option-card" data-value="solo-female">
+                                            <i class="fas fa-female"></i>
+                                            <span>Solo Female</span>
+                                        </div>
+                                        <div class="option-card" data-value="solo-male">
+                                            <i class="fas fa-male"></i>
+                                            <span>Solo Male</span>
+                                        </div>
                                         <div class="option-card active" data-value="leisure">
                                             <i class="fas fa-umbrella-beach"></i>
                                             <span>Leisure</span>
+                                        </div>
+                                        <div class="option-card" data-value="honeymoon">
+                                            <i class="fas fa-heart"></i>
+                                            <span>Honeymoon</span>
+                                        </div>
+                                        <div class="option-card" data-value="wildlife">
+                                            <i class="fas fa-paw"></i>
+                                            <span>Wildlife</span>
                                         </div>
                                         <div class="option-card" data-value="adventure">
                                             <i class="fas fa-hiking"></i>
                                             <span>Adventure</span>
                                         </div>
-                                        <div class="option-card" data-value="culture">
-                                            <i class="fas fa-temple"></i>
-                                            <span>Culture</span>
+                                        <div class="option-card" data-value="surfing">
+                                            <i class="fas fa-water"></i>
+                                            <span>Sea Surfing</span>
                                         </div>
                                     </div>
                                     <input type="hidden" id="tripVibe" value="leisure">
@@ -166,6 +182,6 @@
 
     <!-- Scripts -->
     <script src="../js/main.js"></script>
-    <script src="../js/planner.js"></script>
+    <script src="../js/planner.js?v=2.2"></script>
 </body>
 </html>

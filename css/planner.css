@@ -176,13 +176,13 @@
 /* Option Cards (Vibe) */
 .option-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1rem;
 }
 
 .option-card {
     background: var(--white);
-    padding: 2rem;
+    padding: 1.5rem 1rem;
     border-radius: 20px;
     text-align: center;
     cursor: pointer;
@@ -192,8 +192,8 @@
 }
 
 .option-card i {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
     color: var(--primary);
     display: block;
 }
@@ -412,32 +412,73 @@
 }
 
 .recommendations h4 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #888;
-    margin-bottom: 1rem;
+    color: #444;
+    margin-bottom: 1.25rem;
 }
 
 .rec-item {
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 0.95rem;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: var(--white);
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-.rec-item a {
+.rec-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 700;
     color: var(--primary);
-    text-decoration: underline;
 }
+
+.rec-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.rec-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.6rem 0.4rem;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.rec-links .booking { background: #003580; color: white; }
+.rec-links .tripadvisor { background: #34E0A1; color: #000; }
+.rec-links .airbnb { background: #FF5A5F; color: white; }
+
+.rec-links a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.rec-links a i { font-size: 0.9rem; }
 
 .itinerary-actions {
     display: flex;
     justify-content: center;
     gap: 1rem;
     margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+    .rec-links {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Mobile Adjustments */
