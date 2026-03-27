@@ -68,6 +68,15 @@ img {
     padding-right: 2rem;
 }
 
+@media (max-width: 992px) {
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
 /* --- Buttons --- */
 .btn-primary {
     display: inline-block;
@@ -808,15 +817,17 @@ footer {
     }
 
     footer .footer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         text-align: center;
         gap: 2rem;
+        width: 100% !important;
     }
 
     footer .footer-links,
     footer .footer-contact {
         text-align: center;
         margin-top: 2rem;
+        width: 100% !important;
     }
 
     footer .footer-links h3, 
@@ -826,12 +837,14 @@ footer {
         display: block !important;
         visibility: visible !important;
         font-weight: 700;
+        text-align: center !important;
     }
 
     footer .footer-links ul {
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100% !important;
     }
 
     footer .footer-info .logo-img {
@@ -843,19 +856,20 @@ footer {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        width: 100%;
+        width: 100% !important;
     }
 
     footer .footer-info p {
         text-align: center !important;
         margin: 1.5rem auto 0 !important;
-        max-width: 90%;
+        max-width: 95% !important;
     }
 
     footer .social-links {
         justify-content: center !important;
         width: 100% !important;
-        gap: 1.5rem;
+        gap: 1.25rem !important;
+        flex-wrap: wrap !important;
     }
 
     footer .footer-contact p {
@@ -864,11 +878,15 @@ footer {
         align-items: center;
         gap: 0.5rem;
         margin-bottom: 0.8rem;
+        width: 100% !important;
     }
 
-    /* Shrink Cards for Mobile Lineup */
+    /* Shrink Cards & Grids for Mobile Lineup */
     .dest-card {
-        height: 260px;
+        height: 250px;
+        width: 100% !important;
+        max-width: 320px;
+        margin: 0 auto;
     }
 
     .dest-info h3 {
@@ -876,15 +894,72 @@ footer {
     }
 
     .section-title h2 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        text-align: center !important;
     }
 
     section {
-        padding: 60px 20px;
+        padding: 40px 0 !important;
+        width: 100% !important;
+        overflow: hidden;
     }
 
-    .destinations-grid, .services-grid {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
+    .destinations-grid, .services-grid, .about-grid, .booking-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        width: 100% !important;
+    }
+
+    .about-text {
+        text-align: center !important;
+        order: 1;
+    }
+
+    .about-text p {
+        text-align: center !important;
+    }
+
+    .about-image {
+        order: 2;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .service-card {
+        padding: 2.5rem 1.5rem !important;
+        width: 100% !important;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .hero-content {
+        width: 100% !important;
+        padding: 0 1rem !important;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+
+    .hero p {
+        font-size: 1rem !important;
+        max-width: 100% !important;
+        padding: 0 5%;
+    }
+
+    .hero-btns {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100% !important;
+        max-width: 250px;
+        padding: 0.8rem 1.5rem !important;
+        text-align: center;
     }
 }
