@@ -62,10 +62,22 @@
                     <!-- Progress Bar -->
                     <div class="progress-container">
                         <div class="progress-bar" id="progressBar"></div>
-                        <div class="step-label active" data-step="1">Essentials</div>
-                        <div class="step-label" data-step="2">Destinations</div>
-                        <div class="step-label" data-step="3">Logistics</div>
-                        <div class="step-label" data-step="4">Itinerary</div>
+                        <div class="step-indicator active" data-step="1">
+                            <div class="step-dot">1</div>
+                            <span class="step-text">Essentials</span>
+                        </div>
+                        <div class="step-indicator" data-step="2">
+                            <div class="step-dot">2</div>
+                            <span class="step-text">Destinations</span>
+                        </div>
+                        <div class="step-indicator" data-step="3">
+                            <div class="step-dot">3</div>
+                            <span class="step-text">Logistics</span>
+                        </div>
+                        <div class="step-indicator" data-step="4">
+                            <div class="step-dot">4</div>
+                            <span class="step-text">Itinerary</span>
+                        </div>
                     </div>
 
                     <form id="tripPlannerForm">
@@ -76,11 +88,16 @@
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label>Where do you start?</label>
-                                    <select id="startPoint" style="width: 100%; border-radius: 12px; border: 1px solid #ddd; padding: 0.8rem; font-family: inherit;">
-                                        <option value="Airport (CMB)" selected>Colombo Airport (CMB)</option>
-                                        <option value="Colombo">Colombo City</option>
-                                        <option value="Negombo">Negombo City</option>
-                                    </select>
+                                    <div class="search-dropdown" id="startPointDropdown">
+                                        <div class="search-input-container">
+                                            <i class="fas fa-search"></i>
+                                            <input type="text" id="startPointSearch" placeholder="Where do you start? (e.g. Colombo, CMB Airport...)" autocomplete="off">
+                                        </div>
+                                        <div class="dropdown-list" id="startPointList">
+                                            <!-- Dynamic items -->
+                                        </div>
+                                        <input type="hidden" id="startPoint" value="Airport (CMB)">
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label>How many days?</label>
@@ -88,34 +105,36 @@
                                 </div>
                             </div>
                             <div class="form-group" style="margin-top: 2rem;">
-                                        <div class="option-card" data-value="solo-female">
-                                            <i class="fas fa-female"></i>
-                                            <span>Solo Female</span>
-                                        </div>
-                                        <div class="option-card" data-value="solo-male">
-                                            <i class="fas fa-male"></i>
-                                            <span>Solo Male</span>
-                                        </div>
-                                        <div class="option-card active" data-value="leisure">
-                                            <i class="fas fa-umbrella-beach"></i>
-                                            <span>Leisure</span>
-                                        </div>
-                                        <div class="option-card" data-value="honeymoon">
-                                            <i class="fas fa-heart"></i>
-                                            <span>Honeymoon</span>
-                                        </div>
-                                        <div class="option-card" data-value="wildlife">
-                                            <i class="fas fa-paw"></i>
-                                            <span>Wildlife</span>
-                                        </div>
-                                        <div class="option-card" data-value="adventure">
-                                            <i class="fas fa-hiking"></i>
-                                            <span>Adventure</span>
-                                        </div>
-                                        <div class="option-card" data-value="surfing">
-                                            <i class="fas fa-water"></i>
-                                            <span>Sea Surfing</span>
-                                        </div>
+                                <div class="option-grid">
+                                    <div class="option-card" data-value="cultural">
+                                        <i class="fas fa-landmark"></i>
+                                        <span>Cultural</span>
+                                    </div>
+                                    <div class="option-card" data-value="family">
+                                        <i class="fas fa-users-viewfinder"></i>
+                                        <span>Family</span>
+                                    </div>
+                                    <div class="option-card active" data-value="leisure">
+                                        <i class="fas fa-umbrella-beach"></i>
+                                        <span>Leisure</span>
+                                    </div>
+                                    <div class="option-card" data-value="honeymoon">
+                                        <i class="fas fa-heart"></i>
+                                        <span>Honeymoon</span>
+                                    </div>
+                                    <div class="option-card" data-value="wildlife">
+                                        <i class="fas fa-paw"></i>
+                                        <span>Wildlife</span>
+                                    </div>
+                                    <div class="option-card" data-value="adventure">
+                                        <i class="fas fa-hiking"></i>
+                                        <span>Adventure</span>
+                                    </div>
+                                    <div class="option-card" data-value="surfing">
+                                        <i class="fas fa-water"></i>
+                                        <span>Sea Surfing</span>
+                                    </div>
+                                </div>
                                     </div>
                                     <input type="hidden" id="tripVibe" value="leisure">
                                 </div>
@@ -124,8 +143,8 @@
 
                         <!-- Step 2: Destinations -->
                         <div class="wizard-step" id="step2">
-                            <h2>Choose Your Stops</h2>
-                            <p class="step-description">Select the hubs you want to visit (Max 6 for best experience).</p>
+                            <h2 id="destStepTitle">Destination Picks</h2>
+                            <p class="step-description" id="destStepDesc">Select the hubs you'd like to include in your journey.</p>
                             <div class="destination-selector-grid" id="destinationGrid">
                                 <!-- Dynamic Destinations -->
                             </div>
