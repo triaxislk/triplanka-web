@@ -150,34 +150,70 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             id: 'Negombo', 
             name: 'Negombo', 
-            img: '../Images/Site Photos/Beautiful Tropical Beach In Kalpitiya Sri Lanka. These boats used to take people to watch dolphins.jpg', 
+            img: '../Images/Site Photos/Town/Negombo.jpg', 
             desc: 'The Golden Coastal Gateway.', 
-            cat: ['leisure', 'cultural', 'family', 'honeymoon', 'wildlife', 'adventure'], 
-            reason: 'Perfect for a smooth start or end to your journey. Enjoy sunset catamaran rides, explore the Dutch Canal, or venture north to Kalpitiya for world-class whale watching for a truly effortless coastal escape.' 
+            cat: ['leisure', 'cultural', 'family', 'honeymoon', 'wildlife', 'adventure', 'surfing'], 
+            attribution: '',
+            reasons: {
+                leisure: 'The perfect spot to unwind after your flight. Indulge in premium Ayurvedic spas and luxury beach resorts with stunning sunset views over the Indian Ocean.',
+                cultural: 'Explore the colonial-era Dutch Fort and the historic St. Mary’s Church. The 100km-long Dutch Canal offers a unique glimpse into the city’s trade history.',
+                family: 'Extremely family-friendly with its calm lagoons and safe beaches. Enjoy a relaxed boat ride in the Muthurajawela Marsh or the historic Dutch Canal.',
+                honeymoon: 'Romantic sunset catamaran rides and private dinners on the golden sands make Negombo a quiet and intimate escape for couples.',
+                wildlife: 'Visit the Muthurajawela Wetlands to spot exotic birds and monitor lizards, or venture north to Kalpitiya for world-class whale and dolphin watching.',
+                adventure: 'Try kitesurfing in the lagoon or take a diving trip to explore the nearby shipwrecks and vibrant coral reefs just off the coast.',
+                surfing: 'Mainly a hub for kitesurfing due to the lagoon winds, but offers access to hidden northern surf spots for those seeking a unique wave.'
+            }
         },
         { 
             id: 'Colombo', 
             name: 'Colombo', 
-            img: '../Images/Site Photos/Aerial view of the Lotus Tower in Colombo at sunset.jpg', 
+            img: '../Images/Site Photos/Town/Colombo.jpg', 
             desc: 'The Island’s Vibrant Metropolis.', 
             cat: ['leisure', 'cultural', 'family', 'honeymoon'], 
-            reason: 'A seamless blend of colonial heritage and modern luxury. From high-end shopping and rooftop dining to historic walks through the Fort, it’s the heartbeat of Sri Lanka’s modern culture.' 
+            attribution: '',
+            reasons: {
+                leisure: 'Experience the sophisticated side of the island. Enjoy high-end shopping at One Galle Face and cocktails at legendary colonial rooftop bars.',
+                cultural: 'The heart of heritage. Visit the National Museum, admire the Gangarama Temple, and wander through the historic architecture of the Fort district.',
+                family: 'Endless fun for kids at Viharamahadevi Park, the Planetarium, and the vibrant Lotus Tower. Modern shopping malls offer world-class entertainment.',
+                honeymoon: 'Celebrate with Michelin-star dining and romantic walks along the Galle Face Green as the sun sets over the Indian Ocean.',
+                wildlife: 'A surprisingly green city. Visit the Talangama Wetlands for birdwatching or explore the nearby Dehiwala National Zoo for an afternoon of wildlife.',
+                adventure: 'Urban adventure at its best. Join a night cycling tour through the city or try urban water sports at the historic Beira Lake.',
+                surfing: 'While not a surf hub itself, Colombo’s Mount Lavinia beach offers a great coastal atmosphere and occasional waves for beginners.'
+            }
         },
         { 
             id: 'Kandy', 
             name: 'Kandy', 
-            img: '../Images/Site Photos/Aerial view of the Temple of the Sacred Tooth Relic Dalada Maligawa and Kandy Lake in Kandy.jpg', 
+            img: '../Images/Site Photos/Town/Kandy -Photo by Chathura Anuradha Subasinghe -.jpg', 
             desc: 'The Sacred Hill Capital.', 
             cat: ['leisure', 'cultural', 'family', 'adventure', 'honeymoon'], 
-            reason: 'The spiritual soul of the island. Witness the majesty of the Temple of the Tooth and retreat into the misty Knuckles Range for a perfect balance of culture and quiet adventure.' 
+            attribution: 'Chathura Anuradha Subasinghe',
+            reasons: {
+                leisure: 'Escape into the misty hill country. Stay in boutique manor houses and enjoy the cool, refreshing mountain air away from the tropical heat.',
+                cultural: 'The spiritual capital. Witness the majesty of the sacred Tooth Relic at the Dalada Maligawa and experience vibrant Kandyan traditional dances.',
+                family: 'Perfect for all ages. Explore the massive Peradeniya Royal Botanical Gardens and take a scenic walk around the serene Kandy Lake.',
+                honeymoon: 'The mist-covered hills are peak romance. Private villa stays with views of the Knuckles Range offer the ultimate secluded getaway for two.',
+                wildlife: 'Hike through the Udawattakele Sanctuary within the city to see giant creepers, rare birds, and playful macaques in their natural forest home.',
+                adventure: 'The gateway to the Knuckles Mountain Range. Embark on rugged treks, waterfall chases, and camping adventures under the forest stars.',
+                surfing: 'Located in the central highlands, Kandy swaps the ocean waves for river adventures and mountain thrills in the mist.'
+            }
         },
         { 
             id: 'Sigiriya', 
             name: 'Sigiriya', 
-            img: '../Images/Site Photos/Full shot of Sigiriya Rock Fortress with lush greenery and gardens in the foreground.jpg', 
+            img: '../Images/Site Photos/Town/Sigiriya - Photo by Dylan Shaw.jpg', 
             desc: 'Majesty of the Ancient World.', 
             cat: ['leisure', 'cultural', 'family', 'wildlife', 'adventure', 'honeymoon'], 
-            reason: 'Home to the iconic Lions Rock and the ancient Dambulla Cave Temples. This is where history meets nature, offering breathtaking views and the chance to see wild elephants in their natural habitat.' 
+            attribution: 'Dylan Shaw',
+            reasons: {
+                leisure: 'Relax in world-class eco-resorts with views of the rock. Many hotels feature stunning infinity pools that blend seamlessly into the surrounding jungle.',
+                cultural: 'Climb the "Lion Rock," a UNESCO masterpiece of urban planning and art, and explore the nearby ancient Dambulla Cave Temples.',
+                family: 'A history lesson come to life. Enjoy a traditional village cart ride and see the spectacular "Gathering" of wild elephants in nearby Minneriya.',
+                honeymoon: 'Wake up to a private breakfast overlooking the Sigiriya Rock. The area’s luxury forest chalets offer unmatched privacy and romantic vibes.',
+                wildlife: 'The King of elephant sightings. Take a safari to Minneriya or Kaudulla National Parks to see hundreds of elephants in their natural habitat.',
+                adventure: 'Hike up Pidurangala Rock at sunrise for the best view of Sigiriya, or take a breathtaking hot air balloon ride over the ancient landscape.',
+                surfing: 'A landlocked cultural treasure, Sigiriya swaps the waves for ancient heights and lush forest expeditions in the heart of the island.'
+            }
         },
         { 
             id: 'Rathnapura', 
@@ -185,86 +221,176 @@ document.addEventListener('DOMContentLoaded', () => {
             img: '../Images/Site Photos/Sri-Lanka-flag.jpg', 
             desc: 'The Gem City & Rainforest Gateway.', 
             cat: ['cultural', 'adventure', 'wildlife'], 
-            reason: 'The island’s treasure chest. Beyond world-class gems, it’s your gateway to the Sinharaja Rainforest and the sacred climb of Adam’s Peak, perfect for the true explorer.' 
+            attribution: '',
+            reasons: {
+                leisure: 'Hidden away in the deep rainforest. Stay in boutique eco-bungalows and listen to the soothing sounds of nature in total peace and quiet.',
+                cultural: 'The "City of Gems." Visit the Maha Saman Devalaya temple and learn about the island’s 2,500-year-old gem mining and trading heritage.',
+                family: 'Go on a guided gem-mining tour where kids can learn how precious stones are found. Explore the lush paddy fields and rubber estates with the locals.',
+                honeymoon: 'Secluded rainforest retreats and misty mountain backdrops make this a top choice for couples seeking an off-beat and romantic mountain escape.',
+                wildlife: 'The gateway to Sinharaja, the last virgin rainforest in Sri Lanka. Spot endemic birds, giant butterflies, and rare reptiles in the jungle.',
+                adventure: 'Home to the sacred Adam’s Peak (Sri Pada) climb. A challenging overnight trek that rewards you with a spiritual sunrise at the summit.',
+                surfing: 'Surrounded by rainforests and mountains, Rathnapura offers mountain adventures rather than coastal waves.'
+            }
         },
         { 
             id: 'Nuwara Eliya', 
             name: 'Nuwara Eliya', 
-            img: '../Images/Site Photos/Aerial view of Gregory Lake in Nuwara Eliya with mountains and houses in the background.jpg', 
+            img: '../Images/Site Photos/Town/Nuwaraeliya.jpg', 
             desc: 'Little England & Tea Country.', 
             cat: ['leisure', 'family', 'adventure', 'honeymoon', 'wildlife'], 
-            reason: 'Escape to the emerald hills. Breathe in the mountain air, wander through manicured tea gardens, and witness the roaring waterfalls that make this the island’s most romantic getaway.' 
+            attribution: '',
+            reasons: {
+                leisure: 'Tea and tranquility. Enjoy legendary high tea at the Grand Hotel and walks through perfectly manicured tea estates in the cool mountain air.',
+                cultural: 'Experience "Little England." Visit Victorian-era tea factories, colonial post offices, and the famous Hill Club for a taste of history.',
+                family: 'Ride a swan boat on Gregory Lake, visit the Hakgala Gardens, or explore strawberry farms for a refreshing and fun family day out.',
+                honeymoon: 'The most romantic mountain getaway. Cozy up by a fireplace in a colonial-style bungalow surrounded by misty tea valleys and rose gardens.',
+                wildlife: 'Trek through Horton Plains National Park to see the Sambar deer and rare highland birds before reaching the dramatic "World’s End" cliff.',
+                adventure: 'Peak-bagging and trekking. Climb the nearby Single Tree Hill or explore the roaring waterfalls like St. Clair’s and Devon Falls.',
+                surfing: 'Located at the highest altitude on the island, Nuwara Eliya is a paradise for misty mountain trekking rather than surfing.'
+            }
         },
         { 
             id: 'Ella', 
             name: 'Ella', 
-            img: '../Images/Site Photos/Wide shot of Nine Arch Bridge in Ella with a train passing through lush tea plantations.jpg', 
+            img: '../Images/Site Photos/Town/Ella - Photo by Anton Lecock.jpg', 
             desc: 'Mist-Covered Peaks & Iconic Views.', 
             cat: ['leisure', 'cultural', 'family', 'adventure', 'honeymoon'], 
-            reason: 'Famous for the most scenic railway journey in the world. Hike to Ella Rock at sunrise and cross the historic Nine Arch Bridge for photos that will last a lifetime.' 
+            attribution: 'Anton Lecock',
+            reasons: {
+                leisure: 'A laid-back mountain village. Spend your days in cozy hillside cafes, enjoying yoga, and taking in the breathtaking views of the Ella Gap.',
+                cultural: 'Walk across the iconic Nine Arch Bridge and explore the ancient Ravana Cave, tied to the epic Ramayana legend and history.',
+                family: 'The most scenic train ride in the world is a family favorite. Hike the easy path to Little Adam’s Peak for panoramic views of the hills.',
+                honeymoon: 'Privacy and views. Boutique hotels built into the mountainside offer "infinity" forest views that are perfect for romantic memories.',
+                wildlife: 'Chase the waterfalls. Ravana Falls and the nearby Dunhinda Falls offer spectacular sights and the chance to spot unique hill-country birds.',
+                adventure: 'The hikers’ paradise. Tackle the challenging Ella Rock hike or fly across the valley on the "Flying Ravana" mega-zip line.',
+                surfing: 'Ella is a high-altitude marvel where the only "waves" are the rolling hills of tea as far as the eye can see.'
+            }
         },
         { 
             id: 'Galle', 
             name: 'Galle', 
-            img: '../Images/Site Photos/Close-up of the Galle Lighthouse at sunset with the Indian Ocean in the background.jpg', 
+            img: '../Images/Site Photos/Town/Galle - Photo by Daniel Klein.jpg', 
             desc: 'The Timeless Dutch Fort City.', 
             cat: ['leisure', 'cultural', 'family', 'surfing', 'honeymoon', 'wildlife', 'adventure'], 
-            reason: 'Step back in time within the ramparts of the Dutch Fort. Pair historic charm with the golden beaches of Mirissa and Hikkaduwa for a premium coastal experience.' 
+            attribution: 'Daniel Klein',
+            reasons: {
+                leisure: 'Boutique heaven. Shop for handmade jewelry, dine in world-class restaurants, and relax on the chic, quiet beaches of nearby Dalawella.',
+                cultural: 'Step into history at the Galle Fort, a UNESCO World Heritage site filled with colonial buildings, ancient ramparts, and lighthouses.',
+                family: 'Perfectly safe swimming at the Unawatuna bay and fun turtle hatchery visits. The Fort’s ramparts are great for a family sunset walk.',
+                honeymoon: 'Intimate and historic. Stay in a restored colonial villa within the Fort and enjoy sunset dinners overlooking the Indian Ocean.',
+                wildlife: 'The gateway to the deep blue. Head to nearby Mirissa for whale watching or spot sea turtles swimming in the coral gardens of Hikkaduwa.',
+                adventure: 'Dive into the ocean to explore coral reefs and shipwrecks, or try stand-up paddleboarding in the calm southern lagoons.',
+                surfing: 'Surrounded by world-class breaks. Take a short trip to Weligama for beginner waves or Hikkaduwa for more challenging reef breaks.'
+            }
         },
         { 
             id: 'Hambantota', 
             name: 'Hambantota', 
-            img: '../Images/Site Photos/Leopards on a stone. The Sri Lankan leopard (Panthera pardus kotiya) male and female..jpg', 
+            img: '../Images/Site Photos/Town/Yala.jpg', 
             desc: 'The Ultimate Safari Frontier.', 
             cat: ['leisure', 'family', 'wildlife', 'surfing', 'honeymoon'], 
-            reason: 'The undisputed king of wildlife. Embark on a thrilling safari in Yala or Udawalawe to spot leopards and elephants, then unwind on the untouched, quiet beaches of Tangalle.' 
+            attribution: '',
+            reasons: {
+                leisure: 'Total luxury. The area is home to the island’s most exclusive 5-star resorts, featuring world-class golf courses and private beaches.',
+                cultural: 'Visit the sacred multi-religious city of Kataragama and explore the ancient monastic ruins hidden deep in the southern jungles.',
+                family: 'The ultimate family safari. Spot leopards in Yala and see the world’s most playful elephants at the Udawalawe Elephant Transit Home.',
+                honeymoon: 'Deep-jungle romance. Stay in luxury glamping tents and enjoy private "safari dinners" under a spectacular blanket of stars.',
+                wildlife: 'The wildlife capital. Yala National Park offers the highest density of leopards in the world, while Udawalawe is a haven for wild elephants.',
+                adventure: 'Go dune driving on the southern sands or take a rugged jungle safari for a true "off-road" adrenaline rush.',
+                surfing: 'While the main town is quiet, the nearby Hiriketiya Bay offers some of the most beautiful and scenic surf breaks on the south coast.'
+            }
         },
         { 
             id: 'Polonnaruwa', 
             name: 'Polonnaruwa', 
-            img: '../Images/Site Photos/Sigiriya Rock.jpg', 
+            img: '../Images/Site Photos/Town/Minneriya.jpg', 
             desc: 'Relics of a Golden Empire.', 
             cat: ['leisure', 'cultural', 'family', 'wildlife'], 
-            reason: 'Cycle through the ruins of a medieval kingdom. From giant Buddha statues to ancient palaces, it offers a deep dive into the island’s royal heritage in a peaceful setting.' 
+            attribution: '',
+            reasons: {
+                leisure: 'Tranquility by the Lake. Stay at the "Royal Lakeside" and watch the sunset over the massive ancient "Sea of Parakrama" reservoir.',
+                cultural: 'Cycle through the ruins of a medieval kingdom. See the Gal Vihara’s giant Buddha statues and the intricate Parakrama Samudra reservoir.',
+                family: 'Rent bicycles for the whole family to explore the ancient city ruins. The flat paths and giant statues are a major hit with children.',
+                honeymoon: 'Romantic cycling journeys among ancient palaces and quiet sunset walks by the lake offer a peaceful and spiritual connection.',
+                wildlife: 'The "Primate Capital." See the famous "Temple Monkeys" and take a short drive to Minneriya for the spectacular elephant gathering.',
+                adventure: 'Explore the ruins on two wheels or take a jeep safari through the wild, untouched flood plains of the Mahaweli River.',
+                surfing: 'A landlocked ancient capital where history flows deeper than the ocean waves.'
+            }
         },
         { 
             id: 'Anuradhapura', 
             name: 'Anuradhapura', 
-            img: '../Images/Site Photos/Sigiriya Rock.jpg', 
+            img: '../Images/Site Photos/Town/Wilpattu-Photo by Anupa Uthsara.jpg', 
             desc: 'The Birthplace of Heritage.', 
             cat: ['leisure', 'cultural', 'family', 'wildlife'], 
-            reason: 'The grandest of the ancient capitals. Walk among sacred stupas that touch the clouds and visit the oldest documented tree in the world for a profound spiritual experience.' 
+            attribution: 'Anupa Uthsara',
+            reasons: {
+                leisure: 'A place of profound peace. Stay in boutique forest lodges and experience the spiritual serenity of the island’s oldest ancient city.',
+                cultural: 'The first capital of Sri Lanka. Walk under the shadow of the massive Ruwanwelisaya Stupa and visit the sacred Jaya Sri Maha Bodhi tree.',
+                family: 'A spiritual journey. Explore the ancient pleasure gardens (Ranmasu Uyana) and see the engineering marvels of the massive ancient canals.',
+                honeymoon: 'Peaceful evening walks among illuminated stupas. The quiet, sacred atmosphere is perfect for couples seeking a deeper bond.',
+                wildlife: 'The gateway to Wilpattu National Park. Embark on a safari to spot leopards and sloth bears in a beautiful, dense "lakeside" forest.',
+                adventure: 'Explore the sprawling ruins by bike or climb the Mihintale Rock, the "cradle of Buddhism," for breathtaking views of the plains.',
+                surfing: 'Deep in the cultural triangle, Anuradhapura offers ancient wonders and forest safaris far from the coastal surf.'
+            }
         },
         { 
             id: 'Batticaloa', 
             name: 'Batticaloa', 
-            img: '../Images/Site Photos/Full shot of Koneswaram Temple in Trincomalee perched on a cliff overlooking the Indian Ocean.jpg', 
+            img: '../Images/Site Photos/Town/Arugam Bay.jpg', 
             desc: 'Lagoon Serenity & Surf Paradise.', 
             cat: ['leisure', 'family', 'surfing', 'honeymoon', 'wildlife', 'adventure'], 
-            reason: 'Home to the legendary Arugam Bay. Whether you are chasing the perfect wave or exploring the tranquil lagoons of the East, this is the ultimate laid-back escape.' 
+            attribution: '',
+            reasons: {
+                leisure: 'Total beach bliss. Pasikudah offers some of the best luxury beachfront resorts with turquoise waters that remain shallow for miles.',
+                cultural: 'Discover the unique history of the "Singing Fish" lagoon and explore the colonial Batticaloa Fort overlooking the water.',
+                family: 'The calm, shallow waters of Pasikudah Bay are world-famous for being safe and perfect for children to play in all day.',
+                honeymoon: 'Secluded and serene. The East Coast lagoons and private beaches offer a quiet, romantic retreat away from the crowds.',
+                wildlife: 'Explore the lagoons by boat to spot unique water birds or head to nearby Arugam Bay for birdwatching in the Pottuvil Lagoon.',
+                adventure: 'Dive the wreck of the HMS Hermes, the world’s first aircraft carrier, or try kite surfing in the untouched eastern lagoons.',
+                surfing: 'Home to the legendary Arugam Bay. Whether you are chasing the perfect wave or a world-class point break, this is the ultimate surf hub.'
+            }
         },
         { 
             id: 'Trincomalee', 
             name: 'Trincomalee', 
-            img: '../Images/Site Photos/River flows into Back Bay of Indian Ocean near Nilaveli beach in Trincomalee Sri Lanka.  Trincomalee is coastal resort city. Panoramic Top .jpg', 
+            img: '../Images/Site Photos/Town/Trincomalee.jpg', 
             desc: 'Pristine Sands & Ocean Wonders.', 
             cat: ['leisure', 'cultural', 'family', 'surfing', 'honeymoon', 'wildlife', 'adventure'], 
-            reason: 'A paradise of white sands and turquoise waters. NILAVELI is the island’s whale-watching capital and home to some of the most beautiful diving spots in the Indian Ocean.' 
+            attribution: '',
+            reasons: {
+                leisure: 'The Maldives of Sri Lanka. Crystal clear waters and pristine white beaches like Uppuveli offer the ultimate relaxed coastal vibe.',
+                cultural: 'Visit the Koneswaram Temple perched on a cliff and walk through the historic Fort Frederick with its roaming wild deer.',
+                family: 'Spend your days on the white sands of Nilaveli Beach and take a glass-bottom boat to Pigeon Island for snorkeling with sea turtles.',
+                honeymoon: 'Marine romance. Enjoy a private sunset boat trip or a candlelit dinner on the secluded sands of Nilaveli for special memories.',
+                wildlife: 'The whale-watching capital of the East. Spot Blue Whales and Sperm Whales, or snorkel with reef sharks and turtles at Pigeon Island.',
+                adventure: 'World-class diving and snorkeling. Explore the vibrant coral gardens and underwater statues of the beautiful East Coast.',
+                surfing: 'While the west coast is rough, Trincomalee’s Nilaveli offers beginner-friendly waves and a beautiful, uncrowded beach scene.'
+            }
         },
         { 
             id: 'Jaffna', 
             name: 'Jaffna', 
             img: '../Images/Site Photos/Full shot of Jaffna Fort with its star-shaped ramparts and colonial-style buildings.jpg', 
             desc: 'A Vibrant Northern Odyssey.', 
-            cat: ['cultural'], 
-            reason: 'Experience a world of its own. From vibrant Hindu temples and Dutch forts to the unique cuisine of the North, Jaffna offers an authentic cultural journey like no other.' 
+            cat: ['cultural', 'surfing'], 
+            attribution: '',
+            reasons: {
+                leisure: 'Experience the unique charm of the North. Stay in boutique heritage hotels and enjoy the slow, authentic pace of Jaffna life.',
+                cultural: 'A world to discover. Visit the majestic Nallur Kandaswamy Temple, explore the Jaffna Fort, and taste the famous Jaffna Crab Curry.',
+                family: 'Take a ferry to the remote Delft Island to see wild horses and explore the unique coral-walled villages with the family.',
+                honeymoon: 'An off-beat choice. Explore remote islands and vibrant Hindu temples for a truly unique and spiritual start to your journey.',
+                wildlife: 'Visit the Chundikulam National Park to see migratory flamingos and a variety of unique bird species in the northern lagoons.',
+                adventure: 'Island hopping in the North. Journey through the causeways to Nagadeepa and Karainagar for a true journey of discovery.',
+                surfing: 'The northern tip offers unexplored coastlines and a quiet, authentic adventure far from the commercial surf hubs.'
+            }
         }
     ];
 
     // --- State ---
     let currentStep = 1;
     let selectedDests = [];
-    let selectedVibe = 'leisure';
+    let selectedVibes = []; // Initially empty as requested
     let showAllDests = false;
     const totalSteps = 4;
 
@@ -348,27 +474,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderDestinations() {
-        // Filter based on selected vibe
-        const filtered = destMeta.filter(d => showAllDests || d.cat.includes(selectedVibe));
+        // Filter based on selected vibes (union)
+        const filtered = destMeta.filter(d => showAllDests || selectedVibes.some(v => d.cat.includes(v)));
         
         // Update Step Title
         const titleEl = document.getElementById('destStepTitle');
         const descEl = document.getElementById('destStepDesc');
-        if (titleEl) titleEl.innerText = `Top Picks for ${selectedVibe.charAt(0).toUpperCase() + selectedVibe.slice(1)}`;
-        if (descEl) descEl.innerText = `We've selected the best hubs for your ${selectedVibe} trip. Feel free to add more!`;
+        
+        const vibeNames = selectedVibes.map(v => v.charAt(0).toUpperCase() + v.slice(1).replace('-', ' '));
+        const vibeLabel = vibeNames.length > 2 
+            ? `${vibeNames.slice(0, -1).join(', ')} & ${vibeNames.slice(-1)}` 
+            : vibeNames.join(' & ');
 
-        destGrid.innerHTML = filtered.map(dest => `
-            <div class="dest-select-card ${selectedDests.includes(dest.id) ? 'active' : ''}" data-id="${dest.id}">
-                <div class="dest-img-container">
-                    <img src="${dest.img}" alt="${dest.name}">
-                    <div class="dest-badge"><i class="fas fa-star"></i> Recommended</div>
+        if (titleEl) titleEl.innerText = `Top Picks for ${vibeLabel || 'your trip'}`;
+        if (descEl) descEl.innerText = `We've selected the best hubs for your ${vibeLabel || 'combined'} trip. Feel free to add more!`;
+
+        destGrid.innerHTML = filtered.map(dest => {
+            // Pick a reason: first selected vibe that the dest actually HAS, else its desc
+            const primaryVibe = selectedVibes.find(v => dest.reasons[v]) || selectedVibes[0];
+            const reason = dest.reasons[primaryVibe] || dest.desc;
+            const attributionHtml = dest.attribution ? `<div class="photo-attribution">Photo by ${dest.attribution}</div>` : '';
+            return `
+                <div class="dest-select-card ${selectedDests.includes(dest.id) ? 'active' : ''}" data-id="${dest.id}">
+                    <div class="dest-img-container">
+                        <img src="${dest.img}" alt="${dest.name}">
+                        <div class="dest-badge"><i class="fas fa-star"></i> Recommended</div>
+                        ${attributionHtml}
+                    </div>
+                    <div class="dest-info-area">
+                        <span class="dest-name">${dest.name}</span>
+                        <p class="dest-reason">${reason}</p>
+                    </div>
                 </div>
-                <div class="dest-info-area">
-                    <span class="dest-name">${dest.name}</span>
-                    <p class="dest-reason">${dest.reason}</p>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
 
         // Add "Show All" toggle if not already there
         if (!showAllDests) {
@@ -413,6 +552,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!startSearch.value.trim()) {
                 alert('Please select where you start your journey!');
                 startSearch.focus();
+                return;
+            }
+            if (selectedVibes.length < 1) {
+                alert('Please select at least one travel vibe for your trip!');
                 return;
             }
             currentStep++;
@@ -474,6 +617,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                 startSearch.focus();
                                 return;
                             }
+                            if (selectedVibes.length < 1) {
+                                alert('Please select at least one travel vibe for your trip!');
+                                return;
+                            }
                             currentStep = 2;
                             updateWizard();
                         } else if (currentStep === 2 && targetStep >= 3) {
@@ -495,17 +642,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         prevBtn.style.display = currentStep === 1 ? 'none' : 'block';
         nextBtn.innerText = currentStep === 3 ? 'Generate Plan' : (currentStep === 4 ? 'Complete' : 'Continue');
-        if (currentStep === 4) nextBtn.style.display = 'none';
+        
+        // Fix: Ensure nextBtn is visible when not on Step 4
+        if (currentStep === 4) {
+            nextBtn.style.display = 'none';
+        } else {
+            nextBtn.style.display = 'block';
+        }
         
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     vibeCards.forEach(card => {
         card.addEventListener('click', () => {
-            vibeCards.forEach(c => c.classList.remove('active'));
-            card.classList.add('active');
-            selectedVibe = card.dataset.value;
-            document.getElementById('tripVibe').value = selectedVibe;
+            const vibe = card.dataset.value;
+            
+            if (selectedVibes.includes(vibe)) {
+                // Remove
+                selectedVibes = selectedVibes.filter(v => v !== vibe);
+                card.classList.remove('active');
+            } else {
+                // Add
+                selectedVibes.push(vibe);
+                card.classList.add('active');
+            }
+            
+            document.getElementById('tripVibe').value = selectedVibes.join(',');
             
             // Re-render destinations for Step 2 based on this choice
             showAllDests = false; // Reset toggle when vibe changes
@@ -533,7 +695,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function generateItinerary() {
         const days = parseInt(document.getElementById('tripDuration').value);
         const transport = document.getElementById('transportType').value;
-        const vibe = document.getElementById('tripVibe').value;
+        const vibeStr = document.getElementById('tripVibe').value;
+        const selectedVibeList = vibeStr.split(',');
         const stay = document.getElementById('stayPref').value;
         const startPointHub = document.getElementById('startPoint').value;
         const startPointDisplayName = document.getElementById('startPointSearch').value;
@@ -586,13 +749,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const tripadvisorLink = `https://www.tripadvisor.com/Search?q=${encodeURIComponent(searchQuery)}${taParams}`;
             const airbnbLink = `https://www.airbnb.com/s/${encodeURIComponent(hub + ' Sri Lanka')}/homes?refinement_paths[]=%2Fhomes${stay==='luxury' ? '&room_types[]=Entire%20home/apt' : ''}`;
 
+            const primaryVibe = selectedVibeList.find(v => destInfo.reasons[v]) || selectedVibeList[0];
             itineraryHtml += `
                 <div class="itinerary-day">
                     <div class="day-number">${idx}</div>
                     <div class="day-content">
                         <h3>${dayLabel}: ${hub}</h3>
                         <span class="travel-info"><i class="fas fa-route"></i> Leg ${idx}: from ${prevHub} (~${dist} KM | ${time}h)</span>
-                        <p>${destInfo.desc} A perfect choice for your ${vibe} experience. Explore the local culture and landmarks of ${hub}.</p>
+                        <p>${destInfo.reasons[primaryVibe] || destInfo.desc}</p>
                         
                         <div class="recommendations">
                             <h4>Comparison: ${categoryLabel} in ${hub}</h4>
@@ -609,9 +773,14 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         });
 
+        const formattedVibes = selectedVibeList.map(v => v === 'surfing' ? 'Sea Surfing' : v.charAt(0).toUpperCase() + v.slice(1).replace('-', ' '));
+        const vibeHeader = formattedVibes.length > 2 
+            ? `${formattedVibes.slice(0, -1).join(', ')} & ${formattedVibes.slice(-1)}` 
+            : formattedVibes.join(' & ');
+
         const headerHtml = `
             <div class="itinerary-header">
-                <h2>Your Custom ${vibe.replace('-', ' ').toUpperCase()} Journey</h2>
+                <h2>Your Custom ${vibeHeader.toUpperCase()} Journey</h2>
                 <div class="journey-summary">
                     <div class="summary-item"><i class="fas fa-plane-arrival"></i> Starts: <strong>${startPointDisplayName}</strong></div>
                     <div class="summary-item"><i class="fas fa-road"></i> Total Journey: <strong>~${totalKM} KM</strong></div>
