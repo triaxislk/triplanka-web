@@ -880,70 +880,50 @@ document.addEventListener('DOMContentLoaded', () => {
                                 <i class="fas fa-quote-left"></i>
                                 <p>${destInfo.reasons[primaryVibe] || destInfo.desc}</p>
                             </div>
+                            <div class="destination-hero-frame">
+                                <img src="${destInfo.img}" alt="Authentic ${hub}">
+                                <div class="view-attribution">Verified Town Photo ${destInfo.attribution ? 'by ' + destInfo.attribution : ''}</div>
+                            </div>
                         </div>
                         
-                        <div class="bento-hotels">
+                        <div class="bento-hotels google-style-widget">
                             <div class="spotlight-header">
-                                <h4><i class="fas fa-star-creative"></i> Smart Property Spotlight</h4>
-                                <p>Hand-picked for your ${stay} comfort level.</p>
+                                <h4><i class="fas fa-search-location"></i> Top Property Matches in ${hub}</h4>
+                                <p>Optimized for ${stay.toUpperCase()} comfort and value.</p>
                             </div>
                             
-                            <div class="property-spotlight-container">
-                                ${(hotelData[hub] || []).slice(0, 1).map(hotel => {
+                            <div class="google-hotel-list">
+                                ${(hotelData[hub] || []).map(hotel => {
                                     const p = hotel.price[stay] || 100;
-                                    const stars = '<span class="star-pill"><i class="fas fa-star"></i> ' + hotel.rating + '</span>';
+                                    const stars = '<i class="fas fa-star"></i>'.repeat(hotel.rating);
+                                    const googleMapUrl = `https://www.google.com/maps/search/${encodeURIComponent(hotel.name + ' ' + hub + ' Sri Lanka')}`;
+                                    const photoGalleryUrl = `https://www.google.com/search?q=${encodeURIComponent(hotel.name + ' ' + hub + ' Sri Lanka photos')}&tbm=isch`;
+                                    
                                     return `
-                                        <div class="spotlight-main-card">
-                                            <div class="spotlight-visual">
-                                                <img src="${hotel.img || destInfo.img || '../Images/Site Photos/hotel-thumb.png'}" alt="${hotel.name}">
-                                                <div class="luxury-badge">TriLanka Choice</div>
+                                        <div class="google-hotel-row">
+                                            <div class="gh-info">
+                                                <div class="gh-name">${hotel.name}</div>
+                                                <div class="gh-stars">${stars}</div>
+                                                <div class="gh-actions">
+                                                    <a href="${bookingLink}" target="_blank" class="gh-action-btn primary"><img src="../Images/Associated Companies/booking.com.png" alt="B."> Best Rate</a>
+                                                    <a href="${googleMapUrl}" target="_blank" class="gh-action-btn secondary"><i class="fas fa-map-marker-alt"></i> View on Map</a>
+                                                    <a href="${photoGalleryUrl}" target="_blank" class="gh-action-btn secondary"><i class="fas fa-images"></i> Real Photos</a>
+                                                </div>
                                             </div>
-                                            <div class="spotlight-details">
-                                                <div class="name-rating">
-                                                    <h5>${hotel.name}</h5>
-                                                    ${stars}
-                                                </div>
-                                                <div class="pricing-dashboard">
-                                                    <div class="est-label">Estimated Nightly Rate</div>
-                                                    <div class="est-price">$${p} <span>USD</span></div>
-                                                </div>
-                                                <div class="comparison-command-center">
-                                                    <div class="compare-label">Compare Across Platforms</div>
-                                                    <div class="compare-grid">
-                                                        <a href="${bookingLink}" target="_blank" class="comp-btn booking">
-                                                            <img src="../Images/Associated Companies/booking.com.png" alt="B.">
-                                                            <span>Best Price</span>
-                                                        </a>
-                                                        <a href="${tripadvisorLink}" target="_blank" class="comp-btn tripadvisor">
-                                                            <img src="../Images/Associated Companies/Trip Advisor.png" alt="TA">
-                                                            <span>Reviews</span>
-                                                        </a>
-                                                        <a href="${airbnbLink}" target="_blank" class="comp-btn airbnb">
-                                                            <img src="../Images/Associated Companies/airbnb.png" alt="AB">
-                                                            <span>Homestay</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
+                                            <div class="gh-price-badge">
+                                                <span class="gh-price-label">Est. Nightly</span>
+                                                <span class="gh-price-value">$${p}</span>
                                             </div>
                                         </div>
                                     `;
                                 }).join('')}
-                                
-                                <div class="alternative-stays">
-                                    <div class="alt-label">Alternative Options in ${hub}:</div>
-                                    <div class="alt-grid">
-                                        ${(hotelData[hub] || []).slice(1).map(hotel => `
-                                            <div class="alt-pill" title="${hotel.name}">
-                                                <i class="fas fa-hotel"></i>
-                                                <span>${hotel.name}</span>
-                                            </div>
-                                        `).join('')}
-                                        <a href="${bookingLink}" target="_blank" class="alt-pill more">
-                                            <i class="fas fa-plus"></i>
-                                            <span>Explore All</span>
-                                        </a>
+                                <a href="${tripadvisorLink}" target="_blank" class="google-hotel-row more-results">
+                                    <div class="gh-info">
+                                        <div class="gh-name">Explore More Comparisons</div>
+                                        <div class="gh-stars" style="color: #666; font-size: 0.75rem;">See all properties across Booking, TripAdvisor & Airbnb</div>
                                     </div>
-                                </div>
+                                    <i class="fas fa-chevron-right" style="opacity: 0.3;"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
