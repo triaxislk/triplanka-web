@@ -303,10 +303,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             id: 'Polonnaruwa', 
             name: 'Polonnaruwa', 
-            img: '../Images/Site Photos/Town/Minneriya.jpg', 
+            img: '../Images/Site Photos/Town/Polonnaruwa - Photo by Triplanka.jpg', 
             desc: 'Relics of a Golden Empire.', 
             cat: ['leisure', 'cultural', 'family', 'wildlife'], 
-            attribution: '',
+            attribution: 'Triplanka',
             reasons: {
                 leisure: 'Tranquility by the Lake. Stay at the "Royal Lakeside" and watch the sunset over the massive ancient "Sea of Parakrama" reservoir.',
                 cultural: 'Cycle through the ruins of a medieval kingdom. See the Gal Vihara’s giant Buddha statues and the intricate Parakrama Samudra reservoir.',
@@ -320,10 +320,10 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             id: 'Anuradhapura', 
             name: 'Anuradhapura', 
-            img: '../Images/Site Photos/Town/Wilpattu-Photo by Anupa Uthsara.jpg', 
+            img: '../Images/Site Photos/Town/Anuradhapura - Photo by Triplanka.jpg', 
             desc: 'The Birthplace of Heritage.', 
             cat: ['leisure', 'cultural', 'family', 'wildlife'], 
-            attribution: 'Anupa Uthsara',
+            attribution: 'Triplanka',
             reasons: {
                 leisure: 'A place of profound peace. Stay in boutique forest lodges and experience the spiritual serenity of the island’s oldest ancient city.',
                 cultural: 'The first capital of Sri Lanka. Walk under the shadow of the massive Ruwanwelisaya Stupa and visit the sacred Jaya Sri Maha Bodhi tree.',
@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { 
             id: 'Jaffna', 
             name: 'Jaffna', 
-            img: '../Images/Site Photos/Full shot of Jaffna Fort with its star-shaped ramparts and colonial-style buildings.jpg', 
+            img: '../Images/Site Photos/Town/Jaffna.jpg', 
             desc: 'A Vibrant Northern Odyssey.', 
             cat: ['cultural', 'surfing'], 
             attribution: '',
@@ -409,7 +409,46 @@ document.addEventListener('DOMContentLoaded', () => {
     function init() {
         renderDestinations();
         initStartPointDropdown();
+        handleQueryParams();
         updateWizard();
+    }
+
+    function handleQueryParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const startParam = urlParams.get('start');
+        const vibeParam = urlParams.get('vibe');
+
+        if (startParam) {
+            const searchInput = document.getElementById('startPointSearch');
+            const hiddenInput = document.getElementById('startPoint');
+            
+            // Look for a matching hub
+            const match = startPoints.find(p => p.name.toLocaleLowerCase().includes(startParam.toLowerCase()) || 
+                                              p.hub.toLocaleLowerCase().includes(startParam.toLowerCase()));
+            if (match) {
+                searchInput.value = match.name;
+                hiddenInput.value = match.hub;
+            }
+        }
+
+        if (vibeParam) {
+            const vibe = vibeParam.toLowerCase();
+            const card = document.querySelector(`.option-card[data-value="${vibe}"]`);
+            if (card) {
+                selectedVibes = [vibe]; // Set as single initial vibe if from link
+                selectedVibes.forEach(v => {
+                    const c = document.querySelector(`.option-card[data-value="${v}"]`);
+                    if (c) c.classList.add('active');
+                });
+                document.getElementById('tripVibe').value = vibe;
+                renderDestinations();
+            }
+        }
+
+        // Auto-advance to Step 2 if deep-linked
+        if (startParam || vibeParam) {
+            currentStep = 2;
+        }
     }
 
     function initStartPointDropdown() {
