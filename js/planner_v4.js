@@ -870,39 +870,59 @@ document.addEventListener('DOMContentLoaded', () => {
                         
                         <div class="recommendations">
                         <div class="recommendations">
-                            <h4>Smart Choice: Comparison of Top Rated Stays in ${hub}</h4>
+                            <h4>Smart Choice: Compare Top Rated Stays in ${hub}</h4>
                             <div class="hotel-carousel-wrapper">
-                                <button class="carousel-nav prev" onclick="this.nextElementSibling.scrollBy(-300, 0)"><i class="fas fa-chevron-left"></i></button>
+                                <button class="carousel-nav prev" onclick="this.parentElement.querySelector('.hotel-carousel').scrollBy(-300, 0)"><i class="fas fa-chevron-left"></i></button>
                                 <div class="hotel-carousel">
                                     ${(hotelData[hub] || []).map(hotel => {
                                         const p = hotel.price[stay] || 100;
                                         const stars = '<i class="fas fa-star"></i>'.repeat(hotel.rating);
                                         return `
                                             <div class="hotel-card">
-                                                <div class="hotel-name">${hotel.name}</div>
-                                                <div class="hotel-rating">${stars}</div>
-                                                <div class="hotel-price">Est. <span>$${p}</span> / night</div>
-                                                <div class="hotel-platforms">
-                                                    <span>Compare:</span>
-                                                    <a href="${bookingLink}" target="_blank" class="plat-icon booking" title="Booking.com"><i class="fas fa-check-circle"></i></a>
-                                                    <a href="${tripadvisorLink}" target="_blank" class="plat-icon tripadvisor" title="TripAdvisor"><i class="fas fa-star"></i></a>
-                                                    <a href="${airbnbLink}" target="_blank" class="plat-icon airbnb" title="Airbnb"><i class="fab fa-airbnb"></i></a>
+                                                <div class="hotel-thumb">
+                                                    <img src="../Images/Site Photos/hotel-thumb.png" alt="${hotel.name}">
                                                 </div>
-                                                <a href="${bookingLink}" target="_blank" class="btn-hotel-book">Check Availability</a>
+                                                <div class="hotel-card-content">
+                                                    <div class="hotel-name">${hotel.name}</div>
+                                                    <div class="hotel-rating">${stars}</div>
+                                                    <div class="hotel-price">Est. <span>$${p}</span> / night</div>
+                                                    <div class="hotel-platforms">
+                                                        <span>Compare on:</span>
+                                                        <div class="plat-icons">
+                                                            <i class="fa-brands fa-booking plat-icon booking"></i>
+                                                            <i class="fa-brands fa-tripadvisor plat-icon tripadvisor"></i>
+                                                            <i class="fa-brands fa-airbnb plat-icon airbnb"></i>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="hotel-booking-options">
+                                                    <a href="${bookingLink}" target="_blank" class="opt-btn booking">
+                                                        <i class="fa-solid fa-hotel"></i>
+                                                        Booking
+                                                    </a>
+                                                    <a href="${tripadvisorLink}" target="_blank" class="opt-btn tripadvisor">
+                                                        <i class="fa-brands fa-tripadvisor"></i>
+                                                        TripAdvisor
+                                                    </a>
+                                                    <a href="${airbnbLink}" target="_blank" class="opt-btn airbnb">
+                                                        <i class="fa-brands fa-airbnb"></i>
+                                                        Airbnb
+                                                    </a>
+                                                </div>
                                             </div>
                                         `;
                                     }).join('')}
-                                    <div class="hotel-card" style="background: rgba(0, 106, 78, 0.05); border: 2px dashed var(--primary); justify-content: center; align-items: center; text-align: center;">
-                                        <div class="hotel-name" style="margin-bottom: 0.5rem;">Explore More Options</div>
-                                        <p style="font-size: 0.75rem; color: #666; margin-bottom: 1rem;">View all ${categoryLabel} on your favorite platforms.</p>
-                                        <div class="hotel-platforms" style="border: none; padding: 0;">
-                                            <a href="${bookingLink}" target="_blank" class="plat-icon booking"><i class="fas fa-check-circle"></i></a>
-                                            <a href="${tripadvisorLink}" target="_blank" class="plat-icon tripadvisor"><i class="fas fa-star"></i></a>
-                                            <a href="${airbnbLink}" target="_blank" class="plat-icon airbnb"><i class="fab fa-airbnb"></i></a>
+                                    <div class="hotel-card" style="background: rgba(0, 106, 78, 0.05); border: 2px dashed var(--primary); justify-content: center; align-items: center; text-align: center; padding: 1.5rem;">
+                                        <div class="hotel-name" style="margin-bottom: 0.5rem;">More Options</div>
+                                        <p style="font-size: 0.7rem; color: #666; margin-bottom: 1rem;">View all ${categoryLabel} in ${hub}.</p>
+                                        <div class="hotel-booking-options" style="padding: 0; width: 100%;">
+                                            <a href="${bookingLink}" target="_blank" class="opt-btn booking"><i class="fa-solid fa-hotel"></i></a>
+                                            <a href="${tripadvisorLink}" target="_blank" class="opt-btn tripadvisor"><i class="fa-brands fa-tripadvisor"></i></a>
+                                            <a href="${airbnbLink}" target="_blank" class="opt-btn airbnb"><i class="fa-brands fa-airbnb"></i></a>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="carousel-nav next" onclick="this.previousElementSibling.scrollBy(300, 0)"><i class="fas fa-chevron-right"></i></button>
+                                <button class="carousel-nav next" onclick="this.parentElement.querySelector('.hotel-carousel').scrollBy(300, 0)"><i class="fas fa-chevron-right"></i></button>
                             </div>
                         </div>
                     </div>

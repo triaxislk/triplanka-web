@@ -835,57 +835,77 @@
 
 .hotel-carousel {
     display: flex;
-    gap: 1rem;
+    gap: 0.75rem;
     overflow-x: auto;
     padding: 0.5rem 0.5rem 1.5rem;
     scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .hotel-carousel::-webkit-scrollbar {
-    display: none; /* Chrome/Safari */
+    display: none;
 }
 
 .hotel-card {
-    flex: 0 0 260px;
+    flex: 0 0 220px; /* Reduced from 260px */
     background: var(--white);
-    border-radius: 16px;
-    padding: 1.25rem;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-radius: 12px; /* Smaller radius */
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     border: 1px solid rgba(0,0,0,0.03);
     transition: var(--transition);
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+}
+
+.hotel-thumb {
+    width: 100%;
+    height: 110px;
+    background: #eee;
+}
+
+.hotel-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hotel-card-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
 }
 
 .hotel-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     border-color: var(--secondary);
 }
 
 .hotel-name {
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 800;
     color: var(--primary);
-    line-height: 1.3;
+    line-height: 1.2;
 }
 
 .hotel-rating {
     display: flex;
     gap: 2px;
     color: var(--secondary);
-    font-size: 0.75rem;
+    font-size: 0.7rem;
 }
 
 .hotel-price {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    color: #444;
+    color: #555;
     background: #f8f9fa;
-    padding: 0.4rem 0.8rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 50px;
     display: inline-block;
     align-self: flex-start;
@@ -893,47 +913,77 @@
 
 .hotel-price span {
     color: var(--primary);
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .hotel-platforms {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    margin-top: auto;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
     padding-top: 0.75rem;
     border-top: 1px dashed #eee;
 }
 
 .hotel-platforms span {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 700;
     color: #999;
-    text-transform: uppercase;
 }
 
 .plat-icon {
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: var(--transition);
 }
 
-.plat-icon.booking { color: #003580; }
-.plat-icon.tripadvisor { color: #34E0A1; }
-.plat-icon.airbnb { color: #FF5A5F; }
+/* 3-Platform Booking Grid */
+.hotel-booking-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    margin-top: auto;
+    padding: 0.5rem 1rem 1rem;
+}
 
-.btn-hotel-book {
-    display: block;
-    width: 100%;
-    padding: 0.75rem;
-    background: var(--primary);
-    color: white;
-    text-align: center;
-    border-radius: 10px;
+.opt-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 4px;
+    font-size: 0.65rem;
     font-weight: 700;
-    font-size: 0.85rem;
     text-decoration: none;
-    margin-top: 0.5rem;
+    border-radius: 6px;
     transition: var(--transition);
+}
+
+.opt-btn i { font-size: 1.1rem; }
+
+.opt-btn.booking { background: #003580; color: white; }
+.opt-btn.tripadvisor { background: #34E0A1; color: #000; }
+.opt-btn.airbnb { background: #FF5A5F; color: white; }
+
+.opt-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Hide old button */
+.btn-hotel-book { display: none; }
+
+/* Carousel Nav Reposition */
+.carousel-nav {
+    width: 30px;
+    height: 30px;
+}
+
+.carousel-nav.prev { left: -10px; }
+.carousel-nav.next { right: -10px; }
+
+@media (max-width: 768px) {
+    .hotel-card { flex: 0 0 200px; }
 }
 
 .btn-hotel-book:hover {
