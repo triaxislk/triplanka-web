@@ -861,62 +861,89 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const primaryVibe = selectedVibeList.find(v => destInfo.reasons[v]) || selectedVibeList[0];
             itineraryHtml += `
-                <div class="itinerary-day">
-                    <div class="day-number">${idx}</div>
-                    <div class="day-content">
-                        <h3>${dayLabel}: ${hub}</h3>
-                        <span class="travel-info"><i class="fas fa-route"></i> Leg ${idx}: from ${prevHub} (~${dist} KM | ${time}h)</span>
-                        <p>${destInfo.reasons[primaryVibe] || destInfo.desc}</p>
-                        
-                        <div class="recommendations">
-                            <div class="rec-title">
-                                <h4>Smart Choice: Select Your Stay in ${hub}</h4>
-                                <p>Compare real rates on your favorite platforms.</p>
+                <div class="itinerary-day-box fade-in">
+                    <div class="day-header-main">
+                        <div class="day-id-badge">Day ${idx}</div>
+                        <div class="day-title-info">
+                            <h3>Explore ${hub}</h3>
+                            <div class="leg-meta">
+                                <span class="meta-pill"><i class="fas fa-road"></i> ${dist} KM Journey</span>
+                                <span class="meta-pill"><i class="fas fa-clock"></i> ${time}h Drive</span>
+                                <span class="meta-pill"><i class="fas fa-map-marker-alt"></i> Leg ${idx}: from ${prevHub}</span>
                             </div>
-                            <div class="hotel-carousel-wrapper">
-                                <button class="carousel-nav prev" onclick="this.parentElement.querySelector('.hotel-carousel').scrollBy(-300, 0)"><i class="fas fa-chevron-left"></i></button>
-                                <div class="hotel-carousel">
-                                    ${(hotelData[hub] || []).map(hotel => {
-                                        const p = hotel.price[stay] || 100;
-                                        const stars = '<i class="fas fa-star"></i>'.repeat(hotel.rating);
-                                        return `
-                                            <div class="hotel-card">
-                                                <div class="hotel-thumb">
-                                                    <img src="../Images/Site Photos/hotel-thumb.png" alt="${hotel.name}">
+                        </div>
+                    </div>
+                    
+                    <div class="itinerary-bento-grid">
+                        <div class="bento-info">
+                            <div class="vibe-quote">
+                                <i class="fas fa-quote-left"></i>
+                                <p>${destInfo.reasons[primaryVibe] || destInfo.desc}</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bento-hotels">
+                            <div class="spotlight-header">
+                                <h4><i class="fas fa-star-creative"></i> Smart Property Spotlight</h4>
+                                <p>Hand-picked for your ${stay} comfort level.</p>
+                            </div>
+                            
+                            <div class="property-spotlight-container">
+                                ${(hotelData[hub] || []).slice(0, 1).map(hotel => {
+                                    const p = hotel.price[stay] || 100;
+                                    const stars = '<span class="star-pill"><i class="fas fa-star"></i> ' + hotel.rating + '</span>';
+                                    return `
+                                        <div class="spotlight-main-card">
+                                            <div class="spotlight-visual">
+                                                <img src="../Images/Site Photos/hotel-thumb.png" alt="${hotel.name}">
+                                                <div class="luxury-badge">TriLanka Choice</div>
+                                            </div>
+                                            <div class="spotlight-details">
+                                                <div class="name-rating">
+                                                    <h5>${hotel.name}</h5>
+                                                    ${stars}
                                                 </div>
-                                                <div class="hotel-card-content">
-                                                    <div class="hotel-name">${hotel.name}</div>
-                                                    <div class="hotel-rating">${stars}</div>
-                                                    <div class="hotel-price">Est. <span>$${p}</span> / night</div>
+                                                <div class="pricing-dashboard">
+                                                    <div class="est-label">Estimated Nightly Rate</div>
+                                                    <div class="est-price">$${p} <span>USD</span></div>
                                                 </div>
-                                                <div class="hotel-booking-options">
-                                                    <a href="${bookingLink}" target="_blank" class="opt-btn booking" title="Compare on Booking.com">
-                                                        <img src="../Images/Associated Companies/booking.com.png" alt="B.">
-                                                        <span>Booking</span>
-                                                    </a>
-                                                    <a href="${tripadvisorLink}" target="_blank" class="opt-btn tripadvisor" title="Compare on TripAdvisor">
-                                                        <img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor">
-                                                        <span>TripAdvisor</span>
-                                                    </a>
-                                                    <a href="${airbnbLink}" target="_blank" class="opt-btn airbnb" title="Compare on Airbnb">
-                                                        <img src="../Images/Associated Companies/airbnb.png" alt="Airbnb">
-                                                        <span>Airbnb</span>
-                                                    </a>
+                                                <div class="comparison-command-center">
+                                                    <div class="compare-label">Compare Across Platforms</div>
+                                                    <div class="compare-grid">
+                                                        <a href="${bookingLink}" target="_blank" class="comp-btn booking">
+                                                            <img src="../Images/Associated Companies/booking.com.png" alt="B.">
+                                                            <span>Best Price</span>
+                                                        </a>
+                                                        <a href="${tripadvisorLink}" target="_blank" class="comp-btn tripadvisor">
+                                                            <img src="../Images/Associated Companies/Trip Advisor.png" alt="TA">
+                                                            <span>Reviews</span>
+                                                        </a>
+                                                        <a href="${airbnbLink}" target="_blank" class="comp-btn airbnb">
+                                                            <img src="../Images/Associated Companies/airbnb.png" alt="AB">
+                                                            <span>Homestay</span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        `;
-                                    }).join('')}
-                                    <div class="hotel-card more-options-card">
-                                        <div class="hotel-name">More Options</div>
-                                        <p>Discover all Budget Deals in ${hub} across all platforms.</p>
-                                        <div class="hotel-booking-options">
-                                            <a href="${bookingLink}" target="_blank" class="opt-btn booking"><img src="../Images/Associated Companies/booking.com.png" alt="B."></a>
-                                            <a href="${tripadvisorLink}" target="_blank" class="opt-btn tripadvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
-                                            <a href="${airbnbLink}" target="_blank" class="opt-btn airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
                                         </div>
+                                    `;
+                                }).join('')}
+                                
+                                <div class="alternative-stays">
+                                    <div class="alt-label">Alternative Options in ${hub}:</div>
+                                    <div class="alt-grid">
+                                        ${(hotelData[hub] || []).slice(1).map(hotel => `
+                                            <div class="alt-pill" title="${hotel.name}">
+                                                <i class="fas fa-hotel"></i>
+                                                <span>${hotel.name}</span>
+                                            </div>
+                                        `).join('')}
+                                        <a href="${bookingLink}" target="_blank" class="alt-pill more">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Explore All</span>
+                                        </a>
                                     </div>
                                 </div>
-                                <button class="carousel-nav next" onclick="this.parentElement.querySelector('.hotel-carousel').scrollBy(300, 0)"><i class="fas fa-chevron-right"></i></button>
                             </div>
                         </div>
                     </div>
