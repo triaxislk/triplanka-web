@@ -13,12 +13,33 @@
 
 .planner-hero {
     padding: 120px 0 60px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../Images/Site Photos/Sunny beach near Koggala - Sri Lanka The area famous for its distinct stilt fishermen who erect a single pole in the chest-deep water on th.jpg');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../Images/Site Photos/elephant_sri_lanka_sb_bandara.jpg');
     background-size: cover;
     background-position: center;
     color: var(--white);
     text-align: center;
     clip-path: ellipse(150% 100% at 50% 0%);
+    position: relative;
+    overflow: hidden;
+}
+
+.planner-hero:hover .photo-attribution {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.planner-hero .photo-attribution {
+    bottom: auto;
+    top: 100px; /* Below header */
+    right: 0;
+    left: auto;
+    width: auto;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px 0 0 10px;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(8px);
+    transform: translateX(100%);
+    transition: var(--transition);
 }
 
 .planner-hero h1 {
