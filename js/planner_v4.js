@@ -387,6 +387,77 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     ];
 
+    const hotelData = {
+        'Negombo': [
+            { name: "Jetwing Blue", rating: 5, price: { budget: 75, mid: 120, luxury: 220 } },
+            { name: "Heritance Negombo", rating: 5, price: { budget: 85, mid: 140, luxury: 250 } },
+            { name: "Amagi Aria", rating: 4, price: { budget: 55, mid: 90, luxury: 160 } },
+            { name: "Goldi Sands Hotel", rating: 4, price: { budget: 50, mid: 85, luxury: 150 } }
+        ],
+        'Colombo': [
+            { name: "Marino Beach Colombo", rating: 5, price: { budget: 70, mid: 110, luxury: 190 } },
+            { name: "Shangri-La Colombo", rating: 5, price: { budget: 150, mid: 220, luxury: 350 } },
+            { name: "Galle Face Hotel", rating: 5, price: { budget: 90, mid: 150, luxury: 280 } },
+            { name: "Cinnamon Red", rating: 4, price: { budget: 60, mid: 95, luxury: 140 } }
+        ],
+        'Kandy': [
+            { name: "Earl's Regency", rating: 5, price: { budget: 80, mid: 130, luxury: 220 } },
+            { name: "Amaya Hills", rating: 4, price: { budget: 60, mid: 100, luxury: 180 } },
+            { name: "The Golden Crown", rating: 5, price: { budget: 90, mid: 145, luxury: 260 } },
+            { name: "OZO Kandy", rating: 4, price: { budget: 55, mid: 90, luxury: 150 } }
+        ],
+        'Sigiriya': [
+            { name: "Aliya Resort & Spa", rating: 5, price: { budget: 85, mid: 140, luxury: 240 } },
+            { name: "Heritance Kandalama", rating: 5, price: { budget: 120, mid: 190, luxury: 320 } },
+            { name: "Sigiriya Village", rating: 4, price: { budget: 60, mid: 100, luxury: 170 } },
+            { name: "Hotel Sigiriya", rating: 4, price: { budget: 55, mid: 95, luxury: 160 } }
+        ],
+        'Nuwara Eliya': [
+            { name: "The Grand Hotel", rating: 5, price: { budget: 110, mid: 170, luxury: 290 } },
+            { name: "Araliya Green City", rating: 5, price: { budget: 90, mid: 145, luxury: 250 } },
+            { name: "Jetwing St. Andrews", rating: 4, price: { budget: 80, mid: 130, luxury: 220 } },
+            { name: "The Tea Garden", rating: 3, price: { budget: 40, mid: 65, luxury: 110 } }
+        ],
+        'Ella': [
+            { name: "98 Acres Resort", rating: 5, price: { budget: 180, mid: 280, luxury: 450 } },
+            { name: "Ella Flower Garden", rating: 4, price: { budget: 50, mid: 80, luxury: 140 } },
+            { name: "Heavens Edge", rating: 4, price: { budget: 60, mid: 95, luxury: 160 } },
+            { name: "Mountain Heavens", rating: 3, price: { budget: 45, mid: 70, luxury: 120 } }
+        ],
+        'Galle': [
+            { name: "Jetwing Lighthouse", rating: 5, price: { budget: 130, mid: 210, luxury: 360 } },
+            { name: "Amari Galle", rating: 5, price: { budget: 100, mid: 160, luxury: 280 } },
+            { name: "Fort Bazaar", rating: 4, price: { budget: 110, mid: 180, luxury: 310 } },
+            { name: "Le Grand Galle", rating: 5, price: { budget: 120, mid: 195, luxury: 340 } }
+        ],
+        'Hambantota': [
+            { name: "Shangri-La Hambantota", rating: 5, price: { budget: 160, mid: 250, luxury: 420 } },
+            { name: "Anantara Peace Haven", rating: 5, price: { budget: 180, mid: 290, luxury: 480 } },
+            { name: "Cinnamon Wild Yala", rating: 4, price: { budget: 90, mid: 150, luxury: 260 } },
+            { name: "Jetwing Yala", rating: 5, price: { budget: 110, mid: 180, luxury: 320 } }
+        ],
+        'Polonnaruwa': [
+            { name: "Jetwing Lake", rating: 5, price: { budget: 85, mid: 140, luxury: 240 } },
+            { name: "Cinnamon Lodge Habarana", rating: 5, price: { budget: 90, mid: 150, luxury: 260 } },
+            { name: "Deer Park Hotel", rating: 4, price: { budget: 60, mid: 100, luxury: 170 } }
+        ],
+        'Anuradhapura': [
+            { name: "Heritage Hotel", rating: 4, price: { budget: 55, mid: 90, luxury: 150 } },
+            { name: "Ulagalla by Uga", rating: 5, price: { budget: 220, mid: 350, luxury: 580 } },
+            { name: "Forest Rock Garden", rating: 4, price: { budget: 110, mid: 180, luxury: 310 } }
+        ],
+        'Trincomalee': [
+            { name: "Trinco Blu by Cinnamon", rating: 4, price: { budget: 70, mid: 115, luxury: 190 } },
+            { name: "Jungle Beach by Uga", rating: 5, price: { budget: 180, mid: 290, luxury: 490 } },
+            { name: "Nilaveli Beach Hotel", rating: 4, price: { budget: 60, mid: 100, luxury: 170 } }
+        ],
+        'Jaffna': [
+            { name: "Jetwing Jaffna", rating: 4, price: { budget: 75, mid: 120, luxury: 210 } },
+            { name: "North Gate by Jetwing", rating: 4, price: { budget: 70, mid: 115, luxury: 200 } },
+            { name: "The Thinnai", rating: 4, price: { budget: 65, mid: 105, luxury: 180 } }
+        ]
+    };
+
     // --- State ---
     let currentStep = 1;
     let selectedDests = [];
@@ -798,13 +869,40 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>${destInfo.reasons[primaryVibe] || destInfo.desc}</p>
                         
                         <div class="recommendations">
-                            <h4>Comparison: ${categoryLabel} in ${hub}</h4>
-                            <div class="rec-item">
-                                <div class="rec-links">
-                                    <a href="${bookingLink}" target="_blank" class="booking"><i class="fas fa-check-circle"></i> Booking.com</a>
-                                    <a href="${tripadvisorLink}" target="_blank" class="tripadvisor"><i class="fas fa-star"></i> TripAdvisor</a>
-                                    <a href="${airbnbLink}" target="_blank" class="airbnb"><i class="fab fa-airbnb"></i> Airbnb</a>
+                        <div class="recommendations">
+                            <h4>Smart Choice: Comparison of Top Rated Stays in ${hub}</h4>
+                            <div class="hotel-carousel-wrapper">
+                                <button class="carousel-nav prev" onclick="this.nextElementSibling.scrollBy(-300, 0)"><i class="fas fa-chevron-left"></i></button>
+                                <div class="hotel-carousel">
+                                    ${(hotelData[hub] || []).map(hotel => {
+                                        const p = hotel.price[stay] || 100;
+                                        const stars = '<i class="fas fa-star"></i>'.repeat(hotel.rating);
+                                        return `
+                                            <div class="hotel-card">
+                                                <div class="hotel-name">${hotel.name}</div>
+                                                <div class="hotel-rating">${stars}</div>
+                                                <div class="hotel-price">Est. <span>$${p}</span> / night</div>
+                                                <div class="hotel-platforms">
+                                                    <span>Compare:</span>
+                                                    <a href="${bookingLink}" target="_blank" class="plat-icon booking" title="Booking.com"><i class="fas fa-check-circle"></i></a>
+                                                    <a href="${tripadvisorLink}" target="_blank" class="plat-icon tripadvisor" title="TripAdvisor"><i class="fas fa-star"></i></a>
+                                                    <a href="${airbnbLink}" target="_blank" class="plat-icon airbnb" title="Airbnb"><i class="fab fa-airbnb"></i></a>
+                                                </div>
+                                                <a href="${bookingLink}" target="_blank" class="btn-hotel-book">Check Availability</a>
+                                            </div>
+                                        `;
+                                    }).join('')}
+                                    <div class="hotel-card" style="background: rgba(0, 106, 78, 0.05); border: 2px dashed var(--primary); justify-content: center; align-items: center; text-align: center;">
+                                        <div class="hotel-name" style="margin-bottom: 0.5rem;">Explore More Options</div>
+                                        <p style="font-size: 0.75rem; color: #666; margin-bottom: 1rem;">View all ${categoryLabel} on your favorite platforms.</p>
+                                        <div class="hotel-platforms" style="border: none; padding: 0;">
+                                            <a href="${bookingLink}" target="_blank" class="plat-icon booking"><i class="fas fa-check-circle"></i></a>
+                                            <a href="${tripadvisorLink}" target="_blank" class="plat-icon tripadvisor"><i class="fas fa-star"></i></a>
+                                            <a href="${airbnbLink}" target="_blank" class="plat-icon airbnb"><i class="fab fa-airbnb"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
+                                <button class="carousel-nav next" onclick="this.previousElementSibling.scrollBy(300, 0)"><i class="fas fa-chevron-right"></i></button>
                             </div>
                         </div>
                     </div>
