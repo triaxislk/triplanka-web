@@ -389,14 +389,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const hotelData = {
         'Negombo': [
-            { name: "Jetwing Blue", rating: 5, price: { budget: 110, mid: 133, luxury: 250 } },
+            { name: "Jetwing Blue", img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/11833116.jpg?k=f6412e22c0615993949f575231db0006761042ce4c8141443652c71047702a46&o=", rating: 5, price: { budget: 110, mid: 133, luxury: 250 } },
             { name: "Heritance Negombo", rating: 5, price: { budget: 130, mid: 162, luxury: 290 } },
             { name: "Amagi Aria", rating: 5, price: { budget: 60, mid: 79, luxury: 140 } },
             { name: "Goldi Sands Hotel", rating: 4, price: { budget: 55, mid: 85, luxury: 150 } }
         ],
         'Colombo': [
             { name: "Marino Beach Colombo", rating: 4, price: { budget: 65, mid: 85, luxury: 150 } },
-            { name: "Shangri-La Colombo", rating: 5, price: { budget: 160, mid: 195, luxury: 380 } },
+            { name: "Shangri-La Colombo", img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/118580299.jpg?k=f6412e22c0615993949f575231db0006761042ce4c8141443652c71047702a46&o=", rating: 5, price: { budget: 160, mid: 195, luxury: 380 } },
             { name: "Galle Face Hotel", rating: 5, price: { budget: 100, mid: 140, luxury: 260 } },
             { name: "Cinnamon Red", rating: 4, price: { budget: 65, mid: 90, luxury: 140 } }
         ],
@@ -408,18 +408,18 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         'Sigiriya': [
             { name: "Aliya Resort & Spa", rating: 5, price: { budget: 120, mid: 170, luxury: 280 } },
-            { name: "Heritance Kandalama", rating: 5, price: { budget: 140, mid: 175, luxury: 340 } },
+            { name: "Heritance Kandalama", img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/38383804.jpg?k=3933c04291880927702f277720993077708c2a8a7df&o=", rating: 5, price: { budget: 140, mid: 175, luxury: 340 } },
             { name: "Sigiriya Village", rating: 4, price: { budget: 70, mid: 110, luxury: 180 } },
             { name: "Hotel Sigiriya", rating: 4, price: { budget: 65, mid: 100, luxury: 170 } }
         ],
         'Nuwara Eliya': [
-            { name: "The Grand Hotel", rating: 4, price: { budget: 150, mid: 220, luxury: 350 } },
+            { name: "The Grand Hotel", img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/38385714.jpg?k=361cc38497faae52f9f1b40212727a29e4e69d7a2245e31707b6c57f0069a531&o=", rating: 4, price: { budget: 150, mid: 220, luxury: 350 } },
             { name: "Araliya Green City", rating: 5, price: { budget: 85, mid: 110, luxury: 210 } },
             { name: "Jetwing St. Andrews", rating: 5, price: { budget: 110, mid: 155, luxury: 260 } },
             { name: "The Tea Garden", rating: 3, price: { budget: 45, mid: 75, luxury: 130 } }
         ],
         'Ella': [
-            { name: "98 Acres Resort", rating: 4, price: { budget: 280, mid: 440, luxury: 650 } },
+            { name: "98 Acres Resort", img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/38385610.jpg?k=361cc38497faae52f9f1b40212727a29e4e69d7a2245e31707b6c57f0069a531&o=", rating: 4, price: { budget: 280, mid: 440, luxury: 650 } },
             { name: "Ella Flower Garden", rating: 3, price: { budget: 140, mid: 230, luxury: 320 } },
             { name: "Heavens Edge", rating: 4, price: { budget: 70, mid: 110, luxury: 180 } },
             { name: "Mountain Heavens", rating: 3, price: { budget: 55, mid: 85, luxury: 140 } }
@@ -442,7 +442,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: "Deer Park Hotel", rating: 4, price: { budget: 70, mid: 115, luxury: 190 } }
         ],
         'Anuradhapura': [
-            { name: "Heritage Hotel", rating: 4, price: { budget: 65, mid: 100, luxury: 170 } },
+            { name: "Heritage Hotel", img: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/249275219.jpg?k=a27da83dd028718a6e9374fea46fe8f6658dfa7481d7d31784710c13b2a8a7df&o=", rating: 4, price: { budget: 65, mid: 100, luxury: 170 } },
             { name: "Ulagalla by Uga", rating: 5, price: { budget: 250, mid: 380, luxury: 620 } },
             { name: "Forest Rock Garden", rating: 4, price: { budget: 120, mid: 190, luxury: 320 } }
         ],
@@ -895,7 +895,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     return `
                                         <div class="spotlight-main-card">
                                             <div class="spotlight-visual">
-                                                <img src="../Images/Site Photos/hotel-thumb.png" alt="${hotel.name}">
+                                                <img src="${hotel.img || destInfo.img || '../Images/Site Photos/hotel-thumb.png'}" alt="${hotel.name}">
                                                 <div class="luxury-badge">TriLanka Choice</div>
                                             </div>
                                             <div class="spotlight-details">
