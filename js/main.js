@@ -55,3 +55,84 @@ document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
         }
     });
 });
+
+// System: Automated Global Photo Attribution Manager
+document.addEventListener('DOMContentLoaded', () => {
+    // Collect elements that commonly hold images (img tags and elements with inline background images)
+    const elements = document.querySelectorAll('img, [style*="background-image"], .card-bg, .hero, .blog-hero, .article-header');
+
+    elements.forEach(el => {
+        // Prevent duplicate processing
+        if (el.hasAttribute('data-photo-attributed')) return;
+        el.setAttribute('data-photo-attributed', 'true');
+
+        let src = '';
+        if (el.tagName.toLowerCase() === 'img') {
+            src = el.getAttribute('src');
+        } else {
+            const bgImage = el.style.backgroundImage || window.getComputedStyle(el).backgroundImage;
+            if (bgImage && bgImage !== 'none') {
+                const match = bgImage.match(/url\(["']?(.*?)["']?\)/);
+                if (match) src = match[1];
+            }
+        }
+
+        if (src) {
+            try { src = decodeURIComponent(src); } catch(e) {}
+            
+            // Extract photographer name based on "- Photo by Name.jpg" patterns
+            const photoByMatch = src.match(/(?:-?\s*Photo\s*by\s*|©\s*)([^.\\/]+?)(?:\.(?:jpg|jpeg|png|webp|gif|avif|HEIC|JPG))/i);
+            
+            if (photoByMatch && photoByMatch[1]) {
+                let authorName = photoByMatch[1].trim();
+                // Clean up trailing hyphens
+                authorName = authorName.replace(/[-\s]+$/, '');
+                
+                const attr = document.createElement('span');
+                attr.className = 'photo-attribution';
+                attr.textContent = `Photo by ${authorName}`;
+
+                // Append intelligently based on structure
+                if (el.tagName.toLowerCase() === 'img') {
+                    const parent = el.parentElement;
+                    if (window.getComputedStyle(parent).position === 'static') {
+                        parent.style.position = 'relative';
+                    }
+                    if (!parent.querySelector('.photo-attribution')) {
+                        parent.appendChild(attr);
+                        parent.classList.add('img-container'); // for the hover trigger
+                    }
+                } else if (el.classList.contains('card-bg')) {
+                    // If it's the background of a card wrapper, we append to parent
+                    const parent = el.parentElement;
+                    if (!parent.querySelector('.photo-attribution')) {
+                        parent.appendChild(attr);
+                    }
+                } else {
+                    // For inline styles like hero sections
+                    if (window.getComputedStyle(el).position === 'static') {
+                        el.style.position = 'relative';
+                    }
+                    if (!el.querySelector('.photo-attribution')) {
+                        el.appendChild(attr);
+                    }
+                }
+            }
+        }
+    });
+
+    // Ensure hover mechanics apply broadly
+    if (!document.querySelector('#dynamic-attribution-styles')) {
+        const style = document.createElement('style');
+        style.id = 'dynamic-attribution-styles';
+        style.innerHTML = `
+            .img-container:hover .photo-attribution,
+            .hero:hover .photo-attribution,
+            .blog-hero:hover .photo-attribution,
+            .card-bg:hover .photo-attribution,
+            .article-header:hover .photo-attribution,
+            .dest-card:hover .photo-attribution { opacity: 1; transform: translate(-50%, -2px); }
+        `;
+        document.head.appendChild(style);
+    }
+});

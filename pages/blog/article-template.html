@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}} | TripLanka Travel Blog</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <!-- Required dependencies -->
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="../../css/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../../Images/Logos/Logo Without Background.png">
+</head>
+<body class="blog-page">
+
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="../../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+                </a>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="../../index.html">Home</a></li>
+                
+                <li class="dropdown">
+                    <a href="../travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../travel-info.html">Travel Information</a></li>
+                        <li><a href="../visa.html">Visa Details</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="../guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../guide/negombo.html">Negombo & Mannar</a></li>
+                        <li><a href="../guide/colombo.html">Colombo</a></li>
+                        <li><a href="../guide/kandy.html">Kandy & Gampola</a></li>
+                        <li><a href="../guide/sigiriya.html">Dambulla & Sigiriya</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="../plans.html">Touring Plans <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../plans/leisure.html">Leisure & Relaxation</a></li>
+                    </ul>
+                </li>
+                <li><a href="../blog.html" class="active">Travel Blog</a></li>
+                <li><a href="../gallery.html">Photo Gallery</a></li>
+                <li><a href="../contact.html" class="btn-primary">Connect</a></li>
+                <li class="flag-item">
+                    <img src="../../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <article>
+            <section class="article-header" style="background: linear-gradient(rgba(0,106,78,0.85), rgba(0,106,78,0.95)), url('../../Images/Site Photos/elephant_sri_lanka_sb_bandara.jpg') center/cover;">
+                <div class="container">
+                    <span class="blog-badge" style="background:white; color:var(--primary);">{{CATEGORY}}</span>
+                    <h1 class="fade-in">{{TITLE}}</h1>
+                    <div class="blog-meta flex-center fade-in delay-1" style="justify-content: center; color: rgba(255,255,255,0.8);">
+                        <span><i class="far fa-calendar-alt" style="color:var(--secondary);"></i> {{DATE}}</span>
+                        <span><i class="far fa-user" style="color:var(--secondary);"></i> By TripLanka Experts</span>
+                        <span><i class="far fa-clock" style="color:var(--secondary);"></i> 6 min read</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container">
+                <div class="article-content">
+                    
+                    <div class="article-body">
+                        <p><strong>{{INTRO_PARAGRAPH}}</strong></p>
+
+                        <p>{{CONTENT_GOES_HERE}}</p>
+                        
+                        <h2>Why Visit?</h2>
+                        <p>{{SECONDARY_CONTENT}}</p>
+
+                        <!-- Example Image Block -->
+                        <!-- <img src="../../Images/Site Photos/Town/Ella - Photo by Anton Lecock.jpg" alt="Ella Views"> -->
+                        
+                        <h3>Helpful Tips</h3>
+                        <ul>
+                            <li><strong>Best Time to Go:</strong> Peak seasons...</li>
+                            <li><strong>How to get there:</strong> Public transport, train...</li>
+                        </ul>
+
+                        <hr style="margin: 3rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                        
+                        <div style="background: #f8fafc; padding: 2rem; border-radius: 12px; text-align: center;">
+                            <h3 style="margin-top:0;">Ready to explore Sri Lanka?</h3>
+                            <p>Let TripLanka's experts tailor your dream vacation today.</p>
+                            <a href="../contact.html" class="btn-primary">Connect With Us</a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container center-text" style="padding: 2rem; border-top: 1px solid #eee; margin-top: 4rem;">
+            <p>&copy; 2026 TripLanka Blog. All Rights Reserved.</p>
+            <a href="../blog.html" style="color: var(--primary); font-weight: 700;">&larr; Back to all articles</a>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>

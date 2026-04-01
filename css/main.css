@@ -264,7 +264,7 @@ nav {
 .hero {
     height: 100vh;
     position: relative;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../Images/Site Photos/Sunny beach near Koggala - Sri Lanka The area famous for its distinct stilt fishermen who erect a single pole in the chest-deep water on th.jpg');
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('../Images/Site Photos/Beach/Sunny beach near Koggala Sri Lanka - Photo by Valerii Iavtushenko.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -317,11 +317,18 @@ nav {
     position: relative;
     z-index: 2; /* Above video */
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-.hero h1 {
+.hero h1, .hero h2 {
     font-size: clamp(2.5rem, 8vw, 4.5rem);
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto;
+    width: 100%;
+    text-align: center;
 }
 
 .hero h1 span {
@@ -447,6 +454,39 @@ section {
     padding: 1.5rem;
     width: 100%;
     transition: var(--transition);
+}
+
+/* Global Photo Attribution (Hover-Only) */
+.photo-attribution {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(4px);
+    color: rgba(255,255,255,0.95);
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 8px;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 20;
+    pointer-events: none;
+    letter-spacing: 0.3px;
+    border: 1px solid rgba(255,255,255,0.1);
+    white-space: nowrap;
+}
+
+/* Hover Triggers */
+.hero:hover .photo-attribution,
+.dest-card:hover .photo-attribution,
+.img-container:hover .photo-attribution,
+.about-image:hover .photo-attribution,
+.dest-img-container:hover .photo-attribution,
+.destination-hero-frame:hover .photo-attribution,
+.gh-thumb:hover .photo-attribution {
+    opacity: 1; transform: translate(-50%, -2px);
 }
 
 .dest-info h3 {

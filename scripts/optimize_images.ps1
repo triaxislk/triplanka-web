@@ -20,49 +20,61 @@ function Get-JpegCodec {
 function Optimize-Image {
     param ([string]$FilePath)
     
-    $file = Get-Item $FilePath
-    if ($file.Length -lt $MinSizeBytes) { return }
-    
-    Write-Host "Optimizing: $($file.Name) ($($file.Length / 1MB -as [int]) MB)"
-    
-    # Backup original
-    $relativeDir = Split-Path $file.FullName.Replace((Get-Location).Path + "\", "") -Parent
-    $destDir = Join-Path $BackupFolder $relativeDir
-    if (-not (Test-Path $destDir)) { New-Item -ItemType Directory -Path $destDir -Force | Out-Null }
-    $backupPath = Join-Path $destDir $file.Name
-    Copy-Item $file.FullName $backupPath -Force
-    
-    # Load and process image
-    $img = [System.Drawing.Image]::FromFile($file.FullName)
-    
-    $newWidth = $img.Width
-    $newHeight = $img.Height
-    
-    if ($img.Width -gt $MaxWidth) {
-        $ratio = $MaxWidth / $img.Width
-        $newWidth = $MaxWidth
-        $newHeight = [int]($img.Height * $ratio)
+    try {
+        $file = Get-Item $FilePath
+        if ($file.Length -lt $MinSizeBytes) { return }
+        
+        Write-Host "Checking: $($file.Name) ($($file.Length / 1MB -as [int]) MB)"
+        
+        # Load and process image
+        $img = $null
+        try {
+            $img = [System.Drawing.Image]::FromFile($file.FullName)
+        } catch {
+            Write-Warning "Skipping $($file.Name): Not a valid or supported image file."
+            return
+        }
+        
+        # Backup original
+        $relativeDir = Split-Path $file.FullName.Replace((Get-Location).Path + "\", "") -Parent
+        $destDir = Join-Path $BackupFolder $relativeDir
+        if (-not (Test-Path $destDir)) { New-Item -ItemType Directory -Path $destDir -Force | Out-Null }
+        $backupPath = Join-Path $destDir $file.Name
+        Copy-Item $file.FullName $backupPath -Force
+        
+        Write-Host "Optimizing: $($file.Name)..."
+        
+        $newWidth = $img.Width
+        $newHeight = $img.Height
+        
+        if ($img.Width -gt $MaxWidth) {
+            $ratio = $MaxWidth / $img.Width
+            $newWidth = $MaxWidth
+            $newHeight = [int]($img.Height * $ratio)
+        }
+        
+        $newImg = New-Object System.Drawing.Bitmap($newWidth, $newHeight)
+        $graphics = [System.Drawing.Graphics]::FromImage($newImg)
+        $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+        $graphics.DrawImage($img, 0, 0, $newWidth, $newHeight)
+        
+        # Setup compression
+        $encoder = Get-JpegCodec
+        $encoderParameters = New-Object System.Drawing.Imaging.EncoderParameters(1)
+        $encoderParameters.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, $Quality)
+        
+        $img.Dispose()
+        
+        # Save optimized image
+        $newImg.Save($file.FullName, $encoder, $encoderParameters)
+        $newImg.Dispose()
+        $graphics.Dispose()
+        
+        $newFile = Get-Item $file.FullName
+        Write-Host "Done: $($newFile.Name) optimized to ($($newFile.Length / 1KB -as [int]) KB)"
+    } catch {
+        Write-Error "Failed to process $($FilePath): $($_.Exception.Message)"
     }
-    
-    $newImg = New-Object System.Drawing.Bitmap($newWidth, $newHeight)
-    $graphics = [System.Drawing.Graphics]::FromImage($newImg)
-    $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-    $graphics.DrawImage($img, 0, 0, $newWidth, $newHeight)
-    
-    # Setup compression
-    $encoder = Get-JpegCodec
-    $encoderParameters = New-Object System.Drawing.Imaging.EncoderParameters(1)
-    $encoderParameters.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, $Quality)
-    
-    $img.Dispose()
-    
-    # Save optimized image
-    $newImg.Save($file.FullName, $encoder, $encoderParameters)
-    $newImg.Dispose()
-    $graphics.Dispose()
-    
-    $newFile = Get-Item $file.FullName
-    Write-Host "Done: $($newFile.Name) optimized to ($($newFile.Length / 1KB -as [int]) KB)"
 }
 
 Get-ChildItem -Path $SourceFolder -Recurse -Include *.jpg, *.jpeg, *.png | ForEach-Object {
