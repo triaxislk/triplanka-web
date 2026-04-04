@@ -135,4 +135,77 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.head.appendChild(style);
     }
+
+    // === Blog Filter Controller ===
+    const blogFilter = document.getElementById('blogFilter');
+    if (blogFilter) {
+        const currentFilter = document.getElementById('currentFilter');
+        const options = blogFilter.querySelectorAll('.filter-options li');
+        const cards = document.querySelectorAll('.blog-card');
+
+        // Toggle Dropdown
+        blogFilter.addEventListener('click', (e) => {
+            e.stopPropagation();
+            blogFilter.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', () => {
+            blogFilter.classList.remove('active');
+        });
+
+        const applyFilter = (category, label) => {
+            // Update UI
+            currentFilter.textContent = label || 'Filter by Category';
+            options.forEach(opt => opt.classList.remove('active'));
+            const activeOpt = Array.from(options).find(opt => opt.getAttribute('data-value') === category);
+            if (activeOpt) activeOpt.classList.add('active');
+
+            // Filter Cards
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.classList.remove('filtered-out');
+                    // Small delay for staggered entrance effect
+                    setTimeout(() => {
+                        card.style.display = 'flex';
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 10);
+                } else {
+                    card.classList.add('filtered-out');
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        if (card.classList.contains('filtered-out')) {
+                            card.style.display = 'none';
+                        }
+                    }, 500);
+                }
+            });
+        };
+
+        // Option selection
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const category = option.getAttribute('data-value');
+                const label = option.textContent;
+                applyFilter(category, label);
+            });
+        });
+
+        // Check URL for filter param (e.g. ?filter=nature)
+        const urlParams = new URLSearchParams(window.location.search);
+        const filterParam = urlParams.get('filter');
+        if (filterParam) {
+            const validCategories = {
+                'guides': 'Travel Guides',
+                'culture': 'Culture & Food',
+                'nature': 'Nature & Wildlife'
+            };
+            if (validCategories[filterParam]) {
+                applyFilter(filterParam, validCategories[filterParam]);
+            }
+        }
+    }
 });

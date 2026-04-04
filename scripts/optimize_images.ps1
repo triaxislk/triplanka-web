@@ -1,20 +1,16 @@
 param (
     [string]$SourceFolder = "Images",
-    [long]$MinSizeMB = 5,
-    [int]$MaxWidth = 2048,
-    [int]$Quality = 85
+    [long]$MinSizeMB = 1,
+    [int]$MaxWidth = 1600,
+    [int]$Quality = 75
 )
 
 Add-Type -AssemblyName System.Drawing
 $MinSizeBytes = $MinSizeMB * 1024 * 1024
-$BackupFolder = "backups\images_original"
 
-if (-not (Test-Path $BackupFolder)) {
-    New-Item -ItemType Directory -Path $BackupFolder -Force | Out-Null
-}
-
-function Get-JpegCodec {
-    return [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq 'image/jpeg' }
+function Get-Codec {
+    param([string]$mimeType)
+    return [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() | Where-Object { $_.MimeType -eq $mimeType }
 }
 
 function Optimize-Image {
@@ -29,20 +25,15 @@ function Optimize-Image {
         # Load and process image
         $img = $null
         try {
-            $img = [System.Drawing.Image]::FromFile($file.FullName)
+            # Use a stream to avoid locking the file
+            $stream = [System.IO.File]::OpenRead($file.FullName)
+            $img = [System.Drawing.Image]::FromStream($stream)
+            $stream.Close()
+            $stream.Dispose()
         } catch {
             Write-Warning "Skipping $($file.Name): Not a valid or supported image file."
             return
         }
-        
-        # Backup original
-        $relativeDir = Split-Path $file.FullName.Replace((Get-Location).Path + "\", "") -Parent
-        $destDir = Join-Path $BackupFolder $relativeDir
-        if (-not (Test-Path $destDir)) { New-Item -ItemType Directory -Path $destDir -Force | Out-Null }
-        $backupPath = Join-Path $destDir $file.Name
-        Copy-Item $file.FullName $backupPath -Force
-        
-        Write-Host "Optimizing: $($file.Name)..."
         
         $newWidth = $img.Width
         $newHeight = $img.Height
@@ -58,20 +49,30 @@ function Optimize-Image {
         $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
         $graphics.DrawImage($img, 0, 0, $newWidth, $newHeight)
         
-        # Setup compression
-        $encoder = Get-JpegCodec
+        # Determine format and setup compression
+        $ext = [System.IO.Path]::GetExtension($file.FullName).ToLower()
+        $mimeType = if ($ext -match "png") { "image/png" } else { "image/jpeg" }
+        $encoder = Get-Codec $mimeType
+        
         $encoderParameters = New-Object System.Drawing.Imaging.EncoderParameters(1)
         $encoderParameters.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter([System.Drawing.Imaging.Encoder]::Quality, $Quality)
         
-        $img.Dispose()
+        # Save to a temporary file first
+        $tempPath = [System.IO.Path]::GetTempFileName() + $ext
+        $newImg.Save($tempPath, $encoder, $encoderParameters)
         
-        # Save optimized image
-        $newImg.Save($file.FullName, $encoder, $encoderParameters)
+        $img.Dispose()
         $newImg.Dispose()
         $graphics.Dispose()
         
-        $newFile = Get-Item $file.FullName
-        Write-Host "Done: $($newFile.Name) optimized to ($($newFile.Length / 1KB -as [int]) KB)"
+        $tempFile = Get-Item $tempPath
+        if ($tempFile.Length -lt $file.Length) {
+            Write-Host "Optimizing: $($file.Name) (Reduced: $($file.Length / 1KB -as [int]) KB -> $($tempFile.Length / 1KB -as [int]) KB)"
+            Move-Item -Path $tempPath -Destination $file.FullName -Force
+        } else {
+            Write-Host "Skipping: $($file.Name) (Optimization didn't reduce size - kept original)"
+            Remove-Item $tempPath
+        }
     } catch {
         Write-Error "Failed to process $($FilePath): $($_.Exception.Message)"
     }

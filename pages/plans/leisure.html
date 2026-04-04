@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leisure & Relaxation Plan | Touring Plans | TripLanka</title>
+    <title>Leisure & Relaxation Signature Itinerary | Journey Hub | TripLanka</title>
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +12,11 @@
     <link rel="icon" type="image/png" href="../../Images/Logos/Logo Without Background.png">
     <style>
         .itinerary-hero {
-            height: 40vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../Images/Site Photos/Sunny beach near Koggala - Sri Lanka The area famous for its distinct stilt fishermen who erect a single pole in the chest-deep water on th.jpg');
+            height: 70vh;
+            position: relative;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../Images/Site%20Photos/Collections/Unawatuna%20-%20SP%20Sri%20Lanka%20-%20Photo%20by%20Atlantic%20Ambience.jpg");
             background-size: cover;
-            background-position: center;
+            background-position: center 65%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -30,7 +31,7 @@
         }
         .itinerary-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #444; }
         .itinerary-content h1 { display: none; } /* Hide duplicate title from mammoth */
-        .itinerary-content strong { color: var(--primary-color); }
+        .itinerary-content strong { color: #008080; }
         .itinerary-content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
         .itinerary-content li { margin-bottom: 0.5rem; font-size: 1.05rem; line-height: 1.6; }
         .itinerary-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; }
@@ -39,13 +40,19 @@
             padding: 2rem;
             border-radius: 15px;
             margin-bottom: 2rem;
-            border-left: 4px solid var(--secondary-color);
+            border-left: 4px solid #008080; /* Leisure Accent: Teal */
         }
+        .safety-spotlight {
+            background: #E0F2F1 !important;
+            border: 2px solid #008080 !important;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        .safety-spotlight h3 { color: #008080 !important; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
     </style>
 </head>
 <body>
-    
-    
     
     <header>
         <nav class="container">
@@ -68,7 +75,7 @@
                 <li class="dropdown">
                     <a href="../guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../guide/negombo.html">Negombo & Mannar</a></li>
+                        <li><a href="../guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
                         <li><a href="../guide/colombo.html">Colombo</a></li>
                         <li><a href="../guide/kandy.html">Kandy & Gampola</a></li>
                         <li><a href="../guide/sigiriya.html">Dambulla & Sigiriya</a></li>
@@ -85,18 +92,25 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="../plans.html">Touring Plans <i class="fas fa-chevron-down"></i></a>
+                    <a href="../plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="./solo-female.html">Solo Female Travel Plan</a></li>
-                        <li><a href="./solo-male.html">Solo Male Travel Plan</a></li>
-                        <li><a href="./leisure.html">Leisure & Relaxation Plan</a></li>
-                        <li><a href="./honeymoon.html">Honeymoon & Romance Plan</a></li>
-                        <li><a href="./wildlife.html">Wildlife Lovers Touring Plan</a></li>
-                        <li><a href="./adventure.html">Adventure Lovers Touring Plan</a></li>
-                        <li><a href="./surfing.html">Sea Surfing Touring Plan</a></li>
+                        <li><a href="./solo-female.html">Solo Female Itinerary</a></li>
+                        <li><a href="./solo-male.html">Solo Male Itinerary</a></li>
+                        <li><a href="./leisure.html">Leisure & Relaxation Itinerary</a></li>
+                        <li><a href="./honeymoon.html">Honeymoon & Romance Itinerary</a></li>
+                        <li><a href="./wildlife.html">Wildlife Lovers Itinerary</a></li>
+                        <li><a href="./adventure.html">Adventure Lovers Itinerary</a></li>
+                        <li><a href="./surfing.html">Sea Surfing Itinerary</a></li>
                     </ul>
                 </li>
-                <li><a href="../blog.html">Travel Blog</a></li>
+                <li class="dropdown">
+                    <a href="../blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../blog.html?filter=guides">Travel Guides</a></li>
+                        <li><a href="../blog.html?filter=culture">Culture & Food</a></li>
+                        <li><a href="../blog.html?filter=nature">Nature & Wildlife</a></li>
+                    </ul>
+                </li>
                     <li><a href="../gallery.html">Photo Gallery</a></li>
                 <li><a href="../contact.html" class="btn-primary">Connect</a></li>
                 <li class="flag-item">
@@ -111,22 +125,41 @@
 
     <main>
         <section class="itinerary-hero">
+            <div class="photo-attribution">Photo by Atlantic Ambience</div>
             <div class="container hero-content">
-                <h1 class="fade-in">Leisure & Relaxation Plan</h1>
-                <p class="fade-in delay-1">Expertly crafted 10-day itinerary</p>
+                <h1 class="fade-in">Leisure & Relaxation Signature Itinerary</h1>
+                <p class="fade-in delay-1">Expertly crafted journey for deep rejuvenation</p>
             </div>
         </section>
 
         <section class="container itinerary-content">
-            <a href="../plans.html" style="display:inline-block; margin-bottom: 2rem; color: #666;"><i class="fas fa-arrow-left"></i> Back to All Plans</a>
-            <div class="content-wrapper">
-                <p><strong>Leisure Travel Plan In Sri Lanka</strong></p><p>Sri Lanka, often referred to as the "Pearl of the Indian Ocean," is a diverse and captivating island nation known for its rich history, stunning landscapes, vibrant culture, and beautiful beaches. A well-rounded leisure tour to Sri Lanka should encompass a blend of cultural exploration, nature, adventure, and relaxation. </p><p><strong>Duration: 14 Days  </strong></p><p><strong>Day 1-2: Arrival in </strong><a href="https://www.tripadvisor.com/Search?q=colombo&amp;geo=293961&amp;ssrc=a&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Colombo</strong></a><strong> and Explore the Capital</strong></p><ul><li>Arrival at Bandaranaike International Airport (Colombo): Begin your tour in Sri Lanka's capital city, Colombo.</li><li>City Tour: Visit the Colombo Fort area, Independence Square, the iconic Gangaramaya Temple, and Pettah Market. Explore Galle Face Green for an evening stroll and dinner at one of the many seaside restaurants.</li><li>Shopping and Nightlife: Visit some high-end shopping destinations like Odel, Barefoot, or Arcade Independence Square. Enjoy the nightlife at some of Colombo's chic lounges or rooftop bars.</li></ul><p><br /></p><p><strong>Day 3-4: </strong><a href="https://www.tripadvisor.com/Search?q=Kandy&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Kandy</strong></a><strong> ”“ The Cultural Heart of Sri Lanka</strong></p><ul><li>Travel to Kandy: Take a 3-4 hour drive from Colombo to Kandy. En route, visit the Pinnawala Elephant Orphanage and enjoy feeding and bathing elephants.</li><li>Explore Kandy: Visit the Temple of the Sacred Tooth Relic, which holds a significant place in Buddhist history. Stroll around the beautiful Kandy Lake, and in the evening, witness a traditional cultural dance performance.</li><li>Royal Botanical Gardens: Spend a few hours exploring the Royal Botanical Gardens in Peradeniya, known for its extensive collection of orchids and manicured lawns.</li></ul><p><br /></p><p><strong>Day 5-6: </strong><a href="https://www.booking.com/searchresults.en-gb.html?ss=Nuwara+Eliya+&amp;ssne=Colombo&amp;ssne_untouched=Colombo&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=-2231099&amp;dest_type=city&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=5&amp;search_selected=true&amp;search_pageview_id=28e43b7ea71f1098&amp;ac_meta=GhAyOGU0M2I3ZWE3MWYxMDk4IAAoATICZW46DU51d2FyYSBFbGl5YSBAAEoAUAA%3D&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0" target="_blank"><strong>Nuwara Eliya</strong></a><strong> ”“ The Tea Country</strong></p><ul><li>Scenic Train Journey: Travel to Nuwara Eliya by train, passing through lush tea plantations, misty mountains, and scenic waterfalls. This train ride is considered one of the most beautiful in the world.</li><li>Explore Nuwara Eliya: Also known as "Little England," this town is famous for its colonial architecture and cool climate. Visit a tea plantation and factory to learn about the tea-making process and enjoy a fresh cup of Ceylon tea.</li><li>Victoria Park &amp; Gregory Lake: Take a leisurely walk through Victoria Park and spend a relaxing evening at Gregory Lake, where you can enjoy boating or a lakeside picnic.</li></ul><p><br /></p><p><strong>Day 7-8: </strong><a href="https://www.tripadvisor.com/Search?q=Ella&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Ella</strong></a><strong> and the Hill Country</strong></p><ul><li>Travel to Ella: A short journey from Nuwara Eliya brings you to Ella, a laid-back town surrounded by lush greenery and spectacular views.</li><li>Little Adam’s Peak: Start your morning with a trek up Little Adam’s Peak for panoramic views of the surrounding valleys.</li><li>Nine Arches Bridge: Visit the famous Nine Arches Bridge, a colonial-era viaduct. You can time your visit to see a train pass through the bridge for a picture-perfect moment.</li><li>Ravana Falls: Visit Ravana Falls, one of the widest waterfalls in Sri Lanka, and take a refreshing dip if you wish.</li></ul><p><br /></p><p><strong>Day 9:</strong><a href="https://www.booking.com/searchresults.en-gb.html?ss=Yala%2C+Hambantota+District%2C+Sri+Lanka&amp;ssne=Bentota&amp;ssne_untouched=Bentota&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=-2240952&amp;dest_type=city&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=5&amp;search_selected=true&amp;search_pageview_id=ca843c435f9e0240&amp;ac_meta=GhBjYTg0M2M0MzVmOWUwMjQwIAAoATICZW46BSBZYWxhQABKAFAA&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0" target="_blank"><strong> Yala</strong></a><strong> National Park ”“ Wildlife Safari</strong></p><ul><li>Travel to Yala National Park: Drive to Yala, one of Sri Lanka’s premier wildlife parks known for its leopard population.</li><li>Evening Safari: Take an evening jeep safari to spot elephants, leopards, sloth bears, crocodiles, and a variety of birds. The diverse ecosystem here makes it a must-visit for nature enthusiasts.</li></ul><p><br /></p><p><strong>Day 10: </strong><a href="https://www.tripadvisor.com/Search?q=Mirissa&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Mirissa</strong></a><strong> ”“ Beach Relaxation and Whale Watching</strong></p><ul><li>Travel to Mirissa: Head to the southern coast and settle in Mirissa, a charming beach town perfect for relaxation.</li><li>Whale Watching Tour: Take an early morning whale-watching tour to spot blue whales, dolphins, and other marine life.</li><li>Relax at the Beach: Spend the rest of the day unwinding on the pristine beaches. You can also explore the secret beach or take part in water sports activities like surfing and snorkeling.</li></ul><p><br /></p><p><strong>Day 11-12: Galle and <a href="https://www.booking.com/searchresults.en-gb.html?ss=Bentota%2C+Galle+District%2C+Sri+Lanka&amp;ssne=Galle&amp;ssne_untouched=Galle&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=-2213890&amp;dest_type=city&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=5&amp;search_selected=true&amp;search_pageview_id=127e3c0f61450749&amp;ac_meta=GhAxMjdlM2MwZjYxNDUwNzQ5IAAoATICZW46B2JlbnRvdGFAAEoAUAA%3D&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0&quot; \t &quot;_blank">Bentota</a> ”“ Coastal Charm and Adventure</strong></p><ul><li>Visit Galle Fort: Travel to Galle and explore the Galle Fort, a UNESCO World Heritage Site. Wander through the cobblestone streets lined with colonial buildings, boutique cafes, and art galleries.</li><li>Bentota: Head to Bentota for a mix of beach relaxation and water sports. Enjoy a river safari on the Bentota River or go for jet skiing, parasailing, or snorkeling.</li><li>Turtle Hatchery: Visit a turtle hatchery in Kosgoda to learn about sea turtle conservation and, if lucky, participate in the release of baby turtles into the ocean.</li></ul><p><br /></p><p><strong>Day 13-14: Return to </strong><a href="https://www.booking.com/searchresults.en-gb.html?ss=Colombo%2C+Colombo+District%2C+Sri+Lanka&amp;ssne=Yala&amp;ssne_untouched=Yala&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=-2214877&amp;dest_type=city&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=5&amp;search_selected=true&amp;search_pageview_id=fa2b3c6cf41500fc&amp;ac_meta=GhBmYTJiM2M2Y2Y0MTUwMGZjIAAoATICZW46B2NvbG9tYm9AAEoAUAA%3D&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0" target="_blank"><strong>Colombo</strong></a><strong> &amp; Departure</strong></p><ul><li>Return to Colombo: Spend your last day in Colombo shopping for souvenirs or visiting any attractions you might have missed.</li><li>Departure: Head back to the airport for your return flight, concluding your leisure tour of Sri Lanka.</li></ul><p><br /></p><p><strong>Additional Tips:</strong></p><ul><li>Best Time to Visit: The best time to visit the west and south coasts (Colombo, Galle, Bentota, Mirissa) is from December to March, while the east coast (Trincomalee, Batticaloa, Arugam Bay) is best visited from May to September.</li><li>Transportation: Hiring a private car and driver is the most convenient way to travel around Sri Lanka, allowing for flexible stops.</li><li>Accommodation: Sri Lanka offers a range of options from budget guesthouses to <a href="https://www.tripadvisor.com/" target="_blank">luxury hotels</a>. It’s recommended to book accommodations in advance, especially during peak tourist seasons.</li></ul><p><br /></p><p>This itinerary offers a comprehensive experience of Sri Lanka’s highlights, blending cultural immersion, adventure, nature, and relaxation, making it an ideal leisure tour plan. </p><ul><li><strong>You can adjust these travel tips based on your interests and time availability!</strong></li></ul>
+            <a href="../plans.html" style="display:inline-block; margin-bottom: 2rem; color: #666;"><i class="fas fa-arrow-left"></i> Back to Journey Hub</a>
+            
+            <!-- Safety Spotlight -->
+            <div class="safety-spotlight">
+                <h3><i class="fas fa-shield-alt"></i> Relaxed & Safe Travel Spotlight</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">For a <strong>perfect</strong> and peaceful journey, keep these local safety rules in mind:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-umbrella-beach"></i> Beach Safety</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Check for red flags before swimming. Coastal currents in Mirissa and Tangalle can be strong.</p>
+                    </div>
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-train"></i> Train Etiquette</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Avoid hanging out of open doors for photos. Keep your arms and head inside for safety.</p>
+                    </div>
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-users"></i> Local Respect</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Dress modestly when visiting temples. Always ask permission before taking photos of monks or locals.</p>
+                    </div>
+                </div>
             </div>
-            <div style="text-align: center; margin-top: 4rem;">
+
+            <div class="content-wrapper">
+                <p><strong>Leisure Travel Plan In Sri Lanka</strong></p><p>Sri Lanka, often referred to as the "Pearl of the Indian Ocean," is a diverse and captivating island nation known for its rich history, stunning landscapes, vibrant culture, and beautiful beaches. A well-rounded leisure tour to Sri Lanka should encompass a blend of cultural exploration, nature, adventure, and relaxation. </p><p><strong>Duration: 14 Days  </strong></p><p><strong>Day 1-2: Arrival in Colombo and Explore the Capital</strong></p><ul><li>Arrival at Bandaranaike International Airport (Colombo): Begin your tour in Sri Lanka's capital city, Colombo.</li><li>City Tour: Visit the Colombo Fort area, Independence Square, the iconic Gangaramaya Temple, and Pettah Market. Explore Galle Face Green for an evening stroll and dinner at one of the many seaside restaurants.</li><li>Shopping and Nightlife: Visit some high-end shopping destinations like Odel, Barefoot, or Arcade Independence Square. Enjoy the nightlife at some of Colombo's chic lounges or rooftop bars.</li></ul><p><br /></p><p><strong>Day 3-4: Kandy  The Cultural Heart of Sri Lanka</strong></p><ul><li>Travel to Kandy: Take a 3-4 hour drive from Colombo to Kandy. En route, visit the Pinnawala Elephant Orphanage and enjoy feeding and bathing elephants.</li><li>Explore Kandy: Visit the Temple of the Sacred Tooth Relic, which holds a significant place in Buddhist history. Stroll around the beautiful Kandy Lake, and in the evening, witness a traditional cultural dance performance.</li><li>Royal Botanical Gardens: Spend a few hours exploring the Royal Botanical Gardens in Peradeniya, known for its extensive collection of orchids and manicured lawns.</li></ul><p><br /></p><p><strong>Day 5-6: Nuwara Eliya  The Tea Country</strong></p><ul><li>Scenic Train Journey: Travel to Nuwara Eliya by train, passing through lush tea plantations, misty mountains, and scenic waterfalls. This train ride is considered one of the most beautiful in the world.</li><li>Explore Nuwara Eliya: Also known as "Little England," this town is famous for its colonial architecture and cool climate. Visit a tea plantation and factory to learn about the tea-making process and enjoy a fresh cup of Ceylon tea.</li><li>Victoria Park & Gregory Lake: Take a leisurely walk through Victoria Park and spend a relaxing evening at Gregory Lake, where you can enjoy boating or a lakeside picnic.</li></ul><p><br /></p><p><strong>Day 7-8: Ella and the Hill Country</strong></p><ul><li>Travel to Ella: A short journey from Nuwara Eliya brings you to Ella, a laid-back town surrounded by lush greenery and spectacular views.</li><li>Little Adams Peak: Start your morning with a trek up Little Adams Peak for panoramic views of the surrounding valleys.</li><li>Nine Arches Bridge: Visit the famous Nine Arches Bridge, a colonial-era viaduct. You can time your visit to see a train pass through the bridge for a picture-perfect moment.</li><li>Ravana Falls: Visit Ravana Falls, one of the widest waterfalls in Sri Lanka, and take a refreshing dip if you wish.</li></ul><p><br /></p><p><strong>Day 9: Yala National Park  Wildlife Safari</strong></p><ul><li>Travel to Yala National Park: Drive to Yala, one of Sri Lankas premier wildlife parks known for its leopard population.</li><li>Evening Safari: Take an evening jeep safari to spot elephants, leopards, sloth bears, crocodiles, and a variety of birds. The diverse ecosystem here makes it a must-visit for nature enthusiasts.</li></ul><p><br /></p><p><strong>Day 10: Mirissa  Beach Relaxation and Whale Watching</strong></p><ul><li>Travel to Mirissa: Head to the southern coast and settle in Mirissa, a charming beach town perfect for relaxation.</li><li>Whale Watching Tour: Take an early morning whale-watching tour to spot blue whales, dolphins, and other marine life.</li><li>Relax at the Beach: Spend the rest of the day unwinding on the pristine beaches. You can also explore the secret beach or take part in water sports activities like surfing and snorkeling.</li></ul><p><br /></p><p><strong>Day 11-12: Galle and Bentota  Coastal Charm and Adventure</strong></p><ul><li>Visit Galle Fort: Travel to Galle and explore the Galle Fort, a UNESCO World Heritage Site. Wander through the cobblestone streets lined with colonial buildings, boutique cafes, and art galleries.</li><li>Bentota: Head to Bentota for a mix of beach relaxation and water sports. Enjoy a river safari on the Bentota River or go for jet skiing, parasailing, or snorkeling.</li><li>Turtle Hatchery: Visit a turtle hatchery in Kosgoda to learn about sea turtle conservation and, if lucky, participate in the release of baby turtles into the ocean.</li></ul><p><br /></p><p><strong>Day 13-14: Return to Colombo & Departure</strong></p><ul><li>Return to Colombo: Spend your last day in Colombo shopping for souvenirs or visiting any attractions you might have missed.</li><li>Departure: Head back to the airport for your return flight, concluding your leisure tour of Sri Lanka.</li></ul><p><br /></p><p><strong>Additional Tips:</strong></p><ul><li>Best Time to Visit: The best time to visit the west and south coasts (Colombo, Galle, Bentota, Mirissa) is from December to March, while the east coast (Trincomalee, Batticaloa, Arugam Bay) is best visited from May to September.</li><li>Transportation: Hiring a private car and driver is the most convenient way to travel around Sri Lanka, allowing for flexible stops.</li><li>Accommodation: Sri Lanka offers a range of options from guesthouses to luxury hotels.</li></ul><p><br /></p><p>This signature itinerary offers a comprehensive experience of Sri Lankas highlights, blending cultural immersion, adventure, nature, and relaxation.</p><ul><li><strong>You can adjust these travel tips based on your interests and time availability!</strong></li></ul>
             </div>
         </section>
     </main>
-
     <footer>
         <div class="container footer-grid">
             <div class="footer-info">
@@ -148,10 +181,10 @@
                 <ul>
                     <li><a href="../../index.html">Home</a></li>
                     <li><a href="../guide.html">Travel Guide</a></li>
-                    <li><a href="../plans.html">Touring Plans</a></li>
+                    <li><a href="../plans.html">Journey Hub</a></li>
                     <li><a href="../travel-info.html">Travel Information</a></li>
                     <li><a href="../visa.html">Visa Details</a></li>
-                <li><a href="../blog.html">Travel Blog</a></li>
+                    <li><a href="../blog.html">Travel Blog</a></li>
                     <li><a href="../gallery.html">Photo Gallery</a></li>
                     <li><a href="../contact.html">Contact Us</a></li>
                 </ul>
@@ -170,5 +203,3 @@
     </footer>
 </body>
 </html>
-
-

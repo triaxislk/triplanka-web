@@ -13,21 +13,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="blog-page">
+    
     <header>
         <nav class="container">
-            <div class="logo"><a href="../../index.html"><img src="../../Images/Logos/Logo Without Background.png" alt="Logo" class="logo-img"></a></div>
+            <div class="logo">
+                <a href="../../index.html">
+                    <img src="../../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+                </a>
+            </div>
+            
             <ul class="nav-links">
                 <li><a href="../../index.html">Home</a></li>
-                <li class="dropdown"><a href="../guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a></li>
-                <li><a href="../blog.html" class="active">Travel Blog</a></li>
+                
+                <li class="dropdown">
+                    <a href="../travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../travel-info.html">Travel Information</a></li>
+                        <li><a href="../visa.html">Visa Details</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="../guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
+                        <li><a href="../guide/colombo.html">Colombo</a></li>
+                        <li><a href="../guide/kandy.html">Kandy & Gampola</a></li>
+                        <li><a href="../guide/sigiriya.html">Dambulla & Sigiriya</a></li>
+                        <li><a href="../guide/rathnapura.html">Rathnapura</a></li>
+                        <li><a href="../guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+                        <li><a href="../guide/ella.html">Ella & Badulla</a></li>
+                        <li><a href="../guide/galle.html">Galle & Bentota</a></li>
+                        <li><a href="../guide/hambantota.html">Hambantota & Matara</a></li>
+                        <li><a href="../guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+                        <li><a href="../guide/anuradhapura.html">Anuradhapura</a></li>
+                        <li><a href="../guide/batticaloa.html">Batticaloa</a></li>
+                        <li><a href="../guide/trincomalee.html">Trincomalee</a></li>
+                        <li><a href="../guide/jaffna.html">Jaffna</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="../plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../plans/solo-female.html">Solo Female Signature Itinerary</a></li>
+                        <li><a href="../plans/solo-male.html">Solo Male Signature Itinerary</a></li>
+                        <li><a href="../plans/leisure.html">Leisure & Relaxation Signature Itinerary</a></li>
+                        <li><a href="../plans/honeymoon.html">Honeymoon & Romance Signature Itinerary</a></li>
+                        <li><a href="../plans/wildlife.html">Wildlife Lovers Signature Itinerary</a></li>
+                        <li><a href="../plans/adventure.html">Adventure Lovers Signature Itinerary</a></li>
+                        <li><a href="../plans/surfing.html">Sea Surfing Signature Itinerary</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="../blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../blog.html?filter=guides">Travel Guides</a></li>
+                        <li><a href="../blog.html?filter=culture">Culture & Food</a></li>
+                        <li><a href="../blog.html?filter=nature">Nature & Wildlife</a></li>
+                    </ul>
+                </li>
+                    <li><a href="../gallery.html">Photo Gallery</a></li>
                 <li><a href="../contact.html" class="btn-primary">Connect</a></li>
+                <li class="flag-item">
+                    <img src="../../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
+                </li>
             </ul>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
         </nav>
     </header>
 
     <main>
         <article>
-            <section class="article-header" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('../../Images/Site Photos/Young woman traveling by train in Sri Lanka.jpg') center/cover;">
+            <section class="article-header" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('../../Images/Site Photos/Travel Foreigners/Young woman traveling by train in Sri Lanka - Photo by Val Shevchenko.jpg') center/cover;">
                 <div class="container">
                     <span class="blog-badge" style="background:white; color:var(--primary);">Travel Guides</span>
                     <h1 class="fade-in">Experiencing the Magic of the Kandy to Colombo Train Ride</h1>
@@ -64,5 +122,9 @@
         </article>
     </main>
     <footer><div class="container center-text" style="padding: 2rem; border-top: 1px solid #e2e8f0;"><p>&copy; 2026 TripLanka Blog.</p></div></footer>
+	<script src="../../js/main.js"></script>
 </body>
 </html>
+
+
+

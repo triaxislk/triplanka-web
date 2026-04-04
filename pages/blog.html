@@ -15,6 +15,7 @@
 </head>
 <body class="blog-page">
 
+    
     <header>
         <nav class="container">
             <div class="logo">
@@ -27,16 +28,16 @@
                 <li><a href="../index.html">Home</a></li>
                 
                 <li class="dropdown">
-                    <a href="travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+                    <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="travel-info.html">Travel Information</a></li>
-                        <li><a href="visa.html">Visa Details</a></li>
+                        <li><a href="./travel-info.html">Travel Information</a></li>
+                        <li><a href="./visa.html">Visa Details</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+                    <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="guide/negombo.html">Negombo & Mannar</a></li>
+                        <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
                         <li><a href="guide/colombo.html">Colombo</a></li>
                         <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
                         <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
@@ -53,19 +54,26 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="plans.html">Touring Plans <i class="fas fa-chevron-down"></i></a>
+                    <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
-                        <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
-                        <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
-                        <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
-                        <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
-                        <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
-                        <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
+                        <li><a href="plans/solo-female.html">Solo Female Signature Itinerary</a></li>
+                        <li><a href="plans/solo-male.html">Solo Male Signature Itinerary</a></li>
+                        <li><a href="plans/leisure.html">Leisure & Relaxation Signature Itinerary</a></li>
+                        <li><a href="plans/honeymoon.html">Honeymoon & Romance Signature Itinerary</a></li>
+                        <li><a href="plans/wildlife.html">Wildlife Lovers Signature Itinerary</a></li>
+                        <li><a href="plans/adventure.html">Adventure Lovers Signature Itinerary</a></li>
+                        <li><a href="plans/surfing.html">Sea Surfing Signature Itinerary</a></li>
                     </ul>
                 </li>
-                <li><a href="blog.html" class="active">Travel Blog</a></li>
-                <li><a href="gallery.html">Photo Gallery</a></li>
+                <li class="dropdown">
+                    <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
+                        <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
+                        <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
+                    </ul>
+                </li>
+                    <li><a href="./gallery.html">Photo Gallery</a></li>
                 <li><a href="contact.html" class="btn-primary">Connect</a></li>
                 <li class="flag-item">
                     <img src="../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
@@ -85,20 +93,27 @@
             </div>
         </section>
 
-        <div class="blog-tabs container">
-            <div class="blog-tab active">All</div>
-            <div class="blog-tab">Guides</div>
-            <div class="blog-tab">Culture</div>
-            <div class="blog-tab">Nature</div>
+        <div class="blog-filter-section container">
+            <div class="blog-filter-dropdown" id="blogFilter">
+                <div class="filter-selected">
+                    <span id="currentFilter">Filter by Category</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <ul class="filter-options">
+                    <li data-value="guides">Travel Guides</li>
+                    <li data-value="culture">Culture & Food</li>
+                    <li data-value="nature">Nature & Wildlife</li>
+                </ul>
+            </div>
         </div>
 
         <section class="container blog-grid">
             
             <!-- Featured Post -->
-            <article class="blog-card featured">
-                <div class="blog-img">
+            <article class="blog-card featured" data-category="guides">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Featured Guide</span>
-                    <img src="../Images/Site Photos/Train to Ella Sri Lanka.jpg" alt="Train to Ella">
+                    <img src="../Images/Site Photos/Tourist Destination In Sri Lanka/Ella Train - Photo by Hendrik Cornelissen.jpg" alt="Train to Ella">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -113,10 +128,10 @@
 
             <!-- Standard Posts -->
             <!-- Article 1 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="nature">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Nature</span>
-                    <img src="../Images/Site Photos/Bambarakanda waterfall.jpg" alt="Waterfalls">
+                    <img src="../Images/Site Photos/Waterfalls/Lovers Leap Waterfall - Photo by Sanjeew Sanjaya.jpg" alt="Lovers Leap Waterfall">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -129,10 +144,10 @@
             </article>
 
             <!-- Article 2 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="culture">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Culture</span>
-                    <img src="../Images/Site Photos/Town/Kandy -Photo by Chathura Anuradha Subasinghe -.jpg" alt="Street Food">
+                    <img src="../Images/Site Photos/Food/Street Food Sri Lanka - Photo by  Sandaru Muthuwadige.jpg" alt="Street Food">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -145,8 +160,8 @@
             </article>
 
             <!-- Article 4 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="guides">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Guides</span>
                     <img src="../Images/Site Photos/Town/Galle - Photo by Daniel Klein.jpg" alt="South Coast Beaches">
                 </div>
@@ -161,10 +176,10 @@
             </article>
 
             <!-- Article 5 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="culture">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Culture</span>
-                    <img src="../Images/Site Photos/Elephant in Sigiriya lion rock fortress Sri Lanka.jpg" alt="Kandy Esala Perahera">
+                    <img src="../Images/Site Photos/Collections/Kandyan Dancer Sri Lanka - Photo by Harsha Bokalawala.jpg" alt="Kandy Esala Perahera">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -177,10 +192,10 @@
             </article>
 
             <!-- Article 6 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="nature">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Nature</span>
-                    <img src="../Images/Site Photos/Leopards on a stone. The Sri Lankan leopard (Panthera pardus kotiya) male and female..jpg" alt="Sri Lankan Safari">
+                    <img src="../Images/Site Photos/Wild Animals/Leopards on a stone. Yala.  Sri Lanka - Photo by Sergey Uryadnikov.jpg" alt="Sri Lankan Safari">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -193,10 +208,10 @@
             </article>
 
             <!-- Article 7 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="culture">
+                <div class="blog-img img-container">
                     <span class="blog-badge">History</span>
-                    <img src="../Images/Site Photos/Elephant in Sigiriya lion rock fortress Sri Lanka.jpg" alt="Sigiriya Rock">
+                    <img src="../Images/Site Photos/Town/Sigiriya - Photo by Dylan Shaw.jpg" alt="Sigiriya Rock">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -209,10 +224,10 @@
             </article>
 
             <!-- Article 8 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="nature">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Surfing</span>
-                    <img src="../Images/Site Photos/Sunny beach near Koggala - Sri Lanka The area famous for its distinct stilt fishermen who erect a single pole in the chest-deep water on th.jpg" alt="Sri Lanka Surfing">
+                    <img src="../Images/Site Photos/Beach In Sri Lanka/Arugam Bay Sri Lanka - Photo By Shanti Hesse.jpg" alt="Sri Lanka Surfing">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -225,10 +240,10 @@
             </article>
 
             <!-- Article 9 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="culture">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Culture</span>
-                    <img src="../Images/Site Photos/train from Nuwara Eliya to Kandy among tea plantations in the highlands of Sri Lanka.jpg" alt="Ceylon Tea">
+                    <img src="../Images/Site Photos/Town/Nuwaraeliya Sri Lanka - Photo by Sanjeew Sanjaya.jpg" alt="Ceylon Tea">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -241,10 +256,10 @@
             </article>
 
             <!-- Article 10 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="culture">
+                <div class="blog-img img-container">
                     <span class="blog-badge">History</span>
-                    <img src="../Images/Site Photos/DSC_0145.jpg" alt="Ancient Ruins">
+                    <img src="../Images/Site Photos/Town/Polonnaruwa - Photo by Sanjeew Sanjaya.jpg" alt="Ancient Ruins">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -257,10 +272,10 @@
             </article>
 
             <!-- Article 11 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="culture">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Culture</span>
-                    <img src="../Images/Site Photos/DSC_0765.jpg" alt="Jaffna Food">
+                    <img src="../Images/Site Photos/Town/Jaffna.jpg" alt="Jaffna Food">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -273,10 +288,10 @@
             </article>
 
             <!-- Article 12 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="nature">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Adventure</span>
-                    <img src="../Images/Site Photos/waterfalls.jpg" alt="Adam's Peak">
+                    <img src="../Images/Site Photos/Tourist Destination In Sri Lanka/Horton Plains National Park Sri Lanka - Photo by Sanjeew Sanjaya.jpg" alt="Adam's Peak">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -289,10 +304,10 @@
             </article>
 
             <!-- Article 13 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="guides">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Guides</span>
-                    <img src="../Images/Site Photos/Young woman traveling by train in Sri Lanka.jpg" alt="Train Journey">
+                    <img src="../Images/Site Photos/Travel Foreigners/Young woman traveling by train in Sri Lanka - Photo by Val Shevchenko.jpg" alt="Train Journey">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -305,10 +320,10 @@
             </article>
 
             <!-- Article 14 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="nature">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Leisure</span>
-                    <img src="../Images/Site Photos/DSC_0228.jpg" alt="Trincomalee Beach">
+                    <img src="../Images/Site Photos/Beach In Sri Lanka/Trincomalee Sri Lanka - Photo by Dmitrii Iarusov.jpg" alt="Trincomalee Beach">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -321,10 +336,10 @@
             </article>
 
             <!-- Article 15 -->
-            <article class="blog-card">
-                <div class="blog-img">
+            <article class="blog-card" data-category="culture">
+                <div class="blog-img img-container">
                     <span class="blog-badge">Health</span>
-                    <img src="../Images/Site Photos/waterfalls.jpg" alt="Ayurveda Healing">
+                    <img src="../Images/Site Photos/Collections/Ayurvedic-medicine- Photo by fairpharma.jpg" alt="Ayurveda Healing">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
@@ -360,7 +375,7 @@
                 <ul>
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="guide.html">Travel Guide</a></li>
-                    <li><a href="plans.html">Touring Plans</a></li>
+                    <li><a href="plans.html">Journey Hub</a></li>
                     <li><a href="travel-info.html">Travel Information</a></li>
                     <li><a href="visa.html">Visa Details</a></li>
                     <li><a href="blog.html">Travel Blog</a></li>
@@ -384,3 +399,6 @@
     <script src="../js/main.js"></script>
 </body>
 </html>
+
+
+

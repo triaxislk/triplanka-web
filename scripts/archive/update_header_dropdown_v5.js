@@ -45,7 +45,9 @@ function updateHeaderGlobally() {
     pages.forEach(filePath => {
         let depth = 0;
         const relative = path.relative(baseDir, filePath);
-        if (relative.includes('pages\\plans\\') || relative.includes('pages\\guide\\')) depth = 2;
+        
+        // Depth calculation
+        if (relative.includes('pages\\plans\\') || relative.includes('pages\\guide\\') || relative.includes('pages\\blog\\')) depth = 2;
         else if (relative.startsWith('pages\\')) depth = 1;
         else depth = 0;
 
@@ -63,12 +65,14 @@ function updateHeaderGlobally() {
         else if (depth === 1) plansSubPath = 'plans';
         else if (relative.includes('pages\\guide\\')) plansSubPath = '../plans';
         else if (relative.includes('pages\\plans\\')) plansSubPath = '.';
+        else if (relative.includes('pages\\blog\\')) plansSubPath = '../plans';
 
         let guideSubPath = '';
         if (depth === 0) guideSubPath = 'pages/guide';
         else if (depth === 1) guideSubPath = 'guide';
         else if (relative.includes('pages\\guide\\')) guideSubPath = '.';
         else if (relative.includes('pages\\plans\\')) guideSubPath = '../guide';
+        else if (relative.includes('pages\\blog\\')) guideSubPath = '../guide';
 
         const fullHeaderHtml = `
     <header>
@@ -81,11 +85,18 @@ function updateHeaderGlobally() {
             
             <ul class="nav-links">
                 <li><a href="${homePath}">Home</a></li>
-                <li><a href="${pagesPath}/travel-info.html">Information</a></li>
+                
+                <li class="dropdown">
+                    <a href="${pagesPath}/travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="${pagesPath}/travel-info.html">Travel Information</a></li>
+                        <li><a href="${pagesPath}/visa.html">Visa Details</a></li>
+                    </ul>
+                </li>
                 <li class="dropdown">
                     <a href="${pagesPath}/guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="${guideSubPath}/negombo.html">Negombo & Mannar</a></li>
+                        <li><a href="${guideSubPath}/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
                         <li><a href="${guideSubPath}/colombo.html">Colombo</a></li>
                         <li><a href="${guideSubPath}/kandy.html">Kandy & Gampola</a></li>
                         <li><a href="${guideSubPath}/sigiriya.html">Dambulla & Sigiriya</a></li>
@@ -113,7 +124,15 @@ function updateHeaderGlobally() {
                         <li><a href="${plansSubPath}/surfing.html">Sea Surfing Touring Plan</a></li>
                     </ul>
                 </li>
-                <li><a href="${pagesPath}/gallery.html">Photo Gallery</a></li>
+                <li class="dropdown">
+                    <a href="${pagesPath}/blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="${pagesPath}/blog.html?filter=guides">Travel Guides</a></li>
+                        <li><a href="${pagesPath}/blog.html?filter=culture">Culture & Food</a></li>
+                        <li><a href="${pagesPath}/blog.html?filter=nature">Nature & Wildlife</a></li>
+                    </ul>
+                </li>
+                    <li><a href="${pagesPath}/gallery.html">Photo Gallery</a></li>
                 <li><a href="${connectPath}" class="btn-primary">Connect</a></li>
                 <li class="flag-item">
                     <img src="${flagPath}" alt="Sri Lanka Flag" class="flag-img">

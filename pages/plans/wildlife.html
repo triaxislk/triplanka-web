@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wildlife Lovers Touring Plan | Touring Plans | TripLanka</title>
+    <title>Wildlife Lovers Signature Itinerary | Journey Hub | TripLanka</title>
     <link rel="stylesheet" href="../../css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,10 +12,11 @@
     <link rel="icon" type="image/png" href="../../Images/Logos/Logo Without Background.png">
     <style>
         .itinerary-hero {
-            height: 40vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../Images/Site Photos/Elephants of Sri Lanka.jpg');
+            height: 70vh;
+            position: relative;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../Images/Site%20Photos/Wild%20Animals/Minneriya%20-%20Photo%20by%20Sanjeew%20Sanjaya.jpg");
             background-size: cover;
-            background-position: center;
+            background-position: center 65%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -30,7 +31,7 @@
         }
         .itinerary-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #444; }
         .itinerary-content h1 { display: none; } /* Hide duplicate title from mammoth */
-        .itinerary-content strong { color: var(--primary-color); }
+        .itinerary-content strong { color: #2E7D32; }
         .itinerary-content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
         .itinerary-content li { margin-bottom: 0.5rem; font-size: 1.05rem; line-height: 1.6; }
         .itinerary-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; }
@@ -39,13 +40,19 @@
             padding: 2rem;
             border-radius: 15px;
             margin-bottom: 2rem;
-            border-left: 4px solid var(--secondary-color);
+            border-left: 4px solid #2E7D32; /* Wildlife Accent: Forest Green */
         }
+        .safety-spotlight {
+            background: #E8F5E9 !important;
+            border: 2px solid #2E7D32 !important;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        .safety-spotlight h3 { color: #2E7D32 !important; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
     </style>
 </head>
 <body>
-    
-    
     
     <header>
         <nav class="container">
@@ -68,7 +75,7 @@
                 <li class="dropdown">
                     <a href="../guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="../guide/negombo.html">Negombo & Mannar</a></li>
+                        <li><a href="../guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
                         <li><a href="../guide/colombo.html">Colombo</a></li>
                         <li><a href="../guide/kandy.html">Kandy & Gampola</a></li>
                         <li><a href="../guide/sigiriya.html">Dambulla & Sigiriya</a></li>
@@ -85,18 +92,25 @@
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="../plans.html">Touring Plans <i class="fas fa-chevron-down"></i></a>
+                    <a href="../plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
-                        <li><a href="./solo-female.html">Solo Female Travel Plan</a></li>
-                        <li><a href="./solo-male.html">Solo Male Travel Plan</a></li>
-                        <li><a href="./leisure.html">Leisure & Relaxation Plan</a></li>
-                        <li><a href="./honeymoon.html">Honeymoon & Romance Plan</a></li>
-                        <li><a href="./wildlife.html">Wildlife Lovers Touring Plan</a></li>
-                        <li><a href="./adventure.html">Adventure Lovers Touring Plan</a></li>
-                        <li><a href="./surfing.html">Sea Surfing Touring Plan</a></li>
+                        <li><a href="./solo-female.html">Solo Female Itinerary</a></li>
+                        <li><a href="./solo-male.html">Solo Male Itinerary</a></li>
+                        <li><a href="./leisure.html">Leisure & Relaxation Itinerary</a></li>
+                        <li><a href="./honeymoon.html">Honeymoon & Romance Itinerary</a></li>
+                        <li><a href="./wildlife.html">Wildlife Lovers Itinerary</a></li>
+                        <li><a href="./adventure.html">Adventure Lovers Itinerary</a></li>
+                        <li><a href="./surfing.html">Sea Surfing Itinerary</a></li>
                     </ul>
                 </li>
-                <li><a href="../blog.html">Travel Blog</a></li>
+                <li class="dropdown">
+                    <a href="../blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../blog.html?filter=guides">Travel Guides</a></li>
+                        <li><a href="../blog.html?filter=culture">Culture & Food</a></li>
+                        <li><a href="../blog.html?filter=nature">Nature & Wildlife</a></li>
+                    </ul>
+                </li>
                     <li><a href="../gallery.html">Photo Gallery</a></li>
                 <li><a href="../contact.html" class="btn-primary">Connect</a></li>
                 <li class="flag-item">
@@ -111,22 +125,41 @@
 
     <main>
         <section class="itinerary-hero">
+            <div class="photo-attribution">Photo by Sanjeew Sanjaya</div>
             <div class="container hero-content">
-                <h1 class="fade-in">Wildlife Lovers Touring Plan</h1>
-                <p class="fade-in delay-1">Expertly crafted 10-day itinerary</p>
+                <h1 class="fade-in">Wildlife Lovers Signature Itinerary</h1>
+                <p class="fade-in delay-1">Expertly crafted 18-day journey for nature enthusiasts</p>
             </div>
         </section>
 
         <section class="container itinerary-content">
-            <a href="../plans.html" style="display:inline-block; margin-bottom: 2rem; color: #666;"><i class="fas fa-arrow-left"></i> Back to All Plans</a>
-            <div class="content-wrapper">
-                <p>Sri Lanka is a premier destination for wildlife enthusiasts due to its rich biodiversity and a variety of landscapes, ranging from lush rainforests and dry scrublands to coastal wetlands and high-altitude grasslands. A well-planned wildlife tour in Sri Lanka can offer the chance to see elephants, leopards, sloth bears, blue whales, and a plethora of bird species, making it an unforgettable experience. Here’s a comprehensive wildlife lovers’ tour plan to explore the island’s most iconic wildlife spots:</p><p><strong>Duration: 18 Days  </strong></p><p><strong>Day 1-2: Arrival in Colombo and Transfer to <a href="https://www.tripadvisor.com/Search?q=Wilpattu&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0&quot; \t &quot;_blank">Wilpattu</a> National Park</strong></p><ul><li>Day 1: Arrive at Bandaranaike International Airport, Colombo, and meet your guide. After a brief rest, take a scenic drive to Wilpattu National Park in the northwestern part of the island, which is about 4 hours away.</li><li>Day 2: Wilpattu is Sri Lanka’s largest and oldest national park, famous for its unique "Willus" (natural lakes) and as a top spot for leopard sightings. Begin your wildlife journey with a full-day jeep safari. Keep an eye out for leopards, elephants, sloth bears, and a variety of bird species. Overnight stay at a safari lodge near Wilpattu.</li></ul><p><br /></p><p><strong>Day 3-4: Anuradhapura and <a href="https://www.booking.com/searchresults.en-gb.html?ss=Minneriya&amp;ssne=Nuwara+Eliya&amp;ssne_untouched=Nuwara+Eliya&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=index&amp;dest_id=-2228866&amp;dest_type=city&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=4&amp;search_selected=true&amp;search_pageview_id=e19c387422c000c5&amp;ac_meta=GhBlMTljMzg3NDIyYzAwMGM1IAAoATICZW46CU1pbm5lcml5YUAASgBQAA%3D%3D&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0&quot; \t &quot;_blank">Minneriya</a> National Park</strong></p><ul><li>Day 3: Visit the ancient city of Anuradhapura, a UNESCO World Heritage site, and explore its historic ruins, stupas, and ancient reservoirs. In the afternoon, travel to Minneriya (2 hours drive).</li><li>Day 4: Embark on a safari at Minneriya National Park, known for its seasonal gathering of elephants, often referred to as the “Minneriya Elephant Gathering,” one of the largest wild Asian elephant gatherings in the world. Witness herds of elephants, some numbering in the hundreds, congregating near the reservoir. Return to your accommodation for the night.</li></ul><p><br /></p><p><strong>Day 5: Sigiriya Rock and <a href="https://www.tripadvisor.com/Search?q=Habarana&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0&quot; \t &quot;_blank">Habarana</a></strong></p><ul><li>Morning: Visit the iconic Sigiriya Rock Fortress, a UNESCO site. Climb to the top for panoramic views of the surrounding jungles and plains.</li><li>Afternoon: Head to Habarana, a central location for exploring nearby parks. Enjoy an elephant-back safari or birdwatching excursion in the late afternoon. Overnight stay in Habarana.</li></ul><p><br /></p><p><strong>Day 6-7: </strong><a href="https://www.tripadvisor.com/Search?q=Kandy&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Kandy</strong></a><strong> and Udawattakele Forest Reserve</strong></p><ul><li>Day 6: Travel to Kandy (2.5 hours drive) and visit the Temple of the Sacred Tooth Relic. In the evening, explore the Udawattakele Forest Reserve, a haven for birdwatchers. Spot endemic birds like the Sri Lankan hanging parrot and Layard’s parakeet.</li><li>Day 7: Spend the morning at leisure around Kandy’s serene lake. Visit the Royal Botanical Gardens in Peradeniya for a relaxing nature walk and to see the flying fox colonies. Overnight in Kandy.</li></ul><p><br /></p><p><strong>Day 8-9: </strong><a href="https://www.tripadvisor.com/Search?q=Knuckles&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Knuckles</strong></a><strong> Mountain Range</strong></p><ul><li>Day 8: Depart for the Knuckles Mountain Range (1.5 hours drive), a UNESCO World Heritage site. This misty mountain range is ideal for nature walks and hiking.</li><li>Day 9: Spend the day trekking through dense forests, cloud forests, and grasslands. Spot a variety of endemic fauna and flora, including rare lizards, frogs, and birds like the Sri Lanka blue magpie. Stay at a nature lodge or camp in the mountains.</li></ul><p><br /></p><p><strong>Day 10-11: Horton Plains National Park and </strong><a href="https://www.tripadvisor.com/Search?q=Nuwara+Eliya&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Nuwara Eliya</strong></a></p><ul><li>Day 10: Continue south to Horton Plains National Park (2 hours drive), known for its high-altitude grasslands and cloud forests. Enjoy a guided trek to World’s End, a sheer cliff with stunning views, and Baker’s Falls.</li><li>Day 11: Explore the charming town of Nuwara Eliya, also known as "Little England" for its colonial-era architecture. Visit the nearby tea plantations, and enjoy a relaxing evening at a countryside hotel.</li></ul><p><br /></p><p><strong>Day 12-13: </strong><a href="https://www.tripadvisor.com/Search?q=Yala&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Yala</strong></a><strong> National Park</strong></p><ul><li>Day 12: Drive to Yala National Park (5 hours drive), one of the most popular parks in Sri Lanka, especially for spotting leopards. Yala has one of the highest densities of leopards in the world.</li><li>Day 13: Spend the day on a jeep safari, traversing through its diverse landscapes. Apart from leopards, you may see elephants, sloth bears, crocodiles, and a variety of bird species. Overnight stay at a safari lodge near the park.</li></ul><p><br /></p><p><strong>Day 14: Bundala National Park</strong></p><ul><li>After breakfast, head to Bundala National Park, a Ramsar Wetland that attracts a large number of migratory birds, including flamingos. Explore its salt marshes, lagoons, and sand dunes. Return to your lodge near Yala for the night.</li></ul><p><br /></p><p><strong>Day 15: </strong><a href="https://www.tripadvisor.com/Search?q=Mirissa&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"><strong>Mirissa</strong></a><strong> for Whale Watching</strong></p><ul><li>Travel to Mirissa (3.5 hours drive) on the southern coast for a unique whale-watching experience. The waters off Mirissa are one of the best places to see blue whales and spinner dolphins.</li><li>Embark on a morning whale-watching tour. In the afternoon, relax on the pristine beaches of Mirissa. Stay overnight at a beach resort.</li></ul><p><br /></p><p><strong>Day 16-17: <a href="https://www.booking.com/searchresults.en-gb.html?ss=Sinharaja&amp;ssne=Minneriya&amp;ssne_untouched=Minneriya&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=15822&amp;dest_type=region&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=5&amp;search_selected=true&amp;search_pageview_id=b4ed3908ea570238&amp;ac_meta=GhBiNGVkMzkwOGVhNTcwMjM4IAAoATICZW46CVNpbmhhcmFqYUAASgBQAA%3D%3D&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0&quot; \t &quot;_blank">Sinharaja</a> Rainforest Reserve</strong></p><ul><li>Day 16: Head to Sinharaja Rainforest Reserve (3.5 hours drive), a UNESCO Biosphere Reserve and a biodiversity hotspot. The dense rainforest is home to a large number of endemic species.</li><li>Day 17: Spend the day trekking through Sinharaja’s trails with a local guide. Spot rare birds, amphibians, butterflies, and reptiles. Overnight stay at an eco-lodge near the reserve.</li></ul><p><br /></p><p><strong>Day 18: </strong><a href="https://www.booking.com/searchresults.en-gb.html?ss=Galle%2C+Galle+District%2C+Sri+Lanka&amp;ssne=Sinharaja+Forest+Reserve&amp;ssne_untouched=Sinharaja+Forest+Reserve&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=-2217578&amp;dest_type=city&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=5&amp;search_selected=true&amp;search_pageview_id=95ff394f37410304&amp;ac_meta=GhA5NWZmMzk0ZjM3NDEwMzA0IAAoATICZW46BUdhbGxlQABKAFAA&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0" target="_blank"><strong>Galle</strong></a><strong> and Departure</strong></p><ul><li>Depart for Galle (3 hours drive), a charming coastal town with a well-preserved Dutch Fort, another UNESCO World   Heritage site. Explore the fort, its quaint streets, and enjoy a coastal walk.</li><li>Head back to Colombo (2 hours drive) for some last-minute shopping or sightseeing before your departure flight.</li></ul><p><br /></p><p><strong>Key Tips and Considerations:</strong></p><ul><li>Best Time to Visit: November to April for most parks, and May to September for the Minneriya Elephant Gathering.</li><li>Packing Essentials: Lightweight clothing, binoculars, camera with a zoom lens, comfortable hiking shoes, insect repellent, and sun protection.</li><li>Guides and Permits: Hire local guides for an enhanced experience and ensure that all necessary permits are arranged in advance.</li><li>Accommodations: Opt for <a href="https://www.tripadvisor.com/" target="_blank">eco-lodges, safari camps</a>, and <a href="https://www.booking.com/" target="_blank">boutique hotels</a> that offer proximity to the parks.</li></ul><p><br /></p><p>This tour offers a balanced experience, covering the island's most famous wildlife destinations while ensuring a comfortable and engaging journey through Sri Lanka’s rich natural heritage.</p><ul><li><strong>You can adjust these travel tips based on your interests and time availability!</strong></li></ul>
+            <a href="../plans.html" style="display:inline-block; margin-bottom: 2rem; color: #666;"><i class="fas fa-arrow-left"></i> Back to Journey Hub</a>
+            
+            <!-- Safety Spotlight -->
+            <div class="safety-spotlight">
+                <h3><i class="fas fa-shield-alt"></i> Wildlife Exploration Spotlight</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">For a <strong>perfect</strong> wildlife adventure, keep these local safety rules in mind:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-paw"></i> Wildlife Respect</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Never exit the jeep in national parks. Do not feed or provoke wild animals.</p>
+                    </div>
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-water"></i> Remote Safety</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Be cautious near lakes or "Willus"; crocodiles can be present even in shallow water.</p>
+                    </div>
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-camera"></i> Silent Shutter</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Keep noise levels low and avoid flash photography to prevent startling animals.</p>
+                    </div>
+                </div>
             </div>
-            <div style="text-align: center; margin-top: 4rem;">
+
+            <div class="content-wrapper">
+                <p>Sri Lanka is a premier destination for wildlife enthusiasts due to its rich biodiversity and a variety of landscapes. A well-planned wildlife voyage can offer the chance to see elephants, leopards, sloth bears, blue whales, and a plethora of bird species. Heres a comprehensive 18-day signature itinerary to explore the islands most iconic wildlife spots:</p><p><strong>Duration: 18 Days  </strong></p><p><strong>Day 1-2: Arrival and Wilpattu National Park</strong></p><ul><li>Arrive at Colombo and transfer to Wilpattu.</li><li>Wilpattu is famous for its unique natural lakes and as a top spot for leopard sightings.</li></ul><p><br /></p><p><strong>Day 3-4: Anuradhapura and Minneriya National Park</strong></p><ul><li>Visit the ancient city of Anuradhapura.</li><li>Safari at Minneriya, home to the famous Elephant Gathering.</li></ul><p><br /></p><p><strong>Day 5: Sigiriya Rock and Habarana</strong></p><ul><li>Climb Sigiriya Rock Fortress.</li><li>Enjoy birdwatching in Habarana.</li></ul><p><br /></p><p><strong>Day 6-7: Kandy and Forest Reserves</strong></p><ul><li>Explore Udawattakele Forest Reserve for endemic birds.</li><li>Nature walk in Royal Botanical Gardens.</li></ul><p><br /></p><p><strong>Day 8-9: Knuckles Mountain Range</strong></p><ul><li>Trek through dense forests and grasslands in the UNESCO-listed Knuckles range.</li></ul><p><br /></p><p><strong>Day 10-11: Horton Plains & Nuwara Eliya</strong></p><ul><li>Guided trek to Worlds End and Bakers Falls.</li></ul><p><br /></p><p><strong>Day 12-13: Yala National Park</strong></p><ul><li>Full-day jeep safari for leopards and sloth bears.</li></ul><p><br /></p><p><strong>Day 14: Bundala National Park</strong></p><ul><li>Explore the Ramsar Wetland, a magnet for migratory birds like flamingos.</li></ul><p><br /></p><p><strong>Day 15: Mirissa Whale Watching</strong></p><ul><li>Morning whale-watching tour for blue whales and dolphins.</li></ul><p><br /></p><p><strong>Day 16-17: Sinharaja Rainforest Reserve</strong></p><ul><li>Guided trek in Sinharaja, a biodiversity hotspot.</li></ul><p><br /></p><p><strong>Day 18: Galle and Departure</strong></p><ul><li>Explore Galle Fort before heading to Colombo for your return flight.</li></ul><p><br /></p><p><strong>Key Tips:</strong></p><ul><li>Best Time: November to April for most parks.</li><li>Packing: Binoculars, camera with zoom, and insect repellent.</li><li>Guides: Always hire local experts for tracking and safety.</li></ul><p><br /></p><p>This signature itinerary ensures a deep immersion into Sri Lankas rich natural heritage, focusing on conservation and authentic wildlife encounters.</p>
             </div>
         </section>
     </main>
-
     <footer>
         <div class="container footer-grid">
             <div class="footer-info">
@@ -148,10 +181,10 @@
                 <ul>
                     <li><a href="../../index.html">Home</a></li>
                     <li><a href="../guide.html">Travel Guide</a></li>
-                    <li><a href="../plans.html">Touring Plans</a></li>
+                    <li><a href="../plans.html">Journey Hub</a></li>
                     <li><a href="../travel-info.html">Travel Information</a></li>
                     <li><a href="../visa.html">Visa Details</a></li>
-                <li><a href="../blog.html">Travel Blog</a></li>
+                    <li><a href="../blog.html">Travel Blog</a></li>
                     <li><a href="../gallery.html">Photo Gallery</a></li>
                     <li><a href="../contact.html">Contact Us</a></li>
                 </ul>
@@ -170,5 +203,3 @@
     </footer>
 </body>
 </html>
-
-

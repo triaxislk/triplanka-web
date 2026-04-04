@@ -46,6 +46,16 @@ p {
     line-height: 1.7;
 }
 
+/* Content Justification */
+.about-text p,
+.info-content p,
+.intro p,
+.service-card p,
+.content-wrapper p,
+.cta p {
+    text-align: justify;
+}
+
 a {
     text-decoration: none;
     color: inherit;
@@ -485,7 +495,8 @@ section {
 .about-image:hover .photo-attribution,
 .dest-img-container:hover .photo-attribution,
 .destination-hero-frame:hover .photo-attribution,
-.gh-thumb:hover .photo-attribution {
+.gh-thumb:hover .photo-attribution,
+.itinerary-hero:hover .photo-attribution {
     opacity: 1; transform: translate(-50%, -2px);
 }
 
