@@ -1,427 +1,410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Hotels & Resorts - TripLanka</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <style>
-        .hotels-hero {
-            height: 60vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1920');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-
-        .hotels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2.5rem;
-            padding: 4rem 0;
-        }
-
-        .hotel-card {
-            background: var(--card-bg);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid var(--border-color);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .hotel-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .hotel-img {
-            height: 240px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hotel-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-
-        .hotel-card:hover .hotel-img img {
-            transform: scale(1.1);
-        }
-
-        .hotel-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--primary-color);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .hotel-content {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .hotel-rating {
-            color: var(--accent-color);
-            margin-bottom: 0.5rem;
-            font-size: 0.9rem;
-        }
-
-        .hotel-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
-
-        .hotel-location {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .hotel-desc {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-
-        .hotel-footer {
-            margin-top: auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .hotel-price {
-            font-weight: 800;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-
-        .hotel-price span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Premium Hotels & Resorts - TripLanka</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ <link rel="stylesheet" href="../css/main.css">
+ <style>
+    .hotels-hero {
+      height: 60vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1920');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hotels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2.5rem;
+      padding: 4rem 0;
+    }
+    .hotel-card {
+      background: var(--card-bg);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+    }
+    .hotel-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    .hotel-img {
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+    }
+    .hotel-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+    .hotel-card:hover .hotel-img img {
+      transform: scale(1.1);
+    }
+    .hotel-badge {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: var(--primary-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    .hotel-content {
+      padding: 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .hotel-rating {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .hotel-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+    .hotel-location {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .hotel-desc {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .hotel-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .hotel-price {
+      font-weight: 800;
+      color: var(--primary-color);
+      font-size: 1.2rem;
+    }
+    .hotel-price span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+  </style>
 </head>
 <body>
-    
-    
-    
-    
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="../index.html">
-                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
-                </a>
-            </div>
-            
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                
-                <li class="dropdown">
-                    <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./travel-info.html">Travel Information</a></li>
-                        <li><a href="./visa.html">Visa Details</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
-                        <li><a href="guide/colombo.html">Colombo</a></li>
-                        <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
-                        <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
-                        <li><a href="guide/rathnapura.html">Rathnapura</a></li>
-                        <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
-                        <li><a href="guide/ella.html">Ella & Badulla</a></li>
-                        <li><a href="guide/galle.html">Galle & Bentota</a></li>
-                        <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
-                        <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
-                        <li><a href="guide/anuradhapura.html">Anuradhapura</a></li>
-                        <li><a href="guide/batticaloa.html">Batticaloa</a></li>
-                        <li><a href="guide/trincomalee.html">Trincomalee</a></li>
-                        <li><a href="guide/jaffna.html">Jaffna</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="plans/solo-female.html">Solo Female Signature Itinerary</a></li>
-                        <li><a href="plans/solo-male.html">Solo Male Signature Itinerary</a></li>
-                        <li><a href="plans/leisure.html">Leisure & Relaxation Signature Itinerary</a></li>
-                        <li><a href="plans/honeymoon.html">Honeymoon & Romance Signature Itinerary</a></li>
-                        <li><a href="plans/wildlife.html">Wildlife Lovers Signature Itinerary</a></li>
-                        <li><a href="plans/adventure.html">Adventure Lovers Signature Itinerary</a></li>
-                        <li><a href="plans/surfing.html">Sea Surfing Signature Itinerary</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
-                        <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
-                        <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
-                    </ul>
-                </li>
-                    <li><a href="./gallery.html">Photo Gallery</a></li>
-                <li><a href="contact.html" class="btn-primary">Connect</a></li>
-                <li class="flag-item">
-                    <img src="../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
-                </li>
-            </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+ 
+ 
+ 
+ 
+ 
+ <header>
+ <nav class="container">
+ <div class="logo">
+ <a href="../index.html">
+ <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+ </a>
+ </div>
+ 
+ <ul class="nav-links">
+ <li><a href="../index.html">Home</a></li>
+ 
+ <li class="dropdown">
+ <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="./travel-info.html">Travel Information</a></li>
+ <li><a href="./visa.html">Visa Details</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
+ <li><a href="guide/colombo.html">Colombo</a></li>
+ <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
+ <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
+ <li><a href="guide/rathnapura.html">Rathnapura</a></li>
+ <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+ <li><a href="guide/ella.html">Ella & Badulla</a></li>
+ <li><a href="guide/galle.html">Galle & Bentota</a></li>
+ <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
+ <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+ <li><a href="guide/anuradhapura.html">Anuradhapura</a></li>
+ <li><a href="guide/batticaloa.html">Batticaloa</a></li>
+ <li><a href="guide/trincomalee.html">Trincomalee</a></li>
+ <li><a href="guide/jaffna.html">Jaffna</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
+ <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
+ <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
+ <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
+ <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
+ <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
+ <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
+ <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
+ <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
+ </ul>
+ </li>
+ <li><a href="./gallery.html">Photo Gallery</a></li>
+ <li><a href="contact.html" class="btn-primary">Connect</a></li>
+ </ul>
+ <div class="mobile-menu-btn">
+ <i class="fas fa-bars"></i>
+ </div>
+ </nav>
+ </header>
 
-    <main>
-        <section class="hotels-hero">
-            <div class="container">
-                <div class="fade-in">
-                    <h1 class="hero-content" style="color: white; font-size: 4rem;">Luxury <span>Stays</span></h1>
-                    <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Hand-picked premium hotels and resorts for your dream vacation</p>
-                </div>
-            </div>
-        </section>
+ <main>
+ <section class="hotels-hero">
+ <div class="container">
+ <div class="fade-in">
+ <h1 class="hero-content" style="color: white; font-size: 4rem;">Luxury <span>Stays</span></h1>
+ <p style="color: rgba(255, 255, 255, 0.9); font-size: 1.2rem;">Hand-picked premium hotels and resorts for your dream vacation</p>
+ </div>
+ </div>
+ </section>
 
-        <section class="hotels-list">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Recommended for You</h2>
-                    <div class="underline"></div>
-                </div>
+ <section class="hotels-list">
+ <div class="container">
+ <div class="section-title">
+ <h2>Recommended for You</h2>
+ <div class="underline"></div>
+ </div>
 
-                <div class="hotels-grid">
-                    <!-- Hotel 1 -->
-                    <div class="hotel-card reveal">
-                        <div class="hotel-img">
-                            <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800" alt="Heaven Seven">
-                            <div class="hotel-badge">Top Rated</div>
-                        </div>
-                        <div class="hotel-content">
-                            <div class="hotel-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <h3>Heaven Seven Nuwara Eliya</h3>
-                            <div class="hotel-location">
-                                <i class="fas fa-map-marker-alt"></i> Nuwara Eliya, Sri Lanka
-                            </div>
-                            <p class="hotel-desc">Surrounded by lush greenery, Heaven Seven Hotels is located in the peaceful Nuwara Eliya, offering misty mountain views.</p>
-                            <div class="hotel-footer">
-                                <div class="hotel-price">$85 <span>/ night</span></div>
-                                <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+ <div class="hotels-grid">
+ <!-- Hotel 1 -->
+ <div class="hotel-card reveal">
+ <div class="hotel-img">
+ <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&q=80&w=800" alt="Heaven Seven">
+ <div class="hotel-badge">Top Rated</div>
+ </div>
+ <div class="hotel-content">
+ <div class="hotel-rating">
+ <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+ </div>
+ <h3>Heaven Seven Nuwara Eliya</h3>
+ <div class="hotel-location">
+ <i class="fas fa-map-marker-alt"></i> Nuwara Eliya, Sri Lanka
+ </div>
+ <p class="hotel-desc">Surrounded by lush greenery, Heaven Seven Hotels is located in the peaceful Nuwara Eliya, offering misty mountain views. </p>
+ <div class="hotel-footer">
+ <div class="hotel-price">$85 <span>/ night</span></div>
+ <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
+ </div>
+ </div>
+ </div>
 
-                    <!-- Hotel 2 -->
-                    <div class="hotel-card reveal">
-                        <div class="hotel-img">
-                            <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800" alt="Ravana Garden">
-                            <div class="hotel-badge">Eco Friendly</div>
-                        </div>
-                        <div class="hotel-content">
-                            <div class="hotel-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <h3>Ravana Garden</h3>
-                            <div class="hotel-location">
-                                <i class="fas fa-map-marker-alt"></i> Ambalantota, Sri Lanka
-                            </div>
-                            <p class="hotel-desc">Set in Ambalantota, Ravana Garden offers a sustainable luxury experience with direct beach access and infinity pools.</p>
-                            <div class="hotel-footer">
-                                <div class="hotel-price">$140 <span>/ night</span></div>
-                                <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+ <!-- Hotel 2 -->
+ <div class="hotel-card reveal">
+ <div class="hotel-img">
+ <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&q=80&w=800" alt="Ravana Garden">
+ <div class="hotel-badge">Eco Friendly</div>
+ </div>
+ <div class="hotel-content">
+ <div class="hotel-rating">
+ <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+ </div>
+ <h3>Ravana Garden</h3>
+ <div class="hotel-location">
+ <i class="fas fa-map-marker-alt"></i> Ambalantota, Sri Lanka
+ </div>
+ <p class="hotel-desc">Set in Ambalantota, Ravana Garden offers a sustainable luxury experience with direct beach access and infinity pools. </p>
+ <div class="hotel-footer">
+ <div class="hotel-price">$140 <span>/ night</span></div>
+ <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
+ </div>
+ </div>
+ </div>
 
-                    <!-- Hotel 3 -->
-                    <div class="hotel-card reveal">
-                        <div class="hotel-img">
-                            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dfc5d?auto=format&fit=crop&q=80&w=800" alt="Elephant Trail">
-                            <div class="hotel-badge">Safari Base</div>
-                        </div>
-                        <div class="hotel-content">
-                            <div class="hotel-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <h3>Elephant Trail</h3>
-                            <div class="hotel-location">
-                                <i class="fas fa-map-marker-alt"></i> Udawalawe, Sri Lanka
-                            </div>
-                            <p class="hotel-desc">The perfect base for wildlife enthusiasts, offering comfortable stays just minutes from the national park entrance.</p>
-                            <div class="hotel-footer">
-                                <div class="hotel-price">$75 <span>/ night</span></div>
-                                <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+ <!-- Hotel 3 -->
+ <div class="hotel-card reveal">
+ <div class="hotel-img">
+ <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dfc5d?auto=format&fit=crop&q=80&w=800" alt="Elephant Trail">
+ <div class="hotel-badge">Safari Base</div>
+ </div>
+ <div class="hotel-content">
+ <div class="hotel-rating">
+ <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+ </div>
+ <h3>Elephant Trail</h3>
+ <div class="hotel-location">
+ <i class="fas fa-map-marker-alt"></i> Udawalawe, Sri Lanka
+ </div>
+ <p class="hotel-desc">The perfect base for wildlife enthusiasts, offering comfortable stays just minutes from the national park entrance. </p>
+ <div class="hotel-footer">
+ <div class="hotel-price">$75 <span>/ night</span></div>
+ <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
+ </div>
+ </div>
+ </div>
 
-                    <!-- Hotel 4 -->
-                    <div class="hotel-card reveal">
-                        <div class="hotel-img">
-                            <img src="https://images.unsplash.com/photo-1445019043510-ccf09b57ca4f?auto=format&fit=crop&q=80&w=800" alt="Heritance Kandalama">
-                            <div class="hotel-badge">Architectural Marvel</div>
-                        </div>
-                        <div class="hotel-content">
-                            <div class="hotel-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <h3>Heritance Kandalama</h3>
-                            <div class="hotel-location">
-                                <i class="fas fa-map-marker-alt"></i> Sigiriya, Sri Lanka
-                            </div>
-                            <p class="hotel-desc">A tranquil retreat perched on hills, offering panoramic views of the Sigiriya Rock and the Kandalama Lake.</p>
-                            <div class="hotel-footer">
-                                <div class="hotel-price">$210 <span>/ night</span></div>
-                                <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+ <!-- Hotel 4 -->
+ <div class="hotel-card reveal">
+ <div class="hotel-img">
+ <img src="https://images.unsplash.com/photo-1445019043510-ccf09b57ca4f?auto=format&fit=crop&q=80&w=800" alt="Heritance Kandalama">
+ <div class="hotel-badge">Architectural Marvel</div>
+ </div>
+ <div class="hotel-content">
+ <div class="hotel-rating">
+ <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+ </div>
+ <h3>Heritance Kandalama</h3>
+ <div class="hotel-location">
+ <i class="fas fa-map-marker-alt"></i> Sigiriya, Sri Lanka
+ </div>
+ <p class="hotel-desc">A tranquil retreat perched on hills, offering panoramic views of the Sigiriya Rock and the Kandalama Lake. </p>
+ <div class="hotel-footer">
+ <div class="hotel-price">$210 <span>/ night</span></div>
+ <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
+ </div>
+ </div>
+ </div>
 
-                    <!-- Hotel 5 -->
-                    <div class="hotel-card reveal">
-                        <div class="hotel-img">
-                            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=800" alt="Araliya Beach Resort">
-                            <div class="hotel-badge">Beachfront</div>
-                        </div>
-                        <div class="hotel-content">
-                            <div class="hotel-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <h3>Araliya Beach Resort & Spa</h3>
-                            <div class="hotel-location">
-                                <i class="fas fa-map-marker-alt"></i> Unawatuna, Sri Lanka
-                            </div>
-                            <p class="hotel-desc">Located right on the Unawatuna Beach, where you meet the sea all year round with world-class spa facilities.</p>
-                            <div class="hotel-footer">
-                                <div class="hotel-price">$185 <span>/ night</span></div>
-                                <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
+ <!-- Hotel 5 -->
+ <div class="hotel-card reveal">
+ <div class="hotel-img">
+ <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&q=80&w=800" alt="Araliya Beach Resort">
+ <div class="hotel-badge">Beachfront</div>
+ </div>
+ <div class="hotel-content">
+ <div class="hotel-rating">
+ <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+ </div>
+ <h3>Araliya Beach Resort & Spa</h3>
+ <div class="hotel-location">
+ <i class="fas fa-map-marker-alt"></i> Unawatuna, Sri Lanka
+ </div>
+ <p class="hotel-desc">Located right on the Unawatuna Beach, where you meet the sea all year round with world-class spa facilities. </p>
+ <div class="hotel-footer">
+ <div class="hotel-price">$185 <span>/ night</span></div>
+ <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
+ </div>
+ </div>
+ </div>
 
-                    <!-- Hotel 6 -->
-                    <div class="hotel-card reveal">
-                        <div class="hotel-img">
-                            <img src="https://images.unsplash.com/photo-1519449556851-5720b33024e7?auto=format&fit=crop&q=80&w=800" alt="Shangri-La">
-                            <div class="hotel-badge">Ultra Luxury</div>
-                        </div>
-                        <div class="hotel-content">
-                            <div class="hotel-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                            </div>
-                            <h3>Shangri-La Hambantota</h3>
-                            <div class="hotel-location">
-                                <i class="fas fa-map-marker-alt"></i> Hambantota, Sri Lanka
-                            </div>
-                            <p class="hotel-desc">Overlooking the pristine southern coast, this resort is located along the ancient Spice Route in a city steeped in history.</p>
-                            <div class="hotel-footer">
-                                <div class="hotel-price">$260 <span>/ night</span></div>
-                                <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+ <!-- Hotel 6 -->
+ <div class="hotel-card reveal">
+ <div class="hotel-img">
+ <img src="https://images.unsplash.com/photo-1519449556851-5720b33024e7?auto=format&fit=crop&q=80&w=800" alt="Shangri-La">
+ <div class="hotel-badge">Ultra Luxury</div>
+ </div>
+ <div class="hotel-content">
+ <div class="hotel-rating">
+ <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+ </div>
+ <h3>Shangri-La Hambantota</h3>
+ <div class="hotel-location">
+ <i class="fas fa-map-marker-alt"></i> Hambantota, Sri Lanka
+ </div>
+ <p class="hotel-desc">Overlooking the pristine southern coast, this resort is located along the ancient Spice Route in a city steeped in history. </p>
+ <div class="hotel-footer">
+ <div class="hotel-price">$260 <span>/ night</span></div>
+ <a href="contact.html" class="btn-primary" style="padding: 0.5rem 1.2rem; font-size: 0.9rem;">Book Now</a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
 
-        <section class="booking-cta" style="background: var(--section-bg); padding: 4rem 0;">
-            <div class="container" style="text-align: center;">
-                <h3>Need help finding the right stay?</h3>
-                <p>Contact our travel specialists for personalized recommendations based on your budget and preferences.</p>
-                <div style="margin-top: 2rem;">
-                    <a href="tel:+94764404152" class="btn-primary"><i class="fas fa-phone"></i> Call Specialists</a>
-                    <a href="https://wa.me/94764404152" class="btn-secondary" style="margin-left: 1rem;"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
-                </div>
-            </div>
-        </section>
-    </main>
+ <section class="booking-cta" style="background: var(--section-bg); padding: 4rem 0;">
+ <div class="container" style="text-align: center;">
+ <h3>Need help finding the right stay?</h3>
+ <p>Contact our travel specialists for personalized recommendations based on your budget and preferences. </p>
+ <div style="margin-top: 2rem;">
+ <a href="tel:+94764404152" class="btn-primary"><i class="fas fa-phone"></i> Call Specialists</a>
+ <a href="https://wa.me/94764404152" class="btn-secondary" style="margin-left: 1rem;"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+ </div>
+ </div>
+ </section>
+ </main>
 
-    <footer id="contact">
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <span class="logo-text">Trip<span>Lanka</span></span>
-                <p>Journey Beyond the Ordinary. Your ultimate companion in discovering the magic of Sri Lanka.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
-                    <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
-                    <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="guide.html">Travel Guide</a></li>
-                    <li><a href="plans.html">Journey Hub</a></li>
-                    <li><a href="travel-info.html">Travel Information</a></li>
-                    <li><a href="visa.html">Visa Details</a></li>
-                                    <li class="dropdown">
-                    <a href="blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="blog.html?filter=guides">Travel Guides</a></li>
-                        <li><a href="blog.html?filter=culture">Culture & Food</a></li>
-                        <li><a href="blog.html?filter=nature">Nature & Wildlife</a></li>
-                    </ul>
-                </li>
-                    <li><a href="gallery.html">Photo Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
-        </div>
-    </footer>
+ <footer id="contact">
+ <div class="container footer-grid">
+ <div class="footer-info">
+ <span class="logo-text">Trip<span>Lanka</span></span>
+ <p>Journey Beyond the Ordinary. Your ultimate companion in discovering the magic of Sri Lanka. </p>
+ <div class="social-links">
+ <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+ <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+ <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+ <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
+ <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+ <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
+ </div>
+ </div>
+ <div class="footer-links">
+ <h3>Explore</h3>
+ <ul>
+ <li><a href="../index.html">Home</a></li>
+ <li><a href="guide.html">Travel Guide</a></li>
+ <li><a href="plans.html">Journey Hub</a></li>
+ <li><a href="travel-info.html">Travel Information</a></li>
+ <li><a href="visa.html">Visa Details</a></li>
+ <li class="dropdown">
+ <a href="blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="blog.html?filter=guides">Travel Guides</a></li>
+ <li><a href="blog.html?filter=culture">Culture & Food</a></li>
+ <li><a href="blog.html?filter=nature">Nature & Wildlife</a></li>
+ </ul>
+ </li>
+ <li><a href="gallery.html">Photo Gallery</a></li>
+ <li><a href="contact.html">Contact Us</a></li>
+ </ul>
+ </div>
+ <div class="footer-contact">
+ <h3>Contact</h3>
+ <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+ <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
+ <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
+ <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>&copy; 2026 TripLanka. All Rights Reserved. </p>
+ </div>
+ </footer>
 
-    <script src="../js/main.js"></script>
-    <script>
-        // Copy footer from index or other page if needed, but better to have it static or via JS
-        // For now, I'll just write it out for completeness
-    </script>
+ <script src="../js/main.js"></script>
+ <script>
+ // Copy footer from index or other page if needed, but better to have it static or via JS
+ // For now, I'll just write it out for completeness
+ </script>
 </body>
 </html>
 

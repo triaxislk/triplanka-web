@@ -1,324 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo & Video Gallery | TripLanka - Sri Lanka in Focus</title>
-    <meta name="description" content="Explore the visual splendor of Sri Lanka through our curated photo and video gallery. From misty mountains to golden shores.">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="../Images/Logos/Logo Without Background.png">
-    <style>
-        .gallery-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        .gallery-nav-btn {
-            background: none;
-            border: none;
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-light);
-            cursor: pointer;
-            padding: 0.5rem 1rem;
-            position: relative;
-            transition: var(--transition);
-        }
-        .gallery-nav-btn.active {
-            color: var(--primary);
-        }
-        .gallery-nav-btn.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 3px;
-            background: var(--secondary);
-            border-radius: 2px;
-        }
-        .gallery-section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        .gallery-section.active {
-            display: block;
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-        .gallery-card {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            aspect-ratio: 4/3;
-            position: relative;
-            cursor: pointer;
-            border: 1px solid var(--border);
-        }
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .gallery-card:hover img {
-            transform: scale(1.1);
-        }
-        .gallery-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
-            display: flex;
-            align-items: flex-end;
-            padding: 1.5rem;
-            opacity: 0;
-            transition: var(--transition);
-        }
-        .gallery-card:hover .gallery-overlay {
-            opacity: 1;
-        }
-        .gallery-overlay h3 {
-            color: var(--white);
-            font-size: 1.2rem;
-            margin: 0;
-        }
-        .video-placeholder {
-            background: var(--section-bg);
-            border-radius: 20px;
-            padding: 5rem;
-            text-align: center;
-            border: 2px dashed var(--border);
-        }
-        .video-placeholder i {
-            font-size: 4rem;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            opacity: 0.5;
-        }
-        .video-placeholder p {
-            text-align: center;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Photo & Video Gallery | TripLanka - Sri Lanka in Focus</title>
+ <meta name="description" content="Explore the visual splendor of Sri Lanka through our curated photo and video gallery.From misty mountains to golden shores.">
+ <link rel="stylesheet" href="../css/main.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital, wght@0, 400..900;1, 400..900&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="icon" type="image/png" href="../Images/Logos/Logo Without Background.png">
+  <style>
+    .gallery-nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .gallery-nav-btn {
+      background: none;
+      border: none;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      position: relative;
+      transition: var(--transition);
+    }
+    .gallery-nav-btn.active {
+      color: var(--primary);
+    }
+    .gallery-nav-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 3px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+    .gallery-section {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+    .gallery-section.active {
+      display: block;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .gallery-card {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      aspect-ratio: 4/3;
+      position: relative;
+      cursor: pointer;
+      border: 1px solid var(--border);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .gallery-card:hover img {
+      transform: scale(1.1);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .gallery-card:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-overlay h3 {
+      color: var(--white);
+      font-size: 1.2rem;
+      margin: 0;
+    }
+    .video-placeholder {
+      background: var(--section-bg);
+      border-radius: 20px;
+      padding: 5rem;
+      text-align: center;
+      border: 2px dashed var(--border);
+    }
+    .video-placeholder i {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      opacity: 0.5;
+    }
+    .video-placeholder p {
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    
-    
-    
-    
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="../index.html">
-                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
-                </a>
-            </div>
-            
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                
-                <li class="dropdown">
-                    <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./travel-info.html">Travel Information</a></li>
-                        <li><a href="./visa.html">Visa Details</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
-                        <li><a href="guide/colombo.html">Colombo</a></li>
-                        <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
-                        <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
-                        <li><a href="guide/rathnapura.html">Rathnapura</a></li>
-                        <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
-                        <li><a href="guide/ella.html">Ella & Badulla</a></li>
-                        <li><a href="guide/galle.html">Galle & Bentota</a></li>
-                        <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
-                        <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
-                        <li><a href="guide/anuradhapura.html">Anuradhapura</a></li>
-                        <li><a href="guide/batticaloa.html">Batticaloa</a></li>
-                        <li><a href="guide/trincomalee.html">Trincomalee</a></li>
-                        <li><a href="guide/jaffna.html">Jaffna</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="plans/solo-female.html">Solo Female Signature Itinerary</a></li>
-                        <li><a href="plans/solo-male.html">Solo Male Signature Itinerary</a></li>
-                        <li><a href="plans/leisure.html">Leisure & Relaxation Signature Itinerary</a></li>
-                        <li><a href="plans/honeymoon.html">Honeymoon & Romance Signature Itinerary</a></li>
-                        <li><a href="plans/wildlife.html">Wildlife Lovers Signature Itinerary</a></li>
-                        <li><a href="plans/adventure.html">Adventure Lovers Signature Itinerary</a></li>
-                        <li><a href="plans/surfing.html">Sea Surfing Signature Itinerary</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
-                        <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
-                        <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
-                    </ul>
-                </li>
-                    <li><a href="./gallery.html">Photo Gallery</a></li>
-                <li><a href="contact.html" class="btn-primary">Connect</a></li>
-                <li class="flag-item">
-                    <img src="../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
-                </li>
-            </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+ 
+ 
+ 
+ 
+ 
+ <header>
+ <nav class="container">
+ <div class="logo">
+ <a href="../index.html">
+ <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+ </a>
+ </div>
+ 
+ <ul class="nav-links">
+ <li><a href="../index.html">Home</a></li>
+ 
+ <li class="dropdown">
+ <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="./travel-info.html">Travel Information</a></li>
+ <li><a href="./visa.html">Visa Details</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
+ <li><a href="guide/colombo.html">Colombo</a></li>
+ <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
+ <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
+ <li><a href="guide/rathnapura.html">Rathnapura</a></li>
+ <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+ <li><a href="guide/ella.html">Ella & Badulla</a></li>
+ <li><a href="guide/galle.html">Galle & Bentota</a></li>
+ <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
+ <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+ <li><a href="guide/anuradhapura.html">Anuradhapura</a></li>
+ <li><a href="guide/batticaloa.html">Batticaloa</a></li>
+ <li><a href="guide/trincomalee.html">Trincomalee</a></li>
+ <li><a href="guide/jaffna.html">Jaffna</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
+ <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
+ <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
+ <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
+ <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
+ <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
+ <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
+ <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
+ <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
+ </ul>
+ </li>
+ <li><a href="./gallery.html">Photo Gallery</a></li>
+ <li><a href="contact.html" class="btn-primary">Connect</a></li>
+ </ul>
+ <div class="mobile-menu-btn">
+ <i class="fas fa-bars"></i>
+ </div>
+ </nav>
+ </header>
 
-    <main>
-        <section class="hero" style="min-height: 40vh; height: 50vh; background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../Images/Site Photos/Town/Sigiriya - Photo by Dylan Shaw.jpg');">
-            <div class="hero-content container">
-                <h1 class="fade-in">Visual <span>Gallery</span></h1>
-                <p class="fade-in delay-1">The Essence of Sri Lanka, captured in every frame.</p>
-            </div>
-        </section>
+ <main>
+ <section class="hero" style="min-height: 40vh; height: 50vh; background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../Images/Site Photos/Town/Sigiriya - Photo by Dylan Shaw.jpg');">
+ <div class="hero-content container">
+ <h1 class="fade-in">Visual <span>Gallery</span></h1>
+ <p class="fade-in delay-1">The Essence of Sri Lanka, captured in every frame. </p>
+ </div>
+ </section>
 
-        <section class="container" style="padding: 5rem 0;">
-            <div class="gallery-nav">
-                <button class="gallery-nav-btn active" onclick="switchGallery('photo')">Photo Gallery</button>
-                <button class="gallery-nav-btn" onclick="switchGallery('video')">Video Gallery</button>
-            </div>
+ <section class="container" style="padding: 5rem 0;">
+ <div class="gallery-nav">
+ <button class="gallery-nav-btn active" onclick="switchGallery('photo')">Photo Gallery</button>
+ <button class="gallery-nav-btn" onclick="switchGallery('video')">Video Gallery</button>
+ </div>
 
-            <!-- Photo Gallery -->
-            <div id="photo-gallery" class="gallery-section active">
-                <div class="gallery-grid">
-                    <div class="gallery-card">
-                        <img src="../Images/Site Photos/Town/Galle - Photo by Daniel Klein.jpg" alt="Galle Fort">
-                        <div class="gallery-overlay"><h3>Galle Coast</h3></div>
-                    </div>
-                    <div class="gallery-card">
-                        <img src="../Images/Site Photos/Tourist Destination In Sri Lanka/Ella Train - Photo by Hendrik Cornelissen.jpg" alt="Nine Arches Bridge">
-                        <div class="gallery-overlay"><h3>Nine Arches Bridge, Ella</h3></div>
-                    </div>
-                    <div class="gallery-card">
-                        <img src="../Images/Site Photos/Town/Colombo Sri Lanka - Photo by Rakhitha_w.jpg" alt="Colombo City">
-                        <div class="gallery-overlay"><h3>Vibrant Colombo</h3></div>
-                    </div>
-                    <div class="gallery-card">
-                        <img src="../Images/Site Photos/Town/Sigiriya Loin Rock  Sri Lanka - Photo by TRphotos.jpg" alt="Sigiriya Rock">
-                        <div class="gallery-overlay"><h3>Sigiriya Lion Rock</h3></div>
-                    </div>
-                    <div class="gallery-card">
-                        <img src="../Images/Site Photos/Wild Animals/Leopards on a stone. Yala.  Sri Lanka - Photo by Sergey Uryadnikov.jpg" alt="Sri Lankan Leopards">
-                        <div class="gallery-overlay"><h3>The Elusive Leopard</h3></div>
-                    </div>
-                    <div class="gallery-card">
-                        <img src="../Images/Site Photos/Beach In Sri Lanka/Trincomalee Sri Lanka - Photo by Dmitrii Iarusov.jpg" alt="Nilaveli Beach">
-                        <div class="gallery-overlay"><h3>Trincomalee Serenity</h3></div>
-                    </div>
-                    <div class="gallery-card">
-                        <img src="../Images/Site Photos/Town/Nuwaraeliya Sri Lanka - Photo by Sanjeew Sanjaya.jpg" alt="Highland Train">
-                        <div class="gallery-overlay"><h3>The Iconic Highland Train</h3></div>
-                    </div>
-                    <div class="gallery-card">
-                        <img src="../Images/Site Photos/Waterfalls/Boburu Ella - Photo By Sanjeew Sanjaya.jpg" alt="Waterfalls">
-                        <div class="gallery-overlay"><h3>Hidden Waterfalls</h3></div>
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 3rem;">
-                    <p class="text-light">More stunning captures coming soon...</p>
-                </div>
-            </div>
+ <!-- Photo Gallery -->
+ <div id="photo-gallery" class="gallery-section active">
+ <div class="gallery-grid">
+ <div class="gallery-card">
+ <img src="../Images/Site Photos/Town/Galle - Photo by Daniel Klein.jpg" alt="Galle Fort">
+ <div class="gallery-overlay"><h3>Galle Coast</h3></div>
+ </div>
+ <div class="gallery-card">
+ <img src="../Images/Site Photos/Tourist Destination In Sri Lanka/Ella Train - Photo by Hendrik Cornelissen.jpg" alt="Nine Arches Bridge">
+ <div class="gallery-overlay"><h3>Nine Arches Bridge, Ella</h3></div>
+ </div>
+ <div class="gallery-card">
+ <img src="../Images/Site Photos/Town/Colombo Sri Lanka - Photo by Rakhitha_w.jpg" alt="Colombo City">
+ <div class="gallery-overlay"><h3>Vibrant Colombo</h3></div>
+ </div>
+ <div class="gallery-card">
+ <img src="../Images/Site Photos/Town/Sigiriya Loin Rock  Sri Lanka - Photo by TRphotos.jpg" alt="Sigiriya Rock">
+ <div class="gallery-overlay"><h3>Sigiriya Lion Rock</h3></div>
+ </div>
+ <div class="gallery-card">
+ <img src="../Images/Site Photos/Wild Animals/Leopards on a stone.Yala.  Sri Lanka - Photo by Sergey Uryadnikov.jpg" alt="Sri Lankan Leopards">
+ <div class="gallery-overlay"><h3>The Elusive Leopard</h3></div>
+ </div>
+ <div class="gallery-card">
+ <img src="../Images/Site Photos/Beach In Sri Lanka/Trincomalee Sri Lanka - Photo by Dmitrii Iarusov.jpg" alt="Nilaveli Beach">
+ <div class="gallery-overlay"><h3>Trincomalee Serenity</h3></div>
+ </div>
+ <div class="gallery-card">
+ <img src="../Images/Site Photos/Town/Nuwaraeliya Sri Lanka - Photo by Sanjeew Sanjaya.jpg" alt="Highland Train">
+ <div class="gallery-overlay"><h3>The Iconic Highland Train</h3></div>
+ </div>
+ <div class="gallery-card">
+ <img src="../Images/Site Photos/Waterfalls/Boburu Ella - Photo By Sanjeew Sanjaya.jpg" alt="Waterfalls">
+ <div class="gallery-overlay"><h3>Hidden Waterfalls</h3></div>
+ </div>
+ </div>
+ <div style="text-align: center; margin-top: 3rem;">
+ <p class="text-light">More stunning captures coming soon... </p>
+ </div>
+ </div>
 
-            <!-- Video Gallery -->
-            <div id="video-gallery" class="gallery-section">
-                <div class="video-placeholder">
-                    <i class="fas fa-video"></i>
-                    <h2>Cinematic Experiences Coming Soon</h2>
-                    <p>We are currently curating the finest visual stories of Sri Lanka. Check back soon for breath-taking video tours.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <a href="../index.html">
-                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
-                </a>
-                <p>Journey Beyond the Ordinary. Discover the magic of Sri Lanka.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
-                    <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
-                    <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="guide.html">Travel Guide</a></li>
-                    <li><a href="plans.html">Journey Hub</a></li>
-                    <li><a href="travel-info.html">Travel Information</a></li>
-                    <li><a href="visa.html">Visa Details</a></li>
-                    <li><a href="blog.html">Travel Blog</a></li>
-                    <li><a href="gallery.html">Photo Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
-        </div>
-    </footer>
+ <!-- Video Gallery -->
+ <div id="video-gallery" class="gallery-section">
+ <div class="video-placeholder">
+ <i class="fas fa-video"></i>
+ <h2>Cinematic Experiences Coming Soon</h2>
+ <p>We are currently curating the finest visual stories of Sri Lanka. Check back soon for breath-taking video tours. </p>
+ </div>
+ </div>
+ </section>
+ </main>
+ <footer>
+ <div class="container footer-grid">
+ <div class="footer-info">
+ <a href="../index.html">
+ <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+ </a>
+ <p>Journey Beyond the Ordinary. Discover the magic of Sri Lanka. </p>
+ <div class="social-links">
+ <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+ <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+ <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+ <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
+ <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+ <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
+ </div>
+ </div>
+ <div class="footer-links">
+ <h3>Explore</h3>
+ <ul>
+ <li><a href="../index.html">Home</a></li>
+ <li><a href="guide.html">Travel Guide</a></li>
+ <li><a href="plans.html">Journey Hub</a></li>
+ <li><a href="travel-info.html">Travel Information</a></li>
+ <li><a href="visa.html">Visa Details</a></li>
+ <li><a href="blog.html">Travel Blog</a></li>
+ <li><a href="gallery.html">Photo Gallery</a></li>
+ <li><a href="contact.html">Contact Us</a></li>
+ </ul>
+ </div>
+ <div class="footer-contact">
+ <h3>Contact</h3>
+ <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+ <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
+ <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
+ <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>&copy; 2026 TripLanka. All Rights Reserved. </p>
+ </div>
+ </footer>
 
-    <script>
-        function switchGallery(type) {
-            const btns = document.querySelectorAll('.gallery-nav-btn');
-            const sections = document.querySelectorAll('.gallery-section');
-            
-            btns.forEach(btn => btn.classList.remove('active'));
-            sections.forEach(sec => sec.classList.remove('active'));
-            
-            if(type === 'photo') {
-                btns[0].classList.add('active');
-                document.getElementById('photo-gallery').classList.add('active');
-            } else {
-                btns[1].classList.add('active');
-                document.getElementById('video-gallery').classList.add('active');
-            }
-        }
-
-        // Initialize script from main.js if needed or handle menu
-    </script>
-    <script src="../js/main.js"></script>
+  <script>
+    function switchGallery(type) {
+      const btns = document.querySelectorAll('.gallery-nav-btn');
+      const sections = document.querySelectorAll('.gallery-section');
+      
+      btns.forEach(btn => btn.classList.remove('active'));
+      sections.forEach(sec => sec.classList.remove('active'));
+      
+      if(type === 'photo') {
+        btns[0].classList.add('active');
+        document.getElementById('photo-gallery').classList.add('active');
+      } else {
+        btns[1].classList.add('active');
+        document.getElementById('video-gallery').classList.add('active');
+      }
+    }
+  </script>
+ <script src="../js/main.js"></script>
 </body>
-</html>
-
-
 
 
 

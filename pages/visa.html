@@ -1,493 +1,490 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visa Information | TripLanka</title>
-    <meta name="description" content="Essential travel information and visa details for visiting Sri Lanka.">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="../Images/Logos/Logo Without Background.png">
-    <style>
-        .info-hero {
-            height: 40vh;
-            min-height: 350px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../Images/Site Photos/Sri-Lanka-flag.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 60px; /* Offset for fixed header */
-        }
-        .hero-content {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-content h1 {
-            margin-bottom: 1rem;
-            width: 100%;
-            text-align: center;
-        }
-        .hero-content p {
-            margin: 0 auto;
-            max-width: 600px;
-            text-align: center;
-        }
-        .info-content {
-            padding: 3rem 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-        .content-wrapper {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-        }
-        .info-content p { 
-            font-size: 1rem; 
-            line-height: 1.7; 
-            margin-bottom: 1.2rem; 
-            color: #444; 
-        }
-        .info-content h2 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin: 2rem 0 1rem;
-            font-weight: 700;
-        }
-        .info-content h3 {
-            font-size: 1.25rem;
-            color: var(--primary-color);
-            margin: 1.5rem 0 1rem;
-            font-weight: 600;
-        }
-        .info-content strong { color: #333; }
-        .info-content ul { margin-left: 1.5rem; margin-bottom: 2rem; }
-        .info-content li { margin-bottom: 0.6rem; font-size: 0.95rem; line-height: 1.6; color: #444; }
-        .info-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; transition: color 0.3s; }
-        .info-content a:hover { color: var(--primary-color); text-decoration: underline; }
-        
-        /* Table Styles */
-        .table-responsive {
-            overflow-x: auto;
-            margin: 1.5rem 0 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
-        }
-        .info-content table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            min-width: 600px;
-        }
-        .info-content th, .info-content td {
-            text-align: left;
-            padding: 1rem 1.2rem;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-        }
-        .info-content th {
-            background-color: #f8f9fa;
-            color: var(--primary-color);
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.5px;
-        }
-        .info-content tr:hover td {
-            background-color: #fcfcfc;
-        }
-        .info-content tr:last-child td { border-bottom: none; }
-        
-        .eta-link {
-            display: inline-block;
-            background: #fff4e5;
-            padding: 0 4px;
-            border-radius: 4px;
-            border-bottom: 2px solid #ff9800;
-        }
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Visa Information | TripLanka</title>
+ <meta name="description" content="Essential travel information and visa details for visiting Sri Lanka.">
+ <link rel="stylesheet" href="../css/main.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="icon" type="image/png" href="../Images/Logos/Logo Without Background.png">
+  <style>
+    .info-hero {
+      height: 60vh;
+      min-height: 350px;
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../Images/Site Photos/Sri-Lanka-flag.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero-content {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-content h1 {
+      margin-bottom: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+    .hero-content p {
+      margin: 0 auto;
+      max-width: 600px;
+      text-align: center;
+    }
+    .info-content {
+      padding: 3rem 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .content-wrapper {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+    }
+    .info-content p { 
+      font-size: 1rem; 
+      line-height: 1.7; 
+      margin-bottom: 1.2rem; 
+      color: #444; 
+    }
+    .info-content h2 {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      margin: 2rem 0 1rem;
+      font-weight: 700;
+    }
+    .info-content h3 {
+      font-size: 1.25rem;
+      color: var(--primary-color);
+      margin: 1.5rem 0 1rem;
+      font-weight: 600;
+    }
+    .info-content strong { color: #333; }
+    .info-content ul { margin-left: 1.5rem; margin-bottom: 2rem; }
+    .info-content li { margin-bottom: 0.6rem; font-size: 0.95rem; line-height: 1.6; color: #444; }
+    .info-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; transition: color 0.3s; }
+    .info-content a:hover { color: var(--primary-color); text-decoration: underline; }
+    
+    /* Table Styles */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+    }
+    .info-content table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      min-width: 600px;
+    }
+    .info-content th, .info-content td {
+      text-align: left;
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid #eee;
+      font-size: 0.9rem;
+    }
+    .info-content th {
+      background-color: #f8f9fa;
+      color: var(--primary-color);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+    .info-content tr:hover td {
+      background-color: #fcfcfc;
+    }
+    .info-content tr:last-child td { border-bottom: none; }
+    
+    .eta-link {
+      display: inline-block;
+      background: #fff4e5;
+      padding: 0 4px;
+      border-radius: 4px;
+      border-bottom: 2px solid #ff9800;
+    }
 
-        /* Search Filter Styles */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 2.5rem 0 1rem;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-        .section-header h2 { margin: 0 !important; }
-        .search-container {
-            position: relative;
-            max-width: 320px;
-            width: 100%;
-        }
-        .search-container i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #999;
-            font-size: 0.9rem;
-        }
-        .search-container input {
-            width: 100%;
-            padding: 10px 15px 10px 40px;
-            border: 1.5px solid #eee;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-family: inherit;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            background: #fcfcfc;
-        }
-        .search-container input:focus {
-            outline: none;
-            border-color: var(--secondary-color);
-            background: white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .search-container input::placeholder { color: #aaa; }
+    /* Search Filter Styles */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 2.5rem 0 1rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .section-header h2 { margin: 0 !important; }
+    .search-container {
+      position: relative;
+      max-width: 320px;
+      width: 100%;
+    }
+    .search-container i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 0.9rem;
+    }
+    .search-container input {
+      width: 100%;
+      padding: 10px 15px 10px 40px;
+      border: 1.5px solid #eee;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #fcfcfc;
+    }
+    .search-container input:focus {
+      outline: none;
+      border-color: var(--secondary-color);
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .search-container input::placeholder { color: #aaa; }
 
-        @media (max-width: 768px) {
-            .content-wrapper { padding: 1.5rem; }
-            .info-content h2 { font-size: 1.3rem; }
-            .info-hero h1 { font-size: 2rem; }
-        }
-    </style>
+    @media (max-width: 768px) {
+      .content-wrapper { padding: 1.5rem; }
+      .info-content h2 { font-size: 1.3rem; }
+      .info-hero h1 { font-size: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
-    
-    
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="../index.html">
-                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
-                </a>
-            </div>
-            
-            <ul class="nav-links">
-                <li><a href="../index.html">Home</a></li>
-                
-                <li class="dropdown">
-                    <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./travel-info.html">Travel Information</a></li>
-                        <li><a href="./visa.html">Visa Details</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
-                        <li><a href="guide/colombo.html">Colombo</a></li>
-                        <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
-                        <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
-                        <li><a href="guide/rathnapura.html">Rathnapura</a></li>
-                        <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
-                        <li><a href="guide/ella.html">Ella & Badulla</a></li>
-                        <li><a href="guide/galle.html">Galle & Bentota</a></li>
-                        <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
-                        <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
-                        <li><a href="guide/anuradhapura.html">Anuradhapura</a></li>
-                        <li><a href="guide/batticaloa.html">Batticaloa</a></li>
-                        <li><a href="guide/trincomalee.html">Trincomalee</a></li>
-                        <li><a href="guide/jaffna.html">Jaffna</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="plans/solo-female.html">Solo Female Signature Itinerary</a></li>
-                        <li><a href="plans/solo-male.html">Solo Male Signature Itinerary</a></li>
-                        <li><a href="plans/leisure.html">Leisure & Relaxation Signature Itinerary</a></li>
-                        <li><a href="plans/honeymoon.html">Honeymoon & Romance Signature Itinerary</a></li>
-                        <li><a href="plans/wildlife.html">Wildlife Lovers Signature Itinerary</a></li>
-                        <li><a href="plans/adventure.html">Adventure Lovers Signature Itinerary</a></li>
-                        <li><a href="plans/surfing.html">Sea Surfing Signature Itinerary</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
-                        <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
-                        <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
-                    </ul>
-                </li>
-                    <li><a href="./gallery.html">Photo Gallery</a></li>
-                <li><a href="contact.html" class="btn-primary">Connect</a></li>
-                <li class="flag-item">
-                    <img src="../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
-                </li>
-            </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+ 
+ 
+ 
+ <header>
+ <nav class="container">
+ <div class="logo">
+ <a href="../index.html">
+ <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+ </a>
+ </div>
+ 
+ <ul class="nav-links">
+ <li><a href="../index.html">Home</a></li>
+ 
+ <li class="dropdown">
+ <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="./travel-info.html">Travel Information</a></li>
+ <li><a href="./visa.html">Visa Details</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
+ <li><a href="guide/colombo.html">Colombo</a></li>
+ <li><a href="guide/kandy.html">Kandy & Gampola</a></li>
+ <li><a href="guide/sigiriya.html">Dambulla & Sigiriya</a></li>
+ <li><a href="guide/rathnapura.html">Rathnapura</a></li>
+ <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+ <li><a href="guide/ella.html">Ella & Badulla</a></li>
+ <li><a href="guide/galle.html">Galle & Bentota</a></li>
+ <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
+ <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+ <li><a href="guide/anuradhapura.html">Anuradhapura</a></li>
+ <li><a href="guide/batticaloa.html">Batticaloa</a></li>
+ <li><a href="guide/trincomalee.html">Trincomalee</a></li>
+ <li><a href="guide/jaffna.html">Jaffna</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
+ <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
+ <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
+ <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
+ <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
+ <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
+ <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
+ <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
+ <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
+ </ul>
+ </li>
+ <li><a href="./gallery.html">Photo Gallery</a></li>
+ <li><a href="contact.html" class="btn-primary">Connect</a></li>
+ </ul>
+ <div class="mobile-menu-btn">
+ <i class="fas fa-bars"></i>
+ </div>
+ </nav>
+ </header>
 
-    <main>
-        <section class="info-hero">
-            <div class="container hero-content">
-                <h1 class="fade-in">Visa Information</h1>
-                <p class="fade-in delay-1">Entry requirements and visa fees for Sri Lanka</p>
-            </div>
-        </section>
+ <main>
+ <section class="info-hero">
+ <div class="container hero-content">
+ <h1 class="fade-in">Visa Information</h1>
+ <p class="fade-in delay-1">Entry requirements and visa fees for Sri Lanka</p>
+ </div>
+ </section>
 
-        <section class="info-content">
-            <div class="content-wrapper">
-                <h2>Sri Lanka Visa & ETA Fees</h2>
-                <p>Below are the official visa and ETA fees for entering Sri Lanka. This information is based on the latest immigration fee schedule. Always verify through the official portals before travel.</p>
-                
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Visa Category</th>
-                                <th>SAARC Countries</th>
-                                <th>Other Countries</th>
-                                <th>Children under 12</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Tourist Visa (Double Entry, 30 days)</td>
-                                <td>US$ 20</td>
-                                <td>US$ 50</td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Business Visa (Multiple Entry, 30 days)</td>
-                                <td>US$ 30</td>
-                                <td>US$ 55</td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Tourist Visa (180 days)</td>
-                                <td>US$ 50</td>
-                                <td>US$ 50</td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Transit Visa (2 days)</td>
-                                <td><strong>Free</strong></td>
-                                <td><strong>Free</strong></td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+ <section class="info-content">
+ <div class="content-wrapper">
+ <h2>Sri Lanka Visa & ETA Fees</h2>
+ <p>Below are the official visa and ETA fees for entering Sri Lanka. This information is based on the latest immigration fee schedule. Always verify through the official portals before travel. </p>
+ 
+ <div class="table-responsive">
+ <table>
+ <thead>
+ <tr>
+ <th>Visa Category</th>
+ <th>SAARC Countries</th>
+ <th>Other Countries</th>
+ <th>Children under 12</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Tourist Visa (Double Entry, 30 days)</td>
+ <td>US$ 20</td>
+ <td>US$ 50</td>
+ <td><strong>Free</strong></td>
+ </tr>
+ <tr>
+ <td>Business Visa (Multiple Entry, 30 days)</td>
+ <td>US$ 30</td>
+ <td>US$ 55</td>
+ <td><strong>Free</strong></td>
+ </tr>
+ <tr>
+ <td>Tourist Visa (180 days)</td>
+ <td>US$ 50</td>
+ <td>US$ 50</td>
+ <td><strong>Free</strong></td>
+ </tr>
+ <tr>
+ <td>Transit Visa (2 days)</td>
+ <td><strong>Free</strong></td>
+ <td><strong>Free</strong></td>
+ <td><strong>Free</strong></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
 
-                <h3>Official Sri Lanka Visa Links</h3>
-                <ul>
-                    <li><a href="https://www.eta.gov.lk/slvisa/visainfo/apply.jsp" target="_blank">Official Sri Lanka ETA Website</a></li>
-                    <li><a href="https://www.immigration.gov.lk/" target="_blank">Department of Immigration & Emigration Sri Lanka</a></li>
-                </ul>
+ <h3>Official Sri Lanka Visa Links</h3>
+ <ul>
+ <li><a href="https://www.eta.gov.lk/slvisa/visainfo/apply.jsp" target="_blank">Official Sri Lanka ETA Website</a></li>
+ <li><a href="https://www.immigration.gov.lk/" target="_blank">Department of Immigration & Emigration Sri Lanka</a></li>
+ </ul>
 
-                <p>On 25 July 2025 the Sri Lankan government announced a visa”‘free / visa”‘fee waiver programme for 40 countries to support inbound tourism. The policy aims to simplify short tourist visits; however travellers should still complete the official <a href="https://www.srilankaimmigration.org/" target="_blank" class="eta-link">Electronic Travel Authorization (ETA)</a> when required and confirm entry conditions for their nationality.</p>
+ <p>On 25 July 2025 the Sri Lankan government announced a visa”‘free / visa”‘fee waiver programme for 40 countries to support inbound tourism. The policy aims to simplify short tourist visits; however travellers should still complete the official <a href="https://www.srilankaimmigration.org/" target="_blank" class="eta-link">Electronic Travel Authorization (ETA)</a> when required and confirm entry conditions for their nationality. </p>
 
-                <p><strong>Quick summary:</strong> Citizens of the listed countries are generally eligible for a visa”‘fee waiver / visa”‘free entry into Sri Lanka. The standard permitted stay under this programme is <strong>up to 30 days</strong> for most categories ”” verify specific conditions for your passport and purpose of travel on the official ETA portal.</p>
+ <p><strong>Quick summary:</strong> Citizens of the listed countries are generally eligible for a visa”‘fee waiver / visa”‘free entry into Sri Lanka. The standard permitted stay under this programme is <strong>up to 30 days</strong> for most categories ”” verify specific conditions for your passport and purpose of travel on the official ETA portal. </p>
 
-                <div class="section-header">
-                    <h2>40 Eligible Countries (Official List)</h2>
-                    <div class="search-container">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="countrySearch" placeholder="Search for a country..." onkeyup="filterCountries()">
-                    </div>
-                </div>
-                <div class="table-responsive">
-                    <table id="eligibleCountriesTable">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Country</th>
-                                <th>Typical maximum stay</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>🇬🇧 United Kingdom</td><td>Up to 30 days</td></tr>
-                            <tr><td>2</td><td>🇩🇪 Germany</td><td>Up to 30 days</td></tr>
-                            <tr><td>3</td><td>🇳🇱 Netherlands</td><td>Up to 30 days</td></tr>
-                            <tr><td>4</td><td>🇧🇪 Belgium</td><td>Up to 30 days</td></tr>
-                            <tr><td>5</td><td>🇪🇸 Spain</td><td>Up to 30 days</td></tr>
-                            <tr><td>6</td><td>🇦🇺 Australia</td><td>Up to 30 days</td></tr>
-                            <tr><td>7</td><td>🇵🇱 Poland</td><td>Up to 30 days</td></tr>
-                            <tr><td>8</td><td>🇰🇿 Kazakhstan</td><td>Up to 30 days</td></tr>
-                            <tr><td>9</td><td>🇸🇦 Saudi Arabia</td><td>Up to 30 days</td></tr>
-                            <tr><td>10</td><td>🇦🇪 United Arab Emirates</td><td>Up to 30 days</td></tr>
-                            <tr><td>11</td><td>🇳🇵 Nepal</td><td>Up to 30 days</td></tr>
-                            <tr><td>12</td><td>🇨🇳 China</td><td>Up to 30 days</td></tr>
-                            <tr><td>13</td><td>🇮🇳 India</td><td>Up to 30 days</td></tr>
-                            <tr><td>14</td><td>🇮🇩 Indonesia</td><td>Up to 30 days</td></tr>
-                            <tr><td>15</td><td>🇷🇺 Russia</td><td>Up to 30 days</td></tr>
-                            <tr><td>16</td><td>🇹🇭 Thailand</td><td>Up to 30 days</td></tr>
-                            <tr><td>17</td><td>🇲🇾 Malaysia</td><td>Up to 30 days</td></tr>
-                            <tr><td>18</td><td>🇯🇵 Japan</td><td>Up to 30 days</td></tr>
-                            <tr><td>19</td><td>🇫🇷 France</td><td>Up to 30 days</td></tr>
-                            <tr><td>20</td><td>🇺🇸 United States</td><td>Up to 30 days</td></tr>
-                            <tr><td>21</td><td>🇨🇦 Canada</td><td>Up to 30 days</td></tr>
-                            <tr><td>22</td><td>🇨🇿 Czechia</td><td>Up to 30 days</td></tr>
-                            <tr><td>23</td><td>🇮🇹 Italy</td><td>Up to 30 days</td></tr>
-                            <tr><td>24</td><td>🇨🇭 Switzerland</td><td>Up to 30 days</td></tr>
-                            <tr><td>25</td><td>🇦🇹 Austria</td><td>Up to 30 days</td></tr>
-                            <tr><td>26</td><td>🇮🇱 Israel</td><td>Up to 30 days</td></tr>
-                            <tr><td>27</td><td>🇧🇾 Belarus</td><td>Up to 30 days</td></tr>
-                            <tr><td>28</td><td>🇮🇷 Iran</td><td>Up to 30 days</td></tr>
-                            <tr><td>29</td><td>🇸🇪 Sweden</td><td>Up to 30 days</td></tr>
-                            <tr><td>30</td><td>🇫🇮 Finland</td><td>Up to 30 days</td></tr>
-                            <tr><td>31</td><td>🇩🇰 Denmark</td><td>Up to 30 days</td></tr>
-                            <tr><td>32</td><td>🇰🇷 South Korea</td><td>Up to 30 days</td></tr>
-                            <tr><td>33</td><td>🇶🇦 Qatar</td><td>Up to 30 days</td></tr>
-                            <tr><td>34</td><td>🇴🇲 Oman</td><td>Up to 30 days</td></tr>
-                            <tr><td>35</td><td>🇧🇭 Bahrain</td><td>Up to 30 days</td></tr>
-                            <tr><td>36</td><td>🇳🇿 New Zealand</td><td>Up to 30 days</td></tr>
-                            <tr><td>37</td><td>🇰🇼 Kuwait</td><td>Up to 30 days</td></tr>
-                            <tr><td>38</td><td>🇳🇴 Norway</td><td>Up to 30 days</td></tr>
-                            <tr><td>39</td><td>🇹🇷 Türkiye</td><td>Up to 30 days</td></tr>
-                            <tr><td>40</td><td>🇵🇰 Pakistan</td><td>Up to 30 days</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+ <div class="section-header">
+ <h2>40 Eligible Countries (Official List)</h2>
+ <div class="search-container">
+ <i class="fas fa-search"></i>
+ <input type="text" id="countrySearch" placeholder="Search for a country..." onkeyup="filterCountries()">
+ </div>
+ </div>
+ <div class="table-responsive">
+ <table id="eligibleCountriesTable">
+ <thead>
+ <tr>
+ <th>#</th>
+ <th>Country</th>
+ <th>Typical maximum stay</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr><td>1</td><td>🇬🇧 United Kingdom</td><td>Up to 30 days</td></tr>
+ <tr><td>2</td><td>🇩🇪 Germany</td><td>Up to 30 days</td></tr>
+ <tr><td>3</td><td>🇳🇱 Netherlands</td><td>Up to 30 days</td></tr>
+ <tr><td>4</td><td>🇧🇪 Belgium</td><td>Up to 30 days</td></tr>
+ <tr><td>5</td><td>🇪🇸 Spain</td><td>Up to 30 days</td></tr>
+ <tr><td>6</td><td>🇦🇺 Australia</td><td>Up to 30 days</td></tr>
+ <tr><td>7</td><td>🇵🇱 Poland</td><td>Up to 30 days</td></tr>
+ <tr><td>8</td><td>🇰🇿 Kazakhstan</td><td>Up to 30 days</td></tr>
+ <tr><td>9</td><td>🇸🇦 Saudi Arabia</td><td>Up to 30 days</td></tr>
+ <tr><td>10</td><td>🇦🇪 United Arab Emirates</td><td>Up to 30 days</td></tr>
+ <tr><td>11</td><td>🇳🇵 Nepal</td><td>Up to 30 days</td></tr>
+ <tr><td>12</td><td>🇨🇳 China</td><td>Up to 30 days</td></tr>
+ <tr><td>13</td><td>🇮🇳 India</td><td>Up to 30 days</td></tr>
+ <tr><td>14</td><td>🇮🇩 Indonesia</td><td>Up to 30 days</td></tr>
+ <tr><td>15</td><td>🇷🇺 Russia</td><td>Up to 30 days</td></tr>
+ <tr><td>16</td><td>🇹🇭 Thailand</td><td>Up to 30 days</td></tr>
+ <tr><td>17</td><td>🇲🇾 Malaysia</td><td>Up to 30 days</td></tr>
+ <tr><td>18</td><td>🇯🇵 Japan</td><td>Up to 30 days</td></tr>
+ <tr><td>19</td><td>🇫🇷 France</td><td>Up to 30 days</td></tr>
+ <tr><td>20</td><td>🇺🇸 United States</td><td>Up to 30 days</td></tr>
+ <tr><td>21</td><td>🇨🇦 Canada</td><td>Up to 30 days</td></tr>
+ <tr><td>22</td><td>🇨🇿 Czechia</td><td>Up to 30 days</td></tr>
+ <tr><td>23</td><td>🇮🇹 Italy</td><td>Up to 30 days</td></tr>
+ <tr><td>24</td><td>🇨🇭 Switzerland</td><td>Up to 30 days</td></tr>
+ <tr><td>25</td><td>🇦🇹 Austria</td><td>Up to 30 days</td></tr>
+ <tr><td>26</td><td>🇮🇱 Israel</td><td>Up to 30 days</td></tr>
+ <tr><td>27</td><td>🇧🇾 Belarus</td><td>Up to 30 days</td></tr>
+ <tr><td>28</td><td>🇮🇷 Iran</td><td>Up to 30 days</td></tr>
+ <tr><td>29</td><td>🇸🇪 Sweden</td><td>Up to 30 days</td></tr>
+ <tr><td>30</td><td>🇫🇮 Finland</td><td>Up to 30 days</td></tr>
+ <tr><td>31</td><td>🇩🇰 Denmark</td><td>Up to 30 days</td></tr>
+ <tr><td>32</td><td>🇰🇷 South Korea</td><td>Up to 30 days</td></tr>
+ <tr><td>33</td><td>🇶🇦 Qatar</td><td>Up to 30 days</td></tr>
+ <tr><td>34</td><td>🇴🇲 Oman</td><td>Up to 30 days</td></tr>
+ <tr><td>35</td><td>🇧🇭 Bahrain</td><td>Up to 30 days</td></tr>
+ <tr><td>36</td><td>🇳🇿 New Zealand</td><td>Up to 30 days</td></tr>
+ <tr><td>37</td><td>🇰🇼 Kuwait</td><td>Up to 30 days</td></tr>
+ <tr><td>38</td><td>🇳🇴 Norway</td><td>Up to 30 days</td></tr>
+ <tr><td>39</td><td>🇹🇷 Türkiye</td><td>Up to 30 days</td></tr>
+ <tr><td>40</td><td>🇵🇰 Pakistan</td><td>Up to 30 days</td></tr>
+ </tbody>
+ </table>
+ </div>
 
-                <h2>Detailed Fee Schedule</h2>
-                <div class="table-responsive">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Method of submission</th>
-                                <th>Category</th>
-                                <th>SAARC (US$)</th>
-                                <th>Others (US$)</th>
-                                <th>Children < 12</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Online / On-arrival</td>
-                                <td>Tourist visa (Double Entry) ”” 30 days</td>
-                                <td>20</td>
-                                <td>50</td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                            <tr>
-                                <td>By Applicant</td>
-                                <td>Business visa (Multiple Entry) ”” 30 days</td>
-                                <td>30</td>
-                                <td>55</td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                            <tr>
-                                <td>By Applicant</td>
-                                <td>Tourist visa ”” 180 days (single stretch)</td>
-                                <td>50</td>
-                                <td>50</td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                            <tr>
-                                <td>By Applicant</td>
-                                <td>Transit visa (Single Entry) ”” 2 days</td>
-                                <td><strong>Free</strong></td>
-                                <td><strong>Free</strong></td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                            <tr>
-                                <td>At Port of Entry</td>
-                                <td>Tourist visa / ETA (On Arrival)</td>
-                                <td>25</td>
-                                <td>60</td>
-                                <td><strong>Free</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+ <h2>Detailed Fee Schedule</h2>
+ <div class="table-responsive">
+ <table>
+ <thead>
+ <tr>
+ <th>Method of submission</th>
+ <th>Category</th>
+ <th>SAARC (US$)</th>
+ <th>Others (US$)</th>
+ <th>Children < 12</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>Online / On-arrival</td>
+ <td>Tourist visa (Double Entry) ”” 30 days</td>
+ <td>20</td>
+ <td>50</td>
+ <td><strong>Free</strong></td>
+ </tr>
+ <tr>
+ <td>By Applicant</td>
+ <td>Business visa (Multiple Entry) ”” 30 days</td>
+ <td>30</td>
+ <td>55</td>
+ <td><strong>Free</strong></td>
+ </tr>
+ <tr>
+ <td>By Applicant</td>
+ <td>Tourist visa ”” 180 days (single stretch)</td>
+ <td>50</td>
+ <td>50</td>
+ <td><strong>Free</strong></td>
+ </tr>
+ <tr>
+ <td>By Applicant</td>
+ <td>Transit visa (Single Entry) ”” 2 days</td>
+ <td><strong>Free</strong></td>
+ <td><strong>Free</strong></td>
+ <td><strong>Free</strong></td>
+ </tr>
+ <tr>
+ <td>At Port of Entry</td>
+ <td>Tourist visa / ETA (On Arrival)</td>
+ <td>25</td>
+ <td>60</td>
+ <td><strong>Free</strong></td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
 
-                <h2>Important Notes</h2>
-                <ul>
-                    <li><strong>Apply Online:</strong> Travellers are strongly encouraged to apply for the <a href="https://www.srilankaimmigration.org/" target="_blank">Electronic Travel Authorization (ETA)</a> before arrival.</li>
-                    <li><strong>Validity:</strong> The ETA is usually valid for 30 days from the date of arrival.</li>
-                    <li><strong>Exemptions:</strong> Children under 12 years of age are exempt from ETA processing fees.</li>
-                    <li><strong>Advisories:</strong> Always check your country's official travel advice and the <a href="https://www.immigration.gov.lk/" target="_blank">Immigration Department</a> for seasonal updates.</li>
-                </ul>
+ <h2>Important Notes</h2>
+ <ul>
+ <li><strong>Apply Online:</strong> Travellers are strongly encouraged to apply for the <a href="https://www.srilankaimmigration.org/" target="_blank">Electronic Travel Authorization (ETA)</a> before arrival. </li>
+ <li><strong>Validity:</strong> The ETA is usually valid for 30 days from the date of arrival. </li>
+ <li><strong>Exemptions:</strong> Children under 12 years of age are exempt from ETA processing fees. </li>
+ <li><strong>Advisories:</strong> Always check your country's official travel advice and the <a href="https://www.immigration.gov.lk/" target="_blank">Immigration Department</a> for seasonal updates. </li>
+ </ul>
 
-                <p><strong>Disclaimer:</strong> This page summarises the announced visa-free / fee-waiver programme. TripLanka.com is not an official government source. If you spot a change, please email <a href="mailto:info@triplanka.com">info@triplanka.com</a> so we can keep our travelers informed.</p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <a href="../index.html">
-                    <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
-                </a>
-                <p>Journey Beyond the Ordinary. Discover the magic of Sri Lanka.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
-                    <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
-                    <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="guide.html">Travel Guide</a></li>
-                    <li><a href="plans.html">Journey Hub</a></li>
-                    <li><a href="travel-info.html">Travel Information</a></li>
-                    <li><a href="visa.html">Visa Details</a></li>
-                    <li><a href="blog.html">Travel Blog</a></li>
-                    <li><a href="gallery.html">Photo Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
-        </div>
-    </footer>
-    <script>
-        function filterCountries() {
-            const input = document.getElementById('countrySearch');
-            const filter = input.value.toLowerCase();
-            const table = document.getElementById('eligibleCountriesTable');
-            const tr = table.getElementsByTagName('tr');
+ <p><strong>Disclaimer:</strong> This page summarises the announced visa-free / fee-waiver programme. triplanka.com is not an official government source. If you spot a change, please email <a href="mailto:info@triplanka.com">info@triplanka.com</a> so we can keep our travelers informed. </p>
+ </div>
+ </section>
+ </main>
+ <footer>
+ <div class="container footer-grid">
+ <div class="footer-info">
+ <a href="../index.html">
+ <img src="../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+ </a>
+ <p>Journey Beyond the Ordinary. Discover the magic of Sri Lanka. </p>
+ <div class="social-links">
+ <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+ <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+ <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+ <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
+ <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+ <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
+ </div>
+ </div>
+ <div class="footer-links">
+ <h3>Explore</h3>
+ <ul>
+ <li><a href="../index.html">Home</a></li>
+ <li><a href="guide.html">Travel Guide</a></li>
+ <li><a href="plans.html">Journey Hub</a></li>
+ <li><a href="travel-info.html">Travel Information</a></li>
+ <li><a href="visa.html">Visa Details</a></li>
+ <li><a href="blog.html">Travel Blog</a></li>
+ <li><a href="gallery.html">Photo Gallery</a></li>
+ <li><a href="contact.html">Contact Us</a></li>
+ </ul>
+ </div>
+ <div class="footer-contact">
+ <h3>Contact</h3>
+ <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+ <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
+ <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
+ <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>&copy; 2026 TripLanka. All Rights Reserved. </p>
+ </div>
+ </footer>
+  <script>
+    function filterCountries() {
+      const input = document.getElementById('countrySearch');
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById('eligibleCountriesTable');
+      const tr = table.getElementsByTagName('tr');
 
-            for (let i = 1; i < tr.length; i++) {
-                const countryCell = tr[i].getElementsByTagName('td')[1];
-                if (countryCell) {
-                    const txtValue = countryCell.textContent || countryCell.innerText;
-                    if (txtValue.toLowerCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
+      for (let i = 1; i < tr.length; i++) {
+        const countryCell = tr[i].getElementsByTagName('td')[1];
+        if (countryCell) {
+          const txtValue = countryCell.textContent || countryCell.innerText;
+          if (txtValue.toLowerCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
         }
-    </script>
+      }
+    }
+  </script>
 </body>
 </html>
 

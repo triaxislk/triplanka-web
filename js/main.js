@@ -59,7 +59,7 @@ document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
 // System: Automated Global Photo Attribution Manager
 document.addEventListener('DOMContentLoaded', () => {
     // Collect elements that commonly hold images (img tags and elements with inline background images)
-    const elements = document.querySelectorAll('img, [style*="background-image"], .card-bg, .hero, .blog-hero, .article-header');
+    const elements = document.querySelectorAll('img, [style*="background-image"], .card-bg, .hero, .blog-hero, .article-header, .plans-hero, .info-hero, .contact-hero, .hotels-hero');
 
     elements.forEach(el => {
         // Prevent duplicate processing
@@ -131,6 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
             .blog-hero:hover .photo-attribution,
             .card-bg:hover .photo-attribution,
             .article-header:hover .photo-attribution,
+            .plans-hero:hover .photo-attribution,
+            .info-hero:hover .photo-attribution,
+            .contact-hero:hover .photo-attribution,
+            .hotels-hero:hover .photo-attribution,
             .dest-card:hover .photo-attribution { opacity: 1; transform: translate(-50%, -2px); }
         `;
         document.head.appendChild(style);

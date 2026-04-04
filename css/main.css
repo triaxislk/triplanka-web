@@ -46,7 +46,6 @@ p {
     line-height: 1.7;
 }
 
-/* Content Justification */
 .about-text p,
 .info-content p,
 .intro p,
@@ -54,6 +53,30 @@ p {
 .content-wrapper p,
 .cta p {
     text-align: justify;
+}
+
+.intro .about-text.home-watermark {
+    position: relative;
+    z-index: 1;
+}
+
+.intro .about-text.home-watermark::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-image: url('../Images/Site Photos/Sri-Lanka-flag.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.3; /* Increased for better color definition as requested */
+    z-index: -1;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 49%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 35%, rgba(0,0,0,0) 49%);
 }
 
 a {
@@ -289,17 +312,17 @@ nav {
     bottom: 0;   /* Anchor to the bottom of the screen */
     left: 0;
     width: 100%;
-    height: 50%; /* Only render in the lower half of the screen. Physically impossible to render in the sky. */
+    height: 50%; /* Only render in the lower half of the screen.Physically impossible to render in the sky. */
     object-fit: cover;
     z-index: 1;
     opacity: 0.85; /* Super look, glass look as requested */
     pointer-events: none;
     
     /* 
-       1. Rotate 180 to make waves move upward.
-       2. Since the element is only 50% height but full width, 'object-fit: cover' zooms in massively.
+       1.Rotate 180 to make waves move upward.
+       2.Since the element is only 50% height but full width, 'object-fit: cover' zooms in massively.
        3. 'object-position: top' aligns the deep sea (original video top) to the element top (visual screen bottom).
-       4. The massive white shore splash (original video bottom) is cleanly cropped outside the 50% box boundary!
+       4.The massive white shore splash (original video bottom) is cleanly cropped outside the 50% box boundary!
     */
     transform: rotate(180deg);
     object-position: center top; 

@@ -1,205 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Lovers Signature Itinerary | Journey Hub | TripLanka</title>
-    <link rel="stylesheet" href="../../css/main.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="icon" type="image/png" href="../../Images/Logos/Logo Without Background.png">
-    <style>
-        .itinerary-hero {
-            height: 70vh;
-            position: relative;
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../Images/Site%20Photos/Collections/Man%20during%20Windsurfing%20-%20Kalpitiya%20-%20NW%20%20Sri%20Lanka%20-%20Photo%20by%20Namal%20Siriwardana.jpg");
-            background-size: cover;
-            background-position: center 25%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            padding-top: 60px;
-        }
-        .itinerary-content {
-            padding: 4rem 0;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .itinerary-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #444; }
-        .itinerary-content h1 { display: none; } /* Hide duplicate title from mammoth */
-        .itinerary-content strong { color: #FF4D00; }
-        .itinerary-content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
-        .itinerary-content li { margin-bottom: 0.5rem; font-size: 1.05rem; line-height: 1.6; }
-        .itinerary-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; }
-        .itinerary-day {
-            background: var(--section-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-bottom: 2rem;
-            border-left: 4px solid #FF4D00; /* Adventure Accent: Deep Orange */
-        }
-        .safety-spotlight {
-            background: #FFF0E6 !important;
-            border: 2px solid #FF4D00 !important;
-            padding: 2rem;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-        }
-        .safety-spotlight h3 { color: #FF4D00 !important; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Adventure Lovers Signature Itinerary | Journey Hub | TripLanka</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Adventure Lovers Signature Itinerary | Journey Hub | TripLanka</title>
+ <link rel="stylesheet" href="../../css/main.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <link rel="icon" type="image/png" href="../../Images/Logos/Logo Without Background.png">
+ <style>
+.itinerary-hero {
+  height: 70vh;
+  position: relative;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../Images/Site%20Photos/Collections/Man%20during%20Windsurfing%20-%20Kalpitiya%20-%20NW%20Sri%20Lanka%20-%20Photo%20by%20Namal%20Siriwardana.jpg");
+  background-size: cover;
+  background-position: center 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding-top: 60px;
+  }
+.itinerary-content {
+  padding: 4rem 0;
+  max-width: 800px;
+  margin: 0 auto;
+  }
+.itinerary-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; color: #444; text-align: justify; }
+.content-wrapper p { text-align: justify; }
+.content-wrapper li { text-align: justify; }
+.itinerary-content h1 { display: none; } /* Hide duplicate title from mammoth */
+.itinerary-content strong { color: #FF4D00; }
+.itinerary-content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
+.itinerary-content li { margin-bottom: 0.5rem; font-size: 1.05rem; line-height: 1.6; text-align: justify; }
+.itinerary-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; }
+.itinerary-day {
+  background: var(--section-bg);
+  padding: 2.5rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #FF4D00; /* Adventure Accent: Deep Orange */
+  }
+.safety-spotlight {
+  background: #FFF0E6 !important;
+  border: 2px solid #FF4D00 !important;
+  padding: 2rem;
+  border-radius: 20px;
+  margin-bottom: 3rem;
+  }
+.safety-spotlight h3 { color: #FF4D00 !important; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+  </style>
 </head>
 <body>
-    
-    <header>
-        <nav class="container">
-            <div class="logo">
-                <a href="../../index.html">
-                    <img src="../../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
-                </a>
-            </div>
-            
-            <ul class="nav-links">
-                <li><a href="../../index.html">Home</a></li>
-                
-                <li class="dropdown">
-                    <a href="../travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../travel-info.html">Travel Information</a></li>
-                        <li><a href="../visa.html">Visa Details</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="../guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
-                        <li><a href="../guide/colombo.html">Colombo</a></li>
-                        <li><a href="../guide/kandy.html">Kandy & Gampola</a></li>
-                        <li><a href="../guide/sigiriya.html">Dambulla & Sigiriya</a></li>
-                        <li><a href="../guide/rathnapura.html">Rathnapura</a></li>
-                        <li><a href="../guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
-                        <li><a href="../guide/ella.html">Ella & Badulla</a></li>
-                        <li><a href="../guide/galle.html">Galle & Bentota</a></li>
-                        <li><a href="../guide/hambantota.html">Hambantota & Matara</a></li>
-                        <li><a href="../guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
-                        <li><a href="../guide/anuradhapura.html">Anuradhapura</a></li>
-                        <li><a href="../guide/batticaloa.html">Batticaloa</a></li>
-                        <li><a href="../guide/trincomalee.html">Trincomalee</a></li>
-                        <li><a href="../guide/jaffna.html">Jaffna</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="../plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="./solo-female.html">Solo Female Itinerary</a></li>
-                        <li><a href="./solo-male.html">Solo Male Itinerary</a></li>
-                        <li><a href="./leisure.html">Leisure & Relaxation Itinerary</a></li>
-                        <li><a href="./honeymoon.html">Honeymoon & Romance Itinerary</a></li>
-                        <li><a href="./wildlife.html">Wildlife Lovers Itinerary</a></li>
-                        <li><a href="./adventure.html">Adventure Lovers Itinerary</a></li>
-                        <li><a href="./surfing.html">Sea Surfing Itinerary</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="../blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="../blog.html?filter=guides">Travel Guides</a></li>
-                        <li><a href="../blog.html?filter=culture">Culture & Food</a></li>
-                        <li><a href="../blog.html?filter=nature">Nature & Wildlife</a></li>
-                    </ul>
-                </li>
-                    <li><a href="../gallery.html">Photo Gallery</a></li>
-                <li><a href="../contact.html" class="btn-primary">Connect</a></li>
-                <li class="flag-item">
-                    <img src="../../Images/Site Photos/Sri-Lanka-flag.jpg" alt="Sri Lanka Flag" class="flag-img">
-                </li>
-            </ul>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+ 
+ 
+ <header>
+ <nav class="container">
+ <div class="logo">
+ <a href="../../index.html">
+ <img src="../../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img">
+ </a>
+ </div>
+ 
+ <ul class="nav-links">
+ <li><a href="../../index.html">Home</a></li>
+ 
+ <li class="dropdown">
+ <a href="../travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="../travel-info.html">Travel Information</a></li>
+ <li><a href="../visa.html">Visa Details</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="../guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="../guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
+ <li><a href="../guide/colombo.html">Colombo</a></li>
+ <li><a href="../guide/kandy.html">Kandy & Gampola</a></li>
+ <li><a href="../guide/sigiriya.html">Dambulla & Sigiriya</a></li>
+ <li><a href="../guide/rathnapura.html">Rathnapura</a></li>
+ <li><a href="../guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+ <li><a href="../guide/ella.html">Ella & Badulla</a></li>
+ <li><a href="../guide/galle.html">Galle & Bentota</a></li>
+ <li><a href="../guide/hambantota.html">Hambantota & Matara</a></li>
+ <li><a href="../guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+ <li><a href="../guide/anuradhapura.html">Anuradhapura</a></li>
+ <li><a href="../guide/batticaloa.html">Batticaloa</a></li>
+ <li><a href="../guide/trincomalee.html">Trincomalee</a></li>
+ <li><a href="../guide/jaffna.html">Jaffna</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="../plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="./solo-female.html">Solo Female Travel Plan</a></li>
+ <li><a href="./solo-male.html">Solo Male Travel Plan</a></li>
+ <li><a href="./leisure.html">Leisure & Relaxation Plan</a></li>
+ <li><a href="./honeymoon.html">Honeymoon & Romance Plan</a></li>
+ <li><a href="./wildlife.html">Wildlife Lovers Touring Plan</a></li>
+ <li><a href="./adventure.html">Adventure Lovers Touring Plan</a></li>
+ <li><a href="./surfing.html">Sea Surfing Touring Plan</a></li>
+ </ul>
+ </li>
+ <li class="dropdown">
+ <a href="../blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+ <ul class="dropdown-menu">
+ <li><a href="../blog.html?filter=guides">Travel Guides</a></li>
+ <li><a href="../blog.html?filter=culture">Culture & Food</a></li>
+ <li><a href="../blog.html?filter=nature">Nature & Wildlife</a></li>
+ </ul>
+ </li>
+ <li><a href="../gallery.html">Photo Gallery</a></li>
+ <li><a href="../contact.html" class="btn-primary">Connect</a></li>
+ </ul>
+ <div class="mobile-menu-btn">
+ <i class="fas fa-bars"></i>
+ </div>
+ </nav>
+ </header>
 
-    <main>
-        <section class="itinerary-hero">
-            <div class="photo-attribution">Photo by Namal Siriwardana</div>
-            <div class="container hero-content">
-                <h1 class="fade-in">Adventure Lovers Signature Itinerary</h1>
-                <p class="fade-in delay-1">Expertly crafted 10-day journey for the adrenaline seeker</p>
-            </div>
-        </section>
+ <main>
+ <section class="itinerary-hero">
+ <div class="photo-attribution">Photo by Namal Siriwardana</div>
+ <div class="container hero-content">
+ <h1 class="fade-in">Adventure Lovers Signature Itinerary</h1>
+ <p class="fade-in delay-1">Expertly crafted 10-day journey for the adrenaline seeker</p>
+ </div>
+ </section>
 
-        <section class="container itinerary-content">
-            <a href="../plans.html" style="display:inline-block; margin-bottom: 2rem; color: #666;"><i class="fas fa-arrow-left"></i> Back to Journey Hub</a>
-            
-            <!-- Safety Spotlight -->
-            <div class="safety-spotlight">
-                <h3><i class="fas fa-shield-alt"></i> Adventure & Safety Spotlight</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 1rem;">For a <strong>perfect</strong> and safe adventure, keep these local safety rules in mind:</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-                    <div class="spotlight-card">
-                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-mountain"></i> Mountain Safety</h4>
-                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Check weather before hiking Knuckles or Horton Plains. Mist can roll in quickly, affecting visibility and trail progress.</p>
-                    </div>
-                    <div class="spotlight-card">
-                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-water"></i> Water Hazards</h4>
-                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Waterfall rocks are extremely slippery. During rafting in Kitulgala, always wear a life jacket and follow your guide's instructions.</p>
-                    </div>
-                    <div class="spotlight-card">
-                        <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-camera"></i> Responsible Selfie</h4>
-                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Be cautious on cliff edges. Never turn your back to the view for photos in "Danger Zones" like World's End.</p>
-                    </div>
-                </div>
-            </div>
+ <section class="container itinerary-content">
+ <a href="../plans.html" style="display:inline-block; margin-bottom: 2rem; color: #666;"><i class="fas fa-arrow-left"></i> Back to Journey Hub</a>
+ 
+ <!-- Safety Spotlight -->
+ <div class="safety-spotlight">
+ <h3><i class="fas fa-shield-alt"></i> Adventure & Safety Spotlight</h3>
+ <p style="font-size: 0.95rem; margin-bottom: 1rem;">For a <strong>perfect</strong> and safe adventure, keep these local safety rules in mind:</p>
+ <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+ <div class="spotlight-card">
+ <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-mountain"></i> Mountain Safety</h4>
+ <p style="font-size: 0.85rem; margin-top: 0.3rem;">Check weather before hiking Knuckles or Horton Plains. Mist can roll in quickly, affecting visibility and trail progress. </p>
+ </div>
+ <div class="spotlight-card">
+ <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-water"></i> Water Hazards</h4>
+ <p style="font-size: 0.85rem; margin-top: 0.3rem;">Waterfall rocks are extremely slippery. During rafting in Kitulgala, always wear a life jacket and follow your guide's instructions. </p>
+ </div>
+ <div class="spotlight-card">
+ <h4 style="font-size: 1rem; color: var(--accent);"><i class="fas fa-camera"></i> Responsible Selfie</h4>
+ <p style="font-size: 0.85rem; margin-top: 0.3rem;">Be cautious on cliff edges. Never turn your back to the view for photos in "Danger Zones" like World's End. </p>
+ </div>
+ </div>
+ </div>
 
-            <div class="content-wrapper">
-                <p>Sri Lanka, often called the "Pearl of the Indian Ocean," is a paradise for adventure enthusiasts. With its lush rainforests, misty mountains, pristine beaches, and rich biodiversity, it offers a diverse range of experiences, from trekking and wildlife safaris to water sports and cultural immersion. </p><p><strong>Duration: 10 Days  </strong></p><p><strong>Day 1: Arrival in Colombo</strong></p><ul><li>Arrival: Arrive at Bandaranaike International Airport (CMB) in Colombo.</li></ul><p><strong><em>Activities: </em></strong></p><ul><li>Take a city tour of Colombo to explore its vibrant culture and colonial history.</li><li>Visit iconic sites like Galle Face Green, Gangaramaya Temple, and Independence Square.</li></ul><p><strong><em>Accommodation:</em></strong> Stay at a boutique hotel in <a href="https://www.tripadvisor.com/Search?q=colombo&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Colombo</a>.</p><p><br /></p><p><strong>Day 2: Head to Kitulgala for White Water Rafting</strong></p><ul><li>Travel: Drive from Colombo to Kitulgala (approx. 3 hours).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Embark on a thrilling white-water rafting experience on the Kelani River.</li><li>Explore the Belilena Caves, an ancient prehistoric site.</li><li>Enjoy a nature walk through the surrounding rainforests.</li></ul><p><strong><em>Accommodation:</em></strong> Stay at a riverside eco-lodge in <a href="https://www.booking.com/searchresults.en-gb.html?ss=kithulgala&amp;ssne=Nuwara+Eliya&amp;ssne_untouched=Nuwara+Eliya&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=319742&amp;dest_type=hotel&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=1&amp;search_selected=true&amp;search_pageview_id=127e3e12fc970187&amp;ac_meta=GhAxMjdlM2UxMmZjOTcwMTg3IAAoATICZW46CmtpdGh1bGdhbGFAAEoAUAA%3D&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0" target="_blank">Kitulgala</a>.</p><p><br /></p><p><strong>Day 3: Kitulgala to Knuckles Mountain Range for Trekking</strong></p><ul><li>Travel: Drive to Knuckles Mountain Range (approx. 4 hours).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Start your adventure trek into the Knuckles Range, known for its rugged beauty and biodiversity.</li><li>Trek through cloud forests, waterfalls, and remote villages, while enjoying panoramic views of the surrounding mountains.</li></ul><p><strong>Accommodation:</strong> Camp overnight in the <a href="https://www.booking.com/searchresults.en-gb.html?ss=Knuckles+Mountain+Range%2C+Sri+Lanka&amp;ssne=Kitulgala&amp;ssne_untouched=Kitulgala&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=15201&amp;dest_type=region&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=5&amp;search_selected=true&amp;search_pageview_id=6d713eccbc6c018d&amp;ac_meta=GhA2ZDcxM2VjY2JjNmMwMThkIAAoATICZW46DktudWNrbGVzIFJhbmdlQABKAFAA&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0" target="_blank">Knuckles Range</a>.</p><p><br /></p><p><strong>Day 4: Knuckles Range to Kandy for Cultural Experience</strong></p><ul><li>Travel: Trek down from Knuckles and drive to Kandy (approx. 2 hours).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Visit the Temple of the Tooth, a UNESCO World Heritage site.</li><li>Enjoy a cultural dance performance in the evening.</li><li>Explore the Royal Botanical Gardens in Peradeniya.</li></ul><p><strong><em>Accommodation:</em></strong> Stay at a traditional guesthouse in<a href="https://www.tripadvisor.com/Search?q=kandy&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"> Kandy</a>.</p><p><br /></p><p><strong>Day 5: Kandy to Nuwara Eliya for Scenic Exploration</strong></p><ul><li>Travel: Take the scenic train journey from Kandy to Nuwara Eliya (approx. 4 hours).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Visit a tea plantation and factory to learn about Sri Lankas famed Ceylon tea.</li><li>Take a stroll through the charming town of Nuwara Eliya, known as "Little England" for its colonial charm.</li></ul><p><strong>Accommodation:</strong> Stay at a colonial-style hotel in <a href="https://www.tripadvisor.com/Search?q=Nuwara+Eliya&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Nuwara Eliya.</a></p><p><br /></p><p><strong>Day 6: Trekking and Camping in Horton Plains National Park</strong></p><ul><li>Travel: Drive to Horton Plains National Park (approx. 1 hour).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Start early for the trek to Worlds End, a dramatic 800-meter drop with stunning views.</li><li>Explore the Bakers Falls and the lush grasslands of the park.</li><li>Set up camp for an overnight stay in Horton Plains.</li></ul><p><strong>Accommodation:</strong> Camp overnight in the park or stay at a nearby eco-lodge.</p><p><br /></p><p><strong>Day 7: Nuwara Eliya to Ella for Adventure and Relaxation</strong></p><ul><li>Travel: Drive or take a short train ride from Nuwara Eliya to Ella (approx. 2 hours).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Trek to Little Adams Peak for a spectacular view of the valley.</li><li>Visit Nine Arches Bridge and watch the train pass by the scenic backdrop.</li><li>Explore the Ravana Falls.</li></ul><p><strong>Accommodation: </strong>Stay at a hilltop resort in <a href="https://www.tripadvisor.com/Search?q=ella&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Ella</a>.</p><p><br /></p><p><strong>Day 8: Ella to Yala National Park for a Wildlife Safari</strong></p><ul><li>Travel: Drive to Yala National Park (approx. 3 hours).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Enjoy an evening jeep safari in Yala, which is known for its leopard population, elephants, and other wildlife.</li><li>Experience a night in a luxury tented camp inside or near the park.</li></ul><p><strong>Accommodation: </strong>Stay at a safari lodge or tented camp in <a href="https://www.tripadvisor.com/Search?q=Yala&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Yala</a>.</p><p><br /></p><p><strong>Day 9: Yala to Mirissa for Beach and Water Activities</strong></p><ul><li>Travel: Drive to Mirissa, a coastal town (approx. 3 hours).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Go whale watching early in the morning (November to April is the best season).</li><li>Enjoy surfing, snorkeling, and beach relaxation in Mirissa.</li><li>Explore the nearby Weligama Bay or take a boat trip to see stilt fishermen.</li></ul><p><strong>Accommodation:</strong> Stay at a beachside hotel in <a href="https://www.tripadvisor.com/Search?q=Mirissa&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Mirissa</a>.</p><p><br /></p><p><strong>Day 10: Galle Fort and Departure</strong></p><ul><li>Travel: Drive from Mirissa to Galle (approx. 1 hour).</li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Visit Galle Fort, a UNESCO World Heritage Site, and explore its charming lanes, shops, and cafes.</li><li>Take a walk along the fort walls for panoramic views of the Indian Ocean.</li><li>Head back to Colombo (approx. 2 hours) for your flight back or onward journey.</li></ul><p><br /></p><p><strong>Additional Tips:</strong></p><ul><li>Best Time to Visit: Sri Lanka has two monsoon seasons, so the best time for adventure activities is during the dry seasons:</li><li>December to March for the West and South Coasts.</li><li> May to September for the East Coast.</li><li>Fitness Requirements: Moderate fitness is required for trekking and rafting activities.</li><li>Travel Essentials: Bring sturdy trekking shoes, quick-dry clothing, insect repellent, and a good camera to capture the scenic beauty.</li></ul><p><br /></p><p>This 10-day itinerary covers a range of activities, providing an immersive adventure experience across Sri Lankas diverse landscapes. Whether youre an adrenaline junkie or a nature enthusiast, this trip will give you a taste of everything Sri Lanka has to offer.</p><p><strong>You can adjust these travel tips based on your interests and time availability!</strong></p>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <div class="container footer-grid">
-            <div class="footer-info">
-                <a href="../../index.html">
-                    <img src="../../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
-                </a>
-                <p>Journey Beyond the Ordinary. Discover the magic of Sri Lanka.</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
-                    <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
-                    <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
-                </div>
-            </div>
-            <div class="footer-links">
-                <h3>Explore</h3>
-                <ul>
-                    <li><a href="../../index.html">Home</a></li>
-                    <li><a href="../guide.html">Travel Guide</a></li>
-                    <li><a href="../plans.html">Journey Hub</a></li>
-                    <li><a href="../travel-info.html">Travel Information</a></li>
-                    <li><a href="../visa.html">Visa Details</a></li>
-                    <li><a href="../blog.html">Travel Blog</a></li>
-                    <li><a href="../gallery.html">Photo Gallery</a></li>
-                    <li><a href="../contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Contact</h3>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
-                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
-                <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
-                <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 TripLanka. All Rights Reserved.</p>
-        </div>
-    </footer>
+ <div class="content-wrapper">
+ <p>Sri Lanka, often called the "Pearl of the Indian Ocean, " is a paradise for adventure enthusiasts. With its lush rainforests, misty mountains, pristine beaches, and rich biodiversity, it offers a diverse range of experiences, from trekking and wildlife safaris to water sports and cultural immersion. </p><p><strong>Duration: 10 Days </strong></p><p><strong>Day 1: Arrival in Colombo</strong></p><ul><li>Arrival: Arrive at Bandaranaike International Airport (CMB) in Colombo. </li></ul><p><strong><em>Activities: </em></strong></p><ul><li>Take a city tour of Colombo to explore its vibrant culture and colonial history. </li><li>Visit iconic sites like Galle Face Green, Gangaramaya Temple, and Independence Square. </li></ul><p><strong><em>Accommodation:</em></strong> Stay at a boutique hotel in <a href="https://www.tripadvisor.com/Search?q=colombo&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Colombo</a>. </p><p><br /></p><p><strong>Day 2: Head to Kitulgala for White Water Rafting</strong></p><ul><li>Travel: Drive from Colombo to Kitulgala (approx. 3 hours). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Embark on a thrilling white-water rafting experience on the Kelani River. </li><li>Explore the Belilena Caves, an ancient prehistoric site. </li><li>Enjoy a nature walk through the surrounding rainforests. </li></ul><p><strong><em>Accommodation:</em></strong> Stay at a riverside eco-lodge in <a href="https://www.booking.com/searchresults.en-gb.html?ss=kithulgala&amp;ssne=Nuwara+Eliya&amp;ssne_untouched=Nuwara+Eliya&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=319742&amp;dest_type=hotel&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=1&amp;search_selected=true&amp;search_pageview_id=127e3e12fc970187&amp;ac_meta=GhAxMjdlM2UxMmZjOTcwMTg3IAAoATICZW46CmtpdGh1bGdhbGFAAEoAUAA%3D&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0" target="_blank">Kitulgala</a>. </p><p><br /></p><p><strong>Day 3: Kitulgala to Knuckles Mountain Range for Trekking</strong></p><ul><li>Travel: Drive to Knuckles Mountain Range (approx. 4 hours). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Start your adventure trek into the Knuckles Range, known for its rugged beauty and biodiversity. </li><li>Trek through cloud forests, waterfalls, and remote villages, while enjoying panoramic views of the surrounding mountains. </li></ul><p><strong>Accommodation:</strong> Camp overnight in the <a href="https://www.booking.com/searchresults.en-gb.html?ss=Knuckles+Mountain+Range%2C+Sri+Lanka&amp;ssne=Kitulgala&amp;ssne_untouched=Kitulgala&amp;efdco=1&amp;label=gen173nr-index-XX-XX-XX-noref-fr-com-L%3Aen-O%3Aunk-B%3Aunk-N%3Ayes-S%3Abo&amp;sid=a8c6d60c6a8aaa8ac5a5a9984aff71a0&amp;aid=304142&amp;lang=en-gb&amp;sb=1&amp;src_elem=sb&amp;src=searchresults&amp;dest_id=15201&amp;dest_type=region&amp;ac_position=0&amp;ac_click_type=b&amp;ac_langcode=en&amp;ac_suggestion_list_length=5&amp;search_selected=true&amp;search_pageview_id=6d713eccbc6c018d&amp;ac_meta=GhA2ZDcxM2VjY2JjNmMwMThkIAAoATICZW46DktudWNrbGVzIFJhbmdlQABKAFAA&amp;group_adults=2&amp;no_rooms=1&amp;group_children=0" target="_blank">Knuckles Range</a>. </p><p><br /></p><p><strong>Day 4: Knuckles Range to Kandy for Cultural Experience</strong></p><ul><li>Travel: Trek down from Knuckles and drive to Kandy (approx. 2 hours). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Visit the Temple of the Tooth, a UNESCO World Heritage site. </li><li>Enjoy a cultural dance performance in the evening. </li><li>Explore the Royal Botanical Gardens in Peradeniya. </li></ul><p><strong><em>Accommodation:</em></strong> Stay at a traditional guesthouse in<a href="https://www.tripadvisor.com/Search?q=kandy&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank"> Kandy</a>. </p><p><br /></p><p><strong>Day 5: Kandy to Nuwara Eliya for Scenic Exploration</strong></p><ul><li>Travel: Take the scenic train journey from Kandy to Nuwara Eliya (approx. 4 hours). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Visit a tea plantation and factory to learn about Sri Lankas famed Ceylon tea. </li><li>Take a stroll through the charming town of Nuwara Eliya, known as "Little England" for its colonial charm. </li></ul><p><strong>Accommodation:</strong> Stay at a colonial-style hotel in <a href="https://www.tripadvisor.com/Search?q=Nuwara+Eliya&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Nuwara Eliya. </a></p><p><br /></p><p><strong>Day 6: Trekking and Camping in Horton Plains National Park</strong></p><ul><li>Travel: Drive to Horton Plains National Park (approx. 1 hour). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Start early for the trek to Worlds End, a dramatic 800-meter drop with stunning views. </li><li>Explore the Bakers Falls and the lush grasslands of the park. </li><li>Set up camp for an overnight stay in Horton Plains. </li></ul><p><strong>Accommodation:</strong> Camp overnight in the park or stay at a nearby eco-lodge. </p><p><br /></p><p><strong>Day 7: Nuwara Eliya to Ella for Adventure and Relaxation</strong></p><ul><li>Travel: Drive or take a short train ride from Nuwara Eliya to Ella (approx. 2 hours). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Trek to Little Adams Peak for a spectacular view of the valley. </li><li>Visit Nine Arches Bridge and watch the train pass by the scenic backdrop. </li><li>Explore the Ravana Falls. </li></ul><p><strong>Accommodation: </strong>Stay at a hilltop resort in <a href="https://www.tripadvisor.com/Search?q=ella&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Ella</a>. </p><p><br /></p><p><strong>Day 8: Ella to Yala National Park for a Wildlife Safari</strong></p><ul><li>Travel: Drive to Yala National Park (approx. 3 hours). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Enjoy an evening jeep safari in Yala, which is known for its leopard population, elephants, and other wildlife. </li><li>Experience a night in a luxury tented camp inside or near the park. </li></ul><p><strong>Accommodation: </strong>Stay at a safari lodge or tented camp in <a href="https://www.tripadvisor.com/Search?q=Yala&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Yala</a>. </p><p><br /></p><p><strong>Day 9: Yala to Mirissa for Beach and Water Activities</strong></p><ul><li>Travel: Drive to Mirissa, a coastal town (approx. 3 hours). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Go whale watching early in the morning (November to April is the best season). </li><li>Enjoy surfing, snorkeling, and beach relaxation in Mirissa. </li><li>Explore the nearby Weligama Bay or take a boat trip to see stilt fishermen. </li></ul><p><strong>Accommodation:</strong> Stay at a beachside hotel in <a href="https://www.tripadvisor.com/Search?q=Mirissa&amp;geo=293961&amp;ssrc=h&amp;searchNearby=false&amp;searchSessionId=0009bbbf145458fe.ssid&amp;offset=0" target="_blank">Mirissa</a>. </p><p><br /></p><p><strong>Day 10: Galle Fort and Departure</strong></p><ul><li>Travel: Drive from Mirissa to Galle (approx. 1 hour). </li></ul><p><strong><em>Activities:</em></strong></p><ul><li>Visit Galle Fort, a UNESCO World Heritage Site, and explore its charming lanes, shops, and cafes. </li><li>Take a walk along the fort walls for panoramic views of the Indian Ocean. </li><li>Head back to Colombo (approx. 2 hours) for your flight back or onward journey. </li></ul><p><br /></p><p><strong>Additional Tips:</strong></p><ul><li>Best Time to Visit: Sri Lanka has two monsoon seasons, so the best time for adventure activities is during the dry seasons:</li><li>December to March for the West and South Coasts. </li><li> May to September for the East Coast. </li><li>Fitness Requirements: Moderate fitness is required for trekking and rafting activities. </li><li>Travel Essentials: Bring sturdy trekking shoes, quick-dry clothing, insect repellent, and a good camera to capture the scenic beauty. </li></ul><p><br /></p><p>This 10-day itinerary covers a range of activities, providing an immersive adventure experience across Sri Lankas diverse landscapes. Whether youre an adrenaline junkie or a nature enthusiast, this trip will give you a taste of everything Sri Lanka has to offer. </p><p><strong>You can adjust these travel tips based on your interests and time availability!</strong></p>
+ </div>
+ </section>
+ </main>
+ <footer>
+ <div class="container footer-grid">
+ <div class="footer-info">
+ <a href="../../index.html">
+ <img src="../../Images/Logos/Logo Without Background.png" alt="TripLanka Logo" class="logo-img" style="filter: brightness(0) invert(1); margin-bottom: 1.5rem;">
+ </a>
+ <p>Journey Beyond the Ordinary. Discover the magic of Sri Lanka. </p>
+ <div class="social-links">
+ <a href="https://www.facebook.com/triplanka.lk" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+ <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+ <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+ <a href="https://www.booking.com/searchresults.html?ss=Sri+Lanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
+ <a href="https://www.tripadvisor.com/Tourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+ <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
+ </div>
+ </div>
+ <div class="footer-links">
+ <h3>Explore</h3>
+ <ul>
+ <li><a href="../../index.html">Home</a></li>
+ <li><a href="../guide.html">Travel Guide</a></li>
+ <li><a href="../plans.html">Journey Hub</a></li>
+ <li><a href="../travel-info.html">Travel Information</a></li>
+ <li><a href="../visa.html">Visa Details</a></li>
+ <li><a href="../blog.html">Travel Blog</a></li>
+ <li><a href="../gallery.html">Photo Gallery</a></li>
+ <li><a href="../contact.html">Contact Us</a></li>
+ </ul>
+ </div>
+ <div class="footer-contact">
+ <h3>Contact</h3>
+ <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+ <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
+ <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
+ <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
+ </div>
+ </div>
+ <div class="footer-bottom">
+ <p>&copy; 2026 TripLanka. All Rights Reserved. </p>
+ </div>
+ </footer>
 </body>
 </html>

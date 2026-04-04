@@ -134,9 +134,6 @@ function updateHeaderGlobally() {
                 </li>
                     <li><a href="${pagesPath}/gallery.html">Photo Gallery</a></li>
                 <li><a href="${connectPath}" class="btn-primary">Connect</a></li>
-                <li class="flag-item">
-                    <img src="${flagPath}" alt="Sri Lanka Flag" class="flag-img">
-                </li>
             </ul>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
