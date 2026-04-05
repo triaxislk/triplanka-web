@@ -121,24 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Ensure hover mechanics apply broadly
-    if (!document.querySelector('#dynamic-attribution-styles')) {
-        const style = document.createElement('style');
-        style.id = 'dynamic-attribution-styles';
-        style.innerHTML = `
-            .img-container:hover .photo-attribution,
-            .hero:hover .photo-attribution,
-            .blog-hero:hover .photo-attribution,
-            .card-bg:hover .photo-attribution,
-            .article-header:hover .photo-attribution,
-            .plans-hero:hover .photo-attribution,
-            .info-hero:hover .photo-attribution,
-            .contact-hero:hover .photo-attribution,
-            .hotels-hero:hover .photo-attribution,
-            .dest-card:hover .photo-attribution { opacity: 1; transform: translate(-50%, -2px); }
-        `;
-        document.head.appendChild(style);
-    }
+    // Hover mechanics are now handled in main.css
 
     // === Blog Filter Controller ===
     const blogFilter = document.getElementById('blogFilter');
