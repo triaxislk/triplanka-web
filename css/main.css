@@ -1311,3 +1311,127 @@ footer {
         font-size: 1.8rem;
     }
 }
+
+/* --- Ceylon Tea Section --- */
+.tea-experience {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+    background: #fff;
+}
+
+.tea-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 5rem;
+    align-items: center;
+}
+
+.tea-image-container {
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    transition: var(--transition);
+    /* overflow: visible so steam is not clipped */
+    overflow: visible;
+}
+
+.tea-image-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+}
+
+.tea-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 30px; /* Rounding the image directly */
+}
+
+/* Smoke/Steam Animation */
+.steam-overlay {
+    position: absolute;
+    top: 10%;
+    bottom: 45%; /* Brim is approximately 45% from the bottom of the container */
+    left: 49%; 
+    width: 60px;
+    pointer-events: none;
+    z-index: 100;
+}
+
+.steam-particle {
+    position: absolute;
+    bottom: 0;
+    left: 48%;
+    width: 50px; /* Slightly larger */
+    height: 50px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 80%);
+    border-radius: 50%;
+    filter: blur(8px);
+    opacity: 0;
+}
+
+.steam-particle:nth-child(1) { animation: steamRise 4s infinite 0s; left: 30%; }
+.steam-particle:nth-child(2) { animation: steamRise 5s infinite 1s; left: 50%; }
+.steam-particle:nth-child(3) { animation: steamRise 4.5s infinite 2s; left: 70%; }
+.steam-particle:nth-child(4) { animation: steamRise 6s infinite 0.5s; left: 40%; }
+.steam-particle:nth-child(5) { animation: steamRise 5.5s infinite 1.5s; left: 60%; }
+
+@keyframes steamRise {
+    0% {
+        transform: translateY(0) scale(1) translateX(0);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.5;
+    }
+    50% {
+        transform: translateY(-60px) scale(3) translateX(15px);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateY(-120px) scale(5) translateX(-10px);
+        opacity: 0;
+    }
+}
+
+.tea-content h2 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.tea-content .accent-text {
+    color: var(--secondary);
+    font-style: italic;
+    font-family: "Playfair Display", serif;
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.tea-content p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+    .tea-experience {
+        padding: 60px 0;
+    }
+    .tea-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+    .tea-content h2 {
+        font-size: 2.8rem;
+    }
+    .steam-overlay {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
