@@ -743,8 +743,8 @@ footer {
     .hero, .itinerary-hero {
         height: 60vh !important;
         min-height: 400px;
-        background-position: center;
     }
+
 
     /* Mobile Dropdown */
     .dropdown {
