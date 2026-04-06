@@ -772,8 +772,31 @@ footer {
         color: var(--text-dark);
         width: 100%;
         justify-content: space-between;
-        padding: 0.5rem 0;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
     }
+
+    /* Enhanced Mobile Chevron Toggle Hit Area */
+    .nav-links a i.fa-chevron-down {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.05);
+        border-radius: 50%;
+        margin-left: 1rem;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        font-size: 0.8rem;
+        color: var(--primary);
+    }
+
+    .dropdown.active > a i.fa-chevron-down {
+        background: var(--primary);
+        color: var(--white);
+        transform: rotate(180deg);
+    }
+
 
     .nav-links a.btn-primary {
         color: var(--white) !important;

@@ -97,21 +97,36 @@ document.addEventListener('DOMContentLoaded', () => {
             );
 
             if (isDropdown && window.innerWidth <= 992) {
-                // Mobile Accordion Logic - ALWAYS prevent and stop
-                e.preventDefault();
-                e.stopPropagation();
+                // Determine if the click is on the chevron icon specifically
+                const isChevron = e.target.classList.contains('fa-chevron-down') || 
+                                 e.target.closest('.fa-chevron-down') ||
+                                 // Check if click was on the right side of the flex link (the arrow area)
+                                 (e.offsetX > link.offsetWidth - 60);
+
+
+                if (isChevron) {
+                    // Toggle Accordion ONLY when clicking the arrow
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    const alreadyOpen = parentLi.classList.contains('active');
+
+                    // Accordion behavior: Close other dropdowns
+                    navLinks.querySelectorAll('.dropdown').forEach(d => {
+                        if (d !== parentLi) d.classList.remove('active');
+                    });
+
+                    // Toggle current sub-menu
+                    parentLi.classList.toggle('active', !alreadyOpen);
+                    return;
+                }
                 
-                const alreadyOpen = parentLi.classList.contains('active');
-
-                // Accordion behavior: Close other dropdowns
-                navLinks.querySelectorAll('.dropdown').forEach(d => {
-                    if (d !== parentLi) d.classList.remove('active');
-                });
-
-                // Toggle current sub-menu
-                parentLi.classList.toggle('active', !alreadyOpen);
+                // If clicked on text (NOT chevron), allow regular navigation
+                // Close menu immediately so the user sees progress
+                setTimeout(() => toggleMenu(false), 300);
                 return;
             }
+
 
             // Close menu for all regular final links
             // Allow navigation by NOT preventing default
