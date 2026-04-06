@@ -649,24 +649,86 @@ footer {
 
 /* --- Mobile --- */
 @media (max-width: 992px) {
+    /* --- Hardened Mobile Drawer --- */
     .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        padding: 2rem;
-        gap: 1.5rem;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        border-top: 1px solid rgba(0,0,0,0.05);
-        align-items: flex-start;
-        z-index: 1002;
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        right: -100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100vh !important;
+        background: var(--white) !important;
+        z-index: 9999 !important; /* Above everything */
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        padding: 80px 1.5rem 2rem !important;
+        overflow-y: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2) !important;
+        margin: 0 !important;
     }
 
     .nav-links.active {
+        right: 0 !important;
+    }
+
+    .nav-links li {
+        width: 100% !important;
+        margin: 0 0 1rem 0 !important;
+        display: block !important;
+    }
+
+    .nav-links a {
         display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding: 0.8rem 0 !important;
+        font-size: 1.1rem !important;
+        border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+    }
+
+    /* Drawer Internal Close Button */
+    .drawer-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 1.5rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0,0,0,0.05);
+        border-radius: 50%;
+        z-index: 10001;
+    }
+
+    /* Mobile Overlay */
+    .nav-overlay {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        background: rgba(0,0,0,0.6) !important;
+        backdrop-filter: blur(4px) !important;
+        z-index: 9998 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transition: all 0.4s ease !important;
+    }
+
+    .nav-overlay.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+
+    body.menu-open {
+        overflow: hidden !important;
+        height: 100vh !important;
     }
 
     .mobile-menu-btn {

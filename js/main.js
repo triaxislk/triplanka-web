@@ -29,35 +29,103 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Mobile Menu Toggle
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-if (mobileMenuBtn && navLinks) {
-    mobileMenuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        // Toggle icon
-        const icon = mobileMenuBtn.querySelector('i');
-        if (icon.classList.contains('fa-bars')) {
-            icon.classList.replace('fa-bars', 'fa-times');
-        } else {
-            icon.classList.replace('fa-times', 'fa-bars');
-        }
-    });
-}
-
-// Dropdown Toggle for Mobile
-document.querySelectorAll('.dropdown > a').forEach(dropdownToggle => {
-    dropdownToggle.addEventListener('click', function(e) {
-        if (window.innerWidth <= 992) {
-            e.preventDefault();
-            this.parentElement.classList.toggle('active');
-        }
-    });
-});
-
-// System: Automated Global Photo Attribution Manager
+// System: Global Interface Controller
+// System: Global Interface Controller
 document.addEventListener('DOMContentLoaded', () => {
+    // --- Mobile Menu Toggle & Navigation Logic ---
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (mobileMenuBtn && navLinks) {
+        const icon = mobileMenuBtn.querySelector('i');
+        
+        // Relocate elements to body root to avoid parent clipping/scrolling issues
+        let overlay = document.querySelector('.nav-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'nav-overlay';
+            document.body.appendChild(overlay);
+        }
+        
+        // Add a dedicated close button inside the drawer
+        if (!navLinks.querySelector('.drawer-close')) {
+            const closeBtn = document.createElement('div');
+            closeBtn.className = 'drawer-close';
+            closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            navLinks.prepend(closeBtn);
+            closeBtn.addEventListener('click', () => toggleMenu(false));
+        }
+        
+        document.body.appendChild(navLinks); 
+
+        const toggleMenu = (forceState = null) => {
+            const isOpen = navLinks.classList.contains('active');
+            const shouldOpen = forceState === null ? !isOpen : forceState;
+            
+            if (shouldOpen) {
+                navLinks.classList.add('active');
+                overlay.classList.add('active');
+                icon.classList.replace('fa-bars', 'fa-times');
+                document.body.classList.add('menu-open');
+            } else {
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+                icon.classList.replace('fa-times', 'fa-bars');
+                document.body.classList.remove('menu-open');
+                
+                // Close all accordion items when closing the menu
+                document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('active'));
+            }
+        };
+
+        mobileMenuBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMenu();
+        });
+
+        // CENTRALIZED Mobile Interaction Controller
+        navLinks.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (!link) return;
+
+            const parentLi = link.parentElement;
+            const isDropdown = parentLi && (
+                parentLi.classList.contains('dropdown') || 
+                link.querySelector('.fa-chevron-down') ||
+                link.classList.contains('dropdown-toggle')
+            );
+
+            if (isDropdown && window.innerWidth <= 992) {
+                // Mobile Accordion Logic - ALWAYS prevent and stop
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const alreadyOpen = parentLi.classList.contains('active');
+
+                // Accordion behavior: Close other dropdowns
+                navLinks.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== parentLi) d.classList.remove('active');
+                });
+
+                // Toggle current sub-menu
+                parentLi.classList.toggle('active', !alreadyOpen);
+                return;
+            }
+
+            // Close menu for all regular final links
+            // Allow navigation by NOT preventing default
+            toggleMenu(false);
+        });
+
+        // Close menu when clicking the overlay
+        overlay.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu(false);
+        });
+    }
+
+    // --- Global Photo Attribution Manager ---
     // Collect elements that commonly hold images (img tags and elements with inline background images)
     const elements = document.querySelectorAll('img, [style*="background-image"], .card-bg, .hero, .blog-hero, .article-header, .plans-hero, .info-hero, .contact-hero, .hotels-hero');
 
