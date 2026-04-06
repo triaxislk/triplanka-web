@@ -56,7 +56,25 @@ document.addEventListener('DOMContentLoaded', () => {
             closeBtn.addEventListener('click', () => toggleMenu(false));
         }
         
-        document.body.appendChild(navLinks); 
+        const relocateNav = () => {
+            const isMobile = window.matchMedia('(max-width: 992px)').matches;
+            const navContainer = document.querySelector('header nav');
+            if (!navContainer || !navLinks) return;
+
+            const isAtBody = navLinks.parentElement === document.body;
+
+            if (isMobile && !isAtBody) {
+                document.body.appendChild(navLinks);
+                console.log('Nav: Moved to Body (Mobile)');
+            } else if (!isMobile && isAtBody) {
+                navContainer.appendChild(navLinks);
+                console.log('Nav: Restored to Header (Desktop)');
+            }
+        };
+
+        // Execution
+        relocateNav();
+        window.addEventListener('resize', relocateNav);
 
         const toggleMenu = (forceState = null) => {
             const isOpen = navLinks.classList.contains('active');

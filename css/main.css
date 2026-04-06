@@ -31,7 +31,7 @@ body {
 }
 
 main {
-    padding-top: calc(var(--header-height) + 3rem);
+    padding-top: var(--header-height);
 }
 
 h1, h2, h3, h4 {
@@ -248,6 +248,10 @@ nav {
 
 .nav-links a:hover {
     color: var(--primary);
+}
+
+.drawer-close {
+    display: none;
 }
 
 /* Dropdown Styles */
