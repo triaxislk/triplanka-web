@@ -47,12 +47,18 @@ p {
 }
 
 .about-text p,
+.about-text li,
 .info-content p,
+.info-content li,
 .intro p,
+.intro li,
 .service-card p,
 .content-wrapper p,
+.content-wrapper li,
 .cta p {
     text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
 }
 
 .intro .about-text.home-watermark {
