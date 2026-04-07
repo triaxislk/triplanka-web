@@ -5,6 +5,12 @@ param (
     [int]$Quality = 80
 )
 
+# CRITICAL: This script performs in-place optimization and MUST NOT rename any images.
+# It overwrites the original file specified in $file.FullName to preserve naming integrity.
+
+# CRITICAL: This script performs in-place optimization and MUST NOT rename any images.
+# It overwrites the original file specified in $file.FullName to preserve naming integrity.
+
 Add-Type -AssemblyName System.Drawing
 $MinSizeBytes = $MinSizeMB * 1024 * 1024
 

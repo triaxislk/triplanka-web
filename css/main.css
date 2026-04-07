@@ -110,7 +110,7 @@ img {
 
 .photo-attribution {
     position: absolute;
-    bottom: 15px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     background: rgba(0,0,0,0.7);
