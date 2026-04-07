@@ -520,6 +520,16 @@ nav {
     text-align: center;
 }
 
+.hero .btn-secondary {
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.hero .btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary);
+}
+
 /* --- Sections --- */
 section {
     padding: 60px 0;

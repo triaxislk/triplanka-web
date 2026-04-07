@@ -2,7 +2,7 @@ param (
     [string]$SourceFolder = "Images",
     [long]$MinSizeMB = 1,
     [int]$MaxWidth = 1600,
-    [int]$Quality = 75
+    [int]$Quality = 80
 )
 
 Add-Type -AssemblyName System.Drawing

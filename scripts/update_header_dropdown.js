@@ -113,7 +113,7 @@ function updateHeaderGlobally() {
                     </ul>
                 </li>
                 <li class="dropdown">
-                    <a href="${pagesPath}/plans.html">Touring Plans <i class="fas fa-chevron-down"></i></a>
+                    <a href="${pagesPath}/plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="${plansSubPath}/solo-female.html">Solo Female Travel Plan</a></li>
                         <li><a href="${plansSubPath}/solo-male.html">Solo Male Travel Plan</a></li>
@@ -132,8 +132,10 @@ function updateHeaderGlobally() {
                         <li><a href="${pagesPath}/blog.html?filter=nature">Nature & Wildlife</a></li>
                     </ul>
                 </li>
-                    <li><a href="${pagesPath}/gallery.html">Photo Gallery</a></li>
-                <li><a href="${connectPath}" class="btn-primary">Connect</a></li>
+                <li><a href="${pagesPath}/hotels.html">Hotels</a></li>
+                <li><a href="${pagesPath}/rentals.html">Rentals</a></li>
+                <li><a href="${pagesPath}/gallery.html">Photo Gallery</a></li>
+                <li><a href="${connectPath}">Contact Us</a></li>
             </ul>
             <div class="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
