@@ -835,17 +835,14 @@ footer {
 @media (max-width: 992px) {
     /* --- Hardened Mobile Drawer --- */
     .nav-links {
-        display: block !important;
-        position: fixed !important;
-        top: 0 !important;
-        right: -110% !important; /* Pushed further out to ensure no shadows show */
+        right: -110% !important; 
+        display: none !important; /* Force zero layout footprint when closed */
         width: 100% !important;
         max-width: 100% !important;
         height: 100vh !important;
         background: var(--white) !important;
         z-index: 9999 !important; /* Above everything */
-        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0s 0.4s !important;
-        visibility: hidden !important; /* Prevent interaction and width push when closed */
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
         padding: 80px 1.5rem 6rem !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
@@ -854,9 +851,8 @@ footer {
     }
 
     .nav-links.active {
+        display: block !important;
         right: 0 !important;
-        visibility: visible !important;
-        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0s 0s !important;
     }
 
     .nav-links li {
