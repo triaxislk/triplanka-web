@@ -74,16 +74,7 @@
     .gallery-card:hover img {
       transform: scale(1.1);
     }
-    .gallery-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-      display: flex;
-      align-items: flex-end;
-      padding: 1.5rem;
-      opacity: 0;
-      transition: var(--transition);
-    }
+
     .gallery-card:hover .gallery-overlay {
       opacity: 1;
     }
@@ -255,13 +246,69 @@
  </div>
 
  <!-- Video Gallery -->
- <div id="video-gallery" class="gallery-section">
- <div class="video-placeholder">
- <i class="fas fa-video"></i>
- <h2>Cinematic Experiences Coming Soon</h2>
- <p>We are currently curating the finest visual stories of Sri Lanka. Check back soon for breath-taking video tours. </p>
- </div>
- </div>
+  <div id="video-gallery" class="gallery-section">
+    <div class="video-grid">
+      <!-- Video Card 1 -->
+      <div class="video-card" data-video-id="RtPIMbIUhws" onclick="openModal('RtPIMbIUhws')">
+        <div id="player-1"></div>
+        <div class="video-controls">
+          <div class="video-btn mute-btn" onclick="toggleMute(event, 'player-1', this)">
+            <i class="fas fa-volume-mute"></i>
+          </div>
+        </div>
+        <div class="play-hint"><i class="fas fa-play"></i></div>
+        <div class="video-card-overlay">
+          <div class="video-card-info">
+            <h3>Pearl of the Indian Ocean</h3>
+            <p>Discover the true beauty and breathtaking landscapes of Sri Lanka.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Card 2 -->
+      <div class="video-card" data-video-id="HcV2x9o9iAs" onclick="openModal('HcV2x9o9iAs')">
+        <div id="player-2"></div>
+        <div class="video-controls">
+          <div class="video-btn mute-btn" onclick="toggleMute(event, 'player-2', this)">
+            <i class="fas fa-volume-mute"></i>
+          </div>
+        </div>
+        <div class="play-hint"><i class="fas fa-play"></i></div>
+        <div class="video-card-overlay">
+          <div class="video-card-info">
+            <h3>The Rhythm of Paradise</h3>
+            <p>Experience an electrifying journey through our culture and spirit.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Card 3 -->
+      <div class="video-card" data-video-id="ai69lrVscMM" onclick="openModal('ai69lrVscMM')">
+        <div id="player-3"></div>
+        <div class="video-controls">
+          <div class="video-btn mute-btn" onclick="toggleMute(event, 'player-3', this)">
+            <i class="fas fa-volume-mute"></i>
+          </div>
+        </div>
+        <div class="play-hint"><i class="fas fa-play"></i></div>
+        <div class="video-card-overlay">
+          <div class="video-card-info">
+            <h3>Echoes of History</h3>
+            <p>Immerse yourself in the relaxing sounds and ancient stories of the island.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="videoModal" class="video-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal()">&times;</span>
+      <div id="modal-player-container" style="width: 100%; height: 100%;"></div>
+    </div>
+  </div>
+
  </section>
  </main>
  <footer>
@@ -323,8 +370,170 @@
       } else {
         btns[1].classList.add('active');
         document.getElementById('video-gallery').classList.add('active');
+        
+        // Load YouTube API if not already present
+        if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
+          loadYoutubeAPI();
+        } else if (Object.keys(players).length === 0) {
+          onYouTubeIframeAPIReady();
+        } else {
+          // Just resume checks if API already loaded
+          checkAutoplay();
+        }
       }
     }
+
+    // YouTube Iframe API Integration
+    let players = {};
+    let modalPlayer = null;
+    let observer = null;
+
+    function loadYoutubeAPI() {
+      if (document.querySelector('script[src*="youtube.com/iframe_api"]')) return;
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+
+    function onYouTubeIframeAPIReady() {
+      const videoCards = document.querySelectorAll('.video-card');
+      videoCards.forEach((card, index) => {
+        const videoId = card.getAttribute('data-video-id');
+        const playerDiv = card.querySelector('div[id^="player-"]');
+        if (!playerDiv) return;
+        
+        const playerId = playerDiv.id;
+        
+        if (!players[playerId]) {
+          players[playerId] = new YT.Player(playerId, {
+            height: '100%',
+            width: '100%',
+            videoId: videoId,
+            playerVars: {
+              'autoplay': 0,
+              'controls': 0,
+              'rel': 0,
+              'showinfo': 0,
+              'ecver': 2,
+              'mute': 1,
+              'loop': 1,
+              'playlist': videoId,
+              'modestbranding': 1,
+              'iv_load_policy': 3,
+              'enablejsapi': 1,
+              'widget_referrer': window.location.href
+            },
+            events: {
+              'onReady': (event) => {
+                initObserver();
+              }
+            }
+          });
+        }
+      });
+    }
+
+    function initObserver() {
+      if (observer) return;
+      
+      observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const playerDiv = entry.target.querySelector('div[id^="player-"]');
+          if (!playerDiv) return;
+          const playerId = playerDiv.id;
+          const player = players[playerId];
+          
+          if (player && player.playVideo) {
+            if (entry.isIntersecting) {
+              player.playVideo();
+            } else {
+              player.pauseVideo();
+            }
+          }
+        });
+      }, { threshold: 0.3 });
+
+      document.querySelectorAll('.video-card').forEach(card => observer.observe(card));
+    }
+
+    function checkAutoplay() {
+      if (!observer) {
+        initObserver();
+      }
+    }
+
+    function toggleMute(event, playerId, btn) {
+      event.stopPropagation();
+      const player = players[playerId];
+      const icon = btn.querySelector('i');
+      
+      if (!player || !player.isMuted) return;
+
+      if (player.isMuted()) {
+        player.unMute();
+        icon.className = 'fas fa-volume-up';
+        btn.style.background = 'var(--secondary)';
+        btn.style.color = 'var(--text-dark)';
+      } else {
+        player.mute();
+        icon.className = 'fas fa-volume-mute';
+        btn.style.background = 'rgba(255, 255, 255, 0.15)';
+        btn.style.color = 'var(--white)';
+      }
+    }
+
+    function openModal(videoId) {
+      const modal = document.getElementById('videoModal');
+      modal.classList.add('active');
+      
+      // Stop all background players
+      for (let id in players) {
+        if (players[id].pauseVideo) players[id].pauseVideo();
+      }
+
+      // Initialize modal player
+      if (modalPlayer && modalPlayer.loadVideoById) {
+        modalPlayer.loadVideoById(videoId);
+      } else {
+        modalPlayer = new YT.Player('modal-player-container', {
+          height: '100%',
+          width: '100%',
+          videoId: videoId,
+          playerVars: {
+            'autoplay': 1,
+            'controls': 1,
+            'rel': 0,
+            'modestbranding': 1,
+            'origin': window.location.origin
+          }
+        });
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('videoModal');
+      modal.classList.remove('active');
+      if (modalPlayer && modalPlayer.stopVideo) {
+        modalPlayer.stopVideo();
+      }
+      
+      // Restart observer check
+      initObserver();
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById('videoModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+    
+    document.addEventListener('keydown', function(event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
   </script>
 
   <script src="../js/main.js"></script>
