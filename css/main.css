@@ -21,6 +21,7 @@ html, body {
     overflow-x: hidden;
     position: relative;
     width: 100%;
+    max-width: 100%;
 }
 
 body {
@@ -344,6 +345,22 @@ img {
     font-size: 0.8rem;
     font-weight: 500;
     opacity: 0.6;
+}
+
+/* --- Responsive Table --- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.table-responsive table {
+    width: 100%;
+    min-width: 600px; /* Force internal scrolling on small screens */
+    border-collapse: collapse;
 }
 
 /* --- Header & Nav --- */
@@ -821,14 +838,15 @@ footer {
         display: block !important;
         position: fixed !important;
         top: 0 !important;
-        right: -100% !important;
+        right: -110% !important; /* Pushed further out to ensure no shadows show */
         width: 100% !important;
         max-width: 100% !important;
         height: 100vh !important;
         background: var(--white) !important;
         z-index: 9999 !important; /* Above everything */
-        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-        padding: 80px 1.5rem 6rem !important; /* Increased bottom padding to ensure 'Contact Us' is visible */
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0s 0.4s !important;
+        visibility: hidden !important; /* Prevent interaction and width push when closed */
+        padding: 80px 1.5rem 6rem !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
         box-shadow: -10px 0 30px rgba(0,0,0,0.2) !important;
@@ -837,6 +855,8 @@ footer {
 
     .nav-links.active {
         right: 0 !important;
+        visibility: visible !important;
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0s 0s !important;
     }
 
     .nav-links li {
