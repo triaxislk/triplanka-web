@@ -99,7 +99,7 @@ function updateHeaderGlobally() {
                         <li><a href="${guideSubPath}/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
                         <li><a href="${guideSubPath}/colombo.html">Colombo</a></li>
                         <li><a href="${guideSubPath}/kandy.html">Kandy & Gampola</a></li>
-                        <li><a href="${guideSubPath}/sigiriya.html">Dambulla & Sigiriya</a></li>
+                        <li><a href="${guideSubPath}/sigiriya.html">Sigiriya, Dambulla & Matale</a></li>
                         <li><a href="${guideSubPath}/rathnapura.html">Rathnapura</a></li>
                         <li><a href="${guideSubPath}/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
                         <li><a href="${guideSubPath}/ella.html">Ella & Badulla</a></li>
@@ -156,3 +156,4 @@ function updateHeaderGlobally() {
 }
 
 updateHeaderGlobally();
+
