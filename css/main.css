@@ -833,16 +833,18 @@ footer {
 
 /* --- Mobile --- */
 @media (max-width: 992px) {
-    /* --- Hardened Mobile Drawer --- */
     .nav-links {
-        right: -110% !important; 
-        display: none !important; /* Force zero layout footprint when closed */
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
         width: 100% !important;
         max-width: 100% !important;
         height: 100vh !important;
-        background: var(--white) !important;
-        z-index: 9999 !important; /* Above everything */
-        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+        background: #FFFFFF !important;
+        z-index: 9999 !important;
+        transform: translateX(110%) !important; /* Hide off-screen without pushing width */
+        visibility: hidden !important;
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.4s !important;
         padding: 80px 1.5rem 6rem !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
@@ -851,8 +853,8 @@ footer {
     }
 
     .nav-links.active {
-        display: block !important;
-        right: 0 !important;
+        transform: translateX(0) !important;
+        visibility: visible !important;
     }
 
     .nav-links li {
