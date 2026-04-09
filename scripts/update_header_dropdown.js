@@ -106,7 +106,7 @@ function updateHeaderGlobally() {
                         <li><a href="${guideSubPath}/galle.html">Galle & Bentota</a></li>
                         <li><a href="${guideSubPath}/hambantota.html">Hambantota & Matara</a></li>
                         <li><a href="${guideSubPath}/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
-                        <li><a href="${guideSubPath}/anuradhapura.html">Anuradhapura</a></li>
+                        <li><a href="${guideSubPath}/anuradhapura.html">Anuradhapura & Mihintale</a></li>
                         <li><a href="${guideSubPath}/batticaloa.html">Batticaloa</a></li>
                         <li><a href="${guideSubPath}/trincomalee.html">Trincomalee</a></li>
                         <li><a href="${guideSubPath}/jaffna.html">Jaffna</a></li>
@@ -155,4 +155,5 @@ function updateHeaderGlobally() {
 }
 
 updateHeaderGlobally();
+
 
