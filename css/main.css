@@ -836,15 +836,15 @@ footer {
     .nav-links {
         position: fixed !important;
         top: 0 !important;
-        right: 0 !important;
+        right: -105% !important; /* Move off-screen */
         width: 100% !important;
         max-width: 100% !important;
         height: 100vh !important;
-        background: #FFFFFF !important;
+        background: #FFFFFF !important; /* Solid white */
         z-index: 9999 !important;
-        transform: translateX(110%) !important; /* Hide off-screen without pushing width */
-        visibility: hidden !important;
-        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0.4s !important;
+        transform: none !important; /* Avoid fixed+transform bugs */
+        visibility: hidden !important; /* Prevent width push/interaction when closed */
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0s 0.4s !important;
         padding: 80px 1.5rem 6rem !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
@@ -853,8 +853,9 @@ footer {
     }
 
     .nav-links.active {
-        transform: translateX(0) !important;
+        right: 0 !important;
         visibility: visible !important;
+        transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), visibility 0s 0s !important;
     }
 
     .nav-links li {
