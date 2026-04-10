@@ -890,7 +890,7 @@ footer {
 
     .nav-links li {
         width: 100% !important;
-        margin: 0 0 1rem 0 !important;
+        margin: 0 0 0.1rem 0 !important;
         display: block !important;
     }
 
@@ -899,8 +899,8 @@ footer {
         justify-content: space-between !important;
         align-items: center !important;
         width: 100% !important;
-        padding: 0.8rem 0 !important;
-        font-size: 1.1rem !important;
+        padding: 0.5rem 0 !important;
+        font-size: 1.05rem !important;
         border-bottom: 1px solid rgba(0,0,0,0.05) !important;
     }
 
@@ -988,7 +988,7 @@ footer {
         color: var(--text-dark);
         width: 100%;
         justify-content: space-between;
-        padding: 0.8rem 0;
+        padding: 0.5rem 0;
         border-bottom: 1px solid rgba(0,0,0,0.05);
     }
 
