@@ -157,6 +157,39 @@
     @media (max-width: 768px) {
       .info-hero h1 { font-size: 2.5rem; }
     }
+
+    /* Mobile Table Optimization to prevent horizontal overflow */
+    @media (max-width: 600px) {
+      .info-content tr td, 
+      .info-content th {
+        padding: 0.8rem 0.6rem;
+        font-size: 0.8rem;
+      }
+      
+      .table-responsive table {
+        min-width: 100% !important; /* Override the 600px global default in main.css */
+      }
+      
+      /* Specific tweaks for the countries table to ensure it fits perfectly */
+      #eligibleCountriesTable th:nth-child(1),
+      #eligibleCountriesTable td:nth-child(1) {
+        width: 35px;
+        padding-right: 0.2rem;
+        text-align: center;
+      }
+      
+      #eligibleCountriesTable td:nth-child(3) {
+        white-space: nowrap; /* Keep the stay duration on one line */
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+      
+      /* Ensure search container doesn't overflow */
+      .search-container {
+        width: 100% !important;
+        margin-right: 0;
+      }
+    }
   </style>
 
 <script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1">
