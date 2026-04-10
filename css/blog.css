@@ -17,6 +17,7 @@ body.blog-page {
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('../Images/Site Photos/Wild Animals/Elephant Sri Lanka Photo by SB Bandara.jpg') center/cover no-repeat;
     text-align: center;
     color: white;
+    position: relative; /* For photo attribution */
 }
 
 .blog-hero h1 {
@@ -260,6 +261,14 @@ body.blog-page {
     background: var(--primary);
     color: white;
     text-align: center;
+    position: relative; /* For photo attribution */
+}
+
+/* Photo Attribution Hover for Blog */
+.blog-hero:hover .photo-attribution,
+.article-header:hover .photo-attribution {
+    opacity: 1;
+    transform: translate(-50%, -5px);
 }
 
 .article-header .blog-badge {
