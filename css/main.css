@@ -1816,6 +1816,32 @@ footer {
     transition: all 0.4s ease, transform 0.3s ease, opacity 0.3s ease;
 }
 
+.swipe-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swipe-overlay::after {
+    content: '\f04b'; /* Play Icon by default? Or nothing? */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 3rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    text-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.swipe-overlay.paused::after {
+    opacity: 0.5;
+}
+
 @media (max-width: 768px) {
     .modal-content {
         border-radius: 0;

@@ -768,7 +768,8 @@
   <div id="videoModal" class="video-modal">
     <span class="modal-close" onclick="closeModal()">&times;</span>
     <div class="modal-content">
-      <div id="modal-player-container" style="width: 100%; height: 100%;"></div>
+      <div id="swipe-overlay" class="swipe-overlay" onclick="toggleModalPlayback()"></div>
+      <div id="modal-player-container"></div>
     </div>
   </div>
 
@@ -986,6 +987,7 @@
           modalPlayer.loadVideoById(video.id);
         }
         
+        document.getElementById('swipe-overlay').classList.remove('paused');
         content.style.opacity = '1';
         content.style.transform = 'scale(1)';
       }, 300);
@@ -994,19 +996,33 @@
     function nextVideo() { changeModalVideo(currentVideoIndex + 1); }
     function prevVideo() { changeModalVideo(currentVideoIndex - 1); }
 
-    function initSwipeDetection() {
-      const modal = document.getElementById('videoModal');
+    function toggleModalPlayback() {
+      if (!modalPlayer || !modalPlayer.getPlayerState) return;
       
-      modal.addEventListener('touchstart', (e) => {
+      const state = modalPlayer.getPlayerState();
+      const overlay = document.getElementById('swipe-overlay');
+      
+      if (state === 1) { // Playing
+        modalPlayer.pauseVideo();
+        overlay.classList.add('paused');
+      } else {
+        modalPlayer.playVideo();
+        overlay.classList.remove('paused');
+      }
+    }
+
+    function initSwipeDetection() {
+      const overlay = document.getElementById('swipe-overlay');
+      
+      overlay.addEventListener('touchstart', (e) => {
         touchStartY = e.changedTouches[0].screenY;
       }, { passive: false });
 
-      modal.addEventListener('touchmove', (e) => {
-        // Prevent background scrolling while swiping
+      overlay.addEventListener('touchmove', (e) => {
         e.preventDefault();
       }, { passive: false });
 
-      modal.addEventListener('touchend', (e) => {
+      overlay.addEventListener('touchend', (e) => {
         touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
       }, { passive: false });
@@ -1028,9 +1044,9 @@
     function closeModal() {
       const modal = document.getElementById('videoModal');
       modal.classList.remove('active');
-      
-      // Enable background scrolling
       document.body.classList.remove('modal-open');
+      document.getElementById('swipe-overlay').classList.remove('paused');
+      
       if (modalPlayer && modalPlayer.stopVideo) {
         modalPlayer.stopVideo();
       }
