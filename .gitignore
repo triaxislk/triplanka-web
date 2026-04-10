@@ -1,0 +1,13 @@
+# Temporary files
+tmp/
+scratch/
+
+# Local backups
+backups/
+*.zip
+*.bak
+
+# IDE and OS files
+.vscode/
+.DS_Store
+Thumbs.db
