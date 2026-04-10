@@ -12,6 +12,12 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  <link rel="icon" type="image/png" href="../Images/Logos/Logo Without Background.png">
   <style>
+    body.modal-open {
+      overflow: hidden !important;
+      height: 100vh;
+      width: 100%;
+      position: fixed;
+    }
     .gallery-nav {
       display: flex;
       justify-content: center;
@@ -925,6 +931,9 @@
       const modal = document.getElementById('videoModal');
       const content = modal.querySelector('.modal-content');
       
+      // Prevent background scrolling
+      document.body.classList.add('modal-open');
+      
       // Update Index
       currentVideoIndex = allVideos.findIndex(v => v.id === videoId);
 
@@ -990,12 +999,17 @@
       
       modal.addEventListener('touchstart', (e) => {
         touchStartY = e.changedTouches[0].screenY;
-      }, { passive: true });
+      }, { passive: false });
+
+      modal.addEventListener('touchmove', (e) => {
+        // Prevent background scrolling while swiping
+        e.preventDefault();
+      }, { passive: false });
 
       modal.addEventListener('touchend', (e) => {
         touchEndY = e.changedTouches[0].screenY;
         handleSwipe();
-      }, { passive: true });
+      }, { passive: false });
     }
 
     function handleSwipe() {
@@ -1014,6 +1028,9 @@
     function closeModal() {
       const modal = document.getElementById('videoModal');
       modal.classList.remove('active');
+      
+      // Enable background scrolling
+      document.body.classList.remove('modal-open');
       if (modalPlayer && modalPlayer.stopVideo) {
         modalPlayer.stopVideo();
       }
