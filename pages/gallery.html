@@ -817,9 +817,27 @@
 
   <script>
     // Initialize Cinematic Gallery
+    let allVideos = [];
+    let currentVideoIndex = -1;
+    let touchStartY = 0;
+    let touchEndY = 0;
+
     document.addEventListener('DOMContentLoaded', () => {
       loadYoutubeAPI();
+      buildVideoList();
+      initSwipeDetection();
     });
+
+    function buildVideoList() {
+      allVideos = [];
+      const cards = document.querySelectorAll('.video-card, .shorts-card');
+      cards.forEach((card, index) => {
+        allVideos.push({
+          id: card.getAttribute('data-video-id'),
+          type: card.classList.contains('shorts-card') ? 'short' : 'video'
+        });
+      });
+    }
 
     // YouTube Iframe API Integration
     let players = {};
@@ -835,7 +853,6 @@
     }
 
     function onYouTubeIframeAPIReady() {
-      // Instead of initializing all at once, we use the observer to lazy-load
       initObserver();
     }
 
@@ -851,29 +868,17 @@
           const playerId = playerDiv.id;
 
           if (entry.isIntersecting) {
-            // Wait for duration of visibility before initialization
             const loadDelay = playerId.startsWith('player') ? 800 : 1500;
             
             setTimeout(() => {
-              // Check again if still intersecting before heavy initialization
               if (!players[playerId] && typeof YT !== 'undefined' && YT.Player && card.getAttribute('data-loaded') !== 'true' && entry.isIntersecting) {
                 players[playerId] = new YT.Player(playerId, {
                   height: '100%',
                   width: '100%',
                   videoId: videoId,
                   playerVars: {
-                    'autoplay': 0,
-                    'controls': 0,
-                    'rel': 0,
-                    'showinfo': 0,
-                    'ecver': 2,
-                    'mute': 1,
-                    'loop': 1,
-                    'playlist': videoId,
-                    'modestbranding': 1,
-                    'iv_load_policy': 3,
-                    'enablejsapi': 1,
-                    'widget_referrer': window.location.href
+                    'autoplay': 0, 'controls': 0, 'rel': 0, 'mute': 1, 'loop': 1, 'playlist': videoId,
+                    'modestbranding': 1, 'iv_load_policy': 3, 'enablejsapi': 1
                   },
                   events: {
                     'onReady': (event) => {
@@ -887,7 +892,6 @@
               }
             }, loadDelay);
           } else {
-            // Pause if leaving viewport
             if (players[playerId] && players[playerId].pauseVideo) {
               players[playerId].pauseVideo();
             }
@@ -898,17 +902,10 @@
       document.querySelectorAll('.video-card, .shorts-card').forEach(card => observer.observe(card));
     }
 
-    function checkAutoplay() {
-      if (!observer) {
-        initObserver();
-      }
-    }
-
     function toggleMute(event, playerId, btn) {
       event.stopPropagation();
       const player = players[playerId];
       const icon = btn.querySelector('i');
-      
       if (!player || !player.isMuted) return;
 
       if (player.isMuted()) {
@@ -928,6 +925,9 @@
       const modal = document.getElementById('videoModal');
       const content = modal.querySelector('.modal-content');
       
+      // Update Index
+      currentVideoIndex = allVideos.findIndex(v => v.id === videoId);
+
       if (type === 'short') {
         content.classList.add('is-short');
       } else {
@@ -936,12 +936,10 @@
 
       modal.classList.add('active');
       
-      // Stop all background players
       for (let id in players) {
         if (players[id].pauseVideo) players[id].pauseVideo();
       }
 
-      // Initialize modal player
       if (modalPlayer && modalPlayer.loadVideoById) {
         modalPlayer.loadVideoById(videoId);
       } else {
@@ -950,13 +948,66 @@
           width: '100%',
           videoId: videoId,
           playerVars: {
-            'autoplay': 1,
-            'controls': 1,
-            'rel': 0,
-            'modestbranding': 1,
-            'origin': window.location.origin
+            'autoplay': 1, 'controls': 1, 'rel': 0, 'modestbranding': 1, 'origin': window.location.origin
           }
         });
+      }
+    }
+
+    function changeModalVideo(index) {
+      if (index < 0) index = allVideos.length - 1;
+      if (index >= allVideos.length) index = 0;
+      
+      currentVideoIndex = index;
+      const video = allVideos[index];
+      const content = document.querySelector('.modal-content');
+
+      // Visual feedback
+      content.style.opacity = '0';
+      content.style.transform = 'scale(0.95)';
+
+      setTimeout(() => {
+        if (video.type === 'short') {
+          content.classList.add('is-short');
+        } else {
+          content.classList.remove('is-short');
+        }
+        
+        if (modalPlayer && modalPlayer.loadVideoById) {
+          modalPlayer.loadVideoById(video.id);
+        }
+        
+        content.style.opacity = '1';
+        content.style.transform = 'scale(1)';
+      }, 300);
+    }
+
+    function nextVideo() { changeModalVideo(currentVideoIndex + 1); }
+    function prevVideo() { changeModalVideo(currentVideoIndex - 1); }
+
+    function initSwipeDetection() {
+      const modal = document.getElementById('videoModal');
+      
+      modal.addEventListener('touchstart', (e) => {
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+
+      modal.addEventListener('touchend', (e) => {
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+      }, { passive: true });
+    }
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      const deltaY = touchStartY - touchEndY;
+
+      if (Math.abs(deltaY) > swipeThreshold) {
+        if (deltaY > 0) {
+          nextVideo(); // Swipe Up
+        } else {
+          prevVideo(); // Swipe Down
+        }
       }
     }
 
@@ -966,8 +1017,6 @@
       if (modalPlayer && modalPlayer.stopVideo) {
         modalPlayer.stopVideo();
       }
-      
-      // Restart observer check
       initObserver();
     }
 
@@ -979,8 +1028,10 @@
     }
     
     document.addEventListener('keydown', function(event) {
-      if (event.key === "Escape") {
-        closeModal();
+      if (event.key === "Escape") closeModal();
+      if (document.getElementById('videoModal').classList.contains('active')) {
+        if (event.key === "ArrowUp") nextVideo();
+        if (event.key === "ArrowDown") prevVideo();
       }
     });
   </script>
