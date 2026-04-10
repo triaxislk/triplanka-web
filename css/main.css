@@ -726,10 +726,10 @@ footer {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr 1fr; /* Custom widths to bring columns closer */
-    gap: 3rem; /* Reduced gap */
-    max-width: 1100px; /* Limit width for a more compact look */
-    margin: 0 auto 60px; /* Centered with reduced margin-bottom */
+    grid-template-columns: 1.4fr 0.7fr 1.4fr; /* Balanced proportions with more room for contact */
+    gap: 3.5rem; /* Slightly more breathable gap */
+    max-width: 1200px; /* Slightly wider for the address line */
+    margin: 0 auto 60px;
 }
 
 .footer-info p {
@@ -800,7 +800,37 @@ footer {
 
 .footer-links h3, .footer-contact h3 {
     color: var(--white);
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+    font-size: 0.92rem;
+    line-height: 1.4;
+    color: #9CA3AF;
+}
+
+.footer-contact i {
+    color: var(--secondary);
+    width: 20px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.footer-contact a {
+    color: inherit;
+    transition: var(--transition);
+}
+
+.footer-contact a:hover {
+    color: var(--secondary);
 }
 
 .footer-links li {
