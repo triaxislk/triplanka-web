@@ -543,22 +543,22 @@ nav {
     text-align: center;
 }
 
-.hero h1, .hero h2 {
+.hero-content h1, .hero-content h2 {
     font-size: clamp(2.5rem, 8vw, 4.5rem);
     margin: 0 auto 1.5rem auto;
     text-align: center;
 }
 
-.hero h1 span {
+.hero-content h1 span {
     color: var(--secondary);
 }
 
-.hero p {
+.hero-content p {
     font-size: 1.1rem;
-    max-width: 90%;
+    max-width: 900px;
     margin: 0 auto 2rem;
     opacity: 0.9;
-    text-align: center;
+    text-align: center !important;
 }
 
 .hero .btn-secondary {
