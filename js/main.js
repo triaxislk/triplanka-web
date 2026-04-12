@@ -378,5 +378,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // --- Travel Alert Bar Injection (News Ticker) ---
+    const alertBar = document.createElement('div');
+    alertBar.className = 'travel-alert-bar';
+    alertBar.innerHTML = `
+        <div class="alert-label"><i class="fas fa-exclamation-circle"></i> TRAVEL ALERT</div>
+        <div class="alert-ticker-container">
+            <div class="ticker-content">
+                <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
+                Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
+            </div>
+        </div>
+    `;
+    
+    // Insert at the very top of body
+    document.body.prepend(alertBar);
+
+    // Dynamic header positioning logic
+    const updateHeaderPos = () => {
+        const height = alertBar.offsetHeight;
+        document.documentElement.style.setProperty('--alert-height', `${height}px`);
+    };
+
+    // Initial set and update on resize
+    updateHeaderPos();
+    window.addEventListener('resize', updateHeaderPos);
 });
 
