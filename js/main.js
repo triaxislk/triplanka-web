@@ -360,4 +360,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
         observer.observe(milestoneSection);
     }
+
+    // --- FAQ Accordion Controller ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    if (faqItems.length > 0) {
+        faqItems.forEach(item => {
+            const header = item.querySelector('.faq-header');
+            header.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Optional: Close other items
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) otherItem.classList.remove('active');
+                });
+                
+                item.classList.toggle('active', !isActive);
+            });
+        });
+    }
 });
+
