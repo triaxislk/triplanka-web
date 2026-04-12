@@ -386,9 +386,15 @@ nav {
 }
 
 .logo-img {
-    height: 50px;
+    height: 62px; /* Slightly increased for better visibility of the abstract elephant */
     width: auto;
     display: block;
+    mix-blend-mode: multiply; /* Seamless transparency on white headers */
+    transition: var(--transition);
+}
+
+footer .logo-img {
+    mix-blend-mode: screen !important; /* Seamless transparency on dark footers */
 }
 
 .flag-img {
@@ -958,7 +964,7 @@ footer {
     }
 
     .hero, .itinerary-hero {
-        height: 60vh !important;
+        height: calc(100vh - (var(--header-height) + var(--alert-height))) !important;
         min-height: 400px;
     }
 
@@ -1142,7 +1148,7 @@ footer {
 
 @media (max-width: 768px) {
     .hero, .itinerary-hero {
-        height: 55vh !important;
+        height: calc(100vh - (var(--header-height) + var(--alert-height))) !important;
         min-height: 350px;
     }
     
@@ -1255,6 +1261,7 @@ footer {
 
     footer .footer-info .logo-img {
         margin: 0 auto 1.5rem !important;
+        mix-blend-mode: screen !important; /* Perfect transparency on dark backgrounds */
     }
 
     footer .footer-info {

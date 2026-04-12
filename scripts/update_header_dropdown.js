@@ -57,7 +57,7 @@ function updateHeaderGlobally() {
         const homePath = depth === 0 ? 'index.html' : rel + 'index.html';
         const pagesPath = depth === 0 ? 'pages' : (depth === 1 ? '.' : '..');
         const flagPath = rel + 'Images/Site Photos/Sri-Lanka-flag.jpg';
-        const logoPath = rel + 'Images/Logos/Logo Without Background.png';
+        const logoPath = rel + 'Images/Logos/Logo_New.png';
         const connectPath = depth === 0 ? 'pages/contact.html' : (depth === 1 ? 'contact.html' : '../contact.html');
         
         let plansSubPath = '';
