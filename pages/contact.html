@@ -106,6 +106,27 @@
  </style>
 
 
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  
+
+
+  <!-- Security Headers (Automated) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://cdnjs.cloudflare.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://api.emailjs.com https://api.counterapi.dev; frame-src 'self' https://www.google.com https://www.youtube.com;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
 </head>
 <body>
  
@@ -221,24 +242,27 @@
  <div class="contact-form reveal">
  <h2>Send us a Message</h2>
  <p style="margin-bottom: 2rem; color: var(--text-muted);">Fill out the form below and our team will get back to you within 24 hours. </p>
- <form action="#">
+ <form id="contact-form">
+  <!-- Honeypot Field (Security) -->
+  <div style="display:none;"><input type="text" id="subject_alt" name="subject_alt"></div>
  <div class="form-group">
  <label for="name">Your Name</label>
- <input type="text" id="name" placeholder="John Doe" required>
+ <input type="text" id="name" name="from_name" placeholder="John Doe" required>
  </div>
  <div class="form-group">
  <label for="email">Email Address</label>
- <input type="email" id="email" placeholder="john@example.com" required>
+ <input type="email" id="email" name="reply_to" placeholder="john@example.com" required>
  </div>
  <div class="form-group">
  <label for="subject">Subject</label>
- <input type="text" id="subject" placeholder="Plan my trip" required>
+ <input type="text" id="subject" name="subject" placeholder="Plan my trip" required>
  </div>
  <div class="form-group">
  <label for="message">Message</label>
- <textarea id="message" rows="5" placeholder="Tell us about your travel plans..." required></textarea>
+ <textarea id="message" name="message" rows="5" placeholder="Tell us about your travel plans..." required></textarea>
  </div>
- <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+ <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
+  <div id="form-status" style="margin-top: 1rem; text-align: center; font-weight: 600;"></div>
  </form>
  </div>
  </div>
@@ -294,6 +318,27 @@
  </footer>
 
   <script src="../js/main.js"></script>
+<!-- EmailJS Integration (Automated) -->
+  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
+    document.getElementById('contact-form')?.addEventListener('submit', function(event) {
+      event.preventDefault();
+      const submitBtn = document.getElementById('submit-btn');
+      const statusDiv = document.getElementById('form-status');
+      if (document.getElementById('subject_alt').value !== "") return; // Bot check
+      submitBtn.disabled = true; submitBtn.textContent = 'Sending...';
+      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+        .then(() => {
+          statusDiv.style.color = '#27ae60'; statusDiv.textContent = 'Message sent successfully!';
+          submitBtn.textContent = 'Send Message'; submitBtn.disabled = false;
+          this.reset();
+        }, (err) => {
+          statusDiv.style.color = '#e74c3c'; statusDiv.textContent = 'Failed to send. Please try again.';
+          submitBtn.textContent = 'Send Message'; submitBtn.disabled = false;
+        });
+    });
+  </script>
 </body>
 </html>
 

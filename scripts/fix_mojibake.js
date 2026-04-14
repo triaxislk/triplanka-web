@@ -89,6 +89,8 @@ function processFile(filePath) {
         { regex: /Ãº/g, replace: 'ú' },
         { regex: /Ã±/g, replace: 'ñ' },
         { regex: /Ã“/g, replace: 'Ó' },
+        { regex: /faÃƒ\s?§ades/g, replace: 'façades' },
+        { regex: /faÃƒÂ§ades/g, replace: 'façades' },
     ];
     
     let original = content;
