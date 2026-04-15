@@ -890,8 +890,8 @@ footer {
         position: fixed !important;
         top: 0 !important;
         right: -105% !important; /* Move off-screen */
-        width: 100% !important;
-        max-width: 100% !important;
+        width: 400px !important;
+        max-width: 85% !important;
         height: 100vh !important;
         background: #FFFFFF !important; /* Solid white */
         z-index: 9999 !important;
@@ -901,8 +901,9 @@ footer {
         padding: 80px 1.5rem 6rem !important;
         overflow-y: auto !important;
         -webkit-overflow-scrolling: touch !important;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.2) !important;
+        box-shadow: -15px 0 40px rgba(0,0,0,0.2) !important;
         margin: 0 !important;
+        border-left: 1px solid rgba(0,0,0,0.05) !important;
     }
 
     .nav-links.active {
