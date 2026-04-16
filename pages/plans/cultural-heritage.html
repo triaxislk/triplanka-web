@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Heritage Signature Itinerary | Journey Hub | TripLanka</title>
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../../Images/Logos/Header_Logo_Isolated.png">
+    <style>
+        .itinerary-hero {
+            height: 70vh;
+            position: relative;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../Images/Site%20Photos/Collections/Mihinthalaya%20-%20Photo%20by%20Sanjeew%20Sanjaya.JPG");
+            background-size: cover;
+            background-position: center 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding-top: 60px;
+        }
+        
+        @media (max-width: 992px) {
+            .itinerary-hero {
+                background-position: center 60% !important;
+            }
+        }
+
+        .itinerary-content {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .itinerary-content p { font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem; color: #444; text-align: justify; }
+        .content-wrapper p { text-align: justify; }
+        .content-wrapper li { text-align: justify; }
+        .itinerary-content h1 { display: none; }
+        .itinerary-content strong { color: #8D6E63; } /* Earthy Brown */
+        .itinerary-content ul { margin-left: 2rem; margin-bottom: 1.5rem; }
+        .itinerary-content li { margin-bottom: 0.8rem; font-size: 1.05rem; line-height: 1.6; text-align: justify; }
+        .itinerary-content a { color: var(--secondary-color); font-weight: 600; text-decoration: none; }
+        
+        .itinerary-day {
+            background: var(--section-bg);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #8D6E63;
+        }
+        .safety-spotlight {
+            background: #EFEBE9 !important;
+            border: 2px solid #8D6E63 !important;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+        }
+        .safety-spotlight h3 { color: #8D6E63 !important; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+        
+        .dress-code-box {
+            background: #fff;
+            border: 1px dashed #8D6E63;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+    </style>
+
+  <!-- Security Headers (Automated) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://cdnjs.cloudflare.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://api.emailjs.com https://api.counterapi.dev; frame-src 'self' https://www.google.com https://www.youtube.com;">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+
+</head>
+<body>
+    
+  <header>
+  <nav class="container">
+  <div class="logo">
+  <a href="../../index.html">
+  <img src="../../Images/Logos/Header_Logo_Isolated.png" alt="TripLanka Logo" class="logo-img">
+  </a>
+  </div>
+  
+  <ul class="nav-links">
+  <li><a href="../../index.html">Home</a></li>
+  
+  <li class="dropdown">
+  <a href="../travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+  <ul class="dropdown-menu">
+  <li><a href="../travel-info.html">Travel Information</a></li>
+  <li><a href="../travel-info.html#faq">FAQ</a></li>
+  <li><a href="../visa.html">Visa Details</a></li>
+  </ul>
+  </li>
+  <li class="dropdown">
+  <a href="../guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+  <ul class="dropdown-menu">
+  <li><a href="../guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
+  <li><a href="../guide/colombo.html">Colombo</a></li>
+  <li><a href="../guide/kandy.html">Pinnawala, Kandy & Gampola</a></li>
+  <li><a href="../guide/sigiriya.html">Sigiriya, Dambulla & Matale</a></li>
+  <li><a href="../guide/rathnapura.html">Ratnapura, Udawalawe & Adam's Peak</a></li>
+  <li><a href="../guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+  <li><a href="../guide/ella.html">Ella & Badulla</a></li>
+  <li><a href="../guide/ampara.html">Ampara & Dambana</a></li>
+  <li><a href="../guide/galle.html">Galle, Bentota & Hikkaduwa</a></li>
+  <li><a href="../guide/hambantota.html">Hambantota & Matara</a></li>
+  <li><a href="../guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+  <li><a href="../guide/anuradhapura.html">Anuradhapura & Mihintale</a></li>
+  <li><a href="../guide/batticaloa.html">Batticaloa</a></li>
+  <li><a href="../guide/trincomalee.html">Trincomalee</a></li>
+  <li><a href="../guide/jaffna.html">Jaffna</a></li>
+  </ul>
+  </li>
+  <li class="dropdown">
+  <a href="../plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
+  <ul class="dropdown-menu">
+  <li><a href="./solo-female.html">Solo Female Travel Plan</a></li>
+  <li><a href="./solo-male.html">Solo Male Travel Plan</a></li>
+  <li><a href="./leisure.html">Leisure & Relaxation Plan</a></li>
+  <li><a href="./honeymoon.html">Honeymoon & Romance Plan</a></li>
+  <li><a href="./wildlife.html">Wildlife Lovers Touring Plan</a></li>
+  <li><a href="./adventure.html">Adventure Lovers Touring Plan</a></li>
+  <li><a href="./surfing.html">Sea Surfing Touring Plan</a></li>
+  <li><a href="./family-friendly.html">Family Friendly Plan</a></li>
+  <li><a href="./cultural-heritage.html">Cultural Heritage Plan</a></li>
+  <li><a href="./budget-backpacking.html">Budget Backpacking Plan</a></li>
+  <li><a href="./beach-paradise.html">Beach & Coastal Paradise Plan</a></li>
+  </ul>
+  </li>
+  <li class="dropdown">
+  <a href="../blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+  <ul class="dropdown-menu">
+  <li><a href="../blog.html?filter=guides">Travel Guides</a></li>
+  <li><a href="../blog.html?filter=culture">Culture & Food</a></li>
+  <li><a href="../blog.html?filter=nature">Nature & Wildlife</a></li>
+  </ul>
+  </li>
+  <li><a href="../hotels.html">Hotels</a></li>
+  <li><a href="../rentals.html">Rentals</a></li>
+  <li><a href="../gallery.html">Cinematic Gallery</a></li>
+  <li><a href="../contact.html">Contact Us</a></li>
+  </ul>
+  <div class="mobile-menu-btn">
+  <i class="fas fa-bars"></i>
+  </div>
+  </nav>
+</header>
+
+    <main>
+        <section class="itinerary-hero">
+            <div class="photo-attribution">Photo by Sanjeew Sanjaya</div>
+            <div class="container hero-content">
+                <h1 class="fade-in">Cultural Heritage <span>Signature Itinerary</span></h1>
+                <p class="fade-in delay-1">Comprehensive 14-day loop through the Cradle of Kings</p>
+            </div>
+        </section>
+
+        <section class="container itinerary-content">
+            <a href="../plans.html" style="display:inline-block; margin-bottom: 2rem; color: #666;"><i class="fas fa-arrow-left"></i> Back to Journey Hub</a>
+            
+            <!-- Safety Spotlight -->
+            <div class="safety-spotlight">
+                <h3><i class="fas fa-shield-alt"></i> Heritage Safety & Etiquette Spotlight</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">Experience the power of history with these 100% verified protocols:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: #8D6E63;"><i class="fas fa-camera"></i> Respectful Views</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Never turn your back to a Buddha statue for photos. It is considered highly offensive in Buddhist culture. </p>
+                    </div>
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: #8D6E63;"><i class="fas fa-sun"></i> Heat Integrity</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Ancient sites like Anuradhapura involve long walks on hot stones. Always carry water and start your tour by 8 AM. </p>
+                    </div>
+                    <div class="spotlight-card">
+                        <h4 style="font-size: 1rem; color: #8D6E63;"><i class="fas fa-bee"></i> Wasp Protocol</h4>
+                        <p style="font-size: 0.85rem; margin-top: 0.3rem;">Sigiriya has wasp nests. If the warning signs are up, remain quiet and follow guide instructions immediately. </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-wrapper">
+                <p>Sri Lanka's "Cultural Triangle" is the spiritual heart of the island. This 14-day itinerary takes you through three ancient capitals, sacred mountain peaks, and colonial forts, providing an immersive deep-dive into 2,500 years of civilization.</p>
+                
+                <p><strong>Duration: 14 Days</strong></p>
+                
+                <div class="dress-code-box">
+                    <h4 style="margin-bottom: 0.5rem; color: #8D6E63;"><i class="fas fa-tshirt"></i> Strict Temple Dress Code</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">For <strong>Anuradhapura, Polonnaruwa, Dambulla, and Kandy</strong>: You MUST wear clothing that covers both shoulders and knees. White or light-colored clothing is preferred. Hats and shoes must be removed before entering any temple or sacred ruins.</p>
+                </div>
+
+                <!-- Interactive Route Map -->
+                <div class="itinerary-map" style="margin: 2rem 0;">
+                    <h3 style="margin-bottom: 1rem; color: #8D6E63;"><i class="fas fa-map-marked-alt"></i> Interactive Route Map</h3>
+                    <div class="map-container" style="height: 400px; border-radius: 15px; overflow: hidden; box-shadow: var(--shadow);">
+                        <iframe src="https://www.google.com/maps/d/u/3/embed?mid=1Emf5aqGbPwgef0xUICVEgujSaxvn4xo&ehbc=2E312F&noprof=1" loading="lazy" width="100%" height="100%" style="border:0;"></iframe>
+                    </div>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.5rem; text-align: center;"><em>Click the markers to explore the route and locations.</em></p>
+                </div>
+
+                <p><strong>Day 1: Arrival in Colombo (Bandaranaike International Airport - CMB)</strong></p>
+                <ul>
+                    <li>Arrival at CMB Airport. Meet your driver and transfer to your hotel.</li>
+                    <li>Optional afternoon city walk to see the Dutch Hospital and National Museum for a historical overview.</li>
+                </ul>
+                <p><strong>Stay: Colombo (1 night)</strong></p>
+
+                <p><strong>Day 2-3: The First Capital - Anuradhapura</strong></p>
+                <ul>
+                    <li><strong>Logistics:</strong> 4.5-hour drive north.</li>
+                    <li>Explore the sacred city: Ruwanwelisaya, Sri Maha Bodhi (the world's oldest human-planted tree), and Twin Ponds.</li>
+                    <li>Bicycle tours are the best way to see the massive stupas and irrigation systems.</li>
+                </ul>
+                <p><strong>Stay: Anuradhapura (2 nights)</strong></p>
+
+                <p><strong>Day 4: Mihintale - The Cradle of Buddhism</strong></p>
+                <ul>
+                    <li>Visit Mihintale, the sacred mountain where Buddhism was first introduced to Sri Lanka.</li>
+                    <li>Climb the 1,840 granite steps for a panoramic view of the ancient landscape.</li>
+                    <li>Afternoon drive to Polonnaruwa (2.5 hours).</li>
+                </ul>
+                <p><strong>Stay: Polonnaruwa (1 night)</strong></p>
+
+                <p><strong>Day 5-6: Mediaeval Capital & Lion Rock</strong></p>
+                <ul>
+                    <li>Explore <strong>Polonnaruwa</strong>: Gal Vihara's rock-cut Buddhas and the Royal Palace ruins.</li>
+                    <li>Drive to <strong>Sigiriya</strong> (1 hour). Early morning climb to the <strong>Lion Rock Fortress</strong>.</li>
+                    <li>Explore the <strong>Dambulla Cave Temple</strong> with its 150+ Buddha statues and stunning murals.</li>
+                </ul>
+                <p><strong>Stay: Sigiriya (2 nights)</strong></p>
+
+                <p><strong>Day 7-8: Kandy - The Last Kingdom</strong></p>
+                <ul>
+                    <li>Visit the <strong>Temple of the Sacred Tooth Relic</strong>. Attend the 6 PM evening ceremony.</li>
+                    <li>Witness a traditional <strong>Kandyan Dance</strong> performance.</li>
+                    <li>Explore <strong>Gadaladeniya and Lankatilaka</strong> temples for unique architecture.</li>
+                </ul>
+                <p><strong>Stay: Kandy (2 nights)</strong></p>
+
+                <p><strong>Day 9-10: Upcountry Elegance - Nuwara Eliya</strong></p>
+                <ul>
+                    <li>Scenic drive to the hills (3 hours).</li>
+                    <li>Explore the <strong>colonial architecture</strong> of the Nuwara Eliya Post Office and Hill Club.</li>
+                    <li>Visit a tea estate to understand the tea-making history of the British era.</li>
+                </ul>
+                <p><strong>Stay: Nuwara Eliya (2 nights)</strong></p>
+
+                <p><strong>Day 11: Haputale & Lipton's Seat</strong></p>
+                <ul>
+                    <li><strong>Logistics:</strong> 1.5-hour scenic train or car ride.</li>
+                    <li>Visit <strong>Adisham Bungalow</strong> (Benedictine Monastery).</li>
+                    <li>Trek or take a tuk-tuk to <strong>Lipton's Seat</strong> for the best "view in the world."</li>
+                </ul>
+                <p><strong>Stay: Haputale (1 night)</strong></p>
+
+                <p><strong>Day 12-14: Galle Fort UNESCO Heritage</strong></p>
+                <ul>
+                    <li><strong>Logistics:</strong> 4.5-hour drive to the South Coast.</li>
+                    <li>Complete your heritage journey at the 17th-century <strong>Galle Fort</strong>.</li>
+                    <li>Final morning dip in the southern ocean before your departure via the Southern Expressway (2 hours) to CMB Airport.</li>
+                </ul>
+
+                <p><em>"This itinerary is a pilgrimage through time, designed for the traveler who seeks to understand the true historical and spiritual soul of Sri Lanka."</em></p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+  <div class="container footer-grid">
+  <div class="footer-info">
+  <a href="../../index.html">
+  <img src="../../Images/Logos/Footer_Logo_Isolated.png" alt="TripLanka Logo" class="logo-img" style=" margin-bottom: 1.5rem;">
+  </a>
+  <p>Journey Beyond the Ordinary. Your ultimate companion in discovering the magic of the Pearl of the Indian Ocean. </p>
+    <div class="social-links">
+   <a href="https://www.facebook.com/triplanka.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+   <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+   <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+   <a href="https://tp.media/r?marker=717057&p=3211&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSri%2BLanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
+   <a href="https://tp.media/r?marker=717057&p=275&u=https%3A%2F%2Fwww.agoda.com%2Fsearch%3Fquery%3DSri%2BLanka" target="_blank" rel="noopener noreferrer" title="Agoda"><img src="../../Images/Associated Companies/agoda.png" alt="Agoda"></a>
+   <a href="https://tp.media/r?marker=717057&p=3424&u=https%3A%2F%2Fwww.tripadvisor.com%2FTourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+   <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
+   <a href="https://tp.media/r?marker=717057&p=2102&u=https%3A%2F%2Fwww.viator.com%2FSri-Lanka%2F" target="_blank" rel="noopener noreferrer" title="Viator"><img src="../../Images/Associated Companies/viator.png" alt="Viator"></a>
+   <a href="https://tp.media/r?marker=717057&p=2345&u=https%3A%2F%2Fwww.klook.com%2Fen-US%2Fcity%2F162-colombo-things-to-do%2F" target="_blank" rel="noopener noreferrer" title="Klook"><img src="../../Images/Associated Companies/klook.png" alt="Klook"></a>
+   </div>
+  </div>
+  <div class="footer-links">
+  <h3>Explore</h3>
+  <ul>
+  <li><a href="../../index.html">Home</a></li>
+  <li><a href="../guide.html">Travel Guide</a></li>
+  <li><a href="../plans.html">Journey Hub</a></li>
+  <li><a href="../travel-info.html">Travel Information</a></li>
+  <li><a href="../travel-info.html#faq">FAQ</a></li>
+  <li><a href="../visa.html">Visa Details</a></li>
+  <li><a href="../hotels.html">Hotels</a></li>
+  <li><a href="../rentals.html">Rentals</a></li>
+  <li><a href="../blog.html">Travel Blog</a></li>
+  <li><a href="../gallery.html">Cinematic Gallery</a></li>
+  <li><a href="../contact.html">Contact Us</a></li>
+  </ul>
+  </div>
+  <div class="footer-contact">
+  <h3>Contact</h3>
+  <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+  <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
+  <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
+  <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
+  </div>
+  </div>
+  <div class="footer-bottom">
+  <p>&copy; 2026 TripLanka. All Rights Reserved. </p>
+  </div>
+  </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+</html>
