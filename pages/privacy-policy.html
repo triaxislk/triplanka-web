@@ -1,41 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Privacy Policy | TripLanka</title>
- <link rel="stylesheet" href="../css/main.css">
- <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <link rel="icon" type="image/png" href="../Images/Logos/Header_Logo_Isolated.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy | Your Data, Protected | TripLanka</title>
+  <meta name="description" content="Official Privacy Policy for TripLanka. Learn how we collect, protect, and manage your personal data and cookies.">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="../Images/Logos/Header_Logo_Isolated.png">
   <style>
-    .policy-container {
-      padding: 8rem 0 5rem;
-      max-width: 800px;
+    :root {
+      --policy-bg: #fdfdfd;
+      --card-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    .privacy-hero {
+      position: relative;
+      height: 40vh;
+      background: linear-gradient(rgba(0, 40, 60, 0.7), rgba(0, 40, 60, 0.8)), url('../Images/Site%20Photos/Tourist%20Destination%20In%20Sri%20Lanka/Beach%20with%20Coconut%20Tree%20in%20Sri%20Lanka%20-%20Photo%20by%20Polina%20Rivera.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+
+    .privacy-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    .privacy-hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      letter-spacing: 1px;
+    }
+
+    .policy-wrapper {
+      background: var(--policy-bg);
+      padding: 5rem 0;
+      min-height: 100vh;
+    }
+
+    .policy-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 4rem;
+      border-radius: 30px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      max-width: 900px;
       margin: 0 auto;
     }
-    h1 { margin-bottom: 2rem; font-size: 3rem; color: var(--primary-color); }
-    h2 { margin: 2rem 0 1rem; color: var(--text-main); }
-    p { margin-bottom: 1.5rem; color: var(--text-muted); }
-    .last-updated { font-style: italic; color: var(--primary-color); margin-bottom: 3rem; }
+
+    .effective-date {
+      color: #3498db;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    .policy-section {
+      margin-bottom: 3rem;
+    }
+
+    .policy-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: #2c3e50;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 2px solid rgba(52, 152, 219, 0.1);
+      padding-bottom: 0.5rem;
+    }
+
+    .policy-section h3 {
+      font-size: 1.2rem;
+      color: #34495e;
+      margin: 1.5rem 0 0.8rem;
+      font-weight: 700;
+    }
+
+    .policy-section p, .policy-section li {
+      color: #5d6d7e;
+      line-height: 1.8;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+    }
+
+    .policy-section ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .policy-section li {
+      margin-bottom: 0.8rem;
+      list-style-type: circle;
+    }
+
+    .contact-box {
+      background: rgba(52, 152, 219, 0.05);
+      padding: 2.5rem;
+      border-radius: 20px;
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .contact-box h3 {
+      font-family: 'Playfair Display', serif;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    .contact-box a {
+      color: #3498db;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .privacy-hero h1 { font-size: 2.5rem; }
+      .policy-card { padding: 2rem; border-radius: 20px; }
+      .policy-section h2 { font-size: 1.5rem; }
+    }
   </style>
-
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
 
   <!-- Security Headers (Automated) -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://cdnjs.cloudflare.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://api.emailjs.com https://api.counterapi.dev; frame-src 'self' https://www.google.com https://www.youtube.com;">
@@ -44,181 +146,256 @@
 
 </head>
 <body>
- 
- 
- 
- 
- 
- 
   <header>
-  <nav class="container">
-  <div class="logo">
-  <a href="../index.html">
-  <img src="../Images/Logos/Header_Logo_Isolated.png" alt="TripLanka Logo" class="logo-img">
-  </a>
-  </div>
-  
-  <ul class="nav-links">
-  <li><a href="../index.html">Home</a></li>
-  
-  <li class="dropdown">
-  <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
-  <ul class="dropdown-menu">
-  <li><a href="./travel-info.html">Travel Information</a></li>
-  <li><a href="travel-info.html#faq">FAQ</a></li>
-  <li><a href="./visa.html">Visa Details</a></li>
-  </ul>
-  </li>
-  <li class="dropdown">
-  <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
-  <ul class="dropdown-menu">
-  <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
-  <li><a href="guide/colombo.html">Colombo</a></li>
-  <li><a href="guide/kandy.html">Pinnawala, Kandy & Gampola</a></li>
-  <li><a href="guide/sigiriya.html">Sigiriya, Dambulla & Matale</a></li>
-  <li><a href="guide/rathnapura.html">Ratnapura, Udawalawe & Adam's Peak</a></li>
-  <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
-  <li><a href="guide/ella.html">Ella & Badulla</a></li>
-  <li><a href="guide/ampara.html">Ampara & Dambana</a></li>
-  <li><a href="guide/galle.html">Galle, Bentota & Hikkaduwa</a></li>
-  <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
-  <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
-  <li><a href="guide/anuradhapura.html">Anuradhapura & Mihintale</a></li>
-  <li><a href="guide/batticaloa.html">Batticaloa</a></li>
-  <li><a href="guide/trincomalee.html">Trincomalee</a></li>
-  <li><a href="guide/jaffna.html">Jaffna</a></li>
-  </ul>
-  </li>
-  <li class="dropdown">
-  <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
-  <ul class="dropdown-menu">
-  <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
-  <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
-  <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
-  <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
-  <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
-  <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
-  <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
-  <li><a href="plans/family-friendly.html">Family Friendly Plan</a></li>
-  <li><a href="plans/cultural-heritage.html">Cultural Heritage Plan</a></li>
-  <li><a href="plans/budget-backpacking.html">Budget Backpacking Plan</a></li>
-  <li><a href="plans/beach-paradise.html">Beach & Coastal Paradise Plan</a></li>
-  </ul>
-  </li>
-  <li class="dropdown">
-  <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
-  <ul class="dropdown-menu">
-  <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
-  <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
-  <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
-  </ul>
-  </li>
-  <li><a href="./hotels.html">Hotels</a></li>
-  <li><a href="./rentals.html">Rentals</a></li>
-  <li><a href="./gallery.html">Cinematic Gallery</a></li>
-  <li><a href="contact.html">Contact Us</a></li>
-  </ul>
-  <div class="mobile-menu-btn">
-  <i class="fas fa-bars"></i>
-  </div>
-  </nav>
-</header>
+    <nav class="container">
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../Images/Logos/Header_Logo_Isolated.png" alt="TripLanka Logo" class="logo-img">
+        </a>
+      </div>
+      
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        
+        <li class="dropdown">
+          <a href="./travel-info.html">Information <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="./travel-info.html">Travel Information</a></li>
+            <li><a href="travel-info.html#faq">FAQ</a></li>
+            <li><a href="./visa.html">Visa Details</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="./guide.html">Travel Guide <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="guide/negombo.html">Negombo, Mannar & Kalpitiya</a></li>
+            <li><a href="guide/colombo.html">Colombo</a></li>
+            <li><a href="guide/kandy.html">Pinnawala, Kandy & Gampola</a></li>
+            <li><a href="guide/sigiriya.html">Sigiriya, Dambulla & Matale</a></li>
+            <li><a href="guide/rathnapura.html">Ratnapura, Udawalawe & Adam's Peak</a></li>
+            <li><a href="guide/nuwara-eliya.html">Kitulgala & Nuwara Eliya</a></li>
+            <li><a href="guide/ella.html">Ella & Badulla</a></li>
+            <li><a href="guide/ampara.html">Ampara & Dambana</a></li>
+            <li><a href="guide/galle.html">Galle, Bentota & Hikkaduwa</a></li>
+            <li><a href="guide/hambantota.html">Hambantota & Matara</a></li>
+            <li><a href="guide/polonnaruwa.html">Habarana & Polonnaruwa</a></li>
+            <li><a href="guide/anuradhapura.html">Anuradhapura & Mihintale</a></li>
+            <li><a href="guide/batticaloa.html">Batticaloa</a></li>
+            <li><a href="guide/trincomalee.html">Trincomalee</a></li>
+            <li><a href="guide/jaffna.html">Jaffna</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="./plans.html">Journey Hub <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="plans/solo-female.html">Solo Female Travel Plan</a></li>
+            <li><a href="plans/solo-male.html">Solo Male Travel Plan</a></li>
+            <li><a href="plans/leisure.html">Leisure & Relaxation Plan</a></li>
+            <li><a href="plans/honeymoon.html">Honeymoon & Romance Plan</a></li>
+            <li><a href="plans/wildlife.html">Wildlife Lovers Touring Plan</a></li>
+            <li><a href="plans/adventure.html">Adventure Lovers Touring Plan</a></li>
+            <li><a href="plans/surfing.html">Sea Surfing Touring Plan</a></li>
+            <li><a href="plans/family-friendly.html">Family Friendly Plan</a></li>
+            <li><a href="plans/cultural-heritage.html">Cultural Heritage Plan</a></li>
+            <li><a href="plans/budget-backpacking.html">Budget Backpacking Plan</a></li>
+            <li><a href="plans/beach-paradise.html">Beach & Coastal Paradise Plan</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="./blog.html">Travel Blog <i class="fas fa-chevron-down"></i></a>
+          <ul class="dropdown-menu">
+            <li><a href="./blog.html?filter=guides">Travel Guides</a></li>
+            <li><a href="./blog.html?filter=culture">Culture & Food</a></li>
+            <li><a href="./blog.html?filter=nature">Nature & Wildlife</a></li>
+          </ul>
+        </li>
+        <li><a href="./hotels.html">Hotels</a></li>
+        <li><a href="./rentals.html">Rentals</a></li>
+        <li><a href="./gallery.html">Cinematic Gallery</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+      <div class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
 
- <div class="container policy-container">
- <h1>Privacy Policy</h1>
- <p class="last-updated">Last Updated: March 22, 2026</p>
+  <main>
+    <section class="privacy-hero">
+      <div class="container">
+        <h1 class="reveal">Privacy <span>Policy</span></h1>
+        <p class="reveal">Your Data Security is Our Top Priority</p>
+      </div>
+    </section>
 
- <section>
- <h2>Introduction</h2>
- <p>Welcome to TripLanka. We are committed to protecting your privacy and providing a safe, informative experience for all our visitors. This Privacy Policy explains how we collect and use information through our website, triplanka.com. </p>
- </section>
+    <div class="policy-wrapper">
+      <div class="container">
+        <div class="policy-card reveal">
+          <span class="effective-date">Effective Date: 18.04.2026</span>
 
- <section>
- <h2>Data Collection</h2>
- <p>TripLanka is primarily an informational travel guide. We do not collect personal identifying information about you unless you choose to provide that information to us through our contact form or by messaging us on WhatsApp. </p>
- <p>We use standard cookies and analytics tools (such as Google Analytics) to understand how visitors interact with our website to improve our content and user experience. </p>
- </section>
+          <div class="policy-section">
+            <h2>1. Introduction</h2>
+            <p>Welcome to <strong>TripLanka (www.triplanka.com)</strong>. Your privacy is important to us. This Privacy Policy explains how we collect, use, store, protect, and disclose your information when you visit or use our website. </p>
+            <p>By accessing or using TripLanka, you agree to the practices described in this Privacy Policy. </p>
+          </div>
 
- <section>
- <h2>No Financial Transactions</h2>
- <p>Please note that TripLanka is an informational guide and <strong>does not handle financial transactions</strong> or direct hotel/tour bookings on this website. Any links to external booking services are provided for your convenience, and their respective privacy policies will apply to any transactions you conduct with them. </p>
- </section>
+          <div class="policy-section">
+            <h2>2. Who We Are</h2>
+            <p>TripLanka is an independent travel information platform focused on Sri Lanka tourism. We provide destination guides, travel recommendations, tourism resources, and links to third-party travel services. </p>
+          </div>
 
- <section>
- <h2>Security</h2>
- <p>We prioritize traveler safety and the security of your data. We use industry-standard security measures to protect any information shared with us through our communication channels. </p>
- </section>
+          <div class="policy-section">
+            <h2>3. Information We Collect</h2>
+            <h3>A. Information You Voluntarily Provide</h3>
+            <ul>
+              <li>Name and Email address</li>
+              <li>Messages sent through contact forms</li>
+              <li>Newsletter subscription details</li>
+              <li>Feedback or inquiries</li>
+            </ul>
+            <h3>B. Automatically Collected Information</h3>
+            <p>When you visit our website, certain information may be collected automatically, such as IP address, browser type, device type, pages visited, and approximate geographic location. </p>
+            <h3>C. Cookies and Tracking Technologies</h3>
+            <p>We may use cookies, pixels, and similar technologies to improve website functionality and understand visitor behavior. </p>
+          </div>
 
- <section>
- <h2>Contact Us</h2>
- <p>If you have any questions about this Privacy Policy, please contact us at:</p>
- <p>Email: info@triplanka.com<br>Address: Western Province, Sri Lanka</p>
- </section>
- </div>
+          <div class="policy-section">
+            <h2>4. How We Use Your Information</h2>
+            <ul>
+              <li>To operate and maintain the website</li>
+              <li>To improve user experience and personalize content</li>
+              <li>To respond to inquiries or requests</li>
+              <li>To analyze website traffic and performance</li>
+              <li>To detect fraud, abuse, or security issues</li>
+            </ul>
+          </div>
+
+          <div class="policy-section">
+            <h2>5. Legal Basis for Processing</h2>
+            <p>Depending on your location, we may process personal information based on your consent, performance of a service request, or legitimate business interests. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>6. Cookies Policy</h2>
+            <p>TripLanka may use cookies for essential website functions, analytics, and affiliate tracking. You may control or disable cookies through your browser settings. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>7. Analytics Tools</h2>
+            <p>We use analytics services such as Google Analytics and Search Console to understand usage patterns. These services collect data according to their own privacy policies. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>8. Advertising and Affiliates</h2>
+            <p>TripLanka may display ads or use affiliate links. Third-party advertisers may use cookies to personalize ads. We do not control third-party privacy practices. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>9. Third-Party Links</h2>
+            <p>Our website contains links to third-party websites. TripLanka is not responsible for the privacy practices, content, or security of those external websites. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>10. Data Sharing</h2>
+            <p>We do not sell your personal information. We may share limited data with hosting providers, analytics providers, and legal authorities only when strictly necessary. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>11. International Transfers</h2>
+            <p>Data may be processed internationally by our service providers, subject to applicable safeguards. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>12. Data Retention</h2>
+            <p>We retain personal information only as long as reasonably necessary for operational purposes, legal obligations, or security requirements. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>13. Security</h2>
+            <p>We use reasonable administrative and technical safeguards to protect your data. However, no method of transmission is 100% secure. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>14. Your Rights</h2>
+            <p>You have the right to access, correct, or request deletion of your personal information. To exercise these rights, please contact us. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>15. Email Communications</h2>
+            <p>If you subscribe to updates, you may unsubscribe at any time using the link in our emails. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>16. Children's Privacy</h2>
+            <p>TripLanka is not intended for children under the required age. We do not knowingly collect information from children. </p>
+          </div>
+
+          <div class="policy-section">
+            <h2>17. Governing Law</h2>
+            <p>This Privacy Policy is governed by the laws of <strong>Sri Lanka</strong>. </p>
+          </div>
+
+          <div class="contact-box">
+            <h3>Privacy Concerns?</h3>
+            <p>Contact our Data Protection Officer at: <br><a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+          </div>
+
+          <div style="text-align: center; margin-top: 3rem; font-size: 0.9rem; color: #bdc3c7;">
+            <p>By using TripLanka, you acknowledge that you have read and understood this Privacy Policy. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <footer>
- <div class="container footer-grid">
- <div class="footer-info">
- <a href="../index.html">
- <img src="../Images/Logos/Footer_Logo_Isolated.png" alt="TripLanka Logo" class="logo-img" style=" margin-bottom: 1.5rem;">
- </a>
- <p>Journey Beyond the Ordinary. Your ultimate companion in discovering the magic of the Pearl of the Indian Ocean. </p>
-   <div class="social-links">
-  <a href="https://www.facebook.com/triplanka.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-  <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-  <a href="https://tp.media/r?marker=717057&p=3211&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSri%2BLanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
-  <a href="https://tp.media/r?marker=717057&p=275&u=https%3A%2F%2Fwww.agoda.com%2Fsearch%3Fquery%3DSri%2BLanka" target="_blank" rel="noopener noreferrer" title="Agoda"><img src="../Images/Associated Companies/agoda.png" alt="Agoda"></a>
-  <a href="https://tp.media/r?marker=717057&p=3424&u=https%3A%2F%2Fwww.tripadvisor.com%2FTourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
-  <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
-  <a href="https://tp.media/r?marker=717057&p=2102&u=https%3A%2F%2Fwww.viator.com%2FSri-Lanka%2F" target="_blank" rel="noopener noreferrer" title="Viator"><img src="../Images/Associated Companies/viator.png" alt="Viator"></a>
-  <a href="https://tp.media/r?marker=717057&p=2345&u=https%3A%2F%2Fwww.klook.com%2Fen-US%2Fcity%2F162-colombo-things-to-do%2F" target="_blank" rel="noopener noreferrer" title="Klook"><img src="../Images/Associated Companies/klook.png" alt="Klook"></a>
-  </div>
- </div>
- <div class="footer-links">
- <h3>Explore</h3>
- <ul>
- <li><a href="../index.html">Home</a></li>
- <li><a href="guide.html">Travel Guide</a></li>
- <li><a href="plans.html">Journey Hub</a></li>
- <li><a href="travel-info.html">Travel Information</a></li>
- <li><a href="travel-info.html#faq">FAQ</a></li>
- <li><a href="visa.html">Visa Details</a></li>
- <li><a href="hotels.html">Hotels</a></li>
- <li><a href="rentals.html">Rentals</a></li>
- <li><a href="blog.html">Travel Blog</a></li>
- <li><a href="gallery.html">Cinematic Gallery</a></li>
- <li><a href="contact.html">Contact Us</a></li>
- </ul>
- </div>
- <div class="footer-contact">
- <h3>Contact</h3>
- <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
- <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
- <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
- <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
- </div>
- </div>
- <div class="footer-bottom">
- <p>&copy; 2026 TripLanka. All Rights Reserved. </p>
- </div>
- </footer>
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <a href="../index.html">
+          <img src="../Images/Logos/Footer_Logo_Isolated.png" alt="TripLanka Logo" class="logo-img" style=" margin-bottom: 1.5rem;">
+        </a>
+        <p>Journey Beyond the Ordinary. Your ultimate companion in discovering the magic of the Pearl of the Indian Ocean. </p>
+        <div class="social-links">
+          <a href="https://www.facebook.com/triplanka.com" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.tiktok.com/@triplanka" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+          <a href="https://www.instagram.com/triplanka" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://tp.media/r?marker=717057&p=3211&u=https%3A%2F%2Fwww.booking.com%2Fsearchresults.html%3Fss%3DSri%2BLanka" target="_blank" rel="noopener noreferrer" title="Booking.com"><img src="../Images/Associated Companies/booking.com.png" alt="Booking.com"></a>
+          <a href="https://tp.media/r?marker=717057&p=275&u=https%3A%2F%2Fwww.agoda.com%2Fsearch%3Fquery%3DSri%2BLanka" target="_blank" rel="noopener noreferrer" title="Agoda"><img src="../Images/Associated Companies/agoda.png" alt="Agoda"></a>
+          <a href="https://tp.media/r?marker=717057&p=3424&u=https%3A%2F%2Fwww.tripadvisor.com%2FTourism-g293961-Sri_Lanka-Vacations.html" target="_blank" rel="noopener noreferrer" title="TripAdvisor"><img src="../Images/Associated Companies/Trip Advisor.png" alt="TripAdvisor"></a>
+          <a href="https://www.airbnb.com/s/Sri-Lanka/homes" target="_blank" rel="noopener noreferrer" title="Airbnb"><img src="../Images/Associated Companies/airbnb.png" alt="Airbnb"></a>
+          <a href="https://tp.media/r?marker=717057&p=2102&u=https%3A%2F%2Fwww.viator.com%2FSri-Lanka%2F" target="_blank" rel="noopener noreferrer" title="Viator"><img src="../Images/Associated Companies/viator.png" alt="Viator"></a>
+          <a href="https://tp.media/r?marker=717057&p=2345&u=https%3A%2F%2Fwww.klook.com%2Fen-US%2Fcity%2F162-colombo-things-to-do%2F" target="_blank" rel="noopener noreferrer" title="Klook"><img src="../Images/Associated Companies/klook.png" alt="Klook"></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="guide.html">Travel Guide</a></li>
+          <li><a href="plans.html">Journey Hub</a></li>
+          <li><a href="travel-info.html">Travel Information</a></li>
+          <li><a href="travel-info.html#faq">FAQ</a></li>
+          <li><a href="visa.html">Visa Details</a></li>
+          <li><a href="hotels.html">Hotels</a></li>
+          <li><a href="rentals.html">Rentals</a></li>
+          <li><a href="blog.html">Travel Blog</a></li>
+          <li><a href="gallery.html">Cinematic Gallery</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:info@triplanka.com">info@triplanka.com</a></p>
+        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/94764404152" target="_blank">+94 76 440 4152</a></p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+94764404152">+94 76 440 4152</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Western Province, Sri Lanka</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2016 - 2026 TripLanka. All Rights Reserved. | <a href="terms-of-service.html" style="color: rgba(255,255,255,0.6); text-decoration: none;">Terms</a> | <a href="privacy-policy.html" style="color: rgba(255,255,255,0.6); text-decoration: none;">Privacy</a></p>
+    </div>
+  </footer>
 
   <script src="../js/main.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
