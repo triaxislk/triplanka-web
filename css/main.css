@@ -2190,3 +2190,112 @@ footer {
         font-size: 0.95rem;
     }
 }
+
+/* --- GDPR Cookie Consent Banner --- */
+.cookie-consent-banner {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    left: 30px; /* On mobile it will be full width minus padding */
+    max-width: 550px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 24px;
+    padding: 2.2rem;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transform: translateY(150%);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+@media (min-width: 993px) {
+    .cookie-consent-banner {
+        left: auto;
+        right: 40px;
+        bottom: 40px;
+    }
+}
+
+.cookie-consent-banner.active {
+    transform: translateY(0);
+}
+
+.cookie-content h3 {
+    margin-bottom: 0.8rem;
+    color: var(--primary);
+    font-size: 1.35rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.cookie-content p {
+    font-size: 0.92rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 0;
+    text-align: justify;
+}
+
+.cookie-btns {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.cookie-btns .btn-accept {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 8px 25px rgba(0, 106, 78, 0.25);
+}
+
+.cookie-btns .btn-accept:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 106, 78, 0.35);
+}
+
+.cookie-btns .btn-decline {
+    background: transparent;
+    color: var(--text-dark);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 0.85rem 1.8rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cookie-btns .btn-decline:hover {
+    background: rgba(0, 0, 0, 0.05);
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    .cookie-consent-banner {
+        padding: 1.8rem;
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+    }
+    .cookie-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    .cookie-btns button {
+        width: 100%;
+    }
+}

@@ -404,5 +404,40 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial set and update on resize
     updateHeaderPos();
     window.addEventListener('resize', updateHeaderPos);
+
+    // --- GDPR Cookie Consent Implementation ---
+    const showCookieConsent = () => {
+        const consent = localStorage.getItem('triplanka_cookie_consent');
+        if (consent) return;
+
+        const banner = document.createElement('div');
+        banner.className = 'cookie-consent-banner';
+        banner.innerHTML = `
+            <div class="cookie-content">
+                <h3><i class="fas fa-cookie-bite"></i> Your Privacy & Cookies</h3>
+                <p>We use essential cookies and analytical tools to ensure you get the best experience on TripLanka. By clicking "Accept All", you agree to our use of cookies to analyze site traffic and improve our services. </p>
+            </div>
+            <div class="cookie-btns">
+                <button class="btn-accept">Accept All</button>
+                <button class="btn-decline">Decline</button>
+            </div>
+        `;
+        
+        document.body.appendChild(banner);
+        
+        // Trigger animation
+        setTimeout(() => banner.classList.add('active'), 1000);
+
+        const handleAction = (type) => {
+            localStorage.setItem('triplanka_cookie_consent', type);
+            banner.classList.remove('active');
+            setTimeout(() => banner.remove(), 800);
+        };
+
+        banner.querySelector('.btn-accept').addEventListener('click', () => handleAction('accepted'));
+        banner.querySelector('.btn-decline').addEventListener('click', () => handleAction('declined'));
+    };
+
+    showCookieConsent();
 });
 
