@@ -252,7 +252,7 @@
   <div style="display:none;"><input type="text" id="subject_alt" name="subject_alt"></div>
  <div class="form-group">
  <label for="name">Your Name</label>
- <input type="text" id="name" name="from_name" placeholder="John Doe" required>
+ <input type="text" id="name" name="name" placeholder="John Doe" required>
  </div>
  <div class="form-group">
  <label for="email">Email Address</label>
@@ -266,6 +266,8 @@
  <label for="message">Message</label>
  <textarea id="message" name="message" rows="5" placeholder="Tell us about your travel plans..." required></textarea>
  </div>
+ <!-- Hidden Time Field for Template -->
+ <input type="hidden" id="time" name="time">
  <button type="submit" id="submit-btn" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Message</button>
   <div id="form-status" style="margin-top: 1rem; text-align: center; font-weight: 600;"></div>
  </form>
@@ -323,30 +325,56 @@
  </footer>
 
   <script src="../js/main.js"></script>
-<!-- EmailJS Integration (Automated) -->
+<!-- EmailJS Integration -->
   <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
   <script type="text/javascript">
-    (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
+    (function(){ 
+        // Initializing EmailJS with your Public Key
+        emailjs.init("frkRGSfTLlS97gRwk"); 
+    })();
+
     document.getElementById('contact-form')?.addEventListener('submit', function(event) {
       event.preventDefault();
+      
       const submitBtn = document.getElementById('submit-btn');
       const statusDiv = document.getElementById('form-status');
-      if (document.getElementById('subject_alt').value !== "") return; // Bot check
-      submitBtn.disabled = true; submitBtn.textContent = 'Sending...';
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+      const timeField = document.getElementById('time');
+      
+      // Bot check (Honeypot)
+      if (document.getElementById('subject_alt').value !== "") return;
+
+      // Set current time for the template {{time}}
+      const now = new Date();
+      timeField.value = now.toLocaleString('en-US', { 
+        weekday: 'short', 
+        year: 'numeric', 
+        month: 'short', 
+        day: 'numeric', 
+        hour: '2-digit', 
+        minute: '2-digit' 
+      });
+
+      submitBtn.disabled = true; 
+      submitBtn.textContent = 'Sending Message...';
+
+      // Send via EmailJS using your Service ID and Template ID
+      emailjs.sendForm('service_ags5zas', 'template_lc7vw5a', this)
         .then(() => {
-          statusDiv.style.color = '#27ae60'; statusDiv.textContent = 'Message sent successfully!';
-          submitBtn.textContent = 'Send Message'; submitBtn.disabled = false;
+          statusDiv.style.color = '#27ae60'; 
+          statusDiv.textContent = 'Thank you! Your message has been sent successfully.';
+          submitBtn.textContent = 'Send Message'; 
+          submitBtn.disabled = false;
           this.reset();
         }, (err) => {
-          statusDiv.style.color = '#e74c3c'; statusDiv.textContent = 'Failed to send. Please try again.';
-          submitBtn.textContent = 'Send Message'; submitBtn.disabled = false;
+          console.error('EmailJS Error:', err);
+          statusDiv.style.color = '#e74c3c'; 
+          statusDiv.textContent = 'Oops! Failed to send message. Please try WhatsApp or Direct Email.';
+          submitBtn.textContent = 'Send Message'; 
+          submitBtn.disabled = false;
         });
     });
   </script>
 </body>
-</html>
-
 
 
 
