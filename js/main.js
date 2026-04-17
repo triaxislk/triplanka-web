@@ -386,6 +386,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="alert-label"><i class="fas fa-exclamation-circle"></i> TRAVEL ALERT</div>
         <div class="alert-ticker-container">
             <div class="ticker-content">
+                <strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones. 
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
                 Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
             </div>
