@@ -397,6 +397,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Insert at the very top of body
     document.body.prepend(alertBar);
 
+    // Toggle pause on click/touch for mobile & desktop
+    alertBar.addEventListener('click', () => {
+        alertBar.classList.toggle('paused');
+    });
+
     // Dynamic header positioning logic
     const updateHeaderPos = () => {
         const height = alertBar.offsetHeight;

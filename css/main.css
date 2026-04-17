@@ -2137,12 +2137,20 @@ footer {
     will-change: transform; /* Performance optimization */
 }
 
-/* Pause on Hover only for devices with a mouse (Desktop) */
+/* Pause logic: Hover (Desktop) OR .paused class (Toggled by Click/Touch) */
 @media (hover: hover) {
     .travel-alert-bar:hover .ticker-content {
         animation-play-state: paused;
         cursor: default;
     }
+}
+
+.travel-alert-bar.paused .ticker-content {
+    animation-play-state: paused;
+}
+
+.travel-alert-bar {
+    cursor: pointer; /* Show it's interactive */
 }
 
 .ticker-content strong {
