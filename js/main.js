@@ -302,10 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const milestoneCounters = document.querySelectorAll('.counter-number:not(#live-visitor-count)');
     const liveCounter = document.getElementById('live-visitor-count');
 
-    // Helper: Compact Number Formatter (12400 -> 12.4k)
+    // Helper: Compact Number Formatter (100000 -> 100k)
     function formatCompactNumber(number) {
-        if (number < 10000) {
-            return number.toLocaleString(); // Keep full for < 10k for precision
+        if (number < 100000) {
+            return number.toLocaleString(); // Keep full for < 100k as requested
         } else if (number < 1000000) {
             return (number / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
         } else {
@@ -317,8 +317,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.updateVisitorUI = (count) => {
         if (liveCounter && count) {
             const target = count;
-            const start = Math.max(0, target - 50);
-            animateValue(liveCounter, start, target, 2000, true);
+            // Animate from 0 to target in 2 seconds for a snappy feel
+            animateValue(liveCounter, 0, target, 2000, true);
         }
     };
 
