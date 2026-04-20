@@ -81,7 +81,7 @@
   </script>
 
   <!-- Security Headers (Automated) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://cdnjs.cloudflare.com https://www.youtube.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://api.emailjs.com https://api.counterapi.dev; frame-src 'self' https://www.google.com https://www.youtube.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.emailjs.com https://cdnjs.cloudflare.com https://www.youtube.com https://www.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://api.emailjs.com https://api.counterapi.dev https://triplanka-default-rtdb.firebaseio.com https://*.googleapis.com; frame-src 'self' https://www.google.com https://www.youtube.com;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
@@ -497,6 +497,39 @@
  </footer>
 
  <script src="js/main.js"></script>
+  <!-- Firebase Realtime Visitor Counter -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, runTransaction, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCTh0xCG2h5-JFXDC4TRqotvZfgdj0P5nE",
+      authDomain: "triplanka.firebaseapp.com",
+      projectId: "triplanka",
+      storageBucket: "triplanka.firebasestorage.app",
+      messagingSenderId: "918144395277",
+      appId: "1:918144395277:web:900d61146ce2a6d38a8d44",
+      measurementId: "G-LMF7951N7M"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const visitorCountRef = ref(db, 'stats/visitorCount');
+
+    // Increment count on page load
+    runTransaction(visitorCountRef, (currentValue) => {
+      return (currentValue || 12408) + 1;
+    });
+
+    // Listen for updates and trigger global UI update function
+    onValue(visitorCountRef, (snapshot) => {
+      const count = snapshot.val();
+      if (window.updateVisitorUI) {
+        window.updateVisitorUI(count);
+      }
+    });
+  </script>
+
 </body>
 </html>
 

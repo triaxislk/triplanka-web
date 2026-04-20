@@ -313,28 +313,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 1. Fetch Real Visitor Count from CounterAPI
-    const updateRealVisitorCount = async () => {
-        const fallbackValue = 12408;
-        try {
-            // Using api.counterapi.dev for TripLanka namespace
-            const response = await fetch('https://api.counterapi.dev/v1/triplanka.com/total-visits/up');
-            const data = await response.json();
-            
-            if (data && data.count) {
-                const target = data.count;
-                const start = Math.max(0, target - 50);
-                animateValue(liveCounter, start, target, 2000, true);
-            } else {
-                throw new Error('Invalid API response');
-            }
-        } catch (error) {
-            console.error('Visitor Counter Error:', error);
-            // Even if API fails, animate to our last known fallback nicely
-            if (liveCounter) {
-                animateValue(liveCounter, 0, fallbackValue, 2000, true);
-            }
+    // 1. Firebase Real-Time Visitor UI Link
+    window.updateVisitorUI = (count) => {
+        if (liveCounter && count) {
+            const target = count;
+            const start = Math.max(0, target - 50);
+            animateValue(liveCounter, start, target, 2000, true);
         }
+    };
+
+    const updateRealVisitorCount = () => {
+        // Now handled by Firebase listener in index.html
+        console.log('Visitor count update handled by Firebase');
     };
 
     // Helper: Animate numbers
