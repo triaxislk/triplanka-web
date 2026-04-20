@@ -302,36 +302,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const milestoneCounters = document.querySelectorAll('.counter-number:not(#live-visitor-count)');
     const liveCounter = document.getElementById('live-visitor-count');
 
+    // Helper: Compact Number Formatter (12400 -> 12.4k)
+    function formatCompactNumber(number) {
+        if (number < 10000) {
+            return number.toLocaleString(); // Keep full for < 10k for precision
+        } else if (number < 1000000) {
+            return (number / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+        } else {
+            return (number / 1000000).toFixed(1).replace(/\.0$/, '') + 'm';
+        }
+    }
+
     // 1. Fetch Real Visitor Count from CounterAPI
     const updateRealVisitorCount = async () => {
+        const fallbackValue = 12408;
         try {
             // Using api.counterapi.dev for TripLanka namespace
-            // Namespace: triplanka.com | Key: total-visits
             const response = await fetch('https://api.counterapi.dev/v1/triplanka.com/total-visits/up');
             const data = await response.json();
+            
             if (data && data.count) {
-                if (liveCounter) {
-                    // Animate the live counter from a slightly lower number for effect, or just set it
-                    const target = data.count;
-                    const duration = 2000;
-                    const start = Math.max(0, target - 50); // Start 50 below target for animation
-                    animateValue(liveCounter, start, target, duration);
-                }
+                const target = data.count;
+                const start = Math.max(0, target - 50);
+                animateValue(liveCounter, start, target, 2000, true);
+            } else {
+                throw new Error('Invalid API response');
             }
         } catch (error) {
             console.error('Visitor Counter Error:', error);
-            if (liveCounter) liveCounter.textContent = '12,408'; // Premium-looking Fallback
+            // Even if API fails, animate to our last known fallback nicely
+            if (liveCounter) {
+                animateValue(liveCounter, 0, fallbackValue, 2000, true);
+            }
         }
     };
 
     // Helper: Animate numbers
-    function animateValue(obj, start, end, duration) {
+    function animateValue(obj, start, end, duration, isCompact = false) {
+        if (!obj) return;
         let startTimestamp = null;
         const step = (timestamp) => {
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             const current = Math.floor(progress * (end - start) + start);
-            obj.innerHTML = current.toLocaleString();
+            
+            if (isCompact) {
+                obj.innerHTML = formatCompactNumber(current);
+            } else {
+                obj.innerHTML = current.toLocaleString();
+            }
+            
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             }
