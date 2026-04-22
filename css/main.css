@@ -2513,9 +2513,10 @@ footer {
 
 .alert-ticker-container {
     flex: 1;
-    height: 100%;
     overflow: hidden;
     position: relative;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
     display: flex;
     align-items: center;
     background: rgba(0,0,0,0.2);
@@ -2575,6 +2576,12 @@ footer {
     }
     .alert-label span, .weather-label span {
         display: none; 
+    }
+    .ticker-section {
+        padding: 0 30px; /* Reduced padding for mobile */
+    }
+    .ticker-content {
+        animation-duration: 40s; /* Faster for mobile/tab */
     }
 }
 
