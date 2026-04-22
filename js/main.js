@@ -397,16 +397,31 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="weather-label"><i class="fas fa-cloud-sun"></i> <span>WEATHER</span></div>
         <div class="alert-ticker-container">
             <div class="ticker-content" id="alert-ticker-content">
-                <span class="ticker-section">
-                    <strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.
-                </span>
-                <span class="ticker-section">
-                    <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
-                    Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
-                </span>
-                <span class="ticker-section weather-updates" id="weather-ticker-section">
-                    <strong>WEATHER FORECAST:</strong> Loading live weather updates...
-                </span>
+                <div class="ticker-item-wrapper">
+                    <span class="ticker-section">
+                        <strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.
+                    </span>
+                    <span class="ticker-section">
+                        <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
+                        Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
+                    </span>
+                    <span class="ticker-section weather-updates" id="weather-ticker-section">
+                        <strong>WEATHER FORECAST:</strong> Loading live weather updates...
+                    </span>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="ticker-item-wrapper">
+                    <span class="ticker-section">
+                        <strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.
+                    </span>
+                    <span class="ticker-section">
+                        <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
+                        Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
+                    </span>
+                    <span class="ticker-section weather-updates-duplicate" id="weather-ticker-section-dup">
+                        <strong>WEATHER FORECAST:</strong> Loading live weather updates...
+                    </span>
+                </div>
             </div>
         </div>
     `;
@@ -432,6 +447,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Weather Forecast System ---
     const updateWeather = async () => {
         const weatherSection = document.getElementById('weather-ticker-section');
+        const weatherSectionDup = document.getElementById('weather-ticker-section-dup');
         if (!weatherSection) return;
 
         const cities = [
@@ -479,15 +495,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     weatherHtml += `${city.name} ${icon} ${temp}°C ${index < data.length - 1 ? ' | ' : ''} `;
                 });
                 weatherSection.innerHTML = weatherHtml;
+                if (weatherSectionDup) weatherSectionDup.innerHTML = weatherHtml;
             } else if (data && data.current_weather) {
                 // Single result case (unlikely with our query but good for safety)
                 const temp = data.current_weather.temperature.toFixed(1);
                 const icon = getWeatherIcon(data.current_weather.weathercode);
                 weatherSection.innerHTML = `<strong>WEATHER FORECAST:</strong> ${cities[0].name} ${icon} ${temp}°C`;
+                if (weatherSectionDup) weatherSectionDup.innerHTML = `<strong>WEATHER FORECAST:</strong> ${cities[0].name} ${icon} ${temp}°C`;
             }
         } catch (error) {
             console.error('Weather update failed:', error);
             weatherSection.innerHTML = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable. Stay safe!';
+            if (weatherSectionDup) weatherSectionDup.innerHTML = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable. Stay safe!';
         }
     };
 
