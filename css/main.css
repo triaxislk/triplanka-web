@@ -2560,7 +2560,7 @@ footer {
 @media (max-width: 992px) {
     .travel-alert-bar {
         height: 40px;
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     .alert-label, .weather-label {
         width: 45px;
@@ -2568,23 +2568,27 @@ footer {
         padding: 0;
         justify-content: center;
         z-index: 10;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     }
-    .alert-label { background: #d32f2f; }
-    .weather-label { background: #007bff; }
+    .alert-label { background: #d32f2f !important; }
+    .weather-label { background: #007bff !important; }
     
     .alert-label i, .weather-label i {
         display: inline-block !important;
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin: 0;
     }
     .alert-label span, .weather-label span {
         display: none; 
     }
+    .alert-ticker-container {
+        background: transparent;
+    }
     .ticker-section {
-        padding: 0 40px;
+        padding: 0 35px;
     }
     .ticker-content {
-        animation-duration: 45s;
+        animation-duration: 40s;
     }
 }
 
