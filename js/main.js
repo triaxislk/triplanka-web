@@ -421,15 +421,16 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="ticker-section weather-updates" id="weather-ticker-section"><strong>LIVE WEATHER:</strong> Loading updates...</span>
     `;
     
-    // Append original
+    // Append original & clone
     tickerContent.appendChild(original);
-
-    // Clone for seamless loop
-    const clone = original.cloneNode(true);
-    clone.id = 'ticker-clone';
-    // Ensure the clone's weather section has a distinct way to be identified if needed, 
-    // but the current selector '.weather-updates' will catch both.
     tickerContent.appendChild(clone);
+
+    // Boost animation start on mobile
+    setTimeout(() => {
+        tickerContent.style.animation = 'none';
+        tickerContent.offsetHeight; // Trigger reflow
+        tickerContent.style.animation = '';
+    }, 100);
 
     // Interaction Controller
     const handlePause = (isPaused) => {
