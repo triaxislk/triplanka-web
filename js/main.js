@@ -395,39 +395,35 @@ document.addEventListener('DOMContentLoaded', () => {
     alertBar.innerHTML = `
         <div class="alert-label"><i class="fas fa-exclamation-circle"></i> <span>TRAVEL ALERT</span></div>
         <div class="weather-label"><i class="fas fa-cloud-sun"></i> <span>WEATHER</span></div>
-        <div class="alert-ticker-container">
-            <div class="ticker-content" id="alert-ticker-content">
-                <div class="ticker-item-wrapper">
-                    <span class="ticker-section">
-                        <strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.
-                    </span>
-                    <span class="ticker-section">
-                        <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
-                        Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
-                    </span>
-                    <span class="ticker-section weather-updates" id="weather-ticker-section">
-                        <strong>WEATHER FORECAST:</strong> Loading live weather updates...
-                    </span>
-                </div>
-                <!-- Duplicate for seamless loop -->
-                <div class="ticker-item-wrapper">
-                    <span class="ticker-section">
-                        <strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.
-                    </span>
-                    <span class="ticker-section">
-                        <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
-                        Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
-                    </span>
-                    <span class="ticker-section weather-updates-duplicate" id="weather-ticker-section-dup">
-                        <strong>WEATHER FORECAST:</strong> Loading live weather updates...
-                    </span>
-                </div>
-            </div>
-        </div>
+        <div class="alert-ticker-container"><div class="ticker-content" id="alert-ticker-content"></div></div>
     `;
     
     // Insert at the very top of body
     document.body.prepend(alertBar);
+
+    // Create original content
+    const tickerContent = document.getElementById('alert-ticker-content');
+    const original = document.createElement('div');
+    original.className = 'ticker-item-wrapper';
+    original.id = 'ticker-original';
+    original.innerHTML = `
+        <span class="ticker-section"><strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.</span>
+        <span class="ticker-section"><strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.</span>
+        <span class="ticker-section weather-updates" id="weather-ticker-section"><strong>WEATHER FORECAST:</strong> Loading live weather updates...</span>
+    `;
+    
+    // Append original
+    tickerContent.appendChild(original);
+
+    // Clone for seamless loop
+    const clone = original.cloneNode(true);
+    clone.id = 'ticker-clone';
+    const weatherSectionDup = clone.querySelector('#weather-ticker-section');
+    if (weatherSectionDup) {
+        weatherSectionDup.id = 'weather-ticker-section-dup';
+        weatherSectionDup.className = 'ticker-section weather-updates-duplicate';
+    }
+    tickerContent.appendChild(clone);
 
     // Toggle pause on click/touch for mobile & desktop
     alertBar.addEventListener('click', () => {
@@ -446,9 +442,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Weather Forecast System ---
     const updateWeather = async () => {
-        const weatherSection = document.getElementById('weather-ticker-section');
-        const weatherSectionDup = document.getElementById('weather-ticker-section-dup');
-        if (!weatherSection) return;
+        // Find all weather sections (including clones)
+        const weatherSections = document.querySelectorAll('.weather-updates, .weather-updates-duplicate');
+        if (weatherSections.length === 0) return;
 
         const cities = [
             { name: "Katunayaka (CMB)", lat: 7.1620, lon: 79.8831 },
@@ -494,19 +490,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     const icon = getWeatherIcon(loc.current_weather.weathercode);
                     weatherHtml += `${city.name} ${icon} ${temp}°C ${index < data.length - 1 ? ' | ' : ''} `;
                 });
-                weatherSection.innerHTML = weatherHtml;
-                if (weatherSectionDup) weatherSectionDup.innerHTML = weatherHtml;
+                weatherSections.forEach(sec => sec.innerHTML = weatherHtml);
             } else if (data && data.current_weather) {
-                // Single result case (unlikely with our query but good for safety)
                 const temp = data.current_weather.temperature.toFixed(1);
                 const icon = getWeatherIcon(data.current_weather.weathercode);
-                weatherSection.innerHTML = `<strong>WEATHER FORECAST:</strong> ${cities[0].name} ${icon} ${temp}°C`;
-                if (weatherSectionDup) weatherSectionDup.innerHTML = `<strong>WEATHER FORECAST:</strong> ${cities[0].name} ${icon} ${temp}°C`;
+                const weatherHtml = `<strong>WEATHER FORECAST:</strong> ${cities[0].name} ${icon} ${temp}°C`;
+                weatherSections.forEach(sec => sec.innerHTML = weatherHtml);
             }
         } catch (error) {
             console.error('Weather update failed:', error);
-            weatherSection.innerHTML = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable. Stay safe!';
-            if (weatherSectionDup) weatherSectionDup.innerHTML = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable. Stay safe!';
+            const errorHtml = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable. Stay safe!';
+            weatherSections.forEach(sec => sec.innerHTML = errorHtml);
         }
     };
 
