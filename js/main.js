@@ -495,6 +495,41 @@ document.addEventListener('DOMContentLoaded', () => {
     updateWeather();
     setInterval(updateWeather, 600000);
 
+    // --- Cookie Consent System ---
+    function showCookieConsent() {
+        const consent = localStorage.getItem('cookieConsent');
+        if (!consent) {
+            const banner = document.createElement('div');
+            banner.className = 'cookie-banner';
+            banner.innerHTML = `
+                <div class="cookie-content">
+                    <h3><i class="fas fa-cookie-bite"></i> Cookie Privacy</h3>
+                    <p>We use essential cookies to ensure you get the best experience on our website. By continuing to browse, you agree to our <a href="pages/privacy-policy.html">Privacy Policy</a>.</p>
+                </div>
+                <div class="cookie-actions">
+                    <button class="cookie-btn accept" id="accept-cookies">Accept All</button>
+                    <button class="cookie-btn decline" id="decline-cookies">Decline</button>
+                </div>
+            `;
+            document.body.appendChild(banner);
+            
+            // Trigger animation
+            setTimeout(() => banner.classList.add('active'), 100);
+
+            document.getElementById('accept-cookies').addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'accepted');
+                banner.classList.remove('active');
+                setTimeout(() => banner.remove(), 600);
+            });
+
+            document.getElementById('decline-cookies').addEventListener('click', () => {
+                localStorage.setItem('cookieConsent', 'declined');
+                banner.classList.remove('active');
+                setTimeout(() => banner.remove(), 600);
+            });
+        }
+    }
+
     showCookieConsent();
 });
 
