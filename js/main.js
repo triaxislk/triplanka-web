@@ -389,13 +389,21 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Travel Alert Bar Injection (News Ticker) ---
+    // --- Travel Alert Bar Injection (Premium News Ticker) ---
     const alertBar = document.createElement('div');
     alertBar.className = 'travel-alert-bar';
     alertBar.innerHTML = `
-        <div class="alert-label"><i class="fas fa-exclamation-circle"></i> <span>TRAVEL ALERT</span></div>
-        <div class="weather-label"><i class="fas fa-cloud-sun"></i> <span>WEATHER</span></div>
-        <div class="alert-ticker-container"><div class="ticker-content" id="alert-ticker-content"></div></div>
+        <div class="alert-label">
+            <i class="fas fa-bullhorn"></i> 
+            <span>LIVE ALERT</span>
+        </div>
+        <div class="weather-label">
+            <i class="fas fa-cloud-sun"></i> 
+            <span>METEO</span>
+        </div>
+        <div class="alert-ticker-container">
+            <div class="ticker-content" id="alert-ticker-content"></div>
+        </div>
     `;
     
     // Insert at the very top of body
@@ -408,8 +416,8 @@ document.addEventListener('DOMContentLoaded', () => {
     original.id = 'ticker-original';
     original.innerHTML = `
         <span class="ticker-section"><strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.</span>
-        <span class="ticker-section"><strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.</span>
-        <span class="ticker-section weather-updates" id="weather-ticker-section"><strong>WEATHER FORECAST:</strong> Loading live weather updates...</span>
+        <span class="ticker-section"><strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by&nbsp;<strong>Cyclone Ditwah</strong>. Restoration is underway. Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.</span>
+        <span class="ticker-section weather-updates" id="weather-ticker-section"><strong>LIVE WEATHER:</strong> Loading updates...</span>
     `;
     
     // Append original
@@ -425,18 +433,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     tickerContent.appendChild(clone);
 
-    // Toggle pause on desktop hover/mobile touch
-    alertBar.addEventListener('mouseenter', () => alertBar.classList.add('paused'));
-    alertBar.addEventListener('mouseleave', () => alertBar.classList.remove('paused'));
-    
-    // Mobile Touch interaction: Pause on touch, Resume on release
-    alertBar.addEventListener('touchstart', (e) => {
-        alertBar.classList.add('paused');
-    }, { passive: true });
+    // Interaction Controller
+    const handlePause = (isPaused) => {
+        alertBar.classList.toggle('paused', isPaused);
+    };
 
-    alertBar.addEventListener('touchend', (e) => {
-        alertBar.classList.remove('paused');
-    }, { passive: true });
+    alertBar.addEventListener('mouseenter', () => handlePause(true));
+    alertBar.addEventListener('mouseleave', () => handlePause(false));
+    alertBar.addEventListener('touchstart', () => handlePause(true), { passive: true });
+    alertBar.addEventListener('touchend', () => handlePause(false), { passive: true });
 
     // Dynamic header positioning logic
     const updateHeaderPos = () => {

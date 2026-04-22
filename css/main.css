@@ -2083,145 +2083,6 @@ footer {
 .faq-body li {
     margin-bottom: 0.5rem;
 }
-
-
-
-
-
-/* --- Travel Alert Bar (News Ticker) --- */
-.travel-alert-bar {
-    background: var(--accent);
-    color: var(--secondary);
-    height: 40px; /* Fixed height for ticker consistency */
-    display: flex;
-    align-items: center;
-    position: fixed; /* Locked at the top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1200; /* Above everything */
-    overflow: hidden;
-    border-bottom: 2px solid rgba(255, 190, 41, 0.3);
-    font-size: 0.9rem;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.alert-label, .weather-label {
-    padding: 0 1.5rem;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    font-weight: 800;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 10;
-    white-space: nowrap;
-    box-shadow: 10px 0 20px rgba(0,0,0,0.15);
-}
-
-.alert-label {
-    background: var(--secondary);
-    color: var(--accent);
-}
-
-.weather-label {
-    background: #2D3436; /* Dark slate for contrast */
-    color: var(--white);
-    font-size: 0.85rem;
-    border-right: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-.weather-label i {
-    color: var(--secondary);
-    margin-right: 8px;
-}
-
-.alert-ticker-container {
-    flex-grow: 1;
-    overflow: hidden;
-    white-space: nowrap;
-    display: flex;
-    align-items: center;
-}
-
-.ticker-content {
-    display: inline-block;
-    padding-left: 100%; /* Start outside the view */
-    animation: tickerLoop 80s linear infinite; /* Slowed down for readability */
-    will-change: transform;
-}
-
-.ticker-section {
-    display: inline-block;
-    padding-right: 8rem; /* Large gap between different alerts */
-}
-
-.weather-updates {
-    color: var(--secondary);
-}
-
-/* Pause logic: Hover (Desktop) OR .paused class (Toggled by Click/Touch) */
-@media (hover: hover) {
-    .travel-alert-bar:hover .ticker-content {
-        animation-play-state: paused;
-        cursor: default;
-    }
-}
-
-.travel-alert-bar.paused .ticker-content {
-    animation-play-state: paused;
-}
-
-.travel-alert-bar {
-    cursor: pointer; /* Show it's interactive */
-}
-
-.ticker-content strong {
-    color: var(--white);
-}
-
-@keyframes tickerLoop {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
-}
-
-@media (max-width: 992px) {
-    .travel-alert-bar {
-        height: 32px;
-        font-size: 0.75rem;
-    }
-    .alert-label, .weather-label {
-        padding: 0 0.8rem;
-    }
-    .alert-label span, .weather-label span {
-        display: none; /* Icons only on tablets/mobile */
-    }
-    .ticker-content {
-        font-size: 0.75rem;
-    }
-    .ticker-section {
-        padding-right: 5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .travel-alert-bar {
-        height: 30px;
-    }
-    .alert-label, .weather-label {
-        padding: 0 0.6rem;
-    }
-    .ticker-content {
-        font-size: 0.7rem;
-    }
-    .ticker-section {
-        padding-right: 3rem;
-    }
-}
-
-/* --- Hero Text Responsiveness Overrides --- */
-@media (max-width: 992px) {
     .hero-content p {
         max-width: 650px;
         font-size: 1.05rem;
@@ -2465,50 +2326,77 @@ footer {
     }
 }
 
-/* --- Travel Alert Bar & News Ticker (Seamless Loop) --- */
+/* --- Travel Alert Bar (Premium Redesign) --- */
 .travel-alert-bar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 42px;
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    height: 44px;
+    background: rgba(11, 17, 15, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     display: flex;
     align-items: center;
-    z-index: 9999;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.2);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    color: white;
-    font-size: 0.85rem;
+    z-index: 10000;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-light);
+    font-size: 0.88rem;
+    font-weight: 600;
     overflow: hidden;
     cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.travel-alert-bar:hover {
+    background: rgba(11, 17, 15, 0.92);
 }
 
 .alert-label, .weather-label {
     height: 100%;
-    display: flex !important; /* Ensure they stay visible */
+    display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 18px;
+    gap: 10px;
+    padding: 0 22px;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     white-space: nowrap;
     position: relative;
     z-index: 20;
     text-transform: uppercase;
+    font-size: 0.78rem;
 }
 
 .alert-label {
-    background: linear-gradient(90deg, #d63031, #b02a2a);
+    background: linear-gradient(135deg, #d63031 0%, #a01a1a 100%);
     color: white;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+}
+
+/* Pulsing Live Indicator */
+.alert-label::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 10px #fff;
+    animation: alertPulse 1.5s infinite;
+}
+
+@keyframes alertPulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .weather-label {
-    background: linear-gradient(90deg, #0984e3, #076dbb);
+    background: linear-gradient(135deg, #0984e3 0%, #065e9e 100%);
     color: white;
-    border-left: 1px solid rgba(255,255,255,0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
 }
 
 .alert-ticker-container {
@@ -2517,37 +2405,35 @@ footer {
     position: relative;
     display: flex;
     align-items: center;
-    background: rgba(0,0,0,0.2);
+    height: 100%;
 }
 
 .ticker-content {
     display: flex;
     width: max-content;
     white-space: nowrap;
-    animation: tickerLoop 60s linear infinite;
+    animation: tickerLoop 50s linear infinite;
     will-change: transform;
 }
 
 .ticker-item-wrapper {
     display: flex;
     flex-shrink: 0;
-    margin: 0;
-    padding: 0;
 }
 
 .ticker-section {
-    padding: 0 50px;
+    padding: 0 60px;
     display: flex;
     align-items: center;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.3px;
 }
 
 .ticker-section strong {
     color: var(--secondary);
-    font-weight: 700;
+    margin-right: 8px;
 }
 
-.travel-alert-bar:hover .ticker-content,
 .travel-alert-bar.paused .ticker-content {
     animation-play-state: paused;
 }
@@ -2557,38 +2443,46 @@ footer {
     100% { transform: translate3d(-50%, 0, 0); }
 }
 
+/* Mobile Responsiveness Overrides */
 @media (max-width: 992px) {
     .travel-alert-bar {
-        height: 40px;
+        height: 38px;
         font-size: 0.75rem;
     }
     .alert-label, .weather-label {
-        width: 45px;
-        min-width: 45px;
+        width: 50px;
+        min-width: 50px;
         padding: 0;
         justify-content: center;
-        z-index: 10;
-        box-shadow: 2px 0 10px rgba(0,0,0,0.3);
     }
-    .alert-label { background: #d32f2f !important; }
-    .weather-label { background: #007bff !important; }
-    
-    .alert-label i, .weather-label i {
-        display: inline-block !important;
-        font-size: 1rem;
-        margin: 0;
+    .alert-label::before {
+        width: 6px;
+        height: 6px;
     }
     .alert-label span, .weather-label span {
-        display: none; 
+        display: none;
     }
-    .alert-ticker-container {
-        background: transparent;
+    .alert-label i, .weather-label i {
+        font-size: 1.1rem;
+        margin: 0;
     }
     .ticker-section {
-        padding: 0 35px;
+        padding: 0 40px;
     }
     .ticker-content {
-        animation-duration: 40s;
+        animation-duration: 35s;
     }
 }
 
+@media (max-width: 480px) {
+    .travel-alert-bar {
+        height: 36px;
+    }
+    .alert-label, .weather-label {
+        width: 42px;
+        min-width: 42px;
+    }
+    .ticker-section {
+        padding: 0 30px;
+    }
+}
