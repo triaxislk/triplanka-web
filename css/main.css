@@ -2559,14 +2559,19 @@ footer {
 
 @media (max-width: 992px) {
     .travel-alert-bar {
-        height: 38px;
-        font-size: 0.75rem;
+        height: 40px;
+        font-size: 0.8rem;
     }
     .alert-label, .weather-label {
-        padding: 0 10px;
-        min-width: 40px;
+        width: 45px;
+        min-width: 45px;
+        padding: 0;
         justify-content: center;
+        z-index: 10;
     }
+    .alert-label { background: #d32f2f; }
+    .weather-label { background: #007bff; }
+    
     .alert-label i, .weather-label i {
         display: inline-block !important;
         font-size: 1.1rem;
@@ -2576,10 +2581,10 @@ footer {
         display: none; 
     }
     .ticker-section {
-        padding: 0 30px; /* Reduced padding for mobile */
+        padding: 0 40px;
     }
     .ticker-content {
-        animation-duration: 40s; /* Faster for mobile/tab */
+        animation-duration: 45s;
     }
 }
 
