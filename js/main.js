@@ -394,12 +394,19 @@ document.addEventListener('DOMContentLoaded', () => {
     alertBar.className = 'travel-alert-bar';
     alertBar.innerHTML = `
         <div class="alert-label"><i class="fas fa-exclamation-circle"></i> TRAVEL ALERT</div>
+        <div class="weather-label"><i class="fas fa-cloud-sun"></i> WEATHER</div>
         <div class="alert-ticker-container">
-            <div class="ticker-content">
-                <strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones. 
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
-                Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
+            <div class="ticker-content" id="alert-ticker-content">
+                <span class="ticker-section">
+                    <strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.
+                </span>
+                <span class="ticker-section">
+                    <strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Restoration is underway. 
+                    Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.
+                </span>
+                <span class="ticker-section weather-updates" id="weather-ticker-section">
+                    <strong>WEATHER FORECAST:</strong> Loading live weather updates...
+                </span>
             </div>
         </div>
     `;
@@ -422,38 +429,71 @@ document.addEventListener('DOMContentLoaded', () => {
     updateHeaderPos();
     window.addEventListener('resize', updateHeaderPos);
 
-    // --- GDPR Cookie Consent Implementation ---
-    const showCookieConsent = () => {
-        const consent = localStorage.getItem('triplanka_cookie_consent');
-        if (consent) return;
+    // --- Weather Forecast System ---
+    const updateWeather = async () => {
+        const weatherSection = document.getElementById('weather-ticker-section');
+        if (!weatherSection) return;
 
-        const banner = document.createElement('div');
-        banner.className = 'cookie-consent-banner';
-        banner.innerHTML = `
-            <div class="cookie-content">
-                <h3><i class="fas fa-cookie-bite"></i> Your Privacy & Cookies</h3>
-                <p>We use essential cookies and analytical tools to ensure you get the best experience on TripLanka. By clicking "Accept All", you agree to our use of cookies to analyze site traffic and improve our services. </p>
-            </div>
-            <div class="cookie-btns">
-                <button class="btn-accept">Accept All</button>
-                <button class="btn-decline">Decline</button>
-            </div>
-        `;
-        
-        document.body.appendChild(banner);
-        
-        // Trigger animation
-        setTimeout(() => banner.classList.add('active'), 1000);
+        const cities = [
+            { name: "Katunayaka (CMB)", lat: 7.1620, lon: 79.8831 },
+            { name: "Negombo", lat: 7.2089, lon: 79.8355 },
+            { name: "Colombo", lat: 6.9271, lon: 79.8612 },
+            { name: "Kandy", lat: 7.2906, lon: 80.6337 },
+            { name: "Nuwara Eliya", lat: 6.9497, lon: 80.7891 },
+            { name: "Sigiriya", lat: 7.9570, lon: 80.7603 },
+            { name: "Ella", lat: 6.8667, lon: 81.0466 },
+            { name: "Hambanthota", lat: 6.1246, lon: 81.1185 },
+            { name: "Matara", lat: 5.9549, lon: 80.5550 },
+            { name: "Galle", lat: 6.0535, lon: 80.2210 },
+            { name: "Anuradhpura", lat: 8.3122, lon: 80.4131 },
+            { name: "Polonnaruwa", lat: 7.9403, lon: 81.0188 },
+            { name: "Batticaloa", lat: 7.7102, lon: 81.6924 },
+            { name: "Trincomalee", lat: 8.5873, lon: 81.2152 },
+            { name: "Jaffna", lat: 9.6615, lon: 80.0255 }
+        ];
 
-        const handleAction = (type) => {
-            localStorage.setItem('triplanka_cookie_consent', type);
-            banner.classList.remove('active');
-            setTimeout(() => banner.remove(), 800);
+        const getWeatherIcon = (code) => {
+            if (code === 0) return '☀️';
+            if ([1, 2, 3].includes(code)) return '⛅';
+            if ([45, 48].includes(code)) return '🌫️';
+            if ([51, 53, 55].includes(code)) return '🌦️';
+            if ([61, 63, 65].includes(code)) return '🌧️';
+            if ([71, 73, 75].includes(code)) return '🌨️';
+            if ([80, 81, 82].includes(code)) return '🚿';
+            if ([95, 96, 99].includes(code)) return '⛈️';
+            return '🌡️';
         };
 
-        banner.querySelector('.btn-accept').addEventListener('click', () => handleAction('accepted'));
-        banner.querySelector('.btn-decline').addEventListener('click', () => handleAction('declined'));
+        try {
+            const latQuery = cities.map(c => c.lat).join(',');
+            const lonQuery = cities.map(c => c.lon).join(',');
+            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latQuery}&longitude=${lonQuery}&current_weather=true`);
+            const data = await response.json();
+
+            if (data && Array.isArray(data)) {
+                let weatherHtml = '<strong>WEATHER FORECAST:</strong> ';
+                data.forEach((loc, index) => {
+                    const city = cities[index];
+                    const temp = loc.current_weather.temperature.toFixed(1);
+                    const icon = getWeatherIcon(loc.current_weather.weathercode);
+                    weatherHtml += `${city.name} ${icon} ${temp}°C ${index < data.length - 1 ? ' | ' : ''} `;
+                });
+                weatherSection.innerHTML = weatherHtml;
+            } else if (data && data.current_weather) {
+                // Single result case (unlikely with our query but good for safety)
+                const temp = data.current_weather.temperature.toFixed(1);
+                const icon = getWeatherIcon(data.current_weather.weathercode);
+                weatherSection.innerHTML = `<strong>WEATHER FORECAST:</strong> ${cities[0].name} ${icon} ${temp}°C`;
+            }
+        } catch (error) {
+            console.error('Weather update failed:', error);
+            weatherSection.innerHTML = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable. Stay safe!';
+        }
     };
+
+    // Initial fetch and set interval (every 30 mins)
+    updateWeather();
+    setInterval(updateWeather, 600000);
 
     showCookieConsent();
 });
