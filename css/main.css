@@ -2448,6 +2448,12 @@ footer {
     font-weight: 500;
     font-size: 0.85rem;
     line-height: 1; /* Prevent vertical clipping */
+    flex-shrink: 0; /* Prevent items from shrinking */
+    white-space: nowrap;
+}
+
+.weather-updates {
+    min-width: 300px; /* Stabilize width to prevent animation jumps when loading */
 }
 
 .ticker-section strong {

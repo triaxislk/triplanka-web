@@ -427,11 +427,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Clone for seamless loop
     const clone = original.cloneNode(true);
     clone.id = 'ticker-clone';
-    const weatherSectionDup = clone.querySelector('#weather-ticker-section');
-    if (weatherSectionDup) {
-        weatherSectionDup.id = 'weather-ticker-section-dup';
-        weatherSectionDup.className = 'ticker-section weather-updates-duplicate';
-    }
+    // Ensure the clone's weather section has a distinct way to be identified if needed, 
+    // but the current selector '.weather-updates' will catch both.
     tickerContent.appendChild(clone);
 
     // Interaction Controller
@@ -457,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Weather Forecast System ---
     const updateWeather = async () => {
         // Find all weather sections (including clones)
-        const weatherSections = document.querySelectorAll('.weather-updates, .weather-updates-duplicate');
+        const weatherSections = document.querySelectorAll('.weather-updates');
         if (weatherSections.length === 0) return;
 
         const cities = [
