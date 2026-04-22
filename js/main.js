@@ -425,10 +425,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     tickerContent.appendChild(clone);
 
-    // Toggle pause on click/touch for mobile & desktop
-    alertBar.addEventListener('click', () => {
-        alertBar.classList.toggle('paused');
-    });
+    // Toggle pause on desktop hover/mobile touch
+    alertBar.addEventListener('mouseenter', () => alertBar.classList.add('paused'));
+    alertBar.addEventListener('mouseleave', () => alertBar.classList.remove('paused'));
+    
+    // Mobile Touch interaction: Pause on touch, Resume on release
+    alertBar.addEventListener('touchstart', (e) => {
+        alertBar.classList.add('paused');
+    }, { passive: true });
+
+    alertBar.addEventListener('touchend', (e) => {
+        alertBar.classList.remove('paused');
+    }, { passive: true });
 
     // Dynamic header positioning logic
     const updateHeaderPos = () => {
