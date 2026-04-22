@@ -2195,30 +2195,28 @@ footer {
         padding: 0 0.8rem;
     }
     .alert-label span, .weather-label span {
-        display: none; /* Hide labels but keep icons on small screens */
+        display: none; /* Icons only on tablets/mobile */
+    }
+    .ticker-content {
+        font-size: 0.75rem;
+    }
+    .ticker-section {
+        padding-right: 5rem;
     }
 }
 
 @media (max-width: 480px) {
-    .alert-label {
-        padding: 0 0.5rem;
-        font-size: 0.7rem;
+    .travel-alert-bar {
+        height: 30px;
     }
-    .weather-label {
-        padding: 0 0.5rem;
+    .alert-label, .weather-label {
+        padding: 0 0.6rem;
     }
     .ticker-content {
         font-size: 0.7rem;
     }
-}
-
-@media (max-width: 600px) {
-    .alert-label {
-        padding: 0 0.8rem;
-        font-size: 0.75rem;
-    }
     .ticker-section {
-        padding-right: 4rem;
+        padding-right: 3rem;
     }
 }
 
