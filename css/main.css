@@ -2194,11 +2194,8 @@ footer {
     .alert-label, .weather-label {
         padding: 0 0.8rem;
     }
-    .weather-label {
-        display: flex; /* Keep showing weather icon/label on mobile */
-    }
-    .weather-label span {
-        display: none; /* Hide the word 'WEATHER' but keep the icon on very small screens if needed, or just keep it compact */
+    .alert-label span, .weather-label span {
+        display: none; /* Hide labels but keep icons on small screens */
     }
 }
 
