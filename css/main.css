@@ -2452,7 +2452,8 @@ footer {
 
 .ticker-section strong {
     color: var(--secondary);
-    margin-right: 10px;
+    font-weight: 700;
+    font-size: inherit; /* Ensure same size as parent */
 }
 
 .travel-alert-bar.paused .ticker-content {
