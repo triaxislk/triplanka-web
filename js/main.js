@@ -394,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
     alertBar.className = 'travel-alert-bar';
     alertBar.innerHTML = `
         <div class="alert-label"><i class="fas fa-exclamation-circle"></i> TRAVEL ALERT</div>
-        <div class="weather-label"><i class="fas fa-cloud-sun"></i> WEATHER</div>
+        <div class="weather-label"><i class="fas fa-cloud-sun"></i> <span>WEATHER</span></div>
         <div class="alert-ticker-container">
             <div class="ticker-content" id="alert-ticker-content">
                 <span class="ticker-section">

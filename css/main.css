@@ -2188,14 +2188,30 @@ footer {
 
 @media (max-width: 992px) {
     .travel-alert-bar {
-        height: 35px;
-        font-size: 0.8rem;
+        height: 32px;
+        font-size: 0.75rem;
     }
     .alert-label, .weather-label {
-        padding: 0 1rem;
+        padding: 0 0.8rem;
     }
     .weather-label {
-        display: none; /* Hide secondary label on small mobile to save space */
+        display: flex; /* Keep showing weather icon/label on mobile */
+    }
+    .weather-label span {
+        display: none; /* Hide the word 'WEATHER' but keep the icon on very small screens if needed, or just keep it compact */
+    }
+}
+
+@media (max-width: 480px) {
+    .alert-label {
+        padding: 0 0.5rem;
+        font-size: 0.7rem;
+    }
+    .weather-label {
+        padding: 0 0.5rem;
+    }
+    .ticker-content {
+        font-size: 0.7rem;
     }
 }
 
