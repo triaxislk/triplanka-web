@@ -2407,30 +2407,37 @@ footer {
     background: rgba(0,0,0,0.1);
     z-index: 10;
     /* Force GPU rendering for Safari */
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
 }
 
 .ticker-content {
-    display: block;
+    display: flex; /* Back to flex for better structural integrity */
+    flex-wrap: nowrap;
     width: max-content;
-    white-space: nowrap;
     height: 100%;
-    animation: tickerLoop 85s linear infinite; /* Reduced speed */
+    animation: tickerLoop 75s linear infinite; /* Slightly faster to avoid Safari stall */
     /* Force GPU rendering for Safari */
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 
 .ticker-item-wrapper {
-    display: inline-flex; /* Use inline-flex to keep them side-by-side in block container */
+    display: flex;
+    flex-shrink: 0; /* CRITICAL: Prevent shrinking on Safari */
     height: 100%;
     align-items: center;
-    vertical-align: top;
+    white-space: nowrap;
 }
 
 .ticker-section {
-    padding: 0 100px; /* Even larger gap for Safari stability */
+    padding: 0 60px; /* Reduced to avoid extreme widths on Safari */
     display: flex;
     align-items: center;
     color: #FFFFFF;
