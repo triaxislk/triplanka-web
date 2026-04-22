@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://triplanka.com/sitemap.xml
+Sitemap: https://www.triplanka.com/sitemap.xml
