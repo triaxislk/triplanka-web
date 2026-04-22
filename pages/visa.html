@@ -369,9 +369,9 @@
   <li><a href="https://www.immigration.gov.lk/" target="_blank">Department of Immigration & Emigration Sri Lanka</a></li>
   </ul>
 
-  <p>On 25 July 2025 the Sri Lankan government announced a visa””˜free / visa””˜fee waiver programme for 40 countries to support inbound tourism. The policy aims to simplify short tourist visits; however travellers should still complete the official <a href="https://www.srilankaimmigration.org/" target="_blank" class="eta-link">Electronic Travel Authorization (ETA)</a> when required and confirm entry conditions for their nationality. </p>
+  <p>On 25 July 2025 the Sri Lankan government announced a visa-free / visa-fee waiver programme for 40 countries to support inbound tourism. The policy aims to simplify short tourist visits; however travellers should still complete the official <a href="https://www.srilankaimmigration.org/" target="_blank" class="eta-link">Electronic Travel Authorization (ETA)</a> when required and confirm entry conditions for their nationality. </p>
 
-  <p><strong>Quick summary:</strong> Citizens of the listed countries are generally eligible for a visa””˜fee waiver / visa””˜free entry into Sri Lanka. The standard permitted stay under this programme is <strong>up to 30 days</strong> for most categories ”” verify specific conditions for your passport and purpose of travel on the official ETA portal. </p>
+  <p><strong>Quick summary:</strong> Citizens of the listed countries are generally eligible for a visa-fee waiver / visa-free entry into Sri Lanka. The standard permitted stay under this programme is <strong>up to 30 days</strong> for most categories - verify specific conditions for your passport and purpose of travel on the official ETA portal. </p>
 
   <div class="section-header">
   <h2>40 Eligible Countries (Official List)</h2>
@@ -449,28 +449,28 @@
   <tbody>
   <tr>
   <td>Online / On-arrival</td>
-  <td>Tourist visa (Double Entry) ”” 30 days</td>
+  <td>Tourist visa (Double Entry) - 30 days</td>
   <td>20</td>
   <td>50</td>
   <td><strong>Free</strong></td>
   </tr>
   <tr>
   <td>By Applicant</td>
-  <td>Business visa (Multiple Entry) ”” 30 days</td>
+  <td>Business visa (Multiple Entry) - 30 days</td>
   <td>30</td>
   <td>55</td>
   <td><strong>Free</strong></td>
   </tr>
   <tr>
   <td>By Applicant</td>
-  <td>Tourist visa ”” 180 days (single stretch)</td>
+  <td>Tourist visa - 180 days (single stretch)</td>
   <td>50</td>
   <td>50</td>
   <td><strong>Free</strong></td>
   </tr>
   <tr>
   <td>By Applicant</td>
-  <td>Transit visa (Single Entry) ”” 2 days</td>
+  <td>Transit visa (Single Entry) - 2 days</td>
   <td><strong>Free</strong></td>
   <td><strong>Free</strong></td>
   <td><strong>Free</strong></td>
@@ -548,15 +548,21 @@
   <script>
     function filterCountries() {
       const input = document.getElementById('countrySearch');
-      const filter = input.value.toLowerCase();
+      const filter = input.value.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
       const table = document.getElementById('eligibleCountriesTable');
       const tr = table.getElementsByTagName('tr');
 
       for (let i = 1; i < tr.length; i++) {
         const countryCell = tr[i].getElementsByTagName('td')[1];
         if (countryCell) {
-          const txtValue = countryCell.textContent || countryCell.innerText;
-          if (txtValue.toLowerCase().indexOf(filter) > -1) {
+          let txtValue = countryCell.textContent || countryCell.innerText;
+          
+          // Add hidden synonyms for specific countries if needed
+          if (txtValue.includes("Türkiye")) txtValue += " Turkey";
+          
+          const normalizedValue = txtValue.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          
+          if (normalizedValue.indexOf(filter) > -1) {
             tr[i].style.display = "";
           } else {
             tr[i].style.display = "none";
