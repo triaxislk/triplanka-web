@@ -2423,7 +2423,7 @@ footer {
     flex-wrap: nowrap;
     width: max-content;
     height: 100%;
-    animation: tickerLoop 75s linear infinite; /* Slightly faster to avoid Safari stall */
+    animation: tickerLoop 45s linear infinite; /* Faster for better readability and engagement */
     /* Force GPU rendering for Safari */
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
@@ -2508,7 +2508,7 @@ footer {
         font-size: 0.72rem; /* Reduced to avoid clipping */
     }
     .ticker-content {
-        animation-duration: 65s; /* Slower for mobile */
+        animation-duration: 35s; /* Faster for mobile to match viewport scale */
     }
 }
 

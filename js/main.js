@@ -421,7 +421,9 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="ticker-section weather-updates" id="weather-ticker-section"><strong>LIVE WEATHER:</strong> Loading updates...</span>
     `;
     
-    // Append original & clone
+    // Append original & clone for seamless looping
+    const clone = original.cloneNode(true);
+    clone.id = 'ticker-clone';
     tickerContent.appendChild(original);
     tickerContent.appendChild(clone);
 
