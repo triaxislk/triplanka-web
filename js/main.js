@@ -389,138 +389,103 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Travel Alert Bar Injection (Premium News Ticker) ---
-    const alertBar = document.createElement('div');
-    alertBar.className = 'travel-alert-bar';
-    alertBar.innerHTML = `
-        <div class="alert-label">
-            <span class="live-dot"></span>
-            <i class="fas fa-bullhorn"></i> 
-            <span>LIVE ALERT</span>
-        </div>
-        <div class="weather-label">
-            <i class="fas fa-cloud-sun"></i> 
-            <span>WEATHER</span>
-        </div>
-        <div class="alert-ticker-container">
-            <div class="ticker-content" id="alert-ticker-content"></div>
-        </div>
-    `;
-    
-    // Insert at the very top of body
-    document.body.prepend(alertBar);
+    // --- Travel Alert Bar 2.0 (Modern Rebuild) ---
+    const createAlertBar = () => {
+        const bar = document.createElement('div');
+        bar.className = 'alert-bar-v2';
+        bar.innerHTML = `
+            <div class="alert-labels-v2">
+                <div class="label-chip-v2 alert-chip">
+                    <span class="pulse-dot-v2"></span>
+                    <i class="fas fa-bullhorn"></i>
+                    <span class="label-text-v2">LIVE ALERT</span>
+                </div>
+                <div class="label-chip-v2 weather-chip">
+                    <i class="fas fa-cloud-sun"></i>
+                    <span class="label-text-v2">WEATHER</span>
+                </div>
+            </div>
+            <div class="ticker-viewport-v2">
+                <div class="ticker-track-v2" id="alert-ticker-track">
+                    <div class="ticker-content-v2" id="ticker-primary">
+                        <span class="ticker-item-v2"><strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.</span>
+                        <span class="ticker-item-v2"><strong>SELFIE SAFETY ADVISORY:</strong> Avoid taking selfies near cliff edges at Ella Rock, World's End, or other high altitudes. Your safety is more important than a photo. Stay within designated safe areas.</span>
+                        <span class="ticker-item-v2"><strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Operational segments: Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla. Access to Ella & Nine Arch Bridge available only via road or restricted rail.</span>
+                        <span class="ticker-item-v2 weather-updates-v2"><strong>LIVE WEATHER:</strong> Syncing real-time updates...</span>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.prepend(bar);
+        
+        const track = document.getElementById('alert-ticker-track');
+        const primary = document.getElementById('ticker-primary');
+        const clone = primary.cloneNode(true);
+        clone.id = 'ticker-clone';
+        track.appendChild(clone);
 
-    // Create original content
-    const tickerContent = document.getElementById('alert-ticker-content');
-    const original = document.createElement('div');
-    original.className = 'ticker-item-wrapper';
-    original.id = 'ticker-original';
-    original.innerHTML = `
-        <span class="ticker-section"><strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.</span>
-        <span class="ticker-section"><strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by&nbsp;<strong>Cyclone Ditwah</strong>. Restoration is underway. Operational segments: <strong>Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla (Access to Ella & Nine Arch Bridge available only via this train segment or by road)</strong>.</span>
-        <span class="ticker-section weather-updates" id="weather-ticker-section"><strong>LIVE WEATHER:</strong> Loading updates...</span>
-    `;
-    
-    // Append original & clone for seamless looping
-    const clone = original.cloneNode(true);
-    clone.id = 'ticker-clone';
-    tickerContent.appendChild(original);
-    tickerContent.appendChild(clone);
+        // Interaction
+        bar.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
+        bar.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
+        bar.addEventListener('touchstart', () => track.style.animationPlayState = 'paused', {passive: true});
+        bar.addEventListener('touchend', () => track.style.animationPlayState = 'running', {passive: true});
 
-    // Boost animation start on mobile
-    setTimeout(() => {
-        tickerContent.style.animation = 'none';
-        tickerContent.offsetHeight; // Trigger reflow
-        tickerContent.style.animation = '';
-    }, 100);
-
-    // Interaction Controller
-    const handlePause = (isPaused) => {
-        alertBar.classList.toggle('paused', isPaused);
+        // Offset management
+        const updateOffset = () => {
+            const h = bar.offsetHeight;
+            document.documentElement.style.setProperty('--alert-height', `${h}px`);
+        };
+        updateOffset();
+        window.addEventListener('resize', updateOffset);
     };
 
-    alertBar.addEventListener('mouseenter', () => handlePause(true));
-    alertBar.addEventListener('mouseleave', () => handlePause(false));
-    alertBar.addEventListener('touchstart', () => handlePause(true), { passive: true });
-    alertBar.addEventListener('touchend', () => handlePause(false), { passive: true });
+    createAlertBar();
 
-    // Dynamic header positioning logic
-    const updateHeaderPos = () => {
-        const height = alertBar.offsetHeight;
-        document.documentElement.style.setProperty('--alert-height', `${height}px`);
-    };
+    // --- Weather Forecast System 2.0 ---
+    const updateWeatherV2 = async () => {
+        const weatherSlots = document.querySelectorAll('.weather-updates-v2');
+        if (weatherSlots.length === 0) return;
 
-    // Initial set and update on resize
-    updateHeaderPos();
-    window.addEventListener('resize', updateHeaderPos);
-
-    // --- Weather Forecast System ---
-    const updateWeather = async () => {
-        // Find all weather sections (including clones)
-        const weatherSections = document.querySelectorAll('.weather-updates');
-        if (weatherSections.length === 0) return;
-
-        const cities = [
-            { name: "Katunayaka (CMB)", lat: 7.1620, lon: 79.8831 },
-            { name: "Negombo", lat: 7.2089, lon: 79.8355 },
+        const locations = [
+            { name: "Katunayaka", lat: 7.1620, lon: 79.8831 },
             { name: "Colombo", lat: 6.9271, lon: 79.8612 },
+            { name: "Negombo", lat: 7.2089, lon: 79.8355 },
             { name: "Kandy", lat: 7.2906, lon: 80.6337 },
-            { name: "Nuwara Eliya", lat: 6.9497, lon: 80.7891 },
             { name: "Sigiriya", lat: 7.9570, lon: 80.7603 },
+            { name: "Nuwara Eliya", lat: 6.9497, lon: 80.7891 },
             { name: "Ella", lat: 6.8667, lon: 81.0466 },
-            { name: "Hambanthota", lat: 6.1246, lon: 81.1185 },
-            { name: "Matara", lat: 5.9549, lon: 80.5550 },
             { name: "Galle", lat: 6.0535, lon: 80.2210 },
+            { name: "Matara", lat: 5.9549, lon: 80.5550 },
+            { name: "Hambanthota", lat: 6.1246, lon: 81.1185 },
             { name: "Anuradhpura", lat: 8.3122, lon: 80.4131 },
             { name: "Polonnaruwa", lat: 7.9403, lon: 81.0188 },
-            { name: "Batticaloa", lat: 7.7102, lon: 81.6924 },
             { name: "Trincomalee", lat: 8.5873, lon: 81.2152 },
+            { name: "Batticaloa", lat: 7.7102, lon: 81.6924 },
             { name: "Jaffna", lat: 9.6615, lon: 80.0255 }
         ];
 
-        const getWeatherIcon = (code) => {
-            if (code === 0) return '☀️';
-            if ([1, 2, 3].includes(code)) return '⛅';
-            if ([45, 48].includes(code)) return '🌫️';
-            if ([51, 53, 55].includes(code)) return '🌦️';
-            if ([61, 63, 65].includes(code)) return '🌧️';
-            if ([71, 73, 75].includes(code)) return '🌨️';
-            if ([80, 81, 82].includes(code)) return '🚿';
-            if ([95, 96, 99].includes(code)) return '⛈️';
-            return '🌡️';
-        };
-
         try {
-            const latQuery = cities.map(c => c.lat).join(',');
-            const lonQuery = cities.map(c => c.lon).join(',');
-            const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latQuery}&longitude=${lonQuery}&current_weather=true`);
-            const data = await response.json();
+            const lats = locations.map(l => l.lat).join(',');
+            const lons = locations.map(l => l.lon).join(',');
+            const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current_weather=true`);
+            const data = await res.json();
 
-            if (data && Array.isArray(data)) {
-                let weatherHtml = '<strong>WEATHER FORECAST:</strong> ';
-                data.forEach((loc, index) => {
-                    const city = cities[index];
-                    const temp = loc.current_weather.temperature.toFixed(1);
-                    const icon = getWeatherIcon(loc.current_weather.weathercode);
-                    weatherHtml += `${city.name} ${icon} ${temp}°C ${index < data.length - 1 ? ' | ' : ''} `;
-                });
-                weatherSections.forEach(sec => sec.innerHTML = weatherHtml);
-            } else if (data && data.current_weather) {
-                const temp = data.current_weather.temperature.toFixed(1);
-                const icon = getWeatherIcon(data.current_weather.weathercode);
-                const weatherHtml = `<strong>WEATHER FORECAST:</strong> ${cities[0].name} ${icon} ${temp}°C`;
-                weatherSections.forEach(sec => sec.innerHTML = weatherHtml);
-            }
-        } catch (error) {
-            console.error('Weather update failed:', error);
-            const errorHtml = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable. Stay safe!';
-            weatherSections.forEach(sec => sec.innerHTML = errorHtml);
+            let html = '<strong>WEATHER FORECAST:</strong> ';
+            locations.forEach((loc, i) => {
+                const weather = Array.isArray(data) ? data[i].current_weather : data.current_weather;
+                const temp = weather.temperature.toFixed(0);
+                const code = weather.weathercode;
+                const icon = code === 0 ? '☀️' : ([1,2,3].includes(code) ? '⛅' : ([61,63,65].includes(code) ? '🌧️' : '🌡️'));
+                html += `${loc.name} ${icon} ${temp}°C ${i < locations.length - 1 ? '| ' : ''}`;
+            });
+            weatherSlots.forEach(s => s.innerHTML = html);
+        } catch (e) {
+            weatherSlots.forEach(s => s.innerHTML = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable.');
         }
     };
 
-    // Initial fetch and set interval (every 30 mins)
-    updateWeather();
-    setInterval(updateWeather, 600000);
+    updateWeatherV2();
+    setInterval(updateWeatherV2, 1800000); // 30 min updates
 
     // --- Cookie Consent System ---
     function showCookieConsent() {

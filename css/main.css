@@ -2326,201 +2326,160 @@ footer {
     }
 }
 
-/* --- Travel Alert Bar (Premium Redesign) --- */
-.travel-alert-bar {
+/* --- Travel Alert Bar 2.0 (Modern Rebuild) --- */
+.alert-bar-v2 {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 44px;
-    background: rgba(11, 17, 15, 0.85);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    display: flex;
-    align-items: center;
+    height: 48px;
+    background: rgba(11, 17, 15, 0.85); /* Deep base */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 10000;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    color: var(--text-light);
-    font-size: 0.88rem;
-    font-weight: 600;
-    overflow: hidden;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    /* Prevent font scaling on iOS */
-    -webkit-text-size-adjust: 100%;
-}
-
-.travel-alert-bar:hover {
-    background: rgba(11, 17, 15, 0.92);
-}
-
-.alert-label, .weather-label {
-    height: 100%;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 18px;
-    font-weight: 800;
-    letter-spacing: 0.8px;
-    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 190, 41, 0.2); /* Saffron edge */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    font-family: 'Outfit', sans-serif;
+}
+
+.alert-labels-v2 {
+    display: flex;
+    height: 100%;
+    z-index: 100;
     position: relative;
-    z-index: 30;
+    background: #0B110F; /* Solid pillar for labels */
+    box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+}
+
+.label-chip-v2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 20px;
+    height: 100%;
+    font-weight: 800;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    font-size: 0.75rem;
-    line-height: 1;
+    color: #fff;
+    white-space: nowrap;
 }
 
-.alert-label {
+.alert-chip {
     background: linear-gradient(135deg, #d63031 0%, #a01a1a 100%);
-    color: white;
-    /* Removed box-shadow to use cleaner mask-based fade */
+    border-right: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Pulsing Live Indicator - Inside the label for better alignment */
-.live-dot {
+.weather-chip {
+    background: linear-gradient(135deg, #006A4E 0%, #004d39 100%);
+}
+
+.pulse-dot-v2 {
     width: 8px;
     height: 8px;
-    background: #fff;
+    background: var(--secondary); /* Golden Saffron */
     border-radius: 50%;
-    display: inline-block;
-    box-shadow: 0 0 8px #fff;
-    animation: alertPulse 1.5s infinite;
-    margin-right: 4px;
+    box-shadow: 0 0 10px var(--secondary);
+    animation: pulseSaffron 1.5s infinite;
 }
 
-@keyframes alertPulse {
+@keyframes pulseSaffron {
     0% { transform: scale(0.9); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.7; }
+    50% { transform: scale(1.2); opacity: 0.6; }
     100% { transform: scale(0.9); opacity: 1; }
 }
 
-.weather-label {
-    background: linear-gradient(135deg, #0984e3 0%, #065e9e 100%);
-    color: white;
-    border-left: 1px solid rgba(255, 255, 255, 0.1);
-    /* Removed box-shadow to use cleaner mask-based fade */
-}
-
-.alert-ticker-container {
+.ticker-viewport-v2 {
     flex: 1;
-    overflow: hidden;
-    position: relative;
     height: 100%;
-    background: rgba(0,0,0,0.1);
-    z-index: 10;
-    /* Force GPU rendering for Safari */
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000;
-    perspective: 1000;
-    /* Premium fade-out effect as text approaches labels */
-    -webkit-mask-image: linear-gradient(to right, 
-        transparent 0%, 
-        rgba(0,0,0,1) 30px, 
-        rgba(0,0,0,1) calc(100% - 30px), 
-        transparent 100%);
-    mask-image: linear-gradient(to right, 
-        transparent 0%, 
-        rgba(0,0,0,1) 30px, 
-        rgba(0,0,0,1) calc(100% - 30px), 
-        transparent 100%);
+    position: relative;
+    overflow: hidden;
+    /* Premium fade mask */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
 
-.ticker-content {
-    display: flex; /* Back to flex for better structural integrity */
-    flex-wrap: nowrap;
+.ticker-track-v2 {
+    display: flex;
     width: max-content;
     height: 100%;
-    animation: tickerLoop 45s linear infinite; /* Faster for better readability and engagement */
-    /* Force GPU rendering for Safari */
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    will-change: transform; /* Hint for GPU acceleration */
+    animation: tickerMoveV2 60s linear infinite;
+    will-change: transform;
 }
 
-.ticker-item-wrapper {
+.ticker-content-v2 {
     display: flex;
-    flex-shrink: 0; /* CRITICAL: Prevent shrinking on Safari */
+    align-items: center;
+    white-space: nowrap;
     height: 100%;
-    align-items: center;
-    white-space: nowrap;
 }
 
-.ticker-section {
-    padding: 0 60px;
+.ticker-item-v2 {
+    padding: 0 80px;
+    color: rgba(255,255,255,0.95);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
     display: flex;
     align-items: center;
-    color: #FFFFFF;
-    letter-spacing: 0.4px;
-    font-weight: 500;
-    font-size: 0.85rem;
-    line-height: 1; /* Prevent vertical clipping */
-    flex-shrink: 0; /* Prevent items from shrinking */
-    white-space: nowrap;
+    gap: 10px;
 }
 
-.weather-updates {
-    min-width: 300px; /* Stabilize width to prevent animation jumps when loading */
+.ticker-item-v2 strong {
+    color: var(--secondary); /* Golden Saffron for headers */
+    font-weight: 800;
 }
 
-.ticker-section strong {
-    color: var(--secondary);
-    font-weight: 700;
-    font-size: inherit; /* Ensure same size as parent */
+@keyframes tickerMoveV2 {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
 }
 
-.travel-alert-bar.paused .ticker-content {
-    animation-play-state: paused;
-}
-
-@keyframes tickerLoop {
-    0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
-    100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
-}
-
-@-webkit-keyframes tickerLoop {
-    0% { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
-    100% { -webkit-transform: translate3d(-50%, 0, 0); transform: translate3d(-50%, 0, 0); }
-}
-
-/* Mobile Responsiveness Overrides */
+/* Mobile & Tablet Refinements */
 @media (max-width: 992px) {
-    .travel-alert-bar {
-        height: 40px;
-        font-size: 0.78rem;
+    .alert-bar-v2 {
+        height: 42px;
     }
-    .alert-label, .weather-label {
-        width: 55px; /* Slightly wider for better touch targets */
-        min-width: 55px;
-        padding: 0;
-        justify-content: center;
+    .label-chip-v2 {
+        padding: 0 15px;
         gap: 0;
+        width: 50px;
+        justify-content: center;
     }
-    .live-dot {
-        width: 6px;
-        height: 6px;
+    .label-text-v2 {
+        display: none; /* Icon only for mobile */
+    }
+    .label-chip-v2 i {
+        font-size: 1.1rem;
+    }
+    .pulse-dot-v2 {
         position: absolute;
         top: 8px;
         right: 8px;
+        width: 6px;
+        height: 6px;
     }
-    .alert-label span, .weather-label span {
-        display: none;
-    }
-    .alert-label i, .weather-label i {
-        font-size: 1.1rem;
-        margin: 0;
-    }
-    .ticker-section {
+    .ticker-item-v2 {
         padding: 0 40px;
-        font-size: 0.72rem; /* Reduced to avoid clipping */
+        font-size: 0.78rem;
     }
-    .ticker-content {
-        animation-duration: 35s; /* Snappier speed for mobile */
+    .ticker-track-v2 {
+        animation-duration: 45s; /* Slightly faster for shorter mobile spans */
+    }
+}
+
+@media (max-width: 480px) {
+    .alert-bar-v2 {
+        height: 38px;
+    }
+    .label-chip-v2 {
+        width: 42px;
+    }
+    .ticker-item-v2 {
+        padding: 0 30px;
     }
 }
 
