@@ -32,13 +32,22 @@
     .ticker-viewport-v2 { flex: 1; -webkit-flex: 1; height: 100%; overflow: hidden; position: relative; }
     .ticker-track-v2 { display: -webkit-flex; display: flex; height: 100%; width: max-content; -webkit-animation: tickerMoveV2 60s linear infinite; animation: tickerMoveV2 60s linear infinite; }
     .ticker-content-v2 { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; height: 100%; white-space: nowrap; }
-    .ticker-item-v2 { padding: 0 40px; color: #fff; font-size: 13px !important; white-space: nowrap; height: 100%; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; line-height: 1 !important; }
+    .ticker-item-v2 { 
+        padding: 0 40px !important; 
+        color: #fff !important; 
+        font-size: 13px !important; 
+        white-space: nowrap !important; 
+        height: 48px !important; 
+        line-height: 48px !important; 
+        display: block !important;
+        float: left !important;
+    }
     @-webkit-keyframes tickerMoveV2 { 0% { -webkit-transform: translate3d(0, 0, 0); } 100% { -webkit-transform: translate3d(-50%, 0, 0); } }
     @keyframes tickerMoveV2 { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
     @media (max-width: 768px) {
         .label-text-v2 { display: none !important; }
         .label-chip-v2 { width: 45px !important; justify-content: center !important; padding: 0 !important; }
-        .ticker-item-v2 { padding: 0 20px !important; font-size: 12px !important; }
+        .ticker-item-v2 { padding: 0 20px !important; font-size: 12px !important; height: 48px !important; line-height: 48px !important; }
     }
  </style>
  <link rel="preconnect" href="https://fonts.googleapis.com">
