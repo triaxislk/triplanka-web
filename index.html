@@ -8,7 +8,7 @@
  <meta name="description" content="TripLanka.com is a complete information hub where you can get all the essential travel details, guides, and plans before visiting Sri Lanka. Plan your perfect journey to the Pearl of the Indian Ocean with ease.">
  <link rel="stylesheet" href="css/main.css?v=1.5">
  <style>
-    /* Emergency Alert Bar Styles (Fail-safe) */
+    /* Emergency Alert Bar Styles (iOS/Safari Optimized) */
     .alert-bar-v2 {
         position: fixed !important;
         top: 0 !important;
@@ -17,24 +17,28 @@
         height: 48px !important;
         background: #0B110F !important;
         z-index: 10000 !important;
+        display: -webkit-flex !important;
         display: flex !important;
+        -webkit-align-items: center !important;
         align-items: center !important;
         overflow: hidden !important;
         font-family: 'Outfit', sans-serif;
+        -webkit-font-smoothing: antialiased;
     }
-    .alert-labels-v2 { display: flex; height: 100%; z-index: 101; background: #0B110F; }
-    .label-chip-v2 { display: flex; align-items: center; padding: 0 15px; color: #fff; font-weight: 800; font-size: 11px; text-transform: uppercase; white-space: nowrap; height: 100%; }
+    .alert-labels-v2 { display: -webkit-flex; display: flex; height: 100%; z-index: 101; background: #0B110F; }
+    .label-chip-v2 { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; padding: 0 15px; color: #fff; font-weight: 800; font-size: 11px !important; text-transform: uppercase; white-space: nowrap; height: 100%; }
     .alert-chip { background: #d63031; }
     .weather-chip { background: #006A4E; }
-    .ticker-viewport-v2 { flex: 1; height: 100%; overflow: hidden; position: relative; }
-    .ticker-track-v2 { display: flex; height: 100%; width: max-content; animation: tickerMoveV2 60s linear infinite; }
-    .ticker-content-v2 { display: flex; align-items: center; height: 100%; white-space: nowrap; }
-    .ticker-item-v2 { padding: 0 40px; color: #fff; font-size: 13px; white-space: nowrap; height: 100%; display: flex; align-items: center; line-height: 1; }
+    .ticker-viewport-v2 { flex: 1; -webkit-flex: 1; height: 100%; overflow: hidden; position: relative; }
+    .ticker-track-v2 { display: -webkit-flex; display: flex; height: 100%; width: max-content; -webkit-animation: tickerMoveV2 60s linear infinite; animation: tickerMoveV2 60s linear infinite; }
+    .ticker-content-v2 { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; height: 100%; white-space: nowrap; }
+    .ticker-item-v2 { padding: 0 40px; color: #fff; font-size: 13px !important; white-space: nowrap; height: 100%; display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; line-height: 1 !important; }
+    @-webkit-keyframes tickerMoveV2 { 0% { -webkit-transform: translate3d(0, 0, 0); } 100% { -webkit-transform: translate3d(-50%, 0, 0); } }
     @keyframes tickerMoveV2 { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
     @media (max-width: 768px) {
-        .label-text-v2 { display: none; }
-        .label-chip-v2 { width: 45px; justify-content: center; padding: 0; }
-        .ticker-item-v2 { padding: 0 20px; font-size: 12px; }
+        .label-text-v2 { display: none !important; }
+        .label-chip-v2 { width: 45px !important; justify-content: center !important; padding: 0 !important; }
+        .ticker-item-v2 { padding: 0 20px !important; font-size: 12px !important; }
     }
  </style>
  <link rel="preconnect" href="https://fonts.googleapis.com">
