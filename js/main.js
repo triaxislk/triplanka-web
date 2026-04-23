@@ -432,8 +432,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Offset management
         const updateOffset = () => {
-            const h = bar.offsetHeight;
-            document.documentElement.style.setProperty('--alert-height', `${h}px`);
+            // Small delay for mobile browsers to finalize layout after UI shifts
+            setTimeout(() => {
+                const h = bar.offsetHeight;
+                document.documentElement.style.setProperty('--alert-height', `${h}px`);
+            }, 100);
         };
         updateOffset();
         window.addEventListener('resize', updateOffset);
