@@ -2332,20 +2332,19 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    height: 48px; /* Standard height for all devices to prevent clipping */
+    height: 48px;
     background: rgba(11, 17, 15, 0.85); /* Deep base */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 10000;
     display: flex;
-    align-items: center;
-    overflow: hidden;
+    align-items: stretch; /* Stretch children to full height */
+    overflow: visible; /* Prevent outer clipping */
     border-bottom: 1px solid rgba(255, 190, 41, 0.2); /* Saffron edge */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
     font-family: 'Outfit', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
 }
 
 .alert-labels-v2 {
@@ -2397,10 +2396,10 @@ footer {
 
 .ticker-viewport-v2 {
     flex: 1;
-    height: 100%;
+    height: 48px;
     position: relative;
     overflow: hidden;
-    /* Premium fade mask */
+    /* Premium fade mask - Desktop Only */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 40px, black calc(100% - 40px), transparent 100%);
 }
@@ -2408,7 +2407,7 @@ footer {
 .ticker-track-v2 {
     display: flex;
     width: max-content;
-    height: 100%;
+    height: 48px;
     animation: tickerMoveV2 60s linear infinite;
     will-change: transform;
 }
@@ -2417,7 +2416,7 @@ footer {
     display: flex;
     align-items: center;
     white-space: nowrap;
-    height: 100%;
+    height: 48px;
 }
 
 .ticker-item-v2 {
@@ -2429,9 +2428,8 @@ footer {
     display: flex;
     align-items: center;
     gap: 10px;
-    height: 100%;
-    line-height: normal !important; /* Reset inherited 1.7 to avoid Safari clipping */
-    transform: translateY(0.5px); /* Fine-tune baseline for Safari */
+    height: 48px;
+    line-height: 48px !important;
 }
 
 .ticker-item-v2 strong {
@@ -2447,7 +2445,16 @@ footer {
 /* Mobile & Tablet Refinements */
 @media (max-width: 992px) {
     .alert-bar-v2 {
-        height: 48px; /* Same as desktop for safety */
+        height: 48px !important;
+        align-items: stretch !important;
+    }
+    .ticker-viewport-v2 {
+        height: 48px !important;
+        mask-image: none !important;
+        -webkit-mask-image: none !important;
+    }
+    .ticker-track-v2, .ticker-content-v2 {
+        height: 48px !important;
     }
     .label-chip-v2 {
         padding: 0 15px;
@@ -2471,9 +2478,16 @@ footer {
     .ticker-item-v2 {
         padding: 0 40px;
         font-size: 0.82rem;
+        display: block !important;
+        height: 48px !important;
+        line-height: 48px !important;
+        white-space: nowrap !important;
+    }
+    .ticker-item-v2 strong {
+        vertical-align: baseline;
     }
     .ticker-track-v2 {
-        animation-duration: 45s; /* Slightly faster for shorter mobile spans */
+        animation-duration: 45s;
     }
 }
 
@@ -2486,5 +2500,7 @@ footer {
         font-size: 0.78rem;
     }
 }
+
+
 
 
