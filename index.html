@@ -37,28 +37,29 @@
     .label-chip-v2 { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; padding: 0 15px; color: #fff; font-weight: 800; font-size: 11px !important; text-transform: uppercase; white-space: nowrap; height: 100%; }
     .alert-chip { background: #d63031; }
     .weather-chip { background: #006A4E; }
-    .ticker-viewport-v2 { flex: 1; -webkit-flex: 1; height: 48px !important; overflow: hidden; position: relative; }
-    .ticker-track-v2 { display: block !important; height: 48px !important; width: max-content; -webkit-animation: tickerMoveV2 35s linear infinite; animation: tickerMoveV2 35s linear infinite; }
-    .ticker-content-v2 { display: block !important; height: 48px !important; white-space: nowrap; }
+    .ticker-viewport-v2 { flex: 1; -webkit-flex: 1; height: 100%; overflow: hidden; position: relative; }
+    .ticker-track-v2 { 
+        display: table !important; 
+        height: 100% !important; 
+        width: max-content !important; 
+        -webkit-animation: tickerMoveV2 35s linear infinite !important; 
+        animation: tickerMoveV2 35s linear infinite !important; 
+    }
+    .ticker-content-v2 { display: table-row !important; height: 100% !important; }
     .ticker-item-v2 { 
-        padding: 16px 40px !important; /* Force vertical centering with exact padding */
+        display: table-cell !important; 
+        vertical-align: middle !important; 
+        padding: 0 40px !important; 
         color: #fff !important; 
         font-size: 13px !important; 
         white-space: nowrap !important; 
-        height: 48px !important; 
-        line-height: 1 !important; 
-        display: inline-block !important;
-        vertical-align: top !important;
         -webkit-text-size-adjust: 100% !important;
-        text-size-adjust: 100% !important;
-        box-sizing: border-box !important;
     }
     @-webkit-keyframes tickerMoveV2 { 0% { -webkit-transform: translate3d(0, 0, 0); } 100% { -webkit-transform: translate3d(-50%, 0, 0); } }
     @keyframes tickerMoveV2 { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
-    @media (max-width: 768px) {
-        .label-text-v2 { display: none !important; }
-        .label-chip-v2 { width: 45px !important; justify-content: center !important; padding: 0 !important; }
-        .ticker-item-v2 { padding: 17px 20px !important; font-size: 12px !important; height: 48px !important; }
+    @media (max-width: 992px) {
+        .alert-bar-v2 { height: 54px !important; }
+        .ticker-item-v2 { padding: 0 25px !important; font-size: 12px !important; }
     }
  </style>
  <link rel="preconnect" href="https://fonts.googleapis.com">
