@@ -2437,6 +2437,7 @@ footer {
     padding: 24px;
     overflow-y: auto;
     flex: 1;
+    overscroll-behavior: contain;
 }
 
 .status-hub-section {

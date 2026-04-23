@@ -442,8 +442,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const panel = document.getElementById('status-hub-panel');
         const close = document.getElementById('status-hub-close');
 
-        trigger.addEventListener('click', () => panel.classList.toggle('active'));
-        close.addEventListener('click', () => panel.classList.remove('active'));
+        const togglePanel = (forceState = null) => {
+            const isOpen = panel.classList.contains('active');
+            const shouldOpen = forceState === null ? !isOpen : forceState;
+            
+            if (shouldOpen) {
+                panel.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                panel.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        };
+
+        trigger.addEventListener('click', () => togglePanel());
+        close.addEventListener('click', () => togglePanel(false));
 
         // Reset alert height since bar is removed
         document.documentElement.style.setProperty('--alert-height', '0px');
