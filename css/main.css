@@ -2332,7 +2332,7 @@ footer {
     top: 0;
     left: 0;
     width: 100%;
-    height: 48px;
+    height: 48px; /* Standard height for all devices to prevent clipping */
     background: rgba(11, 17, 15, 0.85); /* Deep base */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -2345,6 +2345,7 @@ footer {
     font-family: 'Outfit', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 .alert-labels-v2 {
@@ -2429,7 +2430,8 @@ footer {
     align-items: center;
     gap: 10px;
     height: 100%;
-    line-height: 1; /* Reset for flex centering */
+    line-height: normal !important; /* Reset inherited 1.7 to avoid Safari clipping */
+    transform: translateY(0.5px); /* Fine-tune baseline for Safari */
 }
 
 .ticker-item-v2 strong {
@@ -2445,7 +2447,7 @@ footer {
 /* Mobile & Tablet Refinements */
 @media (max-width: 992px) {
     .alert-bar-v2 {
-        height: 44px; /* Increased from 42px for stability */
+        height: 48px; /* Same as desktop for safety */
     }
     .label-chip-v2 {
         padding: 0 15px;
@@ -2468,7 +2470,7 @@ footer {
     }
     .ticker-item-v2 {
         padding: 0 40px;
-        font-size: 0.8rem; /* Slightly larger for readability */
+        font-size: 0.82rem;
     }
     .ticker-track-v2 {
         animation-duration: 45s; /* Slightly faster for shorter mobile spans */
@@ -2476,9 +2478,6 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .alert-bar-v2 {
-        height: 40px; /* Increased from 38px */
-    }
     .label-chip-v2 {
         width: 42px;
     }
@@ -2487,4 +2486,5 @@ footer {
         font-size: 0.78rem;
     }
 }
+
 
