@@ -389,106 +389,126 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Travel Alert Bar 2.0 (Modern Rebuild) ---
-    const createAlertBar = () => {
-        const bar = document.createElement('div');
-        bar.className = 'alert-bar-v2';
-        bar.innerHTML = `
-            <div class="alert-labels-v2">
-                <div class="label-chip-v2 alert-chip">
-                    <span class="pulse-dot-v2"></span>
-                    <i class="fas fa-bullhorn"></i>
-                    <span class="label-text-v2">LIVE ALERT</span>
-                </div>
-                <div class="label-chip-v2 weather-chip">
-                    <i class="fas fa-cloud-sun"></i>
-                    <span class="label-text-v2">WEATHER</span>
-                </div>
+    // --- Live Status Hub (Modern Replacement) ---
+    const createStatusHub = () => {
+        const hub = document.createElement('div');
+        hub.className = 'status-hub-container';
+        hub.innerHTML = `
+            <div class="status-hub-trigger" id="status-hub-trigger">
+                <span class="pulse-dot"></span>
+                <i class="fas fa-bullhorn"></i>
+                <span>Live Updates</span>
             </div>
-            <div class="ticker-viewport-v2">
-                <div class="ticker-track-v2" id="alert-ticker-track">
-                    <div class="ticker-content-v2" id="ticker-primary">
-                        <span class="ticker-item-v2"><strong>CRITICAL WATER SAFETY:</strong> Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting local residents or guides. Recent incidents have reported sudden depths and strong currents. Stay safe and use only designated zones.</span>
-                        <span class="ticker-item-v2"><strong>SELFIE SAFETY ADVISORY:</strong> Avoid taking selfies near cliff edges at Ella Rock, World's End, or other high altitudes. Your safety is more important than a photo. Stay within designated safe areas.</span>
-                        <span class="ticker-item-v2"><strong>TRAVEL ADVISORY:</strong> Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Operational segments: Colombo–Rambukkana | Nawalapitiya–Kotagala | Ambewela–Badulla. Access to Ella & Nine Arch Bridge available only via road or restricted rail.</span>
-                        <span class="ticker-item-v2 weather-updates-v2"><strong>LIVE WEATHER:</strong> Syncing real-time updates...</span>
+            <div class="status-hub-panel" id="status-hub-panel">
+                <div class="status-hub-header">
+                    <h3><i class="fas fa-satellite-dish"></i> Status Hub</h3>
+                    <i class="fas fa-times status-hub-close" id="status-hub-close"></i>
+                </div>
+                <div class="status-hub-content">
+                    <div class="status-hub-section">
+                        <span class="status-hub-section-title">Live Weather Hub</span>
+                        <div class="weather-grid-hub" id="weather-grid-hub">
+                            <div class="weather-card-hub">
+                                <span class="city">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="status-hub-section">
+                        <span class="status-hub-section-title">Travel Advisories</span>
+                        <div class="alert-hub-list">
+                            <div class="alert-hub-item">
+                                <strong>Critical Water Safety</strong>
+                                <p>Never swim or bathe in unknown rivers, lakes, waterfalls, or the sea without consulting locals. Recent incidents report sudden depths and strong currents.</p>
+                            </div>
+                            <div class="alert-hub-item">
+                                <strong>Selfie Safety Advisory</strong>
+                                <p>Avoid taking selfies near cliff edges at Ella Rock or World's End. Stay within designated safe areas.</p>
+                            </div>
+                            <div class="alert-hub-item info">
+                                <strong>Travel Advisory: Train Services</strong>
+                                <p>Upcountry train services are restricted due to 223 track breakages caused by <strong>Cyclone Ditwah</strong>. Operational segments: Colombo–Rambukkana | Nawalapitiya–Kotagala. <strong>Restricted Rail: Ambewela–Badulla</strong> (Nine Arch Bridge is accessible via this train). Ella town access available via road.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         `;
-        document.body.prepend(bar);
-        
-        const track = document.getElementById('alert-ticker-track');
-        const primary = document.getElementById('ticker-primary');
-        const clone = primary.cloneNode(true);
-        clone.id = 'ticker-clone';
-        track.appendChild(clone);
+        document.body.appendChild(hub);
 
-        // Interaction
-        bar.addEventListener('mouseenter', () => track.style.animationPlayState = 'paused');
-        bar.addEventListener('mouseleave', () => track.style.animationPlayState = 'running');
-        bar.addEventListener('touchstart', () => track.style.animationPlayState = 'paused', {passive: true});
-        bar.addEventListener('touchend', () => track.style.animationPlayState = 'running', {passive: true});
+        const trigger = document.getElementById('status-hub-trigger');
+        const panel = document.getElementById('status-hub-panel');
+        const close = document.getElementById('status-hub-close');
 
-        // Offset management
-        const updateOffset = () => {
-            // Small delay for mobile browsers to finalize layout after UI shifts
-            setTimeout(() => {
-                const h = bar.offsetHeight;
-                document.documentElement.style.setProperty('--alert-height', `${h}px`);
-            }, 100);
+        trigger.addEventListener('click', () => panel.classList.toggle('active'));
+        close.addEventListener('click', () => panel.classList.remove('active'));
+
+        // Reset alert height since bar is removed
+        document.documentElement.style.setProperty('--alert-height', '0px');
+
+        // Fetch Weather for Hub
+        const updateHubWeather = async (retryCount = 0) => {
+            const locations = [
+                { name: "Colombo", lat: 6.9271, lon: 79.8612 },
+                { name: "Kandy", lat: 7.2906, lon: 80.6337 },
+                { name: "Nuwara Eliya", lat: 6.9497, lon: 80.7891 },
+                { name: "Ella", lat: 6.8667, lon: 81.0466 },
+                { name: "Sigiriya", lat: 7.9570, lon: 80.7603 },
+                { name: "Galle", lat: 6.0535, lon: 80.2210 },
+                { name: "Mirissa", lat: 5.9483, lon: 80.4716 },
+                { name: "Hikkaduwa", lat: 6.1395, lon: 80.1063 },
+                { name: "Bentota", lat: 6.4217, lon: 80.0033 },
+                { name: "Arugam Bay", lat: 6.8422, lon: 81.8286 },
+                { name: "Trincomalee", lat: 8.5873, lon: 81.2152 },
+                { name: "Anuradhapura", lat: 8.3122, lon: 80.4131 },
+                { name: "Polonnaruwa", lat: 7.9403, lon: 81.0188 },
+                { name: "Jaffna", lat: 9.6615, lon: 80.0255 },
+                { name: "Hambantota", lat: 6.1246, lon: 81.1185 }
+            ];
+
+            try {
+                const lats = locations.map(l => l.lat).join(',');
+                const lons = locations.map(l => l.lon).join(',');
+                
+                // Simplified fetch to bypass strict security filters
+                const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current_weather=true`);
+                
+                if (!res.ok) throw new Error("API_Response_Not_OK");
+                const data = await res.json();
+                
+                const grid = document.getElementById('weather-grid-hub');
+                if (!grid) return;
+                grid.innerHTML = '';
+                
+                locations.forEach((loc, i) => {
+                    const weather = Array.isArray(data) ? data[i].current_weather : data.current_weather;
+                    if (!weather) return;
+                    const temp = weather.temperature.toFixed(0);
+                    const code = weather.weathercode;
+                    const icon = code === 0 ? '☀️' : ([1,2,3].includes(code) ? '⛅' : ([61,63,65].includes(code) ? '🌧️' : '🌡️'));
+                    
+                    grid.innerHTML += `
+                        <div class="weather-card-hub">
+                            <span class="city">${loc.name}</span>
+                            <span class="temp">${icon} ${temp}°C</span>
+                        </div>
+                    `;
+                });
+            } catch (e) {
+                console.warn("Weather Sync Attempt Failed:", e.message);
+                if (retryCount < 3) {
+                    setTimeout(() => updateHubWeather(retryCount + 1), 5000); // Retry in 5s
+                } else {
+                    const grid = document.getElementById('weather-grid-hub');
+                    if (grid) grid.innerHTML = '<div class="weather-card-hub" style="grid-column: span 2;"><span class="city">Weather system syncing...</span></div>';
+                }
+            }
         };
-        updateOffset();
-        window.addEventListener('resize', updateOffset);
+
+        updateHubWeather();
+        setInterval(updateHubWeather, 1800000);
     };
 
-    createAlertBar();
-
-    // --- Weather Forecast System 2.0 ---
-    const updateWeatherV2 = async () => {
-        const weatherSlots = document.querySelectorAll('.weather-updates-v2');
-        if (weatherSlots.length === 0) return;
-
-        const locations = [
-            { name: "Katunayaka", lat: 7.1620, lon: 79.8831 },
-            { name: "Colombo", lat: 6.9271, lon: 79.8612 },
-            { name: "Negombo", lat: 7.2089, lon: 79.8355 },
-            { name: "Kandy", lat: 7.2906, lon: 80.6337 },
-            { name: "Sigiriya", lat: 7.9570, lon: 80.7603 },
-            { name: "Nuwara Eliya", lat: 6.9497, lon: 80.7891 },
-            { name: "Ella", lat: 6.8667, lon: 81.0466 },
-            { name: "Galle", lat: 6.0535, lon: 80.2210 },
-            { name: "Matara", lat: 5.9549, lon: 80.5550 },
-            { name: "Hambanthota", lat: 6.1246, lon: 81.1185 },
-            { name: "Anuradhpura", lat: 8.3122, lon: 80.4131 },
-            { name: "Polonnaruwa", lat: 7.9403, lon: 81.0188 },
-            { name: "Trincomalee", lat: 8.5873, lon: 81.2152 },
-            { name: "Batticaloa", lat: 7.7102, lon: 81.6924 },
-            { name: "Jaffna", lat: 9.6615, lon: 80.0255 }
-        ];
-
-        try {
-            const lats = locations.map(l => l.lat).join(',');
-            const lons = locations.map(l => l.lon).join(',');
-            const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lats}&longitude=${lons}&current_weather=true`);
-            const data = await res.json();
-
-            let html = '<strong>WEATHER FORECAST:</strong> ';
-            locations.forEach((loc, i) => {
-                const weather = Array.isArray(data) ? data[i].current_weather : data.current_weather;
-                const temp = weather.temperature.toFixed(0);
-                const code = weather.weathercode;
-                const icon = code === 0 ? '☀️' : ([1,2,3].includes(code) ? '⛅' : ([61,63,65].includes(code) ? '🌧️' : '🌡️'));
-                html += `${loc.name} ${icon} ${temp}°C ${i < locations.length - 1 ? '| ' : ''}`;
-            });
-            weatherSlots.forEach(s => s.innerHTML = html);
-        } catch (e) {
-            weatherSlots.forEach(s => s.innerHTML = '<strong>WEATHER FORECAST:</strong> Updates temporarily unavailable.');
-        }
-    };
-
-    updateWeatherV2();
-    setInterval(updateWeatherV2, 1800000); // 30 min updates
+    createStatusHub();
 
     // --- Cookie Consent System ---
     function showCookieConsent() {
