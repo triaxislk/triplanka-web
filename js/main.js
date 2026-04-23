@@ -30,6 +30,53 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // System: Global Interface Controller
+// --- Global Visitor Counter Utilities ---
+
+// Helper: Compact Number Formatter (100000 -> 100k)
+function formatCompactNumber(number) {
+    if (number < 100000) {
+        return number.toLocaleString(); // Keep full for < 100k as requested
+    } else if (number < 1000000) {
+        return (number / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+    } else {
+        return (number / 1000000).toFixed(1).replace(/\.0$/, '') + 'm';
+    }
+}
+
+// Helper: Animate numbers
+function animateValue(obj, start, end, duration, isCompact = false) {
+    if (!obj) return;
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        const current = Math.floor(progress * (end - start) + start);
+        
+        if (isCompact) {
+            obj.innerHTML = formatCompactNumber(current);
+        } else {
+            obj.innerHTML = current.toLocaleString();
+        }
+        
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Firebase Real-Time Visitor UI Link (Global)
+window.updateVisitorUI = (count) => {
+    const liveCounter = document.getElementById('live-visitor-count');
+    if (liveCounter && count) {
+        // Animate from 0 to target in 2 seconds for a snappy feel
+        animateValue(liveCounter, 0, count, 2000, true);
+    } else if (count) {
+        // Cache the count if the UI isn't ready
+        window.pendingVisitorCount = count;
+    }
+};
+
 // System: Global Interface Controller
 document.addEventListener('DOMContentLoaded', () => {
     // --- Mobile Menu Toggle & Navigation Logic ---
@@ -302,53 +349,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const milestoneCounters = document.querySelectorAll('.counter-number:not(#live-visitor-count)');
     const liveCounter = document.getElementById('live-visitor-count');
 
-    // Helper: Compact Number Formatter (100000 -> 100k)
-    function formatCompactNumber(number) {
-        if (number < 100000) {
-            return number.toLocaleString(); // Keep full for < 100k as requested
-        } else if (number < 1000000) {
-            return (number / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
-        } else {
-            return (number / 1000000).toFixed(1).replace(/\.0$/, '') + 'm';
-        }
-    }
-
-    // 1. Firebase Real-Time Visitor UI Link
-    window.updateVisitorUI = (count) => {
-        if (liveCounter && count) {
-            const target = count;
-            // Animate from 0 to target in 2 seconds for a snappy feel
-            animateValue(liveCounter, 0, target, 2000, true);
-        }
-    };
-
-    const updateRealVisitorCount = () => {
-        // Now handled by Firebase listener in index.html
-        console.log('Visitor count update handled by Firebase');
-    };
-
-    // Helper: Animate numbers
-    function animateValue(obj, start, end, duration, isCompact = false) {
-        if (!obj) return;
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const current = Math.floor(progress * (end - start) + start);
-            
-            if (isCompact) {
-                obj.innerHTML = formatCompactNumber(current);
-            } else {
-                obj.innerHTML = current.toLocaleString();
-            }
-            
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
-
     // 2. Observer to trigger animations when scrolled into view
     if (milestoneSection) {
         const observer = new IntersectionObserver((entries) => {
@@ -360,8 +360,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         animateValue(counter, 0, target, 2000);
                     });
                     
-                    // Trigger Real Visitor Count
-                    updateRealVisitorCount();
+                    // Trigger Real Visitor Count if we had a pending update
+                    if (window.pendingVisitorCount) {
+                        window.updateVisitorUI(window.pendingVisitorCount);
+                        delete window.pendingVisitorCount;
+                    }
                     
                     observer.unobserve(entry.target);
                 }
