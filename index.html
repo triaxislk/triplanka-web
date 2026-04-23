@@ -15,48 +15,50 @@
         left: 0 !important;
         width: 100% !important;
         height: 48px !important;
-        background: #0B110F !important;
+        background: #0B110F !important; /* Solid dark for instant loading */
         z-index: 10000 !important;
         display: -webkit-flex !important;
         display: flex !important;
-        -webkit-align-items: center !important;
-        align-items: center !important;
+        -webkit-align-items: stretch !important;
+        align-items: stretch !important;
         overflow: hidden !important;
         font-family: 'Outfit', sans-serif;
         -webkit-font-smoothing: antialiased;
+    }
+    /* Blur effect only for Desktop */
+    @media (min-width: 993px) {
+        .alert-bar-v2 {
+            background: rgba(11, 17, 15, 0.9) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+        }
     }
     .alert-labels-v2 { display: -webkit-flex; display: flex; height: 100%; z-index: 101; background: #0B110F; }
     .label-chip-v2 { display: -webkit-flex; display: flex; -webkit-align-items: center; align-items: center; padding: 0 15px; color: #fff; font-weight: 800; font-size: 11px !important; text-transform: uppercase; white-space: nowrap; height: 100%; }
     .alert-chip { background: #d63031; }
     .weather-chip { background: #006A4E; }
     .ticker-viewport-v2 { flex: 1; -webkit-flex: 1; height: 48px !important; overflow: hidden; position: relative; }
-    .ticker-track-v2 { display: block !important; height: 48px !important; width: max-content; -webkit-animation: tickerMoveV2 60s linear infinite; animation: tickerMoveV2 60s linear infinite; }
+    .ticker-track-v2 { display: block !important; height: 48px !important; width: max-content; -webkit-animation: tickerMoveV2 35s linear infinite; animation: tickerMoveV2 35s linear infinite; }
     .ticker-content-v2 { display: block !important; height: 48px !important; white-space: nowrap; }
     .ticker-item-v2 { 
-        padding: 0 40px !important; 
+        padding: 16px 40px !important; /* Force vertical centering with exact padding */
         color: #fff !important; 
         font-size: 13px !important; 
         white-space: nowrap !important; 
         height: 48px !important; 
-        line-height: 48px !important; 
+        line-height: 1 !important; 
         display: inline-block !important;
         vertical-align: top !important;
         -webkit-text-size-adjust: 100% !important;
         text-size-adjust: 100% !important;
-    }
-    /* Safari/iOS Specific Baseline Fix */
-    @supports (-webkit-hyphens:none) {
-        .ticker-item-v2 {
-            padding-top: 1px !important;
-            line-height: 49px !important;
-        }
+        box-sizing: border-box !important;
     }
     @-webkit-keyframes tickerMoveV2 { 0% { -webkit-transform: translate3d(0, 0, 0); } 100% { -webkit-transform: translate3d(-50%, 0, 0); } }
     @keyframes tickerMoveV2 { 0% { transform: translate3d(0, 0, 0); } 100% { transform: translate3d(-50%, 0, 0); } }
     @media (max-width: 768px) {
         .label-text-v2 { display: none !important; }
         .label-chip-v2 { width: 45px !important; justify-content: center !important; padding: 0 !important; }
-        .ticker-item-v2 { padding: 0 20px !important; font-size: 12px !important; height: 48px !important; line-height: 48px !important; }
+        .ticker-item-v2 { padding: 17px 20px !important; font-size: 12px !important; height: 48px !important; }
     }
  </style>
  <link rel="preconnect" href="https://fonts.googleapis.com">
