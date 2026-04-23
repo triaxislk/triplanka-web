@@ -2520,7 +2520,7 @@ footer {
         font-size: 0.72rem; /* Reduced to avoid clipping */
     }
     .ticker-content {
-        animation-duration: 55s; /* Slower for better readability on mobile */
+        animation-duration: 35s; /* Snappier speed for mobile */
     }
 }
 
