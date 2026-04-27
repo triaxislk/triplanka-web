@@ -35,7 +35,6 @@
  <meta property="twitter:description" content="Get in touch with TripLanka for personalized Sri Lanka travel advice, itinerary planning, or business inquiries.">
  <meta property="twitter:image" content="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=1920">
 
-
  <link rel="canonical" href="https://www.triplanka.com/pages/contact.html">
 
  <!-- Structured Data (JSON-LD) -->
@@ -159,48 +158,13 @@
 }
  </style>
 
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
-  
-
-
   <!-- Security Headers (Automated) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline' https://cdn.emailjs.com https://cdnjs.cloudflare.com https://www.youtube.com https://www.gstatic.com https://*.firebaseio.com https://*.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; connect-src 'self' https://*.google-analytics.com https://api.emailjs.com https://api.counterapi.dev https://api.open-meteo.com https://*.firebaseio.com wss://*.firebaseio.com https://*.googleapis.com; frame-src 'self' https://www.google.com https://www.youtube.com;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.emailjs.com https://cdnjs.cloudflare.com https://www.youtube.com https://www.gstatic.com https://*.firebaseio.com https://*.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https: https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; connect-src 'self' https://*.google-analytics.com https://api.emailjs.com https://api.counterapi.dev https://api.open-meteo.com https://*.firebaseio.com wss://*.firebaseio.com https://*.googleapis.com; frame-src 'self' https://www.google.com https://www.youtube.com;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 
 </head>
 <body>
- 
- 
- 
- 
- 
- 
   <header>
   <nav class="container">
   <div class="logo">
@@ -440,40 +404,5 @@
         });
     });
   </script>
-<!-- EmailJS Integration (Automated) -->
-  <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-  <script type="text/javascript">
-    (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })();
-    document.getElementById('contact-form')?.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const submitBtn = document.getElementById('submit-btn');
-      const statusDiv = document.getElementById('form-status');
-      if (document.getElementById('subject_alt').value !== "") return; // Bot check
-      submitBtn.disabled = true; submitBtn.textContent = 'Sending...';
-      emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-        .then(() => {
-          statusDiv.style.color = '#27ae60'; statusDiv.textContent = 'Message sent successfully!';
-          submitBtn.textContent = 'Send Message'; submitBtn.disabled = false;
-          this.reset();
-        }, (err) => {
-          statusDiv.style.color = '#e74c3c'; statusDiv.textContent = 'Failed to send. Please try again.';
-          submitBtn.textContent = 'Send Message'; submitBtn.disabled = false;
-        });
-    });
-  </script>
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</html>
